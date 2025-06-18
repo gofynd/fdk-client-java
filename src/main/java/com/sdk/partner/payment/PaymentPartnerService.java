@@ -48,13 +48,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PaymentConfigResponse getPaymentconfig() throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PaymentConfigDetails getPaymentconfig() throws FDKServerResponseError, FDKException {
         return this.getPaymentconfig(new HashMap<>());
     }
 
-    public PaymentPartnerModels.PaymentConfigResponse getPaymentconfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PaymentConfigDetails getPaymentconfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PaymentConfigResponse> response = null;
+            Response<PaymentPartnerModels.PaymentConfigDetails> response = null;
             try {
                 response = paymentPartnerApiList.getPaymentconfig(this.organizationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -92,13 +92,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PayoutResponse getPayout(Integer uniqueExternalId) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PayoutDetails getPayout(Integer uniqueExternalId) throws FDKServerResponseError, FDKException {
         return this.getPayout(uniqueExternalId, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PayoutResponse getPayout(Integer uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PayoutDetails getPayout(Integer uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PayoutResponse> response = null;
+            Response<PaymentPartnerModels.PayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.getPayout(this.organizationId, uniqueExternalId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -132,13 +132,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PostPayoutResponse postPayout(PaymentPartnerModels.PostPayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails postPayout(PaymentPartnerModels.PostPayout body) throws FDKServerResponseError, FDKException {
         return this.postPayout(body, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PostPayoutResponse postPayout(PaymentPartnerModels.PostPayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails postPayout(PaymentPartnerModels.PostPayout body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PostPayoutResponse> response = null;
+            Response<PaymentPartnerModels.PostPayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.postPayout(this.organizationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -172,13 +172,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PostPayoutResponse updatePayout(PaymentPartnerModels.PostPayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails updatePayout(PaymentPartnerModels.PostPayout body) throws FDKServerResponseError, FDKException {
         return this.updatePayout(body, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PostPayoutResponse updatePayout(PaymentPartnerModels.PostPayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails updatePayout(PaymentPartnerModels.PostPayout body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PostPayoutResponse> response = null;
+            Response<PaymentPartnerModels.PostPayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.updatePayout(this.organizationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -212,13 +212,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PostPayoutResponse putPayout(PaymentPartnerModels.PostPayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails putPayout(PaymentPartnerModels.PostPayout body) throws FDKServerResponseError, FDKException {
         return this.putPayout(body, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PostPayoutResponse putPayout(PaymentPartnerModels.PostPayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails putPayout(PaymentPartnerModels.PostPayout body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PostPayoutResponse> response = null;
+            Response<PaymentPartnerModels.PostPayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.putPayout(this.organizationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -256,13 +256,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PayoutResponse deletePayout(Integer uniqueExternalId) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PayoutDetails deletePayout(Integer uniqueExternalId) throws FDKServerResponseError, FDKException {
         return this.deletePayout(uniqueExternalId, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PayoutResponse deletePayout(Integer uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PayoutDetails deletePayout(Integer uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PayoutResponse> response = null;
+            Response<PaymentPartnerModels.PayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.deletePayout(this.organizationId, uniqueExternalId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -304,13 +304,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PayoutResponse getPayouts(String uniqueTransferNo, Integer uniqueExternalId) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PayoutDetails getPayouts(String uniqueTransferNo, Integer uniqueExternalId) throws FDKServerResponseError, FDKException {
         return this.getPayouts(uniqueTransferNo, uniqueExternalId, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PayoutResponse getPayouts(String uniqueTransferNo, Integer uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PayoutDetails getPayouts(String uniqueTransferNo, Integer uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PayoutResponse> response = null;
+            Response<PaymentPartnerModels.PayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.getPayouts(this.organizationId, uniqueTransferNo, uniqueExternalId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -348,13 +348,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PostPayoutResponse postPayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails postPayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayout body) throws FDKServerResponseError, FDKException {
         return this.postPayouts(uniqueTransferNo, body, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PostPayoutResponse postPayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails postPayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayout body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PostPayoutResponse> response = null;
+            Response<PaymentPartnerModels.PostPayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.postPayouts(this.organizationId, uniqueTransferNo, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -392,13 +392,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PostPayoutResponse updatePayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails updatePayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayout body) throws FDKServerResponseError, FDKException {
         return this.updatePayouts(uniqueTransferNo, body, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PostPayoutResponse updatePayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails updatePayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayout body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PostPayoutResponse> response = null;
+            Response<PaymentPartnerModels.PostPayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.updatePayouts(this.organizationId, uniqueTransferNo, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -436,13 +436,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PostPayoutResponse putPayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails putPayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayout body) throws FDKServerResponseError, FDKException {
         return this.putPayouts(uniqueTransferNo, body, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PostPayoutResponse putPayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PostPayoutDetails putPayouts(String uniqueTransferNo, PaymentPartnerModels.PostPayout body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PostPayoutResponse> response = null;
+            Response<PaymentPartnerModels.PostPayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.putPayouts(this.organizationId, uniqueTransferNo, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -480,13 +480,13 @@ public class PaymentPartnerService {
     
     
 
-    public PaymentPartnerModels.PayoutResponse deletePayouts(Integer uniqueTransferNo) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PayoutDetails deletePayouts(Integer uniqueTransferNo) throws FDKServerResponseError, FDKException {
         return this.deletePayouts(uniqueTransferNo, new HashMap<>());
     }
 
-    public PaymentPartnerModels.PayoutResponse deletePayouts(Integer uniqueTransferNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPartnerModels.PayoutDetails deletePayouts(Integer uniqueTransferNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<PaymentPartnerModels.PayoutResponse> response = null;
+            Response<PaymentPartnerModels.PayoutDetails> response = null;
             try {
                 response = paymentPartnerApiList.deletePayouts(this.organizationId, uniqueTransferNo, requestHeaders).execute();
                 if (!response.isSuccessful()) {

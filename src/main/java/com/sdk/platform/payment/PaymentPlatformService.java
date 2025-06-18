@@ -58,13 +58,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.PayoutsResponse getAllPayouts(String uniqueExternalId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PayoutsDetails getAllPayouts(String uniqueExternalId) throws FDKServerResponseError, FDKException {
         return this.getAllPayouts(uniqueExternalId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PayoutsResponse getAllPayouts(String uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PayoutsDetails getAllPayouts(String uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PayoutsResponse> response = null;
+            Response<PaymentPlatformModels.PayoutsDetails> response = null;
             try {
                 response = paymentPlatformApiList.getAllPayouts(this.companyId, uniqueExternalId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -98,13 +98,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.PayoutResponse savePayout(PaymentPlatformModels.PayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PayoutDetails savePayout(PaymentPlatformModels.PayoutCreation body) throws FDKServerResponseError, FDKException {
         return this.savePayout(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PayoutResponse savePayout(PaymentPlatformModels.PayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PayoutDetails savePayout(PaymentPlatformModels.PayoutCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PayoutResponse> response = null;
+            Response<PaymentPlatformModels.PayoutDetails> response = null;
             try {
                 response = paymentPlatformApiList.savePayout(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -138,13 +138,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.UpdatePayoutResponse updatePayouts(PaymentPlatformModels.PayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.UpdatePayoutDetails updatePayouts(PaymentPlatformModels.PayoutCreation body) throws FDKServerResponseError, FDKException {
         return this.updatePayouts(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.UpdatePayoutResponse updatePayouts(PaymentPlatformModels.PayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.UpdatePayoutDetails updatePayouts(PaymentPlatformModels.PayoutCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.UpdatePayoutResponse> response = null;
+            Response<PaymentPlatformModels.UpdatePayoutDetails> response = null;
             try {
                 response = paymentPlatformApiList.updatePayouts(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -178,13 +178,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.UpdatePayoutResponse activateAndDectivatePayouts(PaymentPlatformModels.UpdatePayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.UpdatePayoutDetails activateAndDectivatePayouts(PaymentPlatformModels.UpdatePayoutCreation body) throws FDKServerResponseError, FDKException {
         return this.activateAndDectivatePayouts(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.UpdatePayoutResponse activateAndDectivatePayouts(PaymentPlatformModels.UpdatePayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.UpdatePayoutDetails activateAndDectivatePayouts(PaymentPlatformModels.UpdatePayoutCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.UpdatePayoutResponse> response = null;
+            Response<PaymentPlatformModels.UpdatePayoutDetails> response = null;
             try {
                 response = paymentPlatformApiList.activateAndDectivatePayouts(this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -222,13 +222,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.DeletePayoutResponse deletePayouts(String uniqueTransferNo) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.DeletePayoutDetails deletePayouts(String uniqueTransferNo) throws FDKServerResponseError, FDKException {
         return this.deletePayouts(uniqueTransferNo, new HashMap<>());
     }
 
-    public PaymentPlatformModels.DeletePayoutResponse deletePayouts(String uniqueTransferNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.DeletePayoutDetails deletePayouts(String uniqueTransferNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.DeletePayoutResponse> response = null;
+            Response<PaymentPlatformModels.DeletePayoutDetails> response = null;
             try {
                 response = paymentPlatformApiList.deletePayouts(this.companyId, uniqueTransferNo, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -270,13 +270,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.PayoutsResponse getAllPayout(String uniqueTransferNo, String uniqueExternalId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PayoutsDetails getAllPayout(String uniqueTransferNo, String uniqueExternalId) throws FDKServerResponseError, FDKException {
         return this.getAllPayout(uniqueTransferNo, uniqueExternalId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PayoutsResponse getAllPayout(String uniqueTransferNo, String uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PayoutsDetails getAllPayout(String uniqueTransferNo, String uniqueExternalId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PayoutsResponse> response = null;
+            Response<PaymentPlatformModels.PayoutsDetails> response = null;
             try {
                 response = paymentPlatformApiList.getAllPayout(this.companyId, uniqueTransferNo, uniqueExternalId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -314,13 +314,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.PayoutResponse savePayouts(String uniqueTransferNo, PaymentPlatformModels.PayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PayoutDetails savePayouts(String uniqueTransferNo, PaymentPlatformModels.PayoutCreation body) throws FDKServerResponseError, FDKException {
         return this.savePayouts(uniqueTransferNo, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PayoutResponse savePayouts(String uniqueTransferNo, PaymentPlatformModels.PayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PayoutDetails savePayouts(String uniqueTransferNo, PaymentPlatformModels.PayoutCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PayoutResponse> response = null;
+            Response<PaymentPlatformModels.PayoutDetails> response = null;
             try {
                 response = paymentPlatformApiList.savePayouts(this.companyId, uniqueTransferNo, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -358,13 +358,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.UpdatePayoutResponse updatePayout(String uniqueTransferNo, PaymentPlatformModels.PayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.UpdatePayoutDetails updatePayout(String uniqueTransferNo, PaymentPlatformModels.PayoutCreation body) throws FDKServerResponseError, FDKException {
         return this.updatePayout(uniqueTransferNo, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.UpdatePayoutResponse updatePayout(String uniqueTransferNo, PaymentPlatformModels.PayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.UpdatePayoutDetails updatePayout(String uniqueTransferNo, PaymentPlatformModels.PayoutCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.UpdatePayoutResponse> response = null;
+            Response<PaymentPlatformModels.UpdatePayoutDetails> response = null;
             try {
                 response = paymentPlatformApiList.updatePayout(this.companyId, uniqueTransferNo, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -402,13 +402,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.UpdatePayoutResponse activateAndDectivatePayout(String uniqueTransferNo, PaymentPlatformModels.UpdatePayoutRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.UpdatePayoutDetails activateAndDectivatePayout(String uniqueTransferNo, PaymentPlatformModels.UpdatePayoutCreation body) throws FDKServerResponseError, FDKException {
         return this.activateAndDectivatePayout(uniqueTransferNo, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.UpdatePayoutResponse activateAndDectivatePayout(String uniqueTransferNo, PaymentPlatformModels.UpdatePayoutRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.UpdatePayoutDetails activateAndDectivatePayout(String uniqueTransferNo, PaymentPlatformModels.UpdatePayoutCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.UpdatePayoutResponse> response = null;
+            Response<PaymentPlatformModels.UpdatePayoutDetails> response = null;
             try {
                 response = paymentPlatformApiList.activateAndDectivatePayout(this.companyId, uniqueTransferNo, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -446,13 +446,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.DeletePayoutResponse deletePayout(String uniqueTransferNo) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.DeletePayoutDetails deletePayout(String uniqueTransferNo) throws FDKServerResponseError, FDKException {
         return this.deletePayout(uniqueTransferNo, new HashMap<>());
     }
 
-    public PaymentPlatformModels.DeletePayoutResponse deletePayout(String uniqueTransferNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.DeletePayoutDetails deletePayout(String uniqueTransferNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.DeletePayoutResponse> response = null;
+            Response<PaymentPlatformModels.DeletePayoutDetails> response = null;
             try {
                 response = paymentPlatformApiList.deletePayout(this.companyId, uniqueTransferNo, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -494,13 +494,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.IfscCodeResponse verifyIfscCode(String ifscCode) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.IfscCodeDetails verifyIfscCode(String ifscCode) throws FDKServerResponseError, FDKException {
         return this.verifyIfscCode(ifscCode, new HashMap<>());
     }
 
-    public PaymentPlatformModels.IfscCodeResponse verifyIfscCode(String ifscCode, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.IfscCodeDetails verifyIfscCode(String ifscCode, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.IfscCodeResponse> response = null;
+            Response<PaymentPlatformModels.IfscCodeDetails> response = null;
             try {
                 response = paymentPlatformApiList.verifyIfscCode(this.companyId, ifscCode, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -600,13 +600,13 @@ public class PaymentPlatformService {
     
     
 
-    public PaymentPlatformModels.PaymentMethodConfigResponse getPaymentMethodConfig() throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentMethodConfigDetails getPaymentMethodConfig() throws FDKServerResponseError, FDKException {
         return this.getPaymentMethodConfig(new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentMethodConfigResponse getPaymentMethodConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentMethodConfigDetails getPaymentMethodConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentMethodConfigResponse> response = null;
+            Response<PaymentPlatformModels.PaymentMethodConfigDetails> response = null;
             try {
                 response = paymentPlatformApiList.getPaymentMethodConfig(this.companyId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -691,6 +691,12 @@ public class PaymentPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
 
 
 
@@ -707,13 +713,13 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public PaymentPlatformModels.PaymentGatewayConfigResponse getBrandPaymentGatewayConfig(String aggregator, String configType) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentGatewayConfigDetails getBrandPaymentGatewayConfig(String aggregator, String configType) throws FDKServerResponseError, FDKException {
         return this.getBrandPaymentGatewayConfig(aggregator, configType, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentGatewayConfigResponse getBrandPaymentGatewayConfig(String aggregator, String configType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentGatewayConfigDetails getBrandPaymentGatewayConfig(String aggregator, String configType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentGatewayConfigResponse> response = null;
+            Response<PaymentPlatformModels.PaymentGatewayConfigDetails> response = null;
             try {
             response = paymentPlatformApiList.getBrandPaymentGatewayConfig(this.companyId, this.applicationId, aggregator, configType, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -734,11 +740,11 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentGatewayToBeReviewed saveBrandPaymentGatewayConfig(PaymentPlatformModels.PaymentGatewayConfigRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentGatewayToBeReviewed saveBrandPaymentGatewayConfig(PaymentPlatformModels.PaymentGatewayConfigCreation body) throws FDKServerResponseError, FDKException {
         return this.saveBrandPaymentGatewayConfig(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentGatewayToBeReviewed saveBrandPaymentGatewayConfig(PaymentPlatformModels.PaymentGatewayConfigRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentGatewayToBeReviewed saveBrandPaymentGatewayConfig(PaymentPlatformModels.PaymentGatewayConfigCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PaymentPlatformModels.PaymentGatewayToBeReviewed> response = null;
             try {
@@ -761,15 +767,15 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentOptionsResponse getPaymentModeRoutes(Boolean refresh, String requestType, String orderId, String shipmentId, Integer amount) throws FDKServerResponseError, FDKException {
-        return this.getPaymentModeRoutes(refresh, requestType, orderId, shipmentId, amount, new HashMap<>());
+    public PaymentPlatformModels.PaymentOptionsDetails getPaymentModeRoutes(Boolean refresh, Integer amount, String requestType, String orderId, String shipmentId) throws FDKServerResponseError, FDKException {
+        return this.getPaymentModeRoutes(refresh, amount, requestType, orderId, shipmentId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentOptionsResponse getPaymentModeRoutes(Boolean refresh, String requestType, String orderId, String shipmentId, Integer amount, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentOptionsDetails getPaymentModeRoutes(Boolean refresh, Integer amount, String requestType, String orderId, String shipmentId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentOptionsResponse> response = null;
+            Response<PaymentPlatformModels.PaymentOptionsDetails> response = null;
             try {
-            response = paymentPlatformApiList.getPaymentModeRoutes(this.companyId, this.applicationId, refresh, requestType, orderId, shipmentId, amount, requestHeaders).execute();
+            response = paymentPlatformApiList.getPaymentModeRoutes(this.companyId, this.applicationId, refresh, amount, requestType, orderId, shipmentId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -788,13 +794,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.GetRefundAccountResponse getBankAccountDetailsOpenAPI(String orderId, String requestHash) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetRefundAccountDetails getBankAccountDetailsOpenAPI(String orderId, String requestHash) throws FDKServerResponseError, FDKException {
         return this.getBankAccountDetailsOpenAPI(orderId, requestHash, new HashMap<>());
     }
 
-    public PaymentPlatformModels.GetRefundAccountResponse getBankAccountDetailsOpenAPI(String orderId, String requestHash, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetRefundAccountDetails getBankAccountDetailsOpenAPI(String orderId, String requestHash, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.GetRefundAccountResponse> response = null;
+            Response<PaymentPlatformModels.GetRefundAccountDetails> response = null;
             try {
             response = paymentPlatformApiList.getBankAccountDetailsOpenAPI(this.companyId, this.applicationId, orderId, requestHash, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -815,13 +821,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.RefundAccountResponse addRefundBankAccountUsingOTP(PaymentPlatformModels.AddBeneficiaryDetailsOTPRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundAccountDetails addRefundBankAccountUsingOTP(PaymentPlatformModels.AddBeneficiaryDetailsOTPCreation body) throws FDKServerResponseError, FDKException {
         return this.addRefundBankAccountUsingOTP(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.RefundAccountResponse addRefundBankAccountUsingOTP(PaymentPlatformModels.AddBeneficiaryDetailsOTPRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundAccountDetails addRefundBankAccountUsingOTP(PaymentPlatformModels.AddBeneficiaryDetailsOTPCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.RefundAccountResponse> response = null;
+            Response<PaymentPlatformModels.RefundAccountDetails> response = null;
             try {
             response = paymentPlatformApiList.addRefundBankAccountUsingOTP(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -842,13 +848,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.OrderBeneficiaryResponse getUserOrderBeneficiaries(String orderId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.OrderBeneficiaryFetchResults getUserOrderBeneficiaries(String orderId) throws FDKServerResponseError, FDKException {
         return this.getUserOrderBeneficiaries(orderId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.OrderBeneficiaryResponse getUserOrderBeneficiaries(String orderId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.OrderBeneficiaryFetchResults getUserOrderBeneficiaries(String orderId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.OrderBeneficiaryResponse> response = null;
+            Response<PaymentPlatformModels.OrderBeneficiaryFetchResults> response = null;
             try {
             response = paymentPlatformApiList.getUserOrderBeneficiaries(this.companyId, this.applicationId, orderId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -869,13 +875,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.OrderBeneficiaryResponse getUserBeneficiaries(String orderId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.OrderBeneficiaryFetchResults getUserBeneficiaries(String orderId) throws FDKServerResponseError, FDKException {
         return this.getUserBeneficiaries(orderId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.OrderBeneficiaryResponse getUserBeneficiaries(String orderId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.OrderBeneficiaryFetchResults getUserBeneficiaries(String orderId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.OrderBeneficiaryResponse> response = null;
+            Response<PaymentPlatformModels.OrderBeneficiaryFetchResults> response = null;
             try {
             response = paymentPlatformApiList.getUserBeneficiaries(this.companyId, this.applicationId, orderId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -896,13 +902,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentConfirmationResponse confirmPayment(PaymentPlatformModels.PaymentConfirmationRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentConfirmationDetails confirmPayment(PaymentPlatformModels.PaymentConfirmationCreation body) throws FDKServerResponseError, FDKException {
         return this.confirmPayment(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentConfirmationResponse confirmPayment(PaymentPlatformModels.PaymentConfirmationRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentConfirmationDetails confirmPayment(PaymentPlatformModels.PaymentConfirmationCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentConfirmationResponse> response = null;
+            Response<PaymentPlatformModels.PaymentConfirmationDetails> response = null;
             try {
             response = paymentPlatformApiList.confirmPayment(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -923,13 +929,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.GetUserCODLimitResponse getUserCODlimitRoutes(String merchantUserId, String mobileNo) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetUserCODLimitDetails getUserCODlimitRoutes(String merchantUserId, String mobileNo) throws FDKServerResponseError, FDKException {
         return this.getUserCODlimitRoutes(merchantUserId, mobileNo, new HashMap<>());
     }
 
-    public PaymentPlatformModels.GetUserCODLimitResponse getUserCODlimitRoutes(String merchantUserId, String mobileNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetUserCODLimitDetails getUserCODlimitRoutes(String merchantUserId, String mobileNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.GetUserCODLimitResponse> response = null;
+            Response<PaymentPlatformModels.GetUserCODLimitDetails> response = null;
             try {
             response = paymentPlatformApiList.getUserCODlimitRoutes(this.companyId, this.applicationId, merchantUserId, mobileNo, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -950,13 +956,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.GetUserCODLimitResponse setUserCODlimitRoutes(PaymentPlatformModels.SetCODForUserRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetUserCODLimitDetails setUserCODlimitRoutes(PaymentPlatformModels.SetCODForUserCreation body) throws FDKServerResponseError, FDKException {
         return this.setUserCODlimitRoutes(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.GetUserCODLimitResponse setUserCODlimitRoutes(PaymentPlatformModels.SetCODForUserRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetUserCODLimitDetails setUserCODlimitRoutes(PaymentPlatformModels.SetCODForUserCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.GetUserCODLimitResponse> response = null;
+            Response<PaymentPlatformModels.GetUserCODLimitDetails> response = null;
             try {
             response = paymentPlatformApiList.setUserCODlimitRoutes(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -977,13 +983,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.EdcAggregatorAndModelListResponse edcAggregatorsAndModelList() throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcAggregatorAndModelListDetails edcAggregatorsAndModelList() throws FDKServerResponseError, FDKException {
         return this.edcAggregatorsAndModelList(new HashMap<>());
     }
 
-    public PaymentPlatformModels.EdcAggregatorAndModelListResponse edcAggregatorsAndModelList(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcAggregatorAndModelListDetails edcAggregatorsAndModelList(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.EdcAggregatorAndModelListResponse> response = null;
+            Response<PaymentPlatformModels.EdcAggregatorAndModelListDetails> response = null;
             try {
             response = paymentPlatformApiList.edcAggregatorsAndModelList(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1004,13 +1010,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.EdcDeviceStatsResponse edcDeviceStats() throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceStatsDetails edcDeviceStats() throws FDKServerResponseError, FDKException {
         return this.edcDeviceStats(new HashMap<>());
     }
 
-    public PaymentPlatformModels.EdcDeviceStatsResponse edcDeviceStats(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceStatsDetails edcDeviceStats(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.EdcDeviceStatsResponse> response = null;
+            Response<PaymentPlatformModels.EdcDeviceStatsDetails> response = null;
             try {
             response = paymentPlatformApiList.edcDeviceStats(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1031,13 +1037,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.EdcDeviceAddResponse updateEdcDevice(PaymentPlatformModels.EdcAddRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceAddDetails updateEdcDevice(PaymentPlatformModels.EdcAddCreation body) throws FDKServerResponseError, FDKException {
         return this.updateEdcDevice(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.EdcDeviceAddResponse updateEdcDevice(PaymentPlatformModels.EdcAddRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceAddDetails updateEdcDevice(PaymentPlatformModels.EdcAddCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.EdcDeviceAddResponse> response = null;
+            Response<PaymentPlatformModels.EdcDeviceAddDetails> response = null;
             try {
             response = paymentPlatformApiList.updateEdcDevice(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1058,13 +1064,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.EdcDeviceDetailsResponse getEdcDevice(String terminalUniqueIdentifier) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceDetails getEdcDevice(String terminalUniqueIdentifier) throws FDKServerResponseError, FDKException {
         return this.getEdcDevice(terminalUniqueIdentifier, new HashMap<>());
     }
 
-    public PaymentPlatformModels.EdcDeviceDetailsResponse getEdcDevice(String terminalUniqueIdentifier, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceDetails getEdcDevice(String terminalUniqueIdentifier, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.EdcDeviceDetailsResponse> response = null;
+            Response<PaymentPlatformModels.EdcDeviceDetails> response = null;
             try {
             response = paymentPlatformApiList.getEdcDevice(this.companyId, this.applicationId, terminalUniqueIdentifier, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1085,13 +1091,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.EdcDeviceUpdateResponse addEdcDevice(String terminalUniqueIdentifier, PaymentPlatformModels.EdcUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceUpdateDetails addEdcDevice(String terminalUniqueIdentifier, PaymentPlatformModels.EdcUpdate body) throws FDKServerResponseError, FDKException {
         return this.addEdcDevice(terminalUniqueIdentifier, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.EdcDeviceUpdateResponse addEdcDevice(String terminalUniqueIdentifier, PaymentPlatformModels.EdcUpdateRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceUpdateDetails addEdcDevice(String terminalUniqueIdentifier, PaymentPlatformModels.EdcUpdate body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.EdcDeviceUpdateResponse> response = null;
+            Response<PaymentPlatformModels.EdcDeviceUpdateDetails> response = null;
             try {
             response = paymentPlatformApiList.addEdcDevice(this.companyId, this.applicationId, terminalUniqueIdentifier, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1112,13 +1118,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.EdcDeviceListResponse edcDeviceList(Integer pageNo, Integer pageSize, Boolean isActive, Integer storeId, String deviceTag) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceListDetails edcDeviceList(Integer pageNo, Integer pageSize, Boolean isActive, Integer storeId, String deviceTag) throws FDKServerResponseError, FDKException {
         return this.edcDeviceList(pageNo, pageSize, isActive, storeId, deviceTag, new HashMap<>());
     }
 
-    public PaymentPlatformModels.EdcDeviceListResponse edcDeviceList(Integer pageNo, Integer pageSize, Boolean isActive, Integer storeId, String deviceTag, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.EdcDeviceListDetails edcDeviceList(Integer pageNo, Integer pageSize, Boolean isActive, Integer storeId, String deviceTag, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.EdcDeviceListResponse> response = null;
+            Response<PaymentPlatformModels.EdcDeviceListDetails> response = null;
             try {
             response = paymentPlatformApiList.edcDeviceList(this.companyId, this.applicationId, pageNo, pageSize, isActive, storeId, deviceTag, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1139,13 +1145,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentModeRouteResponse getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String orderId, String cardReference, String orderType, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String orderId, String cardReference, String orderType, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId) throws FDKServerResponseError, FDKException {
         return this.getPosPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, orderId, cardReference, orderType, userDetails, displaySplit, advancePayment, shipmentId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentModeRouteResponse getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String orderId, String cardReference, String orderType, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String orderId, String cardReference, String orderType, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentModeRouteResponse> response = null;
+            Response<PaymentPlatformModels.PaymentModeRouteDetails> response = null;
             try {
             response = paymentPlatformApiList.getPosPaymentModeRoutes(this.companyId, this.applicationId, amount, cartId, pincode, checkoutMode, refresh, orderId, cardReference, orderType, userDetails, displaySplit, advancePayment, shipmentId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1166,13 +1172,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentInitializationResponse initialisePayment(PaymentPlatformModels.PaymentInitializationRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentInitializationDetails initialisePayment(PaymentPlatformModels.PaymentInitializationCreation body) throws FDKServerResponseError, FDKException {
         return this.initialisePayment(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentInitializationResponse initialisePayment(PaymentPlatformModels.PaymentInitializationRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentInitializationDetails initialisePayment(PaymentPlatformModels.PaymentInitializationCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentInitializationResponse> response = null;
+            Response<PaymentPlatformModels.PaymentInitializationDetails> response = null;
             try {
             response = paymentPlatformApiList.initialisePayment(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1193,13 +1199,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatus(PaymentPlatformModels.PaymentStatusUpdateRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentStatusUpdateDetails checkAndUpdatePaymentStatus(PaymentPlatformModels.PaymentStatusUpdateCreation body) throws FDKServerResponseError, FDKException {
         return this.checkAndUpdatePaymentStatus(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentStatusUpdateResponse checkAndUpdatePaymentStatus(PaymentPlatformModels.PaymentStatusUpdateRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentStatusUpdateDetails checkAndUpdatePaymentStatus(PaymentPlatformModels.PaymentStatusUpdateCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentStatusUpdateResponse> response = null;
+            Response<PaymentPlatformModels.PaymentStatusUpdateDetails> response = null;
             try {
             response = paymentPlatformApiList.checkAndUpdatePaymentStatus(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1220,13 +1226,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.ResendOrCancelPaymentResponse resendOrCancelPayment(PaymentPlatformModels.ResendOrCancelPaymentRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ResendOrCancelPaymentDetails resendOrCancelPayment(PaymentPlatformModels.ResendOrCancelPaymentCreation body) throws FDKServerResponseError, FDKException {
         return this.resendOrCancelPayment(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.ResendOrCancelPaymentResponse resendOrCancelPayment(PaymentPlatformModels.ResendOrCancelPaymentRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ResendOrCancelPaymentDetails resendOrCancelPayment(PaymentPlatformModels.ResendOrCancelPaymentCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.ResendOrCancelPaymentResponse> response = null;
+            Response<PaymentPlatformModels.ResendOrCancelPaymentDetails> response = null;
             try {
             response = paymentPlatformApiList.resendOrCancelPayment(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1247,13 +1253,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentStatusBulkHandlerResponse paymentStatusBulk(PaymentPlatformModels.PaymentStatusBulkHandlerRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentStatusBulkHandlerDetails paymentStatusBulk(PaymentPlatformModels.PaymentStatusBulkHandlerCreation body) throws FDKServerResponseError, FDKException {
         return this.paymentStatusBulk(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentStatusBulkHandlerResponse paymentStatusBulk(PaymentPlatformModels.PaymentStatusBulkHandlerRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentStatusBulkHandlerDetails paymentStatusBulk(PaymentPlatformModels.PaymentStatusBulkHandlerCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentStatusBulkHandlerResponse> response = null;
+            Response<PaymentPlatformModels.PaymentStatusBulkHandlerDetails> response = null;
             try {
             response = paymentPlatformApiList.paymentStatusBulk(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1274,13 +1280,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.GetOauthUrlResponse oauthGetUrl(String aggregator, String successRedirectUrl, String failureRedirectUrl) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetOauthUrlDetails oauthGetUrl(String aggregator, String successRedirectUrl, String failureRedirectUrl) throws FDKServerResponseError, FDKException {
         return this.oauthGetUrl(aggregator, successRedirectUrl, failureRedirectUrl, new HashMap<>());
     }
 
-    public PaymentPlatformModels.GetOauthUrlResponse oauthGetUrl(String aggregator, String successRedirectUrl, String failureRedirectUrl, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetOauthUrlDetails oauthGetUrl(String aggregator, String successRedirectUrl, String failureRedirectUrl, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.GetOauthUrlResponse> response = null;
+            Response<PaymentPlatformModels.GetOauthUrlDetails> response = null;
             try {
             response = paymentPlatformApiList.oauthGetUrl(this.companyId, this.applicationId, aggregator, successRedirectUrl, failureRedirectUrl, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1328,13 +1334,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.RepaymentResponse repaymentDetails(PaymentPlatformModels.RepaymentDetailsSerialiserPayAll body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RepaymentDetails repaymentDetails(PaymentPlatformModels.RepaymentDetailsSerialiserPayAll body) throws FDKServerResponseError, FDKException {
         return this.repaymentDetails(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.RepaymentResponse repaymentDetails(PaymentPlatformModels.RepaymentDetailsSerialiserPayAll body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RepaymentDetails repaymentDetails(PaymentPlatformModels.RepaymentDetailsSerialiserPayAll body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.RepaymentResponse> response = null;
+            Response<PaymentPlatformModels.RepaymentDetails> response = null;
             try {
             response = paymentPlatformApiList.repaymentDetails(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1355,13 +1361,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.MerchantOnBoardingResponse merchantOnBoarding(PaymentPlatformModels.MerchantOnBoardingRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.MerchantOnBoardingDetails merchantOnBoarding(PaymentPlatformModels.MerchantOnBoardingCreation body) throws FDKServerResponseError, FDKException {
         return this.merchantOnBoarding(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.MerchantOnBoardingResponse merchantOnBoarding(PaymentPlatformModels.MerchantOnBoardingRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.MerchantOnBoardingDetails merchantOnBoarding(PaymentPlatformModels.MerchantOnBoardingCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.MerchantOnBoardingResponse> response = null;
+            Response<PaymentPlatformModels.MerchantOnBoardingDetails> response = null;
             try {
             response = paymentPlatformApiList.merchantOnBoarding(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1382,13 +1388,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.ValidateCustomerResponse verifyCustomerForPayment(PaymentPlatformModels.ValidateCustomerRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ValidateCustomerDetails verifyCustomerForPayment(PaymentPlatformModels.ValidateCustomerCreation body) throws FDKServerResponseError, FDKException {
         return this.verifyCustomerForPayment(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.ValidateCustomerResponse verifyCustomerForPayment(PaymentPlatformModels.ValidateCustomerRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ValidateCustomerDetails verifyCustomerForPayment(PaymentPlatformModels.ValidateCustomerCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.ValidateCustomerResponse> response = null;
+            Response<PaymentPlatformModels.ValidateCustomerDetails> response = null;
             try {
             response = paymentPlatformApiList.verifyCustomerForPayment(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1409,13 +1415,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetPaymentLinkDetails getPaymentLink(String paymentLinkId) throws FDKServerResponseError, FDKException {
         return this.getPaymentLink(paymentLinkId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.GetPaymentLinkResponse getPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetPaymentLinkDetails getPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.GetPaymentLinkResponse> response = null;
+            Response<PaymentPlatformModels.GetPaymentLinkDetails> response = null;
             try {
             response = paymentPlatformApiList.getPaymentLink(this.companyId, this.applicationId, paymentLinkId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1436,13 +1442,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.CreatePaymentLinkResponse createPaymentLink(PaymentPlatformModels.CreatePaymentLinkRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.CreatePaymentLinkDetails createPaymentLink(PaymentPlatformModels.CreatePaymentLinkCreation body) throws FDKServerResponseError, FDKException {
         return this.createPaymentLink(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.CreatePaymentLinkResponse createPaymentLink(PaymentPlatformModels.CreatePaymentLinkRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.CreatePaymentLinkDetails createPaymentLink(PaymentPlatformModels.CreatePaymentLinkCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.CreatePaymentLinkResponse> response = null;
+            Response<PaymentPlatformModels.CreatePaymentLinkDetails> response = null;
             try {
             response = paymentPlatformApiList.createPaymentLink(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1463,13 +1469,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.GetPaymentLinkResponse getPaymentLinkId(String id, String paymentLinkId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetPaymentLinkDetails getPaymentLinkId(String id, String paymentLinkId) throws FDKServerResponseError, FDKException {
         return this.getPaymentLinkId(id, paymentLinkId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.GetPaymentLinkResponse getPaymentLinkId(String id, String paymentLinkId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetPaymentLinkDetails getPaymentLinkId(String id, String paymentLinkId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.GetPaymentLinkResponse> response = null;
+            Response<PaymentPlatformModels.GetPaymentLinkDetails> response = null;
             try {
             response = paymentPlatformApiList.getPaymentLinkId(this.companyId, this.applicationId, id, paymentLinkId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1490,13 +1496,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PollingPaymentLinkDetails pollingPaymentLink(String paymentLinkId) throws FDKServerResponseError, FDKException {
         return this.pollingPaymentLink(paymentLinkId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PollingPaymentLinkResponse pollingPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PollingPaymentLinkDetails pollingPaymentLink(String paymentLinkId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PollingPaymentLinkResponse> response = null;
+            Response<PaymentPlatformModels.PollingPaymentLinkDetails> response = null;
             try {
             response = paymentPlatformApiList.pollingPaymentLink(this.companyId, this.applicationId, paymentLinkId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1517,13 +1523,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.ResendPaymentLinkResponse resendPaymentLink(PaymentPlatformModels.CancelOrResendPaymentLinkRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ResendPaymentLinkDetails resendPaymentLink(PaymentPlatformModels.CancelOrResendPaymentLinkCreation body) throws FDKServerResponseError, FDKException {
         return this.resendPaymentLink(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.ResendPaymentLinkResponse resendPaymentLink(PaymentPlatformModels.CancelOrResendPaymentLinkRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ResendPaymentLinkDetails resendPaymentLink(PaymentPlatformModels.CancelOrResendPaymentLinkCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.ResendPaymentLinkResponse> response = null;
+            Response<PaymentPlatformModels.ResendPaymentLinkDetails> response = null;
             try {
             response = paymentPlatformApiList.resendPaymentLink(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1544,13 +1550,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.CancelPaymentLinkResponse cancelPaymentLink(PaymentPlatformModels.CancelOrResendPaymentLinkRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.CancelPaymentLinkDetails cancelPaymentLink(PaymentPlatformModels.CancelOrResendPaymentLinkCreation body) throws FDKServerResponseError, FDKException {
         return this.cancelPaymentLink(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.CancelPaymentLinkResponse cancelPaymentLink(PaymentPlatformModels.CancelOrResendPaymentLinkRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.CancelPaymentLinkDetails cancelPaymentLink(PaymentPlatformModels.CancelOrResendPaymentLinkCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.CancelPaymentLinkResponse> response = null;
+            Response<PaymentPlatformModels.CancelPaymentLinkDetails> response = null;
             try {
             response = paymentPlatformApiList.cancelPaymentLink(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1571,13 +1577,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentModeResponse getPaymentModeSequencing(String businessUnit, String device) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentModeDetails getPaymentModeSequencing(String businessUnit, String device) throws FDKServerResponseError, FDKException {
         return this.getPaymentModeSequencing(businessUnit, device, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentModeResponse getPaymentModeSequencing(String businessUnit, String device, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentModeDetails getPaymentModeSequencing(String businessUnit, String device, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentModeResponse> response = null;
+            Response<PaymentPlatformModels.PaymentModeDetails> response = null;
             try {
             response = paymentPlatformApiList.getPaymentModeSequencing(this.companyId, this.applicationId, businessUnit, device, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1598,13 +1604,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse patchPaymentModeSequencing(PaymentPlatformModels.PlatformPaymentModeRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails patchPaymentModeSequencing(PaymentPlatformModels.PlatformPaymentMode body) throws FDKServerResponseError, FDKException {
         return this.patchPaymentModeSequencing(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse patchPaymentModeSequencing(PaymentPlatformModels.PlatformPaymentModeRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails patchPaymentModeSequencing(PaymentPlatformModels.PlatformPaymentMode body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.AggregatorConfigResponse> response = null;
+            Response<PaymentPlatformModels.AggregatorConfigDetails> response = null;
             try {
             response = paymentPlatformApiList.patchPaymentModeSequencing(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1625,13 +1631,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PlatformOfflineAdvanceResponse getPaymentModeControlRoutes(String mode) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PlatformOfflineAdvanceDetails getPaymentModeControlRoutes(String mode) throws FDKServerResponseError, FDKException {
         return this.getPaymentModeControlRoutes(mode, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PlatformOfflineAdvanceResponse getPaymentModeControlRoutes(String mode, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PlatformOfflineAdvanceDetails getPaymentModeControlRoutes(String mode, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PlatformOfflineAdvanceResponse> response = null;
+            Response<PaymentPlatformModels.PlatformOfflineAdvanceDetails> response = null;
             try {
             response = paymentPlatformApiList.getPaymentModeControlRoutes(this.companyId, this.applicationId, mode, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1652,13 +1658,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PlatformOfflineAdvanceResponse setMerchantModeControlRoutes(String mode, PaymentPlatformModels.PlatformOfflineAdvanceRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PlatformOfflineAdvanceDetails setMerchantModeControlRoutes(String mode, PaymentPlatformModels.PlatformOfflineAdvance body) throws FDKServerResponseError, FDKException {
         return this.setMerchantModeControlRoutes(mode, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PlatformOfflineAdvanceResponse setMerchantModeControlRoutes(String mode, PaymentPlatformModels.PlatformOfflineAdvanceRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PlatformOfflineAdvanceDetails setMerchantModeControlRoutes(String mode, PaymentPlatformModels.PlatformOfflineAdvance body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PlatformOfflineAdvanceResponse> response = null;
+            Response<PaymentPlatformModels.PlatformOfflineAdvanceDetails> response = null;
             try {
             response = paymentPlatformApiList.setMerchantModeControlRoutes(this.companyId, this.applicationId, mode, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1733,13 +1739,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.GetPaymentCodeResponse getPaymentCodeOption() throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetPaymentCodeDetails getPaymentCodeOption() throws FDKServerResponseError, FDKException {
         return this.getPaymentCodeOption(new HashMap<>());
     }
 
-    public PaymentPlatformModels.GetPaymentCodeResponse getPaymentCodeOption(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetPaymentCodeDetails getPaymentCodeOption(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.GetPaymentCodeResponse> response = null;
+            Response<PaymentPlatformModels.GetPaymentCodeDetails> response = null;
             try {
             response = paymentPlatformApiList.getPaymentCodeOption(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1760,13 +1766,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.GetPaymentSessionResponse getPaymentSession(String gid, Boolean lineItem) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetPaymentSessionDetails getPaymentSession(String gid, Boolean lineItem) throws FDKServerResponseError, FDKException {
         return this.getPaymentSession(gid, lineItem, new HashMap<>());
     }
 
-    public PaymentPlatformModels.GetPaymentSessionResponse getPaymentSession(String gid, Boolean lineItem, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetPaymentSessionDetails getPaymentSession(String gid, Boolean lineItem, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.GetPaymentSessionResponse> response = null;
+            Response<PaymentPlatformModels.GetPaymentSessionDetails> response = null;
             try {
             response = paymentPlatformApiList.getPaymentSession(this.companyId, this.applicationId, gid, lineItem, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1787,13 +1793,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentSessionResponseSerializer updatePaymentSession(String gid, PaymentPlatformModels.PaymentSessionRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentSessionPutDetails updatePaymentSession(String gid, PaymentPlatformModels.PaymentSessionCreation body) throws FDKServerResponseError, FDKException {
         return this.updatePaymentSession(gid, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentSessionResponseSerializer updatePaymentSession(String gid, PaymentPlatformModels.PaymentSessionRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentSessionPutDetails updatePaymentSession(String gid, PaymentPlatformModels.PaymentSessionCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentSessionResponseSerializer> response = null;
+            Response<PaymentPlatformModels.PaymentSessionPutDetails> response = null;
             try {
             response = paymentPlatformApiList.updatePaymentSession(this.companyId, this.applicationId, gid, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1814,13 +1820,67 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.RefundSessionResponseSerializer updateRefundSession(String gid, String requestId, PaymentPlatformModels.RefundSessionRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.CodRefundAggregatorResponseSchema getCodRefundAggregator() throws FDKServerResponseError, FDKException {
+        return this.getCodRefundAggregator(new HashMap<>());
+    }
+
+    public PaymentPlatformModels.CodRefundAggregatorResponseSchema getCodRefundAggregator(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PaymentPlatformModels.CodRefundAggregatorResponseSchema> response = null;
+            try {
+            response = paymentPlatformApiList.getCodRefundAggregator(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public PaymentPlatformModels.CodRefundAggregatorResponseSchema updateCodRefundAggregator(PaymentPlatformModels.CreateCodRefundAggregatorRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updateCodRefundAggregator(body, new HashMap<>());
+    }
+
+    public PaymentPlatformModels.CodRefundAggregatorResponseSchema updateCodRefundAggregator(PaymentPlatformModels.CreateCodRefundAggregatorRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PaymentPlatformModels.CodRefundAggregatorResponseSchema> response = null;
+            try {
+            response = paymentPlatformApiList.updateCodRefundAggregator(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public PaymentPlatformModels.RefundSessionDetails updateRefundSession(String gid, String requestId, PaymentPlatformModels.RefundSessionCreation body) throws FDKServerResponseError, FDKException {
         return this.updateRefundSession(gid, requestId, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.RefundSessionResponseSerializer updateRefundSession(String gid, String requestId, PaymentPlatformModels.RefundSessionRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundSessionDetails updateRefundSession(String gid, String requestId, PaymentPlatformModels.RefundSessionCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.RefundSessionResponseSerializer> response = null;
+            Response<PaymentPlatformModels.RefundSessionDetails> response = null;
             try {
             response = paymentPlatformApiList.updateRefundSession(this.companyId, this.applicationId, gid, requestId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1841,15 +1901,15 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PlatformOnlineOfflinePaymentResponse getMerchantPaymentOption(String paymentOptionType) throws FDKServerResponseError, FDKException {
-        return this.getMerchantPaymentOption(paymentOptionType, new HashMap<>());
+    public PaymentPlatformModels.PlatformOnlineOfflinePaymentDetails getMerchantPaymentOption(String paymentOptionType, Boolean codRefundAgg) throws FDKServerResponseError, FDKException {
+        return this.getMerchantPaymentOption(paymentOptionType, codRefundAgg, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PlatformOnlineOfflinePaymentResponse getMerchantPaymentOption(String paymentOptionType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PlatformOnlineOfflinePaymentDetails getMerchantPaymentOption(String paymentOptionType, Boolean codRefundAgg, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PlatformOnlineOfflinePaymentResponse> response = null;
+            Response<PaymentPlatformModels.PlatformOnlineOfflinePaymentDetails> response = null;
             try {
-            response = paymentPlatformApiList.getMerchantPaymentOption(this.companyId, this.applicationId, paymentOptionType, requestHeaders).execute();
+            response = paymentPlatformApiList.getMerchantPaymentOption(this.companyId, this.applicationId, paymentOptionType, codRefundAgg, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1868,13 +1928,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PatchPlatformOnlineOfflinePaymentResponse patchMerchantPaymentOption(PaymentPlatformModels.MerchantPaymentModeRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PatchPlatformOnlineOfflinePaymentDetails patchMerchantPaymentOption(PaymentPlatformModels.MerchnatPaymentModeCreation body) throws FDKServerResponseError, FDKException {
         return this.patchMerchantPaymentOption(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PatchPlatformOnlineOfflinePaymentResponse patchMerchantPaymentOption(PaymentPlatformModels.MerchantPaymentModeRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PatchPlatformOnlineOfflinePaymentDetails patchMerchantPaymentOption(PaymentPlatformModels.MerchnatPaymentModeCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PatchPlatformOnlineOfflinePaymentResponse> response = null;
+            Response<PaymentPlatformModels.PatchPlatformOnlineOfflinePaymentDetails> response = null;
             try {
             response = paymentPlatformApiList.patchMerchantPaymentOption(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1895,13 +1955,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.GetDeviceResponse getDevices() throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetDevice getDevices() throws FDKServerResponseError, FDKException {
         return this.getDevices(new HashMap<>());
     }
 
-    public PaymentPlatformModels.GetDeviceResponse getDevices(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.GetDevice getDevices(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.GetDeviceResponse> response = null;
+            Response<PaymentPlatformModels.GetDevice> response = null;
             try {
             response = paymentPlatformApiList.getDevices(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1922,13 +1982,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.AggregatorPlatformPaymentModeResponse getMerchantAggregatorPaymentModeDetails(Integer aggregatorId, String businessUnit, String device) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorPlatformPaymentModeDetails getMerchantAggregatorPaymentModeDetails(Integer aggregatorId, String businessUnit, String device) throws FDKServerResponseError, FDKException {
         return this.getMerchantAggregatorPaymentModeDetails(aggregatorId, businessUnit, device, new HashMap<>());
     }
 
-    public PaymentPlatformModels.AggregatorPlatformPaymentModeResponse getMerchantAggregatorPaymentModeDetails(Integer aggregatorId, String businessUnit, String device, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorPlatformPaymentModeDetails getMerchantAggregatorPaymentModeDetails(Integer aggregatorId, String businessUnit, String device, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.AggregatorPlatformPaymentModeResponse> response = null;
+            Response<PaymentPlatformModels.AggregatorPlatformPaymentModeDetails> response = null;
             try {
             response = paymentPlatformApiList.getMerchantAggregatorPaymentModeDetails(this.companyId, this.applicationId, aggregatorId, businessUnit, device, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1949,13 +2009,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PlatformPaymentModeResponse patchMerchantAggregatorPaymentModeDetails(Integer aggregatorId, PaymentPlatformModels.PlatformPaymentModeRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PlatformPaymentModeDetails patchMerchantAggregatorPaymentModeDetails(Integer aggregatorId, PaymentPlatformModels.PlatformPaymentMode body) throws FDKServerResponseError, FDKException {
         return this.patchMerchantAggregatorPaymentModeDetails(aggregatorId, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PlatformPaymentModeResponse patchMerchantAggregatorPaymentModeDetails(Integer aggregatorId, PaymentPlatformModels.PlatformPaymentModeRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PlatformPaymentModeDetails patchMerchantAggregatorPaymentModeDetails(Integer aggregatorId, PaymentPlatformModels.PlatformPaymentMode body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PlatformPaymentModeResponse> response = null;
+            Response<PaymentPlatformModels.PlatformPaymentModeDetails> response = null;
             try {
             response = paymentPlatformApiList.patchMerchantAggregatorPaymentModeDetails(this.companyId, this.applicationId, aggregatorId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -1976,13 +2036,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse getPGConfigAggregators() throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails getPGConfigAggregators() throws FDKServerResponseError, FDKException {
         return this.getPGConfigAggregators(new HashMap<>());
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse getPGConfigAggregators(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails getPGConfigAggregators(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.AggregatorConfigResponse> response = null;
+            Response<PaymentPlatformModels.AggregatorConfigDetails> response = null;
             try {
             response = paymentPlatformApiList.getPGConfigAggregators(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2003,13 +2063,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.AggregatorHistoryResponse getAggregatorCredentialHistory(String aggregator, String configType) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorHistoryDetails getAggregatorCredentialHistory(String aggregator, String configType) throws FDKServerResponseError, FDKException {
         return this.getAggregatorCredentialHistory(aggregator, configType, new HashMap<>());
     }
 
-    public PaymentPlatformModels.AggregatorHistoryResponse getAggregatorCredentialHistory(String aggregator, String configType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorHistoryDetails getAggregatorCredentialHistory(String aggregator, String configType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.AggregatorHistoryResponse> response = null;
+            Response<PaymentPlatformModels.AggregatorHistoryDetails> response = null;
             try {
             response = paymentPlatformApiList.getAggregatorCredentialHistory(this.companyId, this.applicationId, aggregator, configType, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2030,13 +2090,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.AggregatorCredentialResponse getAggregatorCredential(String aggregator, String configType) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorCredentialRes getAggregatorCredential(String aggregator, String configType) throws FDKServerResponseError, FDKException {
         return this.getAggregatorCredential(aggregator, configType, new HashMap<>());
     }
 
-    public PaymentPlatformModels.AggregatorCredentialResponse getAggregatorCredential(String aggregator, String configType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorCredentialRes getAggregatorCredential(String aggregator, String configType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.AggregatorCredentialResponse> response = null;
+            Response<PaymentPlatformModels.AggregatorCredentialRes> response = null;
             try {
             response = paymentPlatformApiList.getAggregatorCredential(this.companyId, this.applicationId, aggregator, configType, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2057,13 +2117,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PatchAggregatorCredentialResponse updateAggregatorCredential(PaymentPlatformModels.AggregatorCredentialRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PatchAggregatorCredentialDetails updateAggregatorCredential(PaymentPlatformModels.AggregatorCredentialReq body) throws FDKServerResponseError, FDKException {
         return this.updateAggregatorCredential(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PatchAggregatorCredentialResponse updateAggregatorCredential(PaymentPlatformModels.AggregatorCredentialRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PatchAggregatorCredentialDetails updateAggregatorCredential(PaymentPlatformModels.AggregatorCredentialReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PatchAggregatorCredentialResponse> response = null;
+            Response<PaymentPlatformModels.PatchAggregatorCredentialDetails> response = null;
             try {
             response = paymentPlatformApiList.updateAggregatorCredential(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2084,13 +2144,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.RefundPriorityResponseSerializer getMerchantRefundPriority(String configType, String businessUnit) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundPriorityDetails getMerchantRefundPriority(String configType, String businessUnit) throws FDKServerResponseError, FDKException {
         return this.getMerchantRefundPriority(configType, businessUnit, new HashMap<>());
     }
 
-    public PaymentPlatformModels.RefundPriorityResponseSerializer getMerchantRefundPriority(String configType, String businessUnit, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundPriorityDetails getMerchantRefundPriority(String configType, String businessUnit, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.RefundPriorityResponseSerializer> response = null;
+            Response<PaymentPlatformModels.RefundPriorityDetails> response = null;
             try {
             response = paymentPlatformApiList.getMerchantRefundPriority(this.companyId, this.applicationId, configType, businessUnit, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2111,13 +2171,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.RefundPriorityResponseSerializer createMerchantRefundPriority(String configType, String businessUnit, PaymentPlatformModels.RefundPriorityRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundPriorityDetails createMerchantRefundPriority(String configType, String businessUnit, PaymentPlatformModels.RefundPriorityCreation body) throws FDKServerResponseError, FDKException {
         return this.createMerchantRefundPriority(configType, businessUnit, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.RefundPriorityResponseSerializer createMerchantRefundPriority(String configType, String businessUnit, PaymentPlatformModels.RefundPriorityRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundPriorityDetails createMerchantRefundPriority(String configType, String businessUnit, PaymentPlatformModels.RefundPriorityCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.RefundPriorityResponseSerializer> response = null;
+            Response<PaymentPlatformModels.RefundPriorityDetails> response = null;
             try {
             response = paymentPlatformApiList.createMerchantRefundPriority(this.companyId, this.applicationId, configType, businessUnit, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2138,13 +2198,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.RefundPriorityResponseSerializer updateMerchantRefundPriority(String configType, String businessUnit, PaymentPlatformModels.RefundPriorityRequestSerializer body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundPriorityDetails updateMerchantRefundPriority(String configType, String businessUnit, PaymentPlatformModels.RefundPriorityCreation body) throws FDKServerResponseError, FDKException {
         return this.updateMerchantRefundPriority(configType, businessUnit, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.RefundPriorityResponseSerializer updateMerchantRefundPriority(String configType, String businessUnit, PaymentPlatformModels.RefundPriorityRequestSerializer body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundPriorityDetails updateMerchantRefundPriority(String configType, String businessUnit, PaymentPlatformModels.RefundPriorityCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.RefundPriorityResponseSerializer> response = null;
+            Response<PaymentPlatformModels.RefundPriorityDetails> response = null;
             try {
             response = paymentPlatformApiList.updateMerchantRefundPriority(this.companyId, this.applicationId, configType, businessUnit, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2165,13 +2225,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentOrderResponse createPaymentOrder(PaymentPlatformModels.PaymentOrderRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentOrderDetails createPaymentOrder(PaymentPlatformModels.PaymentOrderCreation body) throws FDKServerResponseError, FDKException {
         return this.createPaymentOrder(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentOrderResponse createPaymentOrder(PaymentPlatformModels.PaymentOrderRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentOrderDetails createPaymentOrder(PaymentPlatformModels.PaymentOrderCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PaymentOrderResponse> response = null;
+            Response<PaymentPlatformModels.PaymentOrderDetails> response = null;
             try {
             response = paymentPlatformApiList.createPaymentOrder(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2192,13 +2252,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse copyConfigPaymentModes(PaymentPlatformModels.PlatformPaymentModeCopyConfigRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails copyConfigPaymentModes(PaymentPlatformModels.PlatformPaymentModeCopyConfigCreation body) throws FDKServerResponseError, FDKException {
         return this.copyConfigPaymentModes(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse copyConfigPaymentModes(PaymentPlatformModels.PlatformPaymentModeCopyConfigRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails copyConfigPaymentModes(PaymentPlatformModels.PlatformPaymentModeCopyConfigCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.AggregatorConfigResponse> response = null;
+            Response<PaymentPlatformModels.AggregatorConfigDetails> response = null;
             try {
             response = paymentPlatformApiList.copyConfigPaymentModes(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2219,13 +2279,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse copyConfigAggPaymentModes(String aggregatorId, PaymentPlatformModels.PlatformPaymentModeCopyConfigRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails copyConfigAggPaymentModes(String aggregatorId, PaymentPlatformModels.PlatformPaymentModeCopyConfigCreation body) throws FDKServerResponseError, FDKException {
         return this.copyConfigAggPaymentModes(aggregatorId, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse copyConfigAggPaymentModes(String aggregatorId, PaymentPlatformModels.PlatformPaymentModeCopyConfigRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails copyConfigAggPaymentModes(String aggregatorId, PaymentPlatformModels.PlatformPaymentModeCopyConfigCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.AggregatorConfigResponse> response = null;
+            Response<PaymentPlatformModels.AggregatorConfigDetails> response = null;
             try {
             response = paymentPlatformApiList.copyConfigAggPaymentModes(this.companyId, this.applicationId, aggregatorId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2246,13 +2306,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.AggregatorVersionResponse getMerchantAggregatorAppVersion(Integer aggregatorId, String businessUnit, String device, Integer paymentModeId, String subPaymentMode) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorVersionDetails getMerchantAggregatorAppVersion(Integer aggregatorId, String businessUnit, String device, Integer paymentModeId, String subPaymentMode) throws FDKServerResponseError, FDKException {
         return this.getMerchantAggregatorAppVersion(aggregatorId, businessUnit, device, paymentModeId, subPaymentMode, new HashMap<>());
     }
 
-    public PaymentPlatformModels.AggregatorVersionResponse getMerchantAggregatorAppVersion(Integer aggregatorId, String businessUnit, String device, Integer paymentModeId, String subPaymentMode, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorVersionDetails getMerchantAggregatorAppVersion(Integer aggregatorId, String businessUnit, String device, Integer paymentModeId, String subPaymentMode, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.AggregatorVersionResponse> response = null;
+            Response<PaymentPlatformModels.AggregatorVersionDetails> response = null;
             try {
             response = paymentPlatformApiList.getMerchantAggregatorAppVersion(this.companyId, this.applicationId, aggregatorId, businessUnit, device, paymentModeId, subPaymentMode, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2273,13 +2333,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse patchMerchantPaymentOptionVersion(Integer aggregatorId, PaymentPlatformModels.AggregatorControlRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails patchMerchantPaymentOptionVersion(Integer aggregatorId, PaymentPlatformModels.PatchAggregatorControl body) throws FDKServerResponseError, FDKException {
         return this.patchMerchantPaymentOptionVersion(aggregatorId, body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.AggregatorConfigResponse patchMerchantPaymentOptionVersion(Integer aggregatorId, PaymentPlatformModels.AggregatorControlRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.AggregatorConfigDetails patchMerchantPaymentOptionVersion(Integer aggregatorId, PaymentPlatformModels.PatchAggregatorControl body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.AggregatorConfigResponse> response = null;
+            Response<PaymentPlatformModels.AggregatorConfigDetails> response = null;
             try {
             response = paymentPlatformApiList.patchMerchantPaymentOptionVersion(this.companyId, this.applicationId, aggregatorId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2300,13 +2360,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.RefundAccountResponse addRefundBankAccount(PaymentPlatformModels.AddBeneficiaryDetailsOTPRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundAccountDetails addRefundBankAccount(PaymentPlatformModels.AddBeneficiaryDetailsOTPCreation body) throws FDKServerResponseError, FDKException {
         return this.addRefundBankAccount(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.RefundAccountResponse addRefundBankAccount(PaymentPlatformModels.AddBeneficiaryDetailsOTPRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.RefundAccountDetails addRefundBankAccount(PaymentPlatformModels.AddBeneficiaryDetailsOTPCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.RefundAccountResponse> response = null;
+            Response<PaymentPlatformModels.RefundAccountDetails> response = null;
             try {
             response = paymentPlatformApiList.addRefundBankAccount(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2327,13 +2387,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.DeleteRefundAccountResponse deleteBeneficiaryDetails(PaymentPlatformModels.DeleteBeneficiaryRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.DeleteRefundAccountDetails deleteBeneficiaryDetails(PaymentPlatformModels.DeleteBeneficiary body) throws FDKServerResponseError, FDKException {
         return this.deleteBeneficiaryDetails(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.DeleteRefundAccountResponse deleteBeneficiaryDetails(PaymentPlatformModels.DeleteBeneficiaryRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.DeleteRefundAccountDetails deleteBeneficiaryDetails(PaymentPlatformModels.DeleteBeneficiary body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.DeleteRefundAccountResponse> response = null;
+            Response<PaymentPlatformModels.DeleteRefundAccountDetails> response = null;
             try {
             response = paymentPlatformApiList.deleteBeneficiaryDetails(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2354,13 +2414,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.ShipmentRefundResponse setRefundOptionforShipment(PaymentPlatformModels.ShipmentRefundRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ShipmentRefundRes setRefundOptionforShipment(PaymentPlatformModels.ShipmentRefundDetails body) throws FDKServerResponseError, FDKException {
         return this.setRefundOptionforShipment(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.ShipmentRefundResponse setRefundOptionforShipment(PaymentPlatformModels.ShipmentRefundRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ShipmentRefundRes setRefundOptionforShipment(PaymentPlatformModels.ShipmentRefundDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.ShipmentRefundResponse> response = null;
+            Response<PaymentPlatformModels.ShipmentRefundRes> response = null;
             try {
             response = paymentPlatformApiList.setRefundOptionforShipment(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2381,13 +2441,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.SelectedRefundOptionResponse getSelectedRefundOption(String shipmentId, String orderId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.SelectedRefundOptionDetails getSelectedRefundOption(String shipmentId, String orderId) throws FDKServerResponseError, FDKException {
         return this.getSelectedRefundOption(shipmentId, orderId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.SelectedRefundOptionResponse getSelectedRefundOption(String shipmentId, String orderId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.SelectedRefundOptionDetails getSelectedRefundOption(String shipmentId, String orderId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.SelectedRefundOptionResponse> response = null;
+            Response<PaymentPlatformModels.SelectedRefundOptionDetails> response = null;
             try {
             response = paymentPlatformApiList.getSelectedRefundOption(this.companyId, this.applicationId, shipmentId, orderId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2435,13 +2495,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.ValidateValidateAddressResponse validateBeneficiaryAddress(PaymentPlatformModels.ValidateValidateAddressRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ValidateValidateAddressDetails validateBeneficiaryAddress(PaymentPlatformModels.ValidateValidateAddress body) throws FDKServerResponseError, FDKException {
         return this.validateBeneficiaryAddress(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.ValidateValidateAddressResponse validateBeneficiaryAddress(PaymentPlatformModels.ValidateValidateAddressRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ValidateValidateAddressDetails validateBeneficiaryAddress(PaymentPlatformModels.ValidateValidateAddress body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.ValidateValidateAddressResponse> response = null;
+            Response<PaymentPlatformModels.ValidateValidateAddressDetails> response = null;
             try {
             response = paymentPlatformApiList.validateBeneficiaryAddress(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2462,13 +2522,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.SetDefaultBeneficiaryResponse updateDefaultBeneficiary(PaymentPlatformModels.SetDefaultBeneficiaryRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.SetDefaultBeneficiaryDetails updateDefaultBeneficiary(PaymentPlatformModels.SetDefaultBeneficiary body) throws FDKServerResponseError, FDKException {
         return this.updateDefaultBeneficiary(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.SetDefaultBeneficiaryResponse updateDefaultBeneficiary(PaymentPlatformModels.SetDefaultBeneficiaryRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.SetDefaultBeneficiaryDetails updateDefaultBeneficiary(PaymentPlatformModels.SetDefaultBeneficiary body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.SetDefaultBeneficiaryResponse> response = null;
+            Response<PaymentPlatformModels.SetDefaultBeneficiaryDetails> response = null;
             try {
             response = paymentPlatformApiList.updateDefaultBeneficiary(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2489,13 +2549,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PennyDropValidationResponse getPennyDropValidation() throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PennyDropValidationDetails getPennyDropValidation() throws FDKServerResponseError, FDKException {
         return this.getPennyDropValidation(new HashMap<>());
     }
 
-    public PaymentPlatformModels.PennyDropValidationResponse getPennyDropValidation(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PennyDropValidationDetails getPennyDropValidation(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PennyDropValidationResponse> response = null;
+            Response<PaymentPlatformModels.PennyDropValidationDetails> response = null;
             try {
             response = paymentPlatformApiList.getPennyDropValidation(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2516,13 +2576,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PennyDropValidationResponse updatePennyDropValidation(PaymentPlatformModels.UpdatePennyDropValidationRequest body) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PennyDropValidationDetails updatePennyDropValidation(PaymentPlatformModels.UpdatePennyDropValidation body) throws FDKServerResponseError, FDKException {
         return this.updatePennyDropValidation(body, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PennyDropValidationResponse updatePennyDropValidation(PaymentPlatformModels.UpdatePennyDropValidationRequest body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PennyDropValidationDetails updatePennyDropValidation(PaymentPlatformModels.UpdatePennyDropValidation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.PennyDropValidationResponse> response = null;
+            Response<PaymentPlatformModels.PennyDropValidationDetails> response = null;
             try {
             response = paymentPlatformApiList.updatePennyDropValidation(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -2543,15 +2603,42 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.ShipmentBeneficiaryDetailsResponse getShipmentBeneficiary(String shipmentId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ShipmentBeneficiaryDetailsRes getShipmentBeneficiary(String shipmentId) throws FDKServerResponseError, FDKException {
         return this.getShipmentBeneficiary(shipmentId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.ShipmentBeneficiaryDetailsResponse getShipmentBeneficiary(String shipmentId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.ShipmentBeneficiaryDetailsRes getShipmentBeneficiary(String shipmentId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.ShipmentBeneficiaryDetailsResponse> response = null;
+            Response<PaymentPlatformModels.ShipmentBeneficiaryDetailsRes> response = null;
             try {
             response = paymentPlatformApiList.getShipmentBeneficiary(this.companyId, this.applicationId, shipmentId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public PaymentPlatformModels.TransactionsResponseSchema getTransactions(String userId, Integer pageSize, Integer pageNumber, String orderId, String shipmentId, String transactionId) throws FDKServerResponseError, FDKException {
+        return this.getTransactions(userId, pageSize, pageNumber, orderId, shipmentId, transactionId, new HashMap<>());
+    }
+
+    public PaymentPlatformModels.TransactionsResponseSchema getTransactions(String userId, Integer pageSize, Integer pageNumber, String orderId, String shipmentId, String transactionId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<PaymentPlatformModels.TransactionsResponseSchema> response = null;
+            try {
+            response = paymentPlatformApiList.getTransactions(this.companyId, this.applicationId, userId, pageSize, pageNumber, orderId, shipmentId, transactionId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

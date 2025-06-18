@@ -48,13 +48,13 @@ public class CatalogPartnerService {
     
     
 
-    public CatalogPartnerModels.CompaniesSerializer partnerCompanyDetails(CatalogPartnerModels.PartnerCompanyDetailsRequestSchema body) throws FDKServerResponseError, FDKException {
+    public CatalogPartnerModels.CompaniesSchema partnerCompanyDetails(CatalogPartnerModels.PartnerCompanyDetailsRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.partnerCompanyDetails(body, new HashMap<>());
     }
 
-    public CatalogPartnerModels.CompaniesSerializer partnerCompanyDetails(CatalogPartnerModels.PartnerCompanyDetailsRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPartnerModels.CompaniesSchema partnerCompanyDetails(CatalogPartnerModels.PartnerCompanyDetailsRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<CatalogPartnerModels.CompaniesSerializer> response = null;
+            Response<CatalogPartnerModels.CompaniesSchema> response = null;
             try {
                 response = catalogPartnerApiList.partnerCompanyDetails(this.organizationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -96,13 +96,13 @@ public class CatalogPartnerService {
     
     
 
-    public CatalogPartnerModels.CompanyListSerializer getCompanies(String q, String stage) throws FDKServerResponseError, FDKException {
+    public CatalogPartnerModels.CompanyListSchema getCompanies(String q, String stage) throws FDKServerResponseError, FDKException {
         return this.getCompanies(q, stage, new HashMap<>());
     }
 
-    public CatalogPartnerModels.CompanyListSerializer getCompanies(String q, String stage, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPartnerModels.CompanyListSchema getCompanies(String q, String stage, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
-            Response<CatalogPartnerModels.CompanyListSerializer> response = null;
+            Response<CatalogPartnerModels.CompanyListSchema> response = null;
             try {
                 response = catalogPartnerApiList.getCompanies(this.organizationId, q, stage, requestHeaders).execute();
                 if (!response.isSuccessful()) {

@@ -1257,31 +1257,6 @@ public static class PricingBannerSchema{
 
 
 /*
-    Model: SdkReadmeSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SdkReadmeSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private String data;
-    
-    
-    
-}
-
-
-/*
     Model: TagsSchema
 */
 @AllArgsConstructor
@@ -1765,7 +1740,7 @@ public static class ContentAPIError{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     

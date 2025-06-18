@@ -150,7 +150,7 @@ public static class ClientMeta{
 
 
 /*
-    Model: ClientResponse
+    Model: ClientResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -158,7 +158,7 @@ public static class ClientMeta{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ClientResponse{
+public static class ClientResponseSchema{
 
     
 
@@ -227,7 +227,7 @@ public static class ClientResponse{
     
     
     @JsonProperty("author")
-    private Object author;
+    private HashMap<String,Object> author;
     
     
     
@@ -294,7 +294,7 @@ public static class ClientListSchema{
     
     
     @JsonProperty("items")
-    private List<ClientResponse> items;
+    private List<ClientResponseSchema> items;
     
     
     

@@ -31,7 +31,7 @@ public static class TicketHistoryPayload{
     
     
     @JsonProperty("value")
-    private Object value;
+    private HashMap<String,Object> value;
     
     
     
@@ -76,7 +76,7 @@ public static class CustomFormSubmissionPayload{
 
 
 /*
-    Model: UserSchema
+    Model: SubmitCustomFormResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -84,134 +84,7 @@ public static class CustomFormSubmissionPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
-    @JsonProperty("first_name")
-    private String firstName;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private Object meta;
-    
-    
-    
-    
-    @JsonProperty("last_name")
-    private String lastName;
-    
-    
-    
-    
-    @JsonProperty("phone_numbers")
-    private List<PhoneNumber> phoneNumbers;
-    
-    
-    
-    
-    @JsonProperty("emails")
-    private List<Email> emails;
-    
-    
-    
-    
-    @JsonProperty("gender")
-    private String gender;
-    
-    
-    
-    
-    @JsonProperty("dob")
-    private String dob;
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("profile_pic_url")
-    private String profilePicUrl;
-    
-    
-    
-    
-    @JsonProperty("username")
-    private String username;
-    
-    
-    
-    
-    @JsonProperty("account_type")
-    private String accountType;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("external_id")
-    private String externalId;
-    
-    
-    
-    
-    @JsonProperty("rr_id")
-    private String rrId;
-    
-    
-    
-}
-
-
-/*
-    Model: SubmitCustomFormResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubmitCustomFormResponse{
+public static class SubmitCustomFormResponseSchema{
 
     
 
@@ -238,7 +111,7 @@ public static class SubmitCustomFormResponse{
     
     
     @JsonProperty("response")
-    private FormResponse response;
+    private FormResponseSchema response;
     
     
     
@@ -246,7 +119,7 @@ public static class SubmitCustomFormResponse{
 
 
 /*
-    Model: FormResponse
+    Model: FormResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -254,7 +127,7 @@ public static class SubmitCustomFormResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FormResponse{
+public static class FormResponseSchema{
 
     
 
@@ -478,7 +351,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("created_by")
-    private Object createdBy;
+    private HashMap<String,Object> createdBy;
     
     
     
@@ -508,7 +381,7 @@ public static class AddTicketPayload{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -820,7 +693,7 @@ public static class FeedbackForm{
     
     
     @JsonProperty("inputs")
-    private Object inputs;
+    private HashMap<String,Object> inputs;
     
     
     
@@ -832,7 +705,7 @@ public static class FeedbackForm{
     
     
     @JsonProperty("timestamps")
-    private Object timestamps;
+    private HashMap<String,Object> timestamps;
     
     
     
@@ -1033,13 +906,13 @@ public static class Ticket{
     
     
     @JsonProperty("created_by")
-    private Object createdBy;
+    private HashMap<String,Object> createdBy;
     
     
     
     
     @JsonProperty("assigned_to")
-    private Object assignedTo;
+    private HashMap<String,Object> assignedTo;
     
     
     
@@ -1051,7 +924,7 @@ public static class Ticket{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -1063,7 +936,7 @@ public static class Ticket{
     
     
     @JsonProperty("integration")
-    private Object integration;
+    private HashMap<String,Object> integration;
     
     
     
@@ -1174,98 +1047,6 @@ public static class Error4XX{
     
     @JsonProperty("sentry")
     private String sentry;
-    
-    
-    
-}
-
-
-/*
-    Model: PhoneNumber
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PhoneNumber{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("phone")
-    private String phone;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private Integer countryCode;
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("primary")
-    private Boolean primary;
-    
-    
-    
-    
-    @JsonProperty("verified")
-    private Boolean verified;
-    
-    
-    
-}
-
-
-/*
-    Model: Email
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Email{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("active")
-    private Boolean active;
-    
-    
-    
-    
-    @JsonProperty("primary")
-    private Boolean primary;
-    
-    
-    
-    
-    @JsonProperty("verified")
-    private Boolean verified;
     
     
     

@@ -67,6 +67,22 @@ public class ThemePlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public List<ThemePlatformModels.ThemesSchema> getCompanyLevelThemes(String searchText) throws FDKServerResponseError, FDKException {
         return this.getCompanyLevelThemes(searchText, new HashMap<>());
@@ -267,6 +283,8 @@ public class ThemePlatformService {
     
     
     
+    
+    
 
     public ThemePlatformModels.MarketplaceTheme getDefaultMarketplaceTheme() throws FDKServerResponseError, FDKException {
         return this.getDefaultMarketplaceTheme(new HashMap<>());
@@ -421,33 +439,6 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId, String pageValue, ThemePlatformModels.AvailablePageSchema body) throws FDKServerResponseError, FDKException {
-        return this.updatePage(themeId, pageValue, body, new HashMap<>());
-    }
-
-    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId, String pageValue, ThemePlatformModels.AvailablePageSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ThemePlatformModels.AvailablePageSchema> response = null;
-            try {
-            response = themePlatformApiList.updatePage(this.companyId, this.applicationId, themeId, pageValue, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
     public ThemePlatformModels.AvailablePageSchema deletePage(String themeId, String pageValue) throws FDKServerResponseError, FDKException {
         return this.deletePage(themeId, pageValue, new HashMap<>());
     }
@@ -475,6 +466,114 @@ public class ApplicationClient {
         }    
     }
 
+    public ThemePlatformModels.AvailablePageSchema getPageForMultipleThemes(List<String> themeIds) throws FDKServerResponseError, FDKException {
+        return this.getPageForMultipleThemes(themeIds, new HashMap<>());
+    }
+
+    public ThemePlatformModels.AvailablePageSchema getPageForMultipleThemes(List<String> themeIds, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.AvailablePageSchema> response = null;
+            try {
+            response = themePlatformApiList.getPageForMultipleThemes(this.companyId, this.applicationId, themeIds, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId, String pageValue, String socketId, ThemePlatformModels.AvailablePageSchema body) throws FDKServerResponseError, FDKException {
+        return this.updatePage(themeId, pageValue, socketId, body, new HashMap<>());
+    }
+
+    public ThemePlatformModels.AvailablePageSchema updatePage(String themeId, String pageValue, String socketId, ThemePlatformModels.AvailablePageSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.AvailablePageSchema> response = null;
+            try {
+            response = themePlatformApiList.updatePage(this.companyId, this.applicationId, themeId, pageValue, socketId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.ApproveRejectPageResponseSchema approveOrRejectPage(String action, ThemePlatformModels.ApproveRejectPageSchema body) throws FDKServerResponseError, FDKException {
+        return this.approveOrRejectPage(action, body, new HashMap<>());
+    }
+
+    public ThemePlatformModels.ApproveRejectPageResponseSchema approveOrRejectPage(String action, ThemePlatformModels.ApproveRejectPageSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.ApproveRejectPageResponseSchema> response = null;
+            try {
+            response = themePlatformApiList.approveOrRejectPage(this.companyId, this.applicationId, action, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.AvailablePageSchema latestApprovedPage(String themeId, String status, String pageValue) throws FDKServerResponseError, FDKException {
+        return this.latestApprovedPage(themeId, status, pageValue, new HashMap<>());
+    }
+
+    public ThemePlatformModels.AvailablePageSchema latestApprovedPage(String themeId, String status, String pageValue, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.AvailablePageSchema> response = null;
+            try {
+            response = themePlatformApiList.latestApprovedPage(this.companyId, this.applicationId, themeId, status, pageValue, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     public ThemePlatformModels.FontsSchema getFonts() throws FDKServerResponseError, FDKException {
         return this.getFonts(new HashMap<>());
     }
@@ -484,6 +583,141 @@ public class ApplicationClient {
             Response<ThemePlatformModels.FontsSchema> response = null;
             try {
             response = themePlatformApiList.getFonts(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.PageMapperSchema getPageMapperConfig() throws FDKServerResponseError, FDKException {
+        return this.getPageMapperConfig(new HashMap<>());
+    }
+
+    public ThemePlatformModels.PageMapperSchema getPageMapperConfig(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.PageMapperSchema> response = null;
+            try {
+            response = themePlatformApiList.getPageMapperConfig(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.PageMapperSchema updatePageMapperConfig(ThemePlatformModels.PageMapperUpdateRequestBody body) throws FDKServerResponseError, FDKException {
+        return this.updatePageMapperConfig(body, new HashMap<>());
+    }
+
+    public ThemePlatformModels.PageMapperSchema updatePageMapperConfig(ThemePlatformModels.PageMapperUpdateRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.PageMapperSchema> response = null;
+            try {
+            response = themePlatformApiList.updatePageMapperConfig(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.PageMapperResponseSchema createPageMapping(ThemePlatformModels.PageMapperRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.createPageMapping(body, new HashMap<>());
+    }
+
+    public ThemePlatformModels.PageMapperResponseSchema createPageMapping(ThemePlatformModels.PageMapperRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.PageMapperResponseSchema> response = null;
+            try {
+            response = themePlatformApiList.createPageMapping(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.PageMapperResponseSchema updatePageMapping(String pageValue, ThemePlatformModels.PageMapperUpdateRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.updatePageMapping(pageValue, body, new HashMap<>());
+    }
+
+    public ThemePlatformModels.PageMapperResponseSchema updatePageMapping(String pageValue, ThemePlatformModels.PageMapperUpdateRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.PageMapperResponseSchema> response = null;
+            try {
+            response = themePlatformApiList.updatePageMapping(this.companyId, this.applicationId, pageValue, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ThemePlatformModels.PageMapperResponseSchema deletePageMapping(String pageValue) throws FDKServerResponseError, FDKException {
+        return this.deletePageMapping(pageValue, new HashMap<>());
+    }
+
+    public ThemePlatformModels.PageMapperResponseSchema deletePageMapping(String pageValue, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.PageMapperResponseSchema> response = null;
+            try {
+            response = themePlatformApiList.deletePageMapping(this.companyId, this.applicationId, pageValue, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -826,6 +1060,33 @@ public class ApplicationClient {
         }    
     }
 
+    public ThemePlatformModels.CreateThemePreviewResponseSchema createThemePreview(String themeId, ThemePlatformModels.CreateThemePreviewBody body) throws FDKServerResponseError, FDKException {
+        return this.createThemePreview(themeId, body, new HashMap<>());
+    }
+
+    public ThemePlatformModels.CreateThemePreviewResponseSchema createThemePreview(String themeId, ThemePlatformModels.CreateThemePreviewBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ThemePlatformModels.CreateThemePreviewResponseSchema> response = null;
+            try {
+            response = themePlatformApiList.createThemePreview(this.companyId, this.applicationId, themeId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     public Object getThemeLastModified(String themeId) throws FDKServerResponseError, FDKException {
         return this.getThemeLastModified(themeId, new HashMap<>());
     }
@@ -853,13 +1114,13 @@ public class ApplicationClient {
         }    
     }
 
-    public ThemePlatformModels.ThemeUpgradableResponse isUpgradable(String themeId) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemeUpgradable isUpgradable(String themeId) throws FDKServerResponseError, FDKException {
         return this.isUpgradable(themeId, new HashMap<>());
     }
 
-    public ThemePlatformModels.ThemeUpgradableResponse isUpgradable(String themeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ThemePlatformModels.ThemeUpgradable isUpgradable(String themeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<ThemePlatformModels.ThemeUpgradableResponse> response = null;
+            Response<ThemePlatformModels.ThemeUpgradable> response = null;
             try {
             response = themePlatformApiList.isUpgradable(this.companyId, this.applicationId, themeId, requestHeaders).execute();
                 if (!response.isSuccessful()) {

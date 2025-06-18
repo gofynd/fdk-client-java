@@ -28,7 +28,7 @@ interface UserApplicationApiList {
     Call<UserApplicationModels.AuthSuccess> loginWithAppleIOS(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.OAuthRequestAppleSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<UserApplicationModels.SendOtpResponse> loginWithOTP(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserApplicationModels.SendOtp> loginWithOTP(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.SendOtpRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.LoginSuccess> loginWithEmailAndPassword(@Url String url1, @Body UserApplicationModels.PasswordLoginRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
@@ -124,11 +124,14 @@ interface UserApplicationApiList {
     Call<UserApplicationModels.SendEmailVerifyLinkSuccess> sendVerificationLinkToEmail(@Url String url1, @Query("platform") String platform, @Body UserApplicationModels.EditEmailRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<UserApplicationModels.UserExistsResponse> userExists(@Url String url1, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserApplicationModels.UserExists> userExists(@Url String url1, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<UserApplicationModels.DeleteUserSuccess> deleteUser(@Url String url1, @Body UserApplicationModels.DeleteApplicationUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<UserApplicationModels.LogoutSuccess> logout(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<UserApplicationModels.UserGroupsSchema> getUserGroupsForUser(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 }

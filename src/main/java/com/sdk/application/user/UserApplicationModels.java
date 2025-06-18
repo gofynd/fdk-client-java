@@ -14,6 +14,68 @@ public class UserApplicationModels{
 
 
 /*
+    Model: UserGroupsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserGroupsSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_groups")
+    private UserGroups userGroups;
+    
+    
+    
+}
+
+
+/*
+    Model: UserGroups
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserGroups{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("l1")
+    private List<Integer> l1;
+    
+    
+    
+    
+    @JsonProperty("l2")
+    private List<Integer> l2;
+    
+    
+    
+    
+    @JsonProperty("l3")
+    private List<Integer> l3;
+    
+    
+    
+}
+
+
+/*
     Model: UpdateAttributesRequestPayload
 */
 @AllArgsConstructor
@@ -1092,7 +1154,7 @@ public static class AuthSuccess{
 
 
 /*
-    Model: UserExistsResponse
+    Model: UserExists
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1100,7 +1162,7 @@ public static class AuthSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserExistsResponse{
+public static class UserExists{
 
     
 
@@ -1117,7 +1179,7 @@ public static class UserExistsResponse{
 
 
 /*
-    Model: SendOtpResponse
+    Model: SendOtp
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1125,7 +1187,7 @@ public static class UserExistsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpResponse{
+public static class SendOtp{
 
     
 
@@ -1434,6 +1496,12 @@ public static class VerifyOtpSuccess{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("verify_mobile_link")
+    private Boolean verifyMobileLink;
     
     
     
@@ -1930,6 +1998,12 @@ public static class SendMobileVerifyLinkSuccess{
     
     
     
+    
+    @JsonProperty("user")
+    private UserSchema user;
+    
+    
+    
 }
 
 
@@ -2006,7 +2080,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -3212,6 +3286,18 @@ public static class UserSchema{
     
     
     
+    @JsonProperty("debug")
+    private DebugInfo debug;
+    
+    
+    
+    
+    @JsonProperty("has_old_password_hash")
+    private Boolean hasOldPasswordHash;
+    
+    
+    
+    
     @JsonProperty("application_id")
     private String applicationId;
     
@@ -3231,7 +3317,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -3316,6 +3402,37 @@ public static class UserSchema{
     
     @JsonProperty("rr_id")
     private String rrId;
+    
+    
+    
+}
+
+
+/*
+    Model: DebugInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DebugInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
     
     
     

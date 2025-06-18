@@ -121,16 +121,16 @@ import com.sdk.application.*;
     }
     
 
-    public LeadApplicationModels.SubmitCustomFormResponse submitCustomForm(String slug, LeadApplicationModels.CustomFormSubmissionPayload body) throws IOException {
+    public LeadApplicationModels.SubmitCustomFormResponseSchema submitCustomForm(String slug, LeadApplicationModels.CustomFormSubmissionPayload body) throws IOException {
         return this.submitCustomForm(slug, body, new HashMap<>());
     }
 
-    public LeadApplicationModels.SubmitCustomFormResponse submitCustomForm(String slug, LeadApplicationModels.CustomFormSubmissionPayload body, Map<String, String> requestHeaders) throws IOException {
+    public LeadApplicationModels.SubmitCustomFormResponseSchema submitCustomForm(String slug, LeadApplicationModels.CustomFormSubmissionPayload body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("submitCustomForm");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<LeadApplicationModels.SubmitCustomFormResponse> response = leadApplicationApiList.submitCustomForm(fullUrl, body, requestHeaders).execute();
+        Response<LeadApplicationModels.SubmitCustomFormResponseSchema> response = leadApplicationApiList.submitCustomForm(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

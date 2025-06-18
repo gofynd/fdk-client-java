@@ -14,7 +14,7 @@ public class UserPlatformModels{
 
 
 /*
-    Model: SuccessMessageResponse
+    Model: UserGroupExists
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,32 @@ public class UserPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuccessMessageResponse{
+public static class UserGroupExists{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_groups")
+    private HashMap<String,Object> userGroups;
+    
+    
+    
+}
+
+
+/*
+    Model: SuccessMessage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SuccessMessage{
 
     
 
@@ -154,7 +179,7 @@ public static class UserAttributeDefinition{
 
 
 /*
-    Model: UserAttributeDefinitionResponse
+    Model: UserAttributeDefinitionResp
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -162,7 +187,7 @@ public static class UserAttributeDefinition{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserAttributeDefinitionResponse{
+public static class UserAttributeDefinitionResp{
 
     
 
@@ -306,7 +331,7 @@ public static class UserAttributeDefinitionValidation{
 
 
 /*
-    Model: UserAttributeResponse
+    Model: UserAttribute
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -314,7 +339,7 @@ public static class UserAttributeDefinitionValidation{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserAttributeResponse{
+public static class UserAttribute{
 
     
 
@@ -359,7 +384,7 @@ public static class UserAttributeResponse{
     
     
     @JsonProperty("attribute")
-    private Object attribute;
+    private HashMap<String,Object> attribute;
     
     
     
@@ -373,7 +398,7 @@ public static class UserAttributeResponse{
 
 
 /*
-    Model: CreateUserAttributeRequest
+    Model: CreateUserAttributePayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -381,7 +406,7 @@ public static class UserAttributeResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateUserAttributeRequest{
+public static class CreateUserAttributePayload{
 
     
 
@@ -396,7 +421,7 @@ public static class CreateUserAttributeRequest{
     
     
     @JsonProperty("attribute")
-    private Object attribute;
+    private HashMap<String,Object> attribute;
     
     
     
@@ -475,7 +500,7 @@ public static class CreateUserAttributeDefinition{
     
     
     @JsonProperty("default_value")
-    private Object defaultValue;
+    private HashMap<String,Object> defaultValue;
     
     
     
@@ -902,7 +927,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -1000,7 +1025,7 @@ public static class Conditions{
     
     
     @JsonProperty("value")
-    private Object value;
+    private HashMap<String,Object> value;
     
     
     
@@ -1133,6 +1158,18 @@ public static class UserGroupResponseSchema{
     
     
     
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private CategorySchema category;
+    
+    
+    
+    
     @JsonProperty("created_at")
     private String createdAt;
     
@@ -1185,6 +1222,68 @@ public static class UserGroupListResponseSchema{
 
 
 /*
+    Model: UserGroupCategoriesResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserGroupCategoriesResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<UserGroupCategory> items;
+    
+    
+    
+}
+
+
+/*
+    Model: UserGroupCategory
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserGroupCategory{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("key")
+    private CategorySchema key;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+}
+
+
+/*
     Model: ConditionsSchema
 */
 @AllArgsConstructor
@@ -1214,7 +1313,7 @@ public static class ConditionsSchema{
     
     
     @JsonProperty("value")
-    private Object value;
+    private HashMap<String,Object> value;
     
     
     
@@ -1270,6 +1369,12 @@ public static class CreateUserGroup{
     
     @JsonProperty("blacklisted_users")
     private List<String> blacklistedUsers;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private CategorySchema category;
     
     
     
@@ -1330,7 +1435,7 @@ public static class CreateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -2652,7 +2757,7 @@ public static class UpdateUserRequestSchema{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -2842,7 +2947,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -2950,6 +3055,24 @@ public static class UserSearchSchema{
     
     
     
+    @JsonProperty("__v")
+    private Double v;
+    
+    
+    
+    
+    @JsonProperty("has_old_password_hash")
+    private Boolean hasOldPasswordHash;
+    
+    
+    
+    
+    @JsonProperty("debug")
+    private DebugInfo debug;
+    
+    
+    
+    
     @JsonProperty("application_id")
     private String applicationId;
     
@@ -2969,7 +3092,7 @@ public static class UserSearchSchema{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -3073,6 +3196,37 @@ public static class UserSearchSchema{
 
 
 /*
+    Model: DebugInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DebugInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
+    
+    
+    
+}
+
+
+/*
     Model: PhoneNumber
 */
 @AllArgsConstructor
@@ -3164,6 +3318,321 @@ public static class Email{
 }
 
 
+/*
+    Model: BulkUpdateUserAttributesBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUpdateUserAttributesBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("users")
+    private List<String> users;
+    
+    
+    
+    
+    @JsonProperty("user_file_url")
+    private String userFileUrl;
+    
+    
+    
+    
+    @JsonProperty("attribute")
+    private List<BulkUpdateUserSameAttributes> attribute;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUpdateUserSameAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUpdateUserSameAttributes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUpdatePerUserAttributesBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUpdatePerUserAttributesBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_detail_attributes")
+    private List<UserDetailAttributes> userDetailAttributes;
+    
+    
+    
+}
+
+
+/*
+    Model: UserDetailAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserDetailAttributes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private List<BulkUpdatePerUserAttributes> attributes;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkUpdatePerUserAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkUpdatePerUserAttributes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkOperation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkOperation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("processed")
+    private Integer processed;
+    
+    
+    
+    
+    @JsonProperty("errors_count")
+    private Integer errorsCount;
+    
+    
+    
+    
+    @JsonProperty("errors")
+    private List<BulkOperationError> errors;
+    
+    
+    
+    
+    @JsonProperty("processing_type")
+    private String processingType;
+    
+    
+    
+    
+    @JsonProperty("error_summary")
+    private HashMap<String,Object> errorSummary;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkOperationError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkOperationError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_id")
+    private String userId;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkOperationAsync
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkOperationAsync{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("processing_type")
+    private String processingType;
+    
+    
+    
+}
+
+
+
+
+    
+    /*
+        Enum: CategorySchema
+        Used By: User
+    */
+    @Getter
+    public enum CategorySchema {
+
+        
+        l1("l1"), 
+        
+        l2("l2"), 
+        
+        l3("l3"), 
+        
+        defaultCategory("default_category");
+        
+
+        private String priority;
+        CategorySchema(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+    }
 
 
 }

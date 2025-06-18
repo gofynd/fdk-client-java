@@ -316,7 +316,7 @@ public static class DiscountJob{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -449,7 +449,7 @@ public static class FileJobBody{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -586,7 +586,7 @@ public static class BulkDiscount{
 
 
 /*
-    Model: FileJobResponse
+    Model: FileJobResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -594,7 +594,7 @@ public static class BulkDiscount{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileJobResponse{
+public static class FileJobResponseSchema{
 
     
 
@@ -683,7 +683,7 @@ public static class FileJobResponse{
 
 
 /*
-    Model: FileJobRequest
+    Model: FileJobRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -691,7 +691,7 @@ public static class FileJobResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileJobRequest{
+public static class FileJobRequestSchema{
 
     
 
@@ -766,7 +766,7 @@ public static class FileJobRequest{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -799,7 +799,7 @@ public static class DownloadFileJob{
 
 
 /*
-    Model: CancelJobResponse
+    Model: CancelJobResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -807,7 +807,7 @@ public static class DownloadFileJob{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CancelJobResponse{
+public static class CancelJobResponseSchema{
 
     
 

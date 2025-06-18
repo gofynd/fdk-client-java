@@ -39,7 +39,7 @@ public static class ErrorResponseV1{
 
 
 /*
-    Model: BulkRegionServiceabilityTatRequest
+    Model: BulkRegionServiceabilityTatRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,7 +47,7 @@ public static class ErrorResponseV1{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkRegionServiceabilityTatRequest{
+public static class BulkRegionServiceabilityTatRequestSchema{
 
     
 
@@ -137,7 +137,7 @@ public static class BulkRegionServiceabilityTatResponseItemData{
 
 
 /*
-    Model: ErrorResponse
+    Model: ErrorResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -145,7 +145,7 @@ public static class BulkRegionServiceabilityTatResponseItemData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ErrorResponse{
+public static class ErrorResponseSchema{
 
     
 
@@ -174,7 +174,7 @@ public static class ErrorResponse{
 
 
 /*
-    Model: FailureResponse
+    Model: FailureResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -182,7 +182,7 @@ public static class ErrorResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FailureResponse{
+public static class FailureResponseSchema{
 
     
 
@@ -197,7 +197,7 @@ public static class FailureResponse{
     
     
     @JsonProperty("error")
-    private List<ErrorResponse> error;
+    private List<ErrorResponseSchema> error;
     
     
     
@@ -205,7 +205,7 @@ public static class FailureResponse{
 
 
 /*
-    Model: BulkRegionServiceabilityTatResponse
+    Model: BulkRegionServiceabilityTatResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -213,7 +213,7 @@ public static class FailureResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkRegionServiceabilityTatResponse{
+public static class BulkRegionServiceabilityTatResponseSchema{
 
     
 
@@ -303,7 +303,7 @@ public static class Page{
 
 
 /*
-    Model: BulkRegionJobSerializer
+    Model: BulkRegionJobSerializerSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -311,7 +311,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkRegionJobSerializer{
+public static class BulkRegionJobSerializerSchema{
 
     
 
@@ -431,7 +431,7 @@ public static class BulkRegionResponseItemData{
 
 
 /*
-    Model: BulkRegionResponse
+    Model: BulkRegionResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -439,7 +439,7 @@ public static class BulkRegionResponseItemData{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BulkRegionResponse{
+public static class BulkRegionResponseSchema{
 
     
 
@@ -517,7 +517,7 @@ public static class CourierAccount{
 
 
 /*
-    Model: CourierPartnerAccountFailureResponse
+    Model: CourierPartnerAccountFailureResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -525,7 +525,7 @@ public static class CourierAccount{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerAccountFailureResponse{
+public static class CourierPartnerAccountFailureResponseSchema{
 
     
 
@@ -540,7 +540,7 @@ public static class CourierPartnerAccountFailureResponse{
     
     
     @JsonProperty("error")
-    private List<ErrorResponse> error;
+    private List<ErrorResponseSchema> error;
     
     
     
@@ -548,7 +548,7 @@ public static class CourierPartnerAccountFailureResponse{
 
 
 /*
-    Model: CompanyCourierPartnerAccountListResponse
+    Model: CompanyCourierPartnerAccountListResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -556,7 +556,7 @@ public static class CourierPartnerAccountFailureResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyCourierPartnerAccountListResponse{
+public static class CompanyCourierPartnerAccountListResponseSchema{
 
     
 
@@ -565,7 +565,7 @@ public static class CompanyCourierPartnerAccountListResponse{
     
     
     @JsonProperty("items")
-    private List<CourierAccountResponse> items;
+    private List<CourierAccountResponseSchema> items;
     
     
     
@@ -579,7 +579,7 @@ public static class CompanyCourierPartnerAccountListResponse{
 
 
 /*
-    Model: CourierAccountSchemeResponse
+    Model: CourierAccountSchemeResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -587,7 +587,7 @@ public static class CompanyCourierPartnerAccountListResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierAccountSchemeResponse{
+public static class CourierAccountSchemeResponseSchema{
 
     
 
@@ -614,7 +614,7 @@ public static class CourierAccountSchemeResponse{
     
     
     @JsonProperty("weight")
-    private ArithmeticOperations weight;
+    private ArithmeticOperationsV2 weight;
     
     
     
@@ -658,7 +658,7 @@ public static class CourierAccountSchemeResponse{
 
 
 /*
-    Model: CourierAccountResponse
+    Model: CourierAccountResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -666,7 +666,7 @@ public static class CourierAccountSchemeResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierAccountResponse{
+public static class CourierAccountResponseSchema{
 
     
 
@@ -717,7 +717,7 @@ public static class CourierAccountResponse{
     
     
     @JsonProperty("scheme_rules")
-    private CourierAccountSchemeResponse schemeRules;
+    private CourierAccountSchemeResponseSchema schemeRules;
     
     
     
@@ -760,7 +760,7 @@ public static class CourierPartnerSchemeModel{
     
     
     @JsonProperty("weight")
-    private ArithmeticOperations weight;
+    private ArithmeticOperationsV2 weight;
     
     
     
@@ -980,7 +980,7 @@ public static class ArithmeticOperations{
 
 
 /*
-    Model: CourierPartnerSchemeUpdateRequest
+    Model: ArithmeticOperationsV2
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -988,7 +988,50 @@ public static class ArithmeticOperations{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CourierPartnerSchemeUpdateRequest{
+public static class ArithmeticOperationsV2{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("lt")
+    private Integer lt;
+    
+    
+    
+    
+    @JsonProperty("gt")
+    private Integer gt;
+    
+    
+    
+    
+    @JsonProperty("lte")
+    private Integer lte;
+    
+    
+    
+    
+    @JsonProperty("gte")
+    private Integer gte;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerSchemeUpdateRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerSchemeUpdateRequestSchema{
 
     
 
@@ -1003,7 +1046,7 @@ public static class CourierPartnerSchemeUpdateRequest{
     
     
     @JsonProperty("weight")
-    private ArithmeticOperations weight;
+    private ArithmeticOperationsV2 weight;
     
     
     

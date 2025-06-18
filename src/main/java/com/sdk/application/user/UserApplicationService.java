@@ -70,7 +70,8 @@ import com.sdk.application.*;
         relativeUrls.put("sendVerificationLinkToEmail","/service/application/user/profile/v1.0/email/link/send".substring(1));
         relativeUrls.put("userExists","/service/application/user/authentication/v1.0/user-exists".substring(1));
         relativeUrls.put("deleteUser","/service/application/user/authentication/v1.0/delete".substring(1));
-        relativeUrls.put("logout","/service/application/user/authentication/v1.0/logout".substring(1)); 
+        relativeUrls.put("logout","/service/application/user/authentication/v1.0/logout".substring(1));
+        relativeUrls.put("getUserGroupsForUser","/service/application/user/user-groups".substring(1)); 
 
     }
 
@@ -206,15 +207,15 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.SendOtpResponse loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body) throws IOException {
+    public UserApplicationModels.SendOtp loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body) throws IOException {
         return this.loginWithOTP(platform, body, new HashMap<>());
     }
 
-    public UserApplicationModels.SendOtpResponse loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.SendOtp loginWithOTP(String platform, UserApplicationModels.SendOtpRequestSchema body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("loginWithOTP");
 
-        Response<UserApplicationModels.SendOtpResponse> response = userApplicationApiList.loginWithOTP(fullUrl, platform, body, requestHeaders).execute();
+        Response<UserApplicationModels.SendOtp> response = userApplicationApiList.loginWithOTP(fullUrl, platform, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -750,15 +751,15 @@ import com.sdk.application.*;
     }
     
 
-    public UserApplicationModels.UserExistsResponse userExists(String q) throws IOException {
+    public UserApplicationModels.UserExists userExists(String q) throws IOException {
         return this.userExists(q, new HashMap<>());
     }
 
-    public UserApplicationModels.UserExistsResponse userExists(String q, Map<String, String> requestHeaders) throws IOException {
+    public UserApplicationModels.UserExists userExists(String q, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("userExists");
 
-        Response<UserApplicationModels.UserExistsResponse> response = userApplicationApiList.userExists(fullUrl, q, requestHeaders).execute();
+        Response<UserApplicationModels.UserExists> response = userApplicationApiList.userExists(fullUrl, q, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -793,6 +794,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("logout");
 
         Response<UserApplicationModels.LogoutSuccess> response = userApplicationApiList.logout(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public UserApplicationModels.UserGroupsSchema getUserGroupsForUser() throws IOException {
+        return this.getUserGroupsForUser(new HashMap<>());
+    }
+
+    public UserApplicationModels.UserGroupsSchema getUserGroupsForUser(Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getUserGroupsForUser");
+
+        Response<UserApplicationModels.UserGroupsSchema> response = userApplicationApiList.getUserGroupsForUser(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -7,8 +7,8 @@ import java.util.*;
 interface CatalogPartnerApiList {
 
     @POST ("/service/partner/catalog/v2.0/organization/{organization_id}/company-details")
-    Call<CatalogPartnerModels.CompaniesSerializer> partnerCompanyDetails(@Path("organization_id") String organizationId, @Body CatalogPartnerModels.PartnerCompanyDetailsRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPartnerModels.CompaniesSchema> partnerCompanyDetails(@Path("organization_id") String organizationId, @Body CatalogPartnerModels.PartnerCompanyDetailsRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/partner/catalog/v2.0/organization/{organization_id}/referred-companies")
-    Call<CatalogPartnerModels.CompanyListSerializer> getCompanies(@Path("organization_id") String organizationId, @Query("q") String q, @Query("stage") String stage, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPartnerModels.CompanyListSchema> getCompanies(@Path("organization_id") String organizationId, @Query("q") String q, @Query("stage") String stage, @HeaderMap Map<String, String> requestHeaders);
 }

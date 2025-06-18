@@ -121,6 +121,12 @@ public static class AvailablePageSchema{
     
     
     
+    @JsonProperty("__v")
+    private Double v;
+    
+    
+    
+    
     @JsonProperty("_id")
     private String id;
     
@@ -147,7 +153,7 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -229,6 +235,12 @@ public static class SEOSitemap{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -528,7 +540,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("props")
-    private Object props;
+    private HashMap<String,Object> props;
     
     
     
@@ -540,7 +552,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("preset")
-    private Object preset;
+    private HashMap<String,Object> preset;
     
     
     
@@ -553,6 +565,43 @@ public static class AvailablePageSchemaSections{
     
     @JsonProperty("__source")
     private SectionSource source;
+    
+    
+    
+    
+    @JsonProperty("assets")
+    private SectionAssets assets;
+    
+    
+    
+}
+
+
+/*
+    Model: SectionAssets
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SectionAssets{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("js")
+    private String js;
+    
+    
+    
+    
+    @JsonProperty("css")
+    private String css;
     
     
     
@@ -632,7 +681,7 @@ public static class AvailablePagePredicate{
     
     
     @JsonProperty("schedule")
-    private AvailablePageSchedulePredicate schedule;
+    private List<AvailablePageSchedulePredicate> schedule;
     
     
     
@@ -716,6 +765,30 @@ public static class AvailablePageUserPredicate{
     
     
     
+    
+    @JsonProperty("user_type")
+    private String userType;
+    
+    
+    
+    
+    @JsonProperty("user_groups")
+    private List<String> userGroups;
+    
+    
+    
+    
+    @JsonProperty("start")
+    private String start;
+    
+    
+    
+    
+    @JsonProperty("end")
+    private String end;
+    
+    
+    
 }
 
 
@@ -749,7 +822,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private Object query;
+    private HashMap<String,Object> query;
     
     
     
@@ -883,7 +956,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("styles")
-    private Object styles;
+    private HashMap<String,Object> styles;
     
     
     
@@ -1085,7 +1158,7 @@ public static class Config{
     
     
     @JsonProperty("preset")
-    private Object preset;
+    private HashMap<String,Object> preset;
     
     
     
@@ -1116,13 +1189,865 @@ public static class ThemeConfiguration{
     
     
     @JsonProperty("global_config")
-    private Object globalConfig;
+    private HashMap<String,Object> globalConfig;
     
     
     
     
     @JsonProperty("page")
     private List<String> page;
+    
+    
+    
+}
+
+
+/*
+    Model: CustomConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("props")
+    private CustomProps props;
+    
+    
+    
+}
+
+
+/*
+    Model: CustomProps
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomProps{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("header_bg_color")
+    private String headerBgColor;
+    
+    
+    
+    
+    @JsonProperty("header_text_color")
+    private String headerTextColor;
+    
+    
+    
+    
+    @JsonProperty("header_border_color")
+    private String headerBorderColor;
+    
+    
+    
+    
+    @JsonProperty("header_icon_color")
+    private String headerIconColor;
+    
+    
+    
+    
+    @JsonProperty("header_cart_notification_bg_color")
+    private String headerCartNotificationBgColor;
+    
+    
+    
+    
+    @JsonProperty("header_cart_notification_text_color")
+    private String headerCartNotificationTextColor;
+    
+    
+    
+    
+    @JsonProperty("header_nav_hover_color")
+    private String headerNavHoverColor;
+    
+    
+    
+    
+    @JsonProperty("button_primary_color")
+    private String buttonPrimaryColor;
+    
+    
+    
+    
+    @JsonProperty("button_primary_label_color")
+    private String buttonPrimaryLabelColor;
+    
+    
+    
+    
+    @JsonProperty("button_add_to_cart_color")
+    private String buttonAddToCartColor;
+    
+    
+    
+    
+    @JsonProperty("button_add_to_cart_label_color")
+    private String buttonAddToCartLabelColor;
+    
+    
+    
+    
+    @JsonProperty("button_secondary_color")
+    private String buttonSecondaryColor;
+    
+    
+    
+    
+    @JsonProperty("button_secondary_label_color")
+    private String buttonSecondaryLabelColor;
+    
+    
+    
+    
+    @JsonProperty("button_tertiary_color")
+    private String buttonTertiaryColor;
+    
+    
+    
+    
+    @JsonProperty("button_tertiary_label_color")
+    private String buttonTertiaryLabelColor;
+    
+    
+    
+    
+    @JsonProperty("button_tertiary_hover_color")
+    private String buttonTertiaryHoverColor;
+    
+    
+    
+    
+    @JsonProperty("button_tertiary_hover_text_color")
+    private String buttonTertiaryHoverTextColor;
+    
+    
+    
+    
+    @JsonProperty("text_heading_link_color")
+    private String textHeadingLinkColor;
+    
+    
+    
+    
+    @JsonProperty("text_body_color")
+    private String textBodyColor;
+    
+    
+    
+    
+    @JsonProperty("text_price_color")
+    private String textPriceColor;
+    
+    
+    
+    
+    @JsonProperty("text_sale_price_color")
+    private String textSalePriceColor;
+    
+    
+    
+    
+    @JsonProperty("text_strikethrough_price_color")
+    private String textStrikethroughPriceColor;
+    
+    
+    
+    
+    @JsonProperty("text_discount_color")
+    private String textDiscountColor;
+    
+    
+    
+    
+    @JsonProperty("footer_bg_color")
+    private String footerBgColor;
+    
+    
+    
+    
+    @JsonProperty("footer_text_color")
+    private String footerTextColor;
+    
+    
+    
+    
+    @JsonProperty("footer_border_color")
+    private String footerBorderColor;
+    
+    
+    
+    
+    @JsonProperty("footer_nav_hover_color")
+    private String footerNavHoverColor;
+    
+    
+    
+    
+    @JsonProperty("disable_cart")
+    private Boolean disableCart;
+    
+    
+    
+    
+    @JsonProperty("is_menu_below_logo")
+    private Boolean isMenuBelowLogo;
+    
+    
+    
+    
+    @JsonProperty("menu_position")
+    private String menuPosition;
+    
+    
+    
+}
+
+
+/*
+    Model: GeneralSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GeneralSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("theme")
+    private ThemeSetting theme;
+    
+    
+    
+    
+    @JsonProperty("text")
+    private TextSetting text;
+    
+    
+    
+    
+    @JsonProperty("button")
+    private ButtonSetting button;
+    
+    
+    
+    
+    @JsonProperty("sale_discount")
+    private SaleDiscountSetting saleDiscount;
+    
+    
+    
+    
+    @JsonProperty("header")
+    private HeaderSetting header;
+    
+    
+    
+    
+    @JsonProperty("footer")
+    private FooterSetting footer;
+    
+    
+    
+}
+
+
+/*
+    Model: AdvanceSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AdvanceSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("overlay_popup")
+    private OverlayPopupSetting overlayPopup;
+    
+    
+    
+    
+    @JsonProperty("divider_stroke_highlight")
+    private DividerStrokeHighlightSetting dividerStrokeHighlight;
+    
+    
+    
+    
+    @JsonProperty("user_alerts")
+    private UserAlertsSetting userAlerts;
+    
+    
+    
+}
+
+
+/*
+    Model: UserAlertsSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAlertsSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success_background")
+    private String successBackground;
+    
+    
+    
+    
+    @JsonProperty("success_text")
+    private String successText;
+    
+    
+    
+    
+    @JsonProperty("error_background")
+    private String errorBackground;
+    
+    
+    
+    
+    @JsonProperty("error_text")
+    private String errorText;
+    
+    
+    
+    
+    @JsonProperty("info_background")
+    private String infoBackground;
+    
+    
+    
+    
+    @JsonProperty("info_text")
+    private String infoText;
+    
+    
+    
+}
+
+
+/*
+    Model: ThemeSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ThemeSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("page_background")
+    private String pageBackground;
+    
+    
+    
+    
+    @JsonProperty("theme_accent")
+    private String themeAccent;
+    
+    
+    
+}
+
+
+/*
+    Model: TextSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TextSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("text_heading")
+    private String textHeading;
+    
+    
+    
+    
+    @JsonProperty("text_body")
+    private String textBody;
+    
+    
+    
+    
+    @JsonProperty("text_label")
+    private String textLabel;
+    
+    
+    
+    
+    @JsonProperty("text_secondary")
+    private String textSecondary;
+    
+    
+    
+}
+
+
+/*
+    Model: ButtonSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ButtonSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("button_primary")
+    private String buttonPrimary;
+    
+    
+    
+    
+    @JsonProperty("button_secondary")
+    private String buttonSecondary;
+    
+    
+    
+    
+    @JsonProperty("button_link")
+    private String buttonLink;
+    
+    
+    
+}
+
+
+/*
+    Model: SaleDiscountSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SaleDiscountSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sale_badge_background")
+    private String saleBadgeBackground;
+    
+    
+    
+    
+    @JsonProperty("sale_badge_text")
+    private String saleBadgeText;
+    
+    
+    
+    
+    @JsonProperty("sale_discount_text")
+    private String saleDiscountText;
+    
+    
+    
+    
+    @JsonProperty("sale_timer")
+    private String saleTimer;
+    
+    
+    
+}
+
+
+/*
+    Model: HeaderSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HeaderSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("header_background")
+    private String headerBackground;
+    
+    
+    
+    
+    @JsonProperty("header_nav")
+    private String headerNav;
+    
+    
+    
+    
+    @JsonProperty("header_icon")
+    private String headerIcon;
+    
+    
+    
+}
+
+
+/*
+    Model: FooterSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FooterSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("footer_background")
+    private String footerBackground;
+    
+    
+    
+    
+    @JsonProperty("footer_bottom_background")
+    private String footerBottomBackground;
+    
+    
+    
+    
+    @JsonProperty("footer_heading_text")
+    private String footerHeadingText;
+    
+    
+    
+    
+    @JsonProperty("footer_body_text")
+    private String footerBodyText;
+    
+    
+    
+    
+    @JsonProperty("footer_icon")
+    private String footerIcon;
+    
+    
+    
+}
+
+
+/*
+    Model: OverlayPopupSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OverlayPopupSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("dialog_backgroung")
+    private String dialogBackgroung;
+    
+    
+    
+    
+    @JsonProperty("overlay")
+    private String overlay;
+    
+    
+    
+}
+
+
+/*
+    Model: DividerStrokeHighlightSetting
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DividerStrokeHighlightSetting{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("divider_strokes")
+    private String dividerStrokes;
+    
+    
+    
+    
+    @JsonProperty("highlight")
+    private String highlight;
+    
+    
+    
+}
+
+
+/*
+    Model: StaticConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StaticConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("props")
+    private StaticProps props;
+    
+    
+    
+}
+
+
+/*
+    Model: StaticProps
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StaticProps{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("colors")
+    private Colors colors;
+    
+    
+    
+    
+    @JsonProperty("auth")
+    private AuthConfig auth;
+    
+    
+    
+    
+    @JsonProperty("palette")
+    private PaletteConfig palette;
+    
+    
+    
+}
+
+
+/*
+    Model: Colors
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Colors{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("primary_color")
+    private String primaryColor;
+    
+    
+    
+    
+    @JsonProperty("secondary_color")
+    private String secondaryColor;
+    
+    
+    
+    
+    @JsonProperty("accent_color")
+    private String accentColor;
+    
+    
+    
+    
+    @JsonProperty("link_color")
+    private String linkColor;
+    
+    
+    
+    
+    @JsonProperty("button_secondary_color")
+    private String buttonSecondaryColor;
+    
+    
+    
+    
+    @JsonProperty("bg_color")
+    private String bgColor;
+    
+    
+    
+}
+
+
+/*
+    Model: AuthConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AuthConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("show_header_auth")
+    private Boolean showHeaderAuth;
+    
+    
+    
+    
+    @JsonProperty("show_footer_auth")
+    private Boolean showFooterAuth;
+    
+    
+    
+}
+
+
+/*
+    Model: PaletteConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaletteConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("general_setting")
+    private GeneralSetting generalSetting;
+    
+    
+    
+    
+    @JsonProperty("advance_setting")
+    private AdvanceSetting advanceSetting;
     
     
     
@@ -1474,7 +2399,7 @@ public static class GlobalSchema{
     
     
     @JsonProperty("props")
-    private List<Object> props;
+    private List<Prop> props;
     
     
     

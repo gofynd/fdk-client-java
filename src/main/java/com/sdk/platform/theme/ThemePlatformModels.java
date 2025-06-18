@@ -904,7 +904,7 @@ public static class CompanyThemeReqSchema{
 
 
 /*
-    Model: CompanyThemeResponse
+    Model: CompanyTheme
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -912,7 +912,7 @@ public static class CompanyThemeReqSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyThemeResponse{
+public static class CompanyTheme{
 
     
 
@@ -1218,6 +1218,79 @@ public static class AvailablePageSchema{
     
     
     
+    
+    @JsonProperty("page_mapper")
+    private Boolean pageMapper;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("comment")
+    private String comment;
+    
+    
+    
+    
+    @JsonProperty("predicate")
+    private AvailablePageLevelPredicate predicate;
+    
+    
+    
+    
+    @JsonProperty("fallback")
+    private String fallback;
+    
+    
+    
+    
+    @JsonProperty("store")
+    private StoreSchema store;
+    
+    
+    
+}
+
+
+/*
+    Model: StoreSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StoreSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("created_from")
+    private String createdFrom;
+    
+    
+    
+    
+    @JsonProperty("mapped_to")
+    private String mappedTo;
+    
+    
+    
 }
 
 
@@ -1239,7 +1312,7 @@ public static class AvailablePageSectionMetaAttributes{
     
     
     @JsonProperty("attributes")
-    private Object attributes;
+    private HashMap<String,Object> attributes;
     
     
     
@@ -1333,6 +1406,12 @@ public static class SEOSitemap{
     
     @JsonProperty("frequency")
     private String frequency;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
     
     
     
@@ -1620,7 +1699,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("props")
-    private Object props;
+    private HashMap<String,Object> props;
     
     
     
@@ -1632,7 +1711,7 @@ public static class AvailablePageSchemaSections{
     
     
     @JsonProperty("preset")
-    private Object preset;
+    private HashMap<String,Object> preset;
     
     
     
@@ -1698,6 +1777,61 @@ public static class SectionSource{
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public static class AvailablePagePredicate{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("screen")
+    private AvailablePageScreenPredicate screen;
+    
+    
+    
+    
+    @JsonProperty("user")
+    private AvailablePageUserPredicate user;
+    
+    
+    
+    
+    @JsonProperty("route")
+    private AvailablePageRoutePredicate route;
+    
+    
+    
+    
+    @JsonProperty("schedule")
+    private List<AvailablePageSchedulePredicate> schedule;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private AvailablePagePlatformPredicate platform;
+    
+    
+    
+    
+    @JsonProperty("zones")
+    private List<String> zones;
+    
+    
+    
+}
+
+
+/*
+    Model: AvailablePageLevelPredicate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AvailablePageLevelPredicate{
 
     
 
@@ -1808,6 +1942,92 @@ public static class AvailablePageUserPredicate{
     
     
     
+    
+    @JsonProperty("user_type")
+    private String userType;
+    
+    
+    
+    
+    @JsonProperty("user_groups")
+    private UserGroupSchema userGroups;
+    
+    
+    
+    
+    @JsonProperty("start")
+    private String start;
+    
+    
+    
+    
+    @JsonProperty("end")
+    private String end;
+    
+    
+    
+}
+
+
+/*
+    Model: LevelUserGroupSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LevelUserGroupSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("includes")
+    private List<String> includes;
+    
+    
+    
+    
+    @JsonProperty("excludes")
+    private List<String> excludes;
+    
+    
+    
+}
+
+
+/*
+    Model: UserGroupSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserGroupSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("l1")
+    private LevelUserGroupSchema l1;
+    
+    
+    
+    
+    @JsonProperty("l2")
+    private LevelUserGroupSchema l2;
+    
+    
+    
 }
 
 
@@ -1841,7 +2061,7 @@ public static class AvailablePageRoutePredicate{
     
     
     @JsonProperty("query")
-    private Object query;
+    private HashMap<String,Object> query;
     
     
     
@@ -1966,6 +2186,74 @@ public static class AddThemeRequestSchema{
     
     @JsonProperty("theme_id")
     private String themeId;
+    
+    
+    
+}
+
+
+/*
+    Model: ApproveRejectPageSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApproveRejectPageSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("pages")
+    private List<Object> pages;
+    
+    
+    
+    
+    @JsonProperty("approval_comment")
+    private String approvalComment;
+    
+    
+    
+    
+    @JsonProperty("rejection_comment")
+    private String rejectionComment;
+    
+    
+    
+}
+
+
+/*
+    Model: ApproveRejectPageResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApproveRejectPageResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private List<Object> failed;
     
     
     
@@ -2253,7 +2541,7 @@ public static class ThemesSchema{
     
     
     @JsonProperty("styles")
-    private Object styles;
+    private HashMap<String,Object> styles;
     
     
     
@@ -2305,11 +2593,17 @@ public static class ThemesSchema{
     
     
     
+    
+    @JsonProperty("applied_themes")
+    private List<Object> appliedThemes;
+    
+    
+    
 }
 
 
 /*
-    Model: ThemeUpgradableResponse
+    Model: ThemeUpgradable
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2317,7 +2611,7 @@ public static class ThemesSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ThemeUpgradableResponse{
+public static class ThemeUpgradable{
 
     
 
@@ -2332,7 +2626,7 @@ public static class ThemeUpgradableResponse{
     
     
     @JsonProperty("versions")
-    private Object versions;
+    private HashMap<String,Object> versions;
     
     
     
@@ -2548,7 +2842,7 @@ public static class Config{
     
     
     @JsonProperty("preset")
-    private Object preset;
+    private HashMap<String,Object> preset;
     
     
     
@@ -2579,7 +2873,7 @@ public static class ThemeConfiguration{
     
     
     @JsonProperty("global_config")
-    private Object globalConfig;
+    private HashMap<String,Object> globalConfig;
     
     
     
@@ -2789,7 +3083,7 @@ public static class ThemeConfigListPageSettingsProps{
     
     
     @JsonProperty("props")
-    private Object props;
+    private HashMap<String,Object> props;
     
     
     
@@ -3905,7 +4199,7 @@ public static class ThemeVersions{
 
 
 /*
-    Model: DummyResponse
+    Model: DummyTheme
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3913,7 +4207,7 @@ public static class ThemeVersions{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DummyResponse{
+public static class DummyTheme{
 
     
 
@@ -4064,6 +4358,389 @@ public static class Option{
     
     @JsonProperty("value")
     private String value;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateThemePreviewBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateThemePreviewBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private Integer pincode;
+    
+    
+    
+    
+    @JsonProperty("user_group_uid")
+    private Integer userGroupUid;
+    
+    
+    
+    
+    @JsonProperty("preview_date_time")
+    private String previewDateTime;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private String page;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateThemePreviewResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateThemePreviewResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("hash_key")
+    private String hashKey;
+    
+    
+    
+}
+
+
+/*
+    Model: PageMapperRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageMapperRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("fallback")
+    private String fallback;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private String page;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("filter")
+    private PageMapperFilterConfiguration filter;
+    
+    
+    
+}
+
+
+/*
+    Model: PageMapperUpdateRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageMapperUpdateRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("fallback")
+    private String fallback;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("filter")
+    private PageMapperFilterConfiguration filter;
+    
+    
+    
+}
+
+
+/*
+    Model: PageMapperFilterConfiguration
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageMapperFilterConfiguration{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private PageMapperPlatformFilter platform;
+    
+    
+    
+    
+    @JsonProperty("user")
+    private PageMapperUserFilter user;
+    
+    
+    
+    
+    @JsonProperty("schedule")
+    private PageMapperScheduleFilter schedule;
+    
+    
+    
+}
+
+
+/*
+    Model: PageMapperPlatformFilter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageMapperPlatformFilter{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("ios")
+    private Boolean ios;
+    
+    
+    
+    
+    @JsonProperty("android")
+    private Boolean android;
+    
+    
+    
+    
+    @JsonProperty("web")
+    private Boolean web;
+    
+    
+    
+}
+
+
+/*
+    Model: PageMapperUserFilter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageMapperUserFilter{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("user_type")
+    private String userType;
+    
+    
+    
+}
+
+
+/*
+    Model: PageMapperScheduleFilter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageMapperScheduleFilter{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("start")
+    private String start;
+    
+    
+    
+    
+    @JsonProperty("end")
+    private String end;
+    
+    
+    
+}
+
+
+/*
+    Model: PageMapperResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageMapperResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: PageMapperSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageMapperSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: PageMapperUpdateRequestBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PageMapperUpdateRequestBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
     
     
     

@@ -59,16 +59,16 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),OrderApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public OrderApplicationModels.ShipmentRefundSummaryResponse getShipmentRefundSummary(String shipmentId) throws IOException {
+    public OrderApplicationModels.ShipmentRefundSummaryResponseSchema getShipmentRefundSummary(String shipmentId) throws IOException {
         return this.getShipmentRefundSummary(shipmentId, new HashMap<>());
     }
 
-    public OrderApplicationModels.ShipmentRefundSummaryResponse getShipmentRefundSummary(String shipmentId, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.ShipmentRefundSummaryResponseSchema getShipmentRefundSummary(String shipmentId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getShipmentRefundSummary");
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
-        Response<OrderApplicationModels.ShipmentRefundSummaryResponse> response = orderApplicationApiList.getShipmentRefundSummary(fullUrl, requestHeaders).execute();
+        Response<OrderApplicationModels.ShipmentRefundSummaryResponseSchema> response = orderApplicationApiList.getShipmentRefundSummary(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -77,16 +77,16 @@ import com.sdk.application.*;
     }
     
 
-    public OrderApplicationModels.RefundOptionsSchemaResponse getRefundOptions(String shipmentId, String bagIds, String state, String optinAppId, Integer optinCompanyId, String status) throws IOException {
+    public OrderApplicationModels.RefundOptionsSchemaResponseSchema getRefundOptions(String shipmentId, String bagIds, String state, String optinAppId, Integer optinCompanyId, String status) throws IOException {
         return this.getRefundOptions(shipmentId, bagIds, state, optinAppId, optinCompanyId, status, new HashMap<>());
     }
 
-    public OrderApplicationModels.RefundOptionsSchemaResponse getRefundOptions(String shipmentId, String bagIds, String state, String optinAppId, Integer optinCompanyId, String status, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.RefundOptionsSchemaResponseSchema getRefundOptions(String shipmentId, String bagIds, String state, String optinAppId, Integer optinCompanyId, String status, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getRefundOptions");
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
-        Response<OrderApplicationModels.RefundOptionsSchemaResponse> response = orderApplicationApiList.getRefundOptions(fullUrl, bagIds, state, optinAppId, optinCompanyId, status, requestHeaders).execute();
+        Response<OrderApplicationModels.RefundOptionsSchemaResponseSchema> response = orderApplicationApiList.getRefundOptions(fullUrl, bagIds, state, optinAppId, optinCompanyId, status, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -202,17 +202,17 @@ import com.sdk.application.*;
     }
     
 
-    public OrderApplicationModels.CustomerDetailsResponse getCustomerDetailsByShipmentId(String orderId, String shipmentId) throws IOException {
+    public OrderApplicationModels.CustomerDetailsResponseSchema getCustomerDetailsByShipmentId(String orderId, String shipmentId) throws IOException {
         return this.getCustomerDetailsByShipmentId(orderId, shipmentId, new HashMap<>());
     }
 
-    public OrderApplicationModels.CustomerDetailsResponse getCustomerDetailsByShipmentId(String orderId, String shipmentId, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.CustomerDetailsResponseSchema getCustomerDetailsByShipmentId(String orderId, String shipmentId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCustomerDetailsByShipmentId");
         fullUrl = fullUrl.replace("{" + "order_id" + "}",orderId.toString());
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
-        Response<OrderApplicationModels.CustomerDetailsResponse> response = orderApplicationApiList.getCustomerDetailsByShipmentId(fullUrl, requestHeaders).execute();
+        Response<OrderApplicationModels.CustomerDetailsResponseSchema> response = orderApplicationApiList.getCustomerDetailsByShipmentId(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -221,17 +221,17 @@ import com.sdk.application.*;
     }
     
 
-    public OrderApplicationModels.SendOtpToCustomerResponse sendOtpToShipmentCustomer(String orderId, String shipmentId) throws IOException {
+    public OrderApplicationModels.SendOtpToCustomerResponseSchema sendOtpToShipmentCustomer(String orderId, String shipmentId) throws IOException {
         return this.sendOtpToShipmentCustomer(orderId, shipmentId, new HashMap<>());
     }
 
-    public OrderApplicationModels.SendOtpToCustomerResponse sendOtpToShipmentCustomer(String orderId, String shipmentId, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.SendOtpToCustomerResponseSchema sendOtpToShipmentCustomer(String orderId, String shipmentId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("sendOtpToShipmentCustomer");
         fullUrl = fullUrl.replace("{" + "order_id" + "}",orderId.toString());
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
-        Response<OrderApplicationModels.SendOtpToCustomerResponse> response = orderApplicationApiList.sendOtpToShipmentCustomer(fullUrl, requestHeaders).execute();
+        Response<OrderApplicationModels.SendOtpToCustomerResponseSchema> response = orderApplicationApiList.sendOtpToShipmentCustomer(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -240,17 +240,17 @@ import com.sdk.application.*;
     }
     
 
-    public OrderApplicationModels.VerifyOtpResponse verifyOtpShipmentCustomer(String orderId, String shipmentId, OrderApplicationModels.VerifyOtp body) throws IOException {
+    public OrderApplicationModels.VerifyOtpResponseSchema verifyOtpShipmentCustomer(String orderId, String shipmentId, OrderApplicationModels.VerifyOtp body) throws IOException {
         return this.verifyOtpShipmentCustomer(orderId, shipmentId, body, new HashMap<>());
     }
 
-    public OrderApplicationModels.VerifyOtpResponse verifyOtpShipmentCustomer(String orderId, String shipmentId, OrderApplicationModels.VerifyOtp body, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.VerifyOtpResponseSchema verifyOtpShipmentCustomer(String orderId, String shipmentId, OrderApplicationModels.VerifyOtp body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("verifyOtpShipmentCustomer");
         fullUrl = fullUrl.replace("{" + "order_id" + "}",orderId.toString());
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
-        Response<OrderApplicationModels.VerifyOtpResponse> response = orderApplicationApiList.verifyOtpShipmentCustomer(fullUrl, body, requestHeaders).execute();
+        Response<OrderApplicationModels.VerifyOtpResponseSchema> response = orderApplicationApiList.verifyOtpShipmentCustomer(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -296,16 +296,16 @@ import com.sdk.application.*;
     }
     
 
-    public OrderApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId, OrderApplicationModels.UpdateShipmentStatusRequest body) throws IOException {
+    public OrderApplicationModels.ShipmentApplicationStatusResponseSchema updateShipmentStatus(String shipmentId, OrderApplicationModels.UpdateShipmentStatusRequestSchema body) throws IOException {
         return this.updateShipmentStatus(shipmentId, body, new HashMap<>());
     }
 
-    public OrderApplicationModels.ShipmentApplicationStatusResponse updateShipmentStatus(String shipmentId, OrderApplicationModels.UpdateShipmentStatusRequest body, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.ShipmentApplicationStatusResponseSchema updateShipmentStatus(String shipmentId, OrderApplicationModels.UpdateShipmentStatusRequestSchema body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateShipmentStatus");
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
-        Response<OrderApplicationModels.ShipmentApplicationStatusResponse> response = orderApplicationApiList.updateShipmentStatus(fullUrl, body, requestHeaders).execute();
+        Response<OrderApplicationModels.ShipmentApplicationStatusResponseSchema> response = orderApplicationApiList.updateShipmentStatus(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

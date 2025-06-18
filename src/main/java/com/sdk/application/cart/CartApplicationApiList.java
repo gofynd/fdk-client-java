@@ -7,101 +7,98 @@ import java.util.*;
 interface CartApplicationApiList {
 
     @GET 
-    Call<CartApplicationModels.CartDetailResponse> getCart(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("c") Boolean c, @Query("assign_card_id") Integer assignCardId, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Query("order_type") String orderType, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartDetailResponseObject> getCart(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("c") Boolean c, @Query("assign_card_id") Integer assignCardId, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Query("order_type") String orderType, @HeaderMap Map<String, String> requestHeaders);
 
     @HEAD 
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.AddCartDetailResponse> addItems(@Url String url1, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("id") String id, @Query("cart_type") String cartType, @Query("order_type") String orderType, @Body CartApplicationModels.AddCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.AddCartDetailResponseObject> addItems(@Url String url1, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("id") String id, @Query("cart_type") String cartType, @Query("order_type") String orderType, @Body CartApplicationModels.AddCartRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT 
-    Call<CartApplicationModels.UpdateCartDetailResponse> updateCart(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Query("order_type") String orderType, @Body CartApplicationModels.UpdateCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.UpdateCartDetailResponseObject> updateCart(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Query("order_type") String orderType, @Body CartApplicationModels.UpdateCartRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT 
-    Call<CartApplicationModels.DeleteCartDetailResponse> deleteCart(@Url String url1, @Query("id") String id, @Query("cart_type") String cartType, @Body CartApplicationModels.DeleteCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.DeleteCartDetail> deleteCart(@Url String url1, @Query("id") String id, @Query("cart_type") String cartType, @Body CartApplicationModels.DeleteCartRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.CartItemCountResponse> getItemCount(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartItemCount> getItemCount(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CartApplicationModels.CartItemCountResponseV2> getItemCountV2(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.GetCouponResponse> getCoupons(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("slug") String slug, @Query("store_id") String storeId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.GetCouponResponseObject> getCoupons(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("slug") String slug, @Query("store_id") String storeId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.CartDetailResponse> applyCoupon(@Url String url1, @Query("i") Boolean i, @Query("b") Boolean b, @Query("p") Boolean p, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.ApplyCouponRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartDetailResponseObject> applyCoupon(@Url String url1, @Query("i") Boolean i, @Query("b") Boolean b, @Query("p") Boolean p, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.ApplyCouponRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE 
-    Call<CartApplicationModels.CartDetailResponse> removeCoupon(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartDetailResponseObject> removeCoupon(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.BulkPriceResponse> getBulkDiscountOffers(@Url String url1, @Query("item_id") Integer itemId, @Query("article_id") String articleId, @Query("uid") Integer uid, @Query("slug") String slug, @Query("cart_type") String cartType, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.BulkPriceResponseObject> getBulkDiscountOffers(@Url String url1, @Query("item_id") Integer itemId, @Query("article_id") String articleId, @Query("uid") Integer uid, @Query("slug") String slug, @Query("cart_type") String cartType, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.CartDetailResponse> applyRewardPoints(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.RewardPointRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartDetailResponseObject> applyRewardPoints(@Url String url1, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.RewardPointRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.GetAddressesResponse> getAddresses(@Url String url1, @Query("cart_id") String cartId, @Query("buy_now") Boolean buyNow, @Query("mobile_no") String mobileNo, @Query("checkout_mode") String checkoutMode, @Query("tags") String tags, @Query("is_default") Boolean isDefault, @Query("user_id") String userId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.GetAddressesResponseObject> getAddresses(@Url String url1, @Query("cart_id") String cartId, @Query("buy_now") Boolean buyNow, @Query("mobile_no") String mobileNo, @Query("checkout_mode") String checkoutMode, @Query("tags") String tags, @Query("is_default") Boolean isDefault, @Query("user_id") String userId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.SaveAddressResponse> addAddress(@Url String url1, @Body CartApplicationModels.Address payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.SaveAddressResponseObject> addAddress(@Url String url1, @Body CartApplicationModels.Address payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CartApplicationModels.Address> getAddressById(@Url String url1, @Query("cart_id") String cartId, @Query("buy_now") Boolean buyNow, @Query("mobile_no") String mobileNo, @Query("checkout_mode") String checkoutMode, @Query("tags") String tags, @Query("is_default") Boolean isDefault, @Query("user_id") String userId, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT 
-    Call<CartApplicationModels.UpdateAddressResponse> updateAddress(@Url String url1, @Body CartApplicationModels.Address payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.UpdateAddress> updateAddress(@Url String url1, @Body CartApplicationModels.Address payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE 
-    Call<CartApplicationModels.DeleteAddressResponse> removeAddress(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.DeleteAddressResponseObject> removeAddress(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.CartDetailResponse> selectAddress(@Url String url1, @Query("cart_id") String cartId, @Query("buy_now") Boolean buyNow, @Query("i") Boolean i, @Query("b") Boolean b, @Body CartApplicationModels.SelectCartAddressRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartDetailResponseObject> selectAddress(@Url String url1, @Query("cart_id") String cartId, @Query("buy_now") Boolean buyNow, @Query("i") Boolean i, @Query("b") Boolean b, @Body CartApplicationModels.SelectCartAddressRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT 
-    Call<CartApplicationModels.CartDetailResponse> selectPaymentMode(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("order_type") String orderType, @Body CartApplicationModels.UpdateCartPaymentRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartDetailResponseObject> selectPaymentMode(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("order_type") String orderType, @Body CartApplicationModels.UpdateCartPaymentRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CartApplicationModels.PaymentCouponValidate> validateCouponForPayment(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("address_id") String addressId, @Query("payment_mode") String paymentMode, @Query("payment_identifier") String paymentIdentifier, @Query("aggregator_name") String aggregatorName, @Query("merchant_code") String merchantCode, @Query("iin") String iin, @Query("network") String network, @Query("type") String type, @Query("card_id") String cardId, @Query("cart_type") String cartType, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT 
-    Call<CartApplicationModels.CartMetaResponse> updateCartMeta(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Body CartApplicationModels.CartMetaRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartMetaResponseObject> updateCartMeta(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Body CartApplicationModels.CartMetaRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.GetShareCartLinkResponse> getCartShareLink(@Url String url1, @Body CartApplicationModels.GetShareCartLinkRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.GetShareCartLinkResponseObject> getCartShareLink(@Url String url1, @Body CartApplicationModels.GetShareCartLinkRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.SharedCartResponse> getCartSharedItems(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.SharedCartResponseObject> getCartSharedItems(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.SharedCartResponse> updateCartWithSharedItems(@Url String url1, @Query("cart_id") String cartId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.SharedCartResponseObject> updateCartWithSharedItems(@Url String url1, @Query("cart_id") String cartId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.PromotionOffersResponse> getPromotionOffers(@Url String url1, @Query("slug") String slug, @Query("page_size") Integer pageSize, @Query("promotion_group") String promotionGroup, @Query("store_id") Integer storeId, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.PromotionOffersResponseObject> getPromotionOffers(@Url String url1, @Query("slug") String slug, @Query("page_size") Integer pageSize, @Query("promotion_group") String promotionGroup, @Query("store_id") Integer storeId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CartApplicationModels.LadderPriceOffers> getLadderOffers(@Url String url1, @Query("slug") String slug, @Query("store_id") String storeId, @Query("promotion_id") String promotionId, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.CartShipmentsResponse> getShipments(@Url String url1, @Query("pick_at_store_uid") Integer pickAtStoreUid, @Query("ordering_store_id") Integer orderingStoreId, @Query("i") Boolean i, @Query("p") Boolean p, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("address_id") String addressId, @Query("area_code") String areaCode, @Query("order_type") String orderType, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartShipments> getShipments(@Url String url1, @Query("pick_at_store_uid") Integer pickAtStoreUid, @Query("ordering_store_id") Integer orderingStoreId, @Query("i") Boolean i, @Query("p") Boolean p, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("address_id") String addressId, @Query("area_code") String areaCode, @Query("order_type") String orderType, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.CartCheckoutResponse> checkoutCart(@Url String url1, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartCheckoutResponseObject> checkoutCart(@Url String url1, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailRequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.CartCheckoutResponse> checkoutCartV2(@Url String url1, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailV2Request payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartCheckoutResponseObject> checkoutCartV2(@Url String url1, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailV2RequestObject payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.PromotionPaymentOffersResponse> getPaymentPromotionOffers(@Url String url1, @Query("id") String id, @Query("uid") Integer uid, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.PromotionPaymentOffersResponseObject> getPaymentPromotionOffers(@Url String url1, @Query("id") String id, @Query("uid") Integer uid, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.CartMetaConfigListResponse> getCartMetaConfigs(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartMetaConfigListResponseObject> getCartMetaConfigs(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.CartConfigDetailResponse> getCartMetaConfig(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<CartApplicationModels.AddCartDetailResultV2> addItemsv2(@Url String url1, @Query("buy_now") Boolean buyNow, @Query("id") String id, @Query("cart_type") String cartType, @Query("order_type") String orderType, @Body CartApplicationModels.AddCartRequest payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartConfigDetailResponseObject> getCartMetaConfig(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 }

@@ -14,7 +14,7 @@ public class ConfigurationPublicModels{
 
 
 /*
-    Model: ApplicationResponse
+    Model: ApplicationResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class ConfigurationPublicModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationResponse{
+public static class ApplicationResponseSchema{
 
     
 
@@ -81,6 +81,12 @@ public static class Domain{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
     
     
     
@@ -793,7 +799,7 @@ public static class VersionDevice{
 
 
 /*
-    Model: VersionRequest
+    Model: VersionRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -801,7 +807,7 @@ public static class VersionDevice{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionRequest{
+public static class VersionRequestSchema{
 
     
 
@@ -855,7 +861,7 @@ public static class VersionUpdateDialogue{
 
 
 /*
-    Model: VersionResponse
+    Model: VersionResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -863,7 +869,7 @@ public static class VersionUpdateDialogue{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class VersionResponse{
+public static class VersionResponseSchema{
 
     
 

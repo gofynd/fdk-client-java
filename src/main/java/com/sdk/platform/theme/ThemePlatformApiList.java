@@ -18,14 +18,38 @@ interface ThemePlatformApiList {
     @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/{page_value}")
     Call<ThemePlatformModels.AvailablePageSchema> getPage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/{page_value}")
-    Call<ThemePlatformModels.AvailablePageSchema> updatePage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @Body ThemePlatformModels.AvailablePageSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
     @DELETE ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/{page_value}")
     Call<ThemePlatformModels.AvailablePageSchema> deletePage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/themes/pages")
+    Call<ThemePlatformModels.AvailablePageSchema> getPageForMultipleThemes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("theme_ids") List<String> themeIds, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/{page_value}/{socket_id}")
+    Call<ThemePlatformModels.AvailablePageSchema> updatePage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("page_value") String pageValue, @Path("socket_id") String socketId, @Body ThemePlatformModels.AvailablePageSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/themes/{action}")
+    Call<ThemePlatformModels.ApproveRejectPageResponseSchema> approveOrRejectPage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("action") String action, @Body ThemePlatformModels.ApproveRejectPageSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/{theme_id}/status/{status}/{page_value}")
+    Call<ThemePlatformModels.AvailablePageSchema> latestApprovedPage(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Path("status") String status, @Path("page_value") String pageValue, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/fonts")
     Call<ThemePlatformModels.FontsSchema> getFonts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/page-mapper-config")
+    Call<ThemePlatformModels.PageMapperSchema> getPageMapperConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/page-mapper-config")
+    Call<ThemePlatformModels.PageMapperSchema> updatePageMapperConfig(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ThemePlatformModels.PageMapperUpdateRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/page-mapper")
+    Call<ThemePlatformModels.PageMapperResponseSchema> createPageMapping(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ThemePlatformModels.PageMapperRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/page-mapper/{page_value}")
+    Call<ThemePlatformModels.PageMapperResponseSchema> updatePageMapping(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("page_value") String pageValue, @Body ThemePlatformModels.PageMapperUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/theme/v1.0/company/{company_id}/application/{application_id}/page-mapper/{page_value}")
+    Call<ThemePlatformModels.PageMapperResponseSchema> deletePageMapping(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("page_value") String pageValue, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/fonts")
     Call<ThemePlatformModels.FontsSchema> getFontsV2(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
@@ -75,11 +99,14 @@ interface ThemePlatformApiList {
     @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/preview")
     Call<ThemePlatformModels.ThemesSchema> getThemeForPreview(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/theme/{theme_id}/preview")
+    Call<ThemePlatformModels.CreateThemePreviewResponseSchema> createThemePreview(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @Body ThemePlatformModels.CreateThemePreviewBody payload, @HeaderMap Map<String, String> requestHeaders);
+
     @HEAD ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/polling")
     Call<Object> getThemeLastModified(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/upgradable")
-    Call<ThemePlatformModels.ThemeUpgradableResponse> isUpgradable(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
+    Call<ThemePlatformModels.ThemeUpgradable> isUpgradable(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/theme/v2.0/company/{company_id}/application/{application_id}/{theme_id}/upgrade")
     Call<ThemePlatformModels.ThemesSchema> upgradeTheme(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("theme_id") String themeId, @HeaderMap Map<String, String> requestHeaders);
