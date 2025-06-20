@@ -84,6 +84,12 @@ public static class CommunicationConsentRes{
     
     
     
+    
+    @JsonProperty("encrypted")
+    private Boolean encrypted;
+    
+    
+    
 }
 
 
@@ -115,6 +121,12 @@ public static class CommunicationConsentChannelsEmail{
     
     
     
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
 }
 
 
@@ -143,6 +155,12 @@ public static class CommunicationConsentChannelsSms{
     
     @JsonProperty("display_name")
     private String displayName;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -186,6 +204,12 @@ public static class CommunicationConsentChannelsWhatsapp{
     
     @JsonProperty("phone_number")
     private String phoneNumber;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
     
     
     
@@ -260,6 +284,37 @@ public static class CommunicationConsent{
     
     @JsonProperty("channels")
     private CommunicationConsentChannels channels;
+    
+    
+    
+}
+
+
+/*
+    Model: BadRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BadRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -394,142 +449,6 @@ public static class PushtokenRes{
     
     @JsonProperty("expired_at")
     private String expiredAt;
-    
-    
-    
-}
-
-
-/*
-    Model: OtpConfigurationExpiryDuration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OtpConfigurationExpiryDuration{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("time")
-    private Double time;
-    
-    
-    
-    
-    @JsonProperty("denomination")
-    private String denomination;
-    
-    
-    
-}
-
-
-/*
-    Model: OtpConfigurationExpiry
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OtpConfigurationExpiry{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("duration")
-    private OtpConfigurationExpiryDuration duration;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-}
-
-
-/*
-    Model: OtpConfigurationRateLimit
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OtpConfigurationRateLimit{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("duration")
-    private Double duration;
-    
-    
-    
-    
-    @JsonProperty("limit")
-    private Integer limit;
-    
-    
-    
-}
-
-
-/*
-    Model: OtpConfiguration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OtpConfiguration{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("otp_length")
-    private Integer otpLength;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("expiry")
-    private OtpConfigurationExpiry expiry;
-    
-    
-    
-    
-    @JsonProperty("rate_limit")
-    private OtpConfigurationRateLimit rateLimit;
     
     
     

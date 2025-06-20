@@ -29,13 +29,13 @@ import com.sdk.application.*;
         this.shareApplicationApiList = generateShareApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
-        relativeUrls.put("getApplicationQRCode","/service/application/share/v1.0/qr".substring(1));
-        relativeUrls.put("getProductQRCodeBySlug","/service/application/share/v1.0/qr/products/{slug}".substring(1));
-        relativeUrls.put("getCollectionQRCodeBySlug","/service/application/share/v1.0/qr/collection/{slug}".substring(1));
-        relativeUrls.put("getUrlQRCode","/service/application/share/v1.0/qr/url".substring(1));
-        relativeUrls.put("createShortLink","/service/application/share/v1.0/links/short-link".substring(1));
-        relativeUrls.put("getShortLinkByHash","/service/application/share/v1.0/links/short-link/{hash}".substring(1));
-        relativeUrls.put("getOriginalShortLinkByHash","/service/application/share/v1.0/links/short-link/{hash}/original".substring(1)); 
+        relativeUrls.put("getApplicationQRCode","/service/application/share/v1.0/qr/".substring(1));
+        relativeUrls.put("getProductQRCodeBySlug","/service/application/share/v1.0/qr/products/{slug}/".substring(1));
+        relativeUrls.put("getCollectionQRCodeBySlug","/service/application/share/v1.0/qr/collection/{slug}/".substring(1));
+        relativeUrls.put("getUrlQRCode","/service/application/share/v1.0/qr/url/".substring(1));
+        relativeUrls.put("createShortLink","/service/application/share/v1.0/links/short-link/".substring(1));
+        relativeUrls.put("getShortLinkByHash","/service/application/share/v1.0/links/short-link/{hash}/".substring(1));
+        relativeUrls.put("getOriginalShortLinkByHash","/service/application/share/v1.0/links/short-link/{hash}/original/".substring(1)); 
 
     }
 

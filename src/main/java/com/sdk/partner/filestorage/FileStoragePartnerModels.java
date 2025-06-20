@@ -55,14 +55,8 @@ public static class SaveProxy{
     
     
     
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -86,14 +80,8 @@ public static class ProxyFileData{
     
     
     
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("password")
-    private String password;
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -152,12 +140,6 @@ public static class ProxyFile{
     
     
     
-    
-    @JsonProperty("headers")
-    private HashMap<String,Object> headers;
-    
-    
-    
 }
 
 
@@ -178,14 +160,8 @@ public static class FetchProxyDetails{
     
     
     
-    @JsonProperty("data")
-    private HashMap<String,Object> data;
-    
-    
-    
-    
-    @JsonProperty("support")
-    private HashMap<String,Object> support;
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
@@ -447,12 +423,6 @@ public static class FileUploadStart{
     
     
     
-    
-    @JsonProperty("enc_key")
-    private String encKey;
-    
-    
-    
 }
 
 
@@ -603,6 +573,99 @@ public static class FailedBrowseFilesResult{
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: SignedUrl
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignedUrl{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("signed_url")
+    private String signedUrl;
+    
+    
+    
+    
+    @JsonProperty("expiry")
+    private Integer expiry;
+    
+    
+    
+}
+
+
+/*
+    Model: SignUrlResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignUrlResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("urls")
+    private List<SignedUrl> urls;
+    
+    
+    
+}
+
+
+/*
+    Model: SignUrl
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SignUrl{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("expiry")
+    private Integer expiry;
+    
+    
+    
+    
+    @JsonProperty("urls")
+    private List<String> urls;
     
     
     

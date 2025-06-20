@@ -74,6 +74,20 @@ public class ContentPublicService {
         return response.body();
     }
 
+    public ContentPublicModels.AnalyticsTagsSchema getAnalyticsTags() throws IOException {
+        return this.getAnalyticsTags(new HashMap<>());
+    }
+
+    public ContentPublicModels.AnalyticsTagsSchema getAnalyticsTags(Map<String, String> requestHeaders) throws IOException {
+    
+        Response<ContentPublicModels.AnalyticsTagsSchema> response = contentPublicApiList.getAnalyticsTags(requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
     public ContentPublicModels.CustomPageBySlugSchema getCustomPage(String slug) throws IOException {
         return this.getCustomPage(slug, new HashMap<>());
     }
@@ -172,13 +186,13 @@ public class ContentPublicService {
         return response.body();
     }
 
-    public ContentPublicModels.SDKLinksResponseSchema getSDKDocumentation() throws IOException {
-        return this.getSDKDocumentation(new HashMap<>());
+    public Object getAllLanguages() throws IOException {
+        return this.getAllLanguages(new HashMap<>());
     }
 
-    public ContentPublicModels.SDKLinksResponseSchema getSDKDocumentation(Map<String, String> requestHeaders) throws IOException {
+    public Object getAllLanguages(Map<String, String> requestHeaders) throws IOException {
     
-        Response<ContentPublicModels.SDKLinksResponseSchema> response = contentPublicApiList.getSDKDocumentation(requestHeaders).execute();
+        Response<Object> response = contentPublicApiList.getAllLanguages(requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -186,13 +200,27 @@ public class ContentPublicService {
         return response.body();
     }
 
-    public ContentPublicModels.SDKbyTypeResponseSchema getSDKDocumentationByType(String type) throws IOException {
-        return this.getSDKDocumentationByType(type, new HashMap<>());
+    public ContentPublicModels.Language getLanguageByLocale(String locale) throws IOException {
+        return this.getLanguageByLocale(locale, new HashMap<>());
     }
 
-    public ContentPublicModels.SDKbyTypeResponseSchema getSDKDocumentationByType(String type, Map<String, String> requestHeaders) throws IOException {
+    public ContentPublicModels.Language getLanguageByLocale(String locale, Map<String, String> requestHeaders) throws IOException {
     
-        Response<ContentPublicModels.SDKbyTypeResponseSchema> response = contentPublicApiList.getSDKDocumentationByType(type, requestHeaders).execute();
+        Response<ContentPublicModels.Language> response = contentPublicApiList.getLanguageByLocale(locale, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+
+    public Object getAllTranslatableResources() throws IOException {
+        return this.getAllTranslatableResources(new HashMap<>());
+    }
+
+    public Object getAllTranslatableResources(Map<String, String> requestHeaders) throws IOException {
+    
+        Response<Object> response = contentPublicApiList.getAllTranslatableResources(requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
