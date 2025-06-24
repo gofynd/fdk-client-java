@@ -1,376 +1,94 @@
-# CHANGE LOG (1.10.6-1) - 1.10.6
+# CHANGE LOG (1.10.6-2) - 1.10.6
+
+# CHANGE LOG (3.4.1) - 2.7.1
 
 ## Application Client
 
 
 
-### Cart
+### Communication
 
 
 
-#### getCart
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-
-#### addItems
+#### getCommunicationConsent
 
 - ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
+	- [Added] property <code>channels.email.value</code> of schema <code>CommunicationConsentChannelsEmail</code> in response with status code 200
+	- [Added] property <code>channels.sms.value</code> of schema <code>CommunicationConsentChannelsSms</code> in response with status code 200
+	- [Added] property <code>channels.whatsapp.value</code> of schema <code>CommunicationConsentChannelsWhatsapp</code> in response with status code 200
 
 
-#### updateCart
-
-- ##### What's New
-	- [Added] property <code>items[].storeId</code> of schema <code>UpdateProductCart</code> in request body
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-
-#### applyCoupon
+#### upsertCommunicationConsent
 
 - ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-
-#### removeCoupon
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-
-#### applyRewardPoints
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-
-#### selectAddress
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-
-#### selectPaymentMode
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-
-#### getCartSharedItems
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 404
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 404
-
-
-#### updateCartWithSharedItems
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 404
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 404
-
-
-#### getShipments
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>shipments[].items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>shipments[].items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>shipments[].distance</code> of schema <code>ShipmentResponseObject</code> in response with status code 200
-	- [Added] property <code>shipments[].journeyWisePromise</code> of schema <code>ShipmentResponseObject</code> in response with status code 200
-
-
-#### checkoutCart
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-
-#### checkoutCartV2
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-
-#### getPaymentPromotionOffers
-
-- ##### What's New
-	- [Added] property <code>code</code> of schema <code>StandardError</code> in response with status code 400
-
-
-### Catalog
-
-
-
-#### getProductPriceBySlug
-
-- ##### What's New
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>ProductSizePriceResponseV4</code> in response with status code 200
-
-
-#### getProductSellersBySlug
-
-- ##### What's New
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>ProductSizePriceResponseV4</code> in response with status code 200
-
-
-### Configuration
-
-
-
-#### getOwnerInfo
-
-- ##### What's New
-	- [Added] property <code>applicationInfo.isSisEnabled</code> of schema <code>ApplicationInfo</code> in response with status code 200
+	- [Added] property <code>channels.email.value</code> of schema <code>CommunicationConsentChannelsEmail</code> in response with status code 200
+	- [Added] property <code>channels.sms.value</code> of schema <code>CommunicationConsentChannelsSms</code> in response with status code 200
+	- [Added] property <code>channels.whatsapp.value</code> of schema <code>CommunicationConsentChannelsWhatsapp</code> in response with status code 200
+	- [Added] property <code>encrypted</code> of schema <code>CommunicationConsentRes</code> in response with status code 200
 
 
 ### Logistic
 
 
 
-#### createShipments
+#### getCountry
 
 - ##### What's New
-	- [Added] property <code>shipments[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
-	- [Added] property <code>shipments[].distance</code> of schema <code>Shipments</code> in response with status code 200
-
-
-#### getDeliveryPromise
-
-- ##### What's New
-	- [Added] property <code>code</code> of schema <code>StandardError</code> in response with status code 400
-
-
-#### getQCPromise
-
-- ##### What's New
-	- [Added] property <code>code</code> of schema <code>StandardError</code> in response with status code 400
-
-
-### Order
-
-
-
-#### getOrders
-
-- ##### What's New
-	- [Added] property <code>items[].shipments[].fulfillingStore.customJson</code> of schema <code>FulfillingStore</code> in response with status code 200
-
-
-#### getOrderById
-
-- ##### What's New
-	- [Added] property <code>order.shipments[].fulfillingStore.customJson</code> of schema <code>FulfillingStore</code> in response with status code 200
-
-
-#### getPosOrderById
-
-- ##### What's New
-	- [Added] property <code>order.shipments[].fulfillingStore.customJson</code> of schema <code>FulfillingStore</code> in response with status code 200
-
-
-#### getShipmentById
-
-- ##### What's New
-	- [Added] property <code>shipment.fulfillingStore.customJson</code> of schema <code>FulfillingStore</code> in response with status code 200
-
-
-### Payment
-
-
-
-#### checkCredit
-
-- ##### What's New
-	- [Breaking] [Added] Required status to query parameter <code>aggregator</code>
-	- [Added] <code>query</code> parameter <code>wallet</code> (type: <code>string</code>)
-
-
-
-#### getOutagesData
-
-- ##### What's New
-	- [Added] method <code>getOutagesData</code>
-
-
-
-### User
-
-
-
-#### getUserGroupsForUser
-
-- ##### What's New
-	- [Added] method <code>getUserGroupsForUser</code>
-
+	- [Added] <code>meta.applicationFields.addressTemplate.plp</code> made required in response with status code 200
+	- [Added] <code>fields.addressTemplate.plp</code> made required in response with status code 200
 
 
 ## Partner Client
 
 
 
-### Theme
+### Logistics
 
 
 
-#### getAllPages
-
-- ##### What's New
-	- [Added] properties <code>pages[].sections[].predicate.user.userGroups.l1</code>, <code>pages[].sections[].predicate.user.userGroups.l2</code> in response with status code 200
-	- [Added] property <code>pages[].slug</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].status</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].comment</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].predicate</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].fallback</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].store</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].pageMapper</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>pages[].sections[].predicate.user.userGroups[]</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>pages[].sections[].predicate.user.userGroups</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
-
-
-#### createPage
+#### createCourierPartnerScheme
 
 - ##### What's New
-	- [Added] properties <code>sections[].predicate.user.userGroups.l1</code>, <code>sections[].predicate.user.userGroups.l2</code> in request body
-	- [Added] property <code>slug</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>status</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>comment</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>predicate</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>fallback</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>store</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>pageMapper</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] properties <code>sections[].predicate.user.userGroups.l1</code>, <code>sections[].predicate.user.userGroups.l2</code> in response with status code 200
-	- [Added] property <code>slug</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>status</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>comment</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>predicate</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>fallback</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>store</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pageMapper</code> of schema <code>AvailablePageSchema</code> in response with status code 200
+	- [Added] property <code>defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in request body
+	- [Added] property <code>defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultTat</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
 
 - ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>sections[].predicate.user.userGroups[]</code> of schema <code>AvailablePageUserPredicate</code> in request body
-	- [Breaking] [Deleted] property <code>sections[].predicate.user.userGroups[]</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>sections[].predicate.user.userGroups</code> of schema <code>AvailablePageUserPredicate</code> in request body
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>sections[].predicate.user.userGroups</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
+	- [Deleted] Value format from <code>date-time</code> from property <code>defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in request body
+	- [Deleted] Value format from <code>date-time</code> from property <code>defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in request body
 
 
-#### updateMultiplePages
+#### getCourierPartnerSchemes
 
 - ##### What's New
-	- [Added] properties <code>pages[].sections[].predicate.user.userGroups.l1</code>, <code>pages[].sections[].predicate.user.userGroups.l2</code> in request body
-	- [Added] property <code>pages[].slug</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>pages[].status</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>pages[].comment</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>pages[].predicate</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>pages[].fallback</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>pages[].store</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>pages[].pageMapper</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] properties <code>pages[].sections[].predicate.user.userGroups.l1</code>, <code>pages[].sections[].predicate.user.userGroups.l2</code> in response with status code 200
-	- [Added] property <code>pages[].slug</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].status</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].comment</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].predicate</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].fallback</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].store</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pages[].pageMapper</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>pages[].sections[].predicate.user.userGroups[]</code> of schema <code>AvailablePageUserPredicate</code> in request body
-	- [Breaking] [Deleted] property <code>pages[].sections[].predicate.user.userGroups[]</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>pages[].sections[].predicate.user.userGroups</code> of schema <code>AvailablePageUserPredicate</code> in request body
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>pages[].sections[].predicate.user.userGroups</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
+	- [Added] property <code>items[].defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>items[].defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>items[].defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>items[].defaultTat</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
 
 
-#### getPage
+#### updateCourierPartnerScheme
 
 - ##### What's New
-	- [Added] properties <code>sections[].predicate.user.userGroups.l1</code>, <code>sections[].predicate.user.userGroups.l2</code> in response with status code 200
-	- [Added] property <code>slug</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>status</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>comment</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>predicate</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>fallback</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>store</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pageMapper</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>sections[].predicate.user.userGroups[]</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>sections[].predicate.user.userGroups</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
+	- [Added] property <code>defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeUpdateDetails</code> in request body
+	- [Added] property <code>defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeUpdateDetails</code> in request body
+	- [Added] property <code>defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeUpdateDetails</code> in request body
+	- [Added] property <code>defaultTat</code> of schema <code>CourierPartnerSchemeUpdateDetails</code> in request body
+	- [Added] property <code>defaultForwardPickupCutoff</code> of schema <code>CourierPartnerPutSchema</code> in response with status code 200
+	- [Added] property <code>defaultReversePickupCutoff</code> of schema <code>CourierPartnerPutSchema</code> in response with status code 200
+	- [Added] property <code>defaultCutoffTimezone</code> of schema <code>CourierPartnerPutSchema</code> in response with status code 200
+	- [Added] property <code>defaultTat</code> of schema <code>CourierPartnerPutSchema</code> in response with status code 200
 
 
-#### updatePage
+#### getCourierPartnerScheme
 
 - ##### What's New
-	- [Added] properties <code>sections[].predicate.user.userGroups.l1</code>, <code>sections[].predicate.user.userGroups.l2</code> in request body
-	- [Added] property <code>slug</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>status</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>comment</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>predicate</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>fallback</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>store</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] property <code>pageMapper</code> of schema <code>AvailablePageSchema</code> in request body
-	- [Added] properties <code>sections[].predicate.user.userGroups.l1</code>, <code>sections[].predicate.user.userGroups.l2</code> in response with status code 200
-	- [Added] property <code>slug</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>status</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>comment</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>predicate</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>fallback</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>store</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pageMapper</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>sections[].predicate.user.userGroups[]</code> of schema <code>AvailablePageUserPredicate</code> in request body
-	- [Breaking] [Deleted] property <code>sections[].predicate.user.userGroups[]</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>sections[].predicate.user.userGroups</code> of schema <code>AvailablePageUserPredicate</code> in request body
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>sections[].predicate.user.userGroups</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
-
-
-#### deletePage
-
-- ##### What's New
-	- [Added] properties <code>sections[].predicate.user.userGroups.l1</code>, <code>sections[].predicate.user.userGroups.l2</code> in response with status code 200
-	- [Added] property <code>slug</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>status</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>comment</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>predicate</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>fallback</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>store</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-	- [Added] property <code>pageMapper</code> of schema <code>AvailablePageSchema</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>sections[].predicate.user.userGroups[]</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>sections[].predicate.user.userGroups</code> of schema <code>AvailablePageUserPredicate</code> in response with status code 200
+	- [Added] property <code>defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultTat</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
 
 
 ## Platform Client
@@ -381,1329 +99,1288 @@
 
 
 
-#### createCoupon
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>author.approvedBy</code> of schema <code>CouponAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>author.reviewedBy</code> of schema <code>CouponAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>author.rejectedBy</code> of schema <code>CouponAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>identifiers.emailDomain</code> of schema <code>Identifier</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>schedule.status</code> of schema <code>CouponSchedule</code> in request body
-	- [Breaking] [Deleted] property <code>isPltBypass</code> of schema <code>CouponAdd</code> in request body
-	- [Breaking] [Deleted] property <code>data.medias</code> of schema <code>CouponDetailObj</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.author.approvedBy</code> of schema <code>CouponAuthor</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.author.reviewedBy</code> of schema <code>CouponAuthor</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.author.rejectedBy</code> of schema <code>CouponAuthor</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.identifiers.emailDomain</code> of schema <code>Identifier</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.couponType</code> of schema <code>CouponDetailObj</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.couponPrefix</code> of schema <code>CouponDetailObj</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.couponCounts</code> of schema <code>CouponDetailObj</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>data.schedule.status</code> of schema <code>CouponSchedule</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
-
-
-#### getCoupons
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>draft</code> of schema <code>CouponsResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>review</code> of schema <code>CouponsResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>rejected</code> of schema <code>CouponsResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>approved</code> of schema <code>CouponsResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].draft</code> of schema <code>CouponObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].review</code> of schema <code>CouponObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].rejected</code> of schema <code>CouponObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].approved</code> of schema <code>CouponObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].author.approvedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].author.reviewedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].author.rejectedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].identifiers</code> of schema <code>CouponObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].validity</code> of schema <code>CouponObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].rule</code> of schema <code>CouponObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].schedule.status</code> of schema <code>CouponSchedule</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].isArchived</code> of schema <code>CouponObj</code> in response with status code 200
-
-
-#### getCouponById
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>medias</code> of schema <code>CouponUpdate</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>author.approvedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>author.reviewedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>author.rejectedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>identifiers.emailDomain</code> of schema <code>Identifier</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>couponType</code> of schema <code>CouponUpdate</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>couponPrefix</code> of schema <code>CouponUpdate</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>couponCounts</code> of schema <code>CouponUpdate</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>schedule.status</code> of schema <code>CouponSchedule</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>isPltBypass</code> of schema <code>CouponUpdate</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-
-#### updateCoupon
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>medias</code> of schema <code>CouponUpdate</code> in request body
-	- [Breaking] [Deleted] property <code>author.approvedBy</code> of schema <code>CouponAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>author.reviewedBy</code> of schema <code>CouponAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>author.rejectedBy</code> of schema <code>CouponAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>identifiers.emailDomain</code> of schema <code>Identifier</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>couponType</code> of schema <code>CouponUpdate</code> in request body
-	- [Breaking] [Deleted] property <code>couponPrefix</code> of schema <code>CouponUpdate</code> in request body
-	- [Breaking] [Deleted] property <code>couponCounts</code> of schema <code>CouponUpdate</code> in request body
-	- [Breaking] [Deleted] property <code>schedule.status</code> of schema <code>CouponSchedule</code> in request body
-	- [Breaking] [Deleted] property <code>isPltBypass</code> of schema <code>CouponUpdate</code> in request body
-	- [Breaking] [Deleted] property <code>data.medias</code> of schema <code>CouponDetailObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.author.approvedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.author.reviewedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.author.rejectedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.identifiers.emailDomain</code> of schema <code>Identifier</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.couponType</code> of schema <code>CouponDetailObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.couponPrefix</code> of schema <code>CouponDetailObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.couponCounts</code> of schema <code>CouponDetailObj</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data.schedule.status</code> of schema <code>CouponSchedule</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-
-#### getPromotions
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>draft</code> of schema <code>PromotionsResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>review</code> of schema <code>PromotionsResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>rejected</code> of schema <code>PromotionsResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>approved</code> of schema <code>PromotionsResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].draft</code> of schema <code>PromotionListItem</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].review</code> of schema <code>PromotionListItem</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].rejected</code> of schema <code>PromotionListItem</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].approved</code> of schema <code>PromotionListItem</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].author.rejectedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].author.approvedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].author.reviewedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].schedule.status</code> of schema <code>PromotionSchedule</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].promotionType</code> of schema <code>PromotionListItem</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>items[].isArchived</code> of schema <code>PromotionListItem</code> in response with status code 200
-
-
 #### createPromotion
 
 - ##### What's New
-	- [Added] Possible nullable value <code>true</code> to property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in request body
-	- [Added] Possible nullable value <code>true</code> to property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in response with status code 201
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>draft</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>review</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>rejected</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>approved</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>medias</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>visibility</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>offerCounts</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>offerPrefix</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>isBankOffer</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>customContent</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>offerType</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>isArchived</code> of schema <code>PromotionAddResult</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
-
-- ##### What's Changed
-	- [Changed] <code>postOrderAction.action_date</code> made optional in request body
-	- [Changed] <code>postOrderAction.action_date</code> made optional in response with status code 201
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
+	- [Added] property <code>buyRules.meta</code> of schema <code>BuyRuleItemCriteria</code> in request body
 
 
 #### getPromotionById
 
 - ##### What's New
-	- [Added] Possible nullable value <code>true</code> to property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>medias</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>visibility</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>isArchived</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>offerPrefix</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>customContent</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>offerCounts</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>offerType</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>isBankOffer</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-- ##### What's Changed
-	- [Changed] <code>postOrderAction.action_date</code> made optional in response with status code 200
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
+	- [Added] property <code>buyRules.meta</code> of schema <code>BuyRuleItemCriteria</code> in response with status code 200
 
 
 #### updatePromotion
 
 - ##### What's New
-	- [Added] Possible nullable value <code>true</code> to property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in request body
-	- [Added] Possible nullable value <code>true</code> to property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in request body
-	- [Breaking] [Deleted] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in request body
-	- [Breaking] [Deleted] property <code>medias</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>visibility</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>isArchived</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>offerPrefix</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>customContent</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>offerCounts</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>offerType</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>isBankOffer</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-- ##### What's Changed
-	- [Changed] <code>postOrderAction.action_date</code> made optional in request body
-	- [Changed] <code>postOrderAction.action_date</code> made optional in response with status code 200
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-
-#### getCartMetaConfig
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-
-#### updateCartMetaConfig
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>createdOn</code> of schema <code>CartMetaConfigUpdate</code> in request body
-	- [Breaking] [Deleted] property <code>createdOn</code> of schema <code>CartMetaConfigUpdate</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-
-#### deleteCartMetaConfig
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
-
-
-#### getCartMetaConfigs
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>data[].enabled</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].appId</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].companyId</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].updatedOn</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].lastModifiedBy</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].minCartValue</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].maxCartValue</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].bulkCoupons</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].maxCartItems</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].giftDisplayText</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].deliveryCharges</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].revenueEngineCoupon</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].giftPricing</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].orderPlacing</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].articleTags</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].allowCouponWithRewards</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].gstInput</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].staffSelection</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].placingForCustomer</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].hideOnStorefront</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].panCard</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].isUniversal</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].emptyCart</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>data[].internationalDeliveryCharges</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
-
-
-#### addPriceAdjustment
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>data.expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>priceAdjustments[].expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 201
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
-
-
-#### getPriceAdjustments
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>data[].expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>priceAdjustments[].expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 200
-
-
-#### updatePriceAdjustment
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>data.expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
-
-
-#### removePriceAdjustment
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>object</code> to <code>string</code> of property <code>errors</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
-
-
-#### fetchAndvalidateCartItems
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>buyRules.meta</code> of schema <code>BuyRuleItemCriteria</code> in response with status code 200
 
 
 #### checkCartServiceability
 
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
+- ##### What's Deprecated
+	- [Deleted] minLength validator for shippingAddress.areaCode in request body
+
+- ##### What's Changed
+	- [Changed] <code>shippingAddress.area_code</code> made optional in request body
+
+
+#### checkoutCart
 
 - ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Deleted] minLength validator for shippingAddress.areaCode in request body
+	- [Deleted] minLength validator for billingAddress.areaCode in request body
 
-
-#### getAbandonedCartDetails
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### addItems
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### updateCart
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### overrideCart
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>callbackUrl</code> of schema <code>OverrideCheckoutResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>paymentConfirmUrl</code> of schema <code>OverrideCheckoutResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>appInterceptUrl</code> of schema <code>OverrideCheckoutResponseObject</code> in response with status code 200
-
-
-#### getCartSharedItems
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 404
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 404
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 404
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 404
-
-
-#### updateCartWithSharedItems
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 404
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 404
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 404
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 404
+- ##### What's Changed
+	- [Changed] <code>shippingAddress.area_code</code> made optional in request body
+	- [Changed] <code>billingAddress.area_code</code> made optional in request body
 
 
 #### updateCartUser
 
 - ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### platformAddItems
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### getCart
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### platformUpdateCart
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### applyCoupon
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### removeCoupon
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### addAddress
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>pincode</code> of schema <code>PlatformAddress</code> in request body
-	- [Breaking] [Deleted] properties <code>customJson.metaData</code>, <code>customJson.metaDataInt</code> in request body
-
-
-#### getAddresses
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>address[].pincode</code> of schema <code>PlatformAddress</code> in response with status code 200
-	- [Breaking] [Deleted] properties <code>address[].customJson.metaData</code>, <code>address[].customJson.metaDataInt</code> in response with status code 200
-
-
-#### getAddressById
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>pincode</code> of schema <code>PlatformAddress</code> in response with status code 200
-	- [Breaking] [Deleted] properties <code>customJson.metaData</code>, <code>customJson.metaDataInt</code> in response with status code 200
-
-
-#### updateAddress
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>pincode</code> of schema <code>PlatformAddress</code> in request body
-	- [Breaking] [Deleted] properties <code>customJson.metaData</code>, <code>customJson.metaDataInt</code> in request body
-
-
-#### selectAddress
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>address.address[].pincode</code> of schema <code>PlatformAddress</code> in response with status code 400
-	- [Breaking] [Deleted] properties <code>address.address[].customJson.metaData</code>, <code>address.address[].customJson.metaDataInt</code> in response with status code 400
-
-
-#### getShipments
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>shipments[].items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>shipments[].items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>shipments[].distance</code> of schema <code>PlatformShipmentResult</code> in response with status code 200
-	- [Added] property <code>shipments[].journeyWisePromise</code> of schema <code>PlatformShipmentResult</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>shipments[].items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>shipments[].meta.debug</code> of schema <code>ShipmentMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>shipments[].debug</code> of schema <code>PlatformShipmentResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>PlatformCartShipmentsResponseObject</code> in response with status code 200
-
-
-#### updateShipments
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>shipments[].items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>shipments[].items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>shipments[].distance</code> of schema <code>PlatformShipmentResult</code> in response with status code 200
-	- [Added] property <code>shipments[].journeyWisePromise</code> of schema <code>PlatformShipmentResult</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>shipments[].items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>shipments[].meta.debug</code> of schema <code>ShipmentMeta</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>shipments[].debug</code> of schema <code>PlatformShipmentResponseObject</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>PlatformCartShipmentsResponseObject</code> in response with status code 200
-
-
-#### platformCheckoutCart
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.priceAdjustmentApplied[].articleId</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.errorMessage</code> of schema <code>CheckCart</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].message</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].restrictions</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].appliedArticlesIds</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].removeArticles</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].autoRemove</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].id</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>CartCheckoutResponseObject</code> in response with status code 200
-
-
-#### selectPaymentMode
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-#### platformCheckoutCartV2
-
-- ##### What's New
-	- [Added] property <code>cart.items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>cart.priceAdjustmentApplied[].articleId</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.errorMessage</code> of schema <code>CheckCart</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].message</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].restrictions</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].appliedArticlesIds</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].removeArticles</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].autoRemove</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].id</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>CartCheckoutResponseObject</code> in response with status code 200
-
-
-#### selectPaymentModeV2
-
-- ##### What's New
-	- [Added] property <code>items[].distance</code> of schema <code>CartProductInfo</code> in response with status code 200
-	- [Added] property <code>items[].journeyWisePromise</code> of schema <code>CartProductInfo</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
-
-
-### Catalog
-
-
-
-#### createCollection
-
-- ##### What's New
-	- [Added] properties <code>seo.breadcrumbs[].action.page</code>, <code>seo.breadcrumbs[].action.type</code> in request body
-	- [Breaking] [Added] <code>seo.breadcrumbs[].action.type</code> made required in request body
-	- [Added] properties <code>seo.breadcrumbs[].action.page</code>, <code>seo.breadcrumbs[].action.type</code> in response with status code 200
-	- [Breaking] [Added] <code>seo.breadcrumbs[].action.type</code> made required in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>seo.breadcrumbs[].action[]</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in request body
-	- [Breaking] [Deleted] property <code>seo.breadcrumbs[].action[]</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
+	- [Added] Possible nullable value <code>true</code> to property <code>userId</code> of schema <code>UpdateUserCartMapping</code> in request body
 
 - ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>seo.breadcrumbs[].action</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in request body
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>seo.breadcrumbs[].action</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
-
-
-#### getCollectionItems
-
-- ##### What's New
-	- [Added] properties <code>items[].seo.breadcrumbs[].action.page</code>, <code>items[].seo.breadcrumbs[].action.type</code> in response with status code 200
-	- [Breaking] [Added] <code>items[].seo.breadcrumbs[].action.type</code> made required in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].seo.breadcrumbs[].action[]</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>items[].seo.breadcrumbs[].action</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
-
-
-#### getCollectionDetail
-
-- ##### What's New
-	- [Added] properties <code>seo.breadcrumbs[].action.page</code>, <code>seo.breadcrumbs[].action.type</code> in response with status code 200
-	- [Breaking] [Added] <code>seo.breadcrumbs[].action.type</code> made required in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>seo.breadcrumbs[].action[]</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>seo.breadcrumbs[].action</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
-
-
-#### updateAppProduct
-
-- ##### What's New
-	- [Added] properties <code>seo.breadcrumbs[].action.page</code>, <code>seo.breadcrumbs[].action.type</code> in request body
-	- [Breaking] [Added] <code>seo.breadcrumbs[].action.type</code> made required in request body
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>seo.breadcrumbs[].action[]</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in request body
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>seo.breadcrumbs[].action</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in request body
-
-
-#### getApplicationProducts
-
-- ##### What's New
-	- [Added] properties <code>items[].seo.breadcrumbs[].action.page</code>, <code>items[].seo.breadcrumbs[].action.type</code> in response with status code 200
-	- [Breaking] [Added] <code>items[].seo.breadcrumbs[].action.type</code> made required in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].seo.breadcrumbs[].action[]</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>items[].seo.breadcrumbs[].action</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
-
-
-#### listProductTemplateCategories
-
-- ##### What's New
-	- [Added] <code>query</code> parameter <code>slug</code> (type: <code>string</code>)
-
-
-
-#### getGroupConfigurations
-
-- ##### What's New
-	- [Added] properties <code>data[].seo.breadcrumbs[].action.page</code>, <code>data[].seo.breadcrumbs[].action.type</code> in response with status code 200
-	- [Breaking] [Added] <code>data[].seo.breadcrumbs[].action.type</code> made required in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>data[].seo.breadcrumbs[].action[]</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
-
-- ##### What's Changed
-	- [Breaking] [Changed] Type from <code>array</code> to <code>object</code> of property <code>data[].seo.breadcrumbs[].action</code> of schema <code>ApplicationItemSeoBreadcrumbs</code> in response with status code 200
+	- [Changed] <code>user_id</code> made optional in request body
 
 
 ### CompanyProfile
 
 
 
-#### createLocation
-
-- ##### What's New
-	- [Added] property <code>isHyperlocalActive</code> of schema <code>LocationSchema</code> in request body
-
-
 #### getLocationDetail
 
 - ##### What's New
-	- [Added] property <code>isHyperlocalActive</code> of schema <code>GetLocationSchema</code> in response with status code 200
-
-
-#### updateLocation
-
-- ##### What's New
-	- [Added] property <code>isHyperlocalActive</code> of schema <code>LocationSchema</code> in request body
-
-
-#### createLocationBulk
-
-- ##### What's New
-	- [Added] property <code>data[].isHyperlocalActive</code> of schema <code>LocationSchema</code> in request body
-
-
-### Configuration
-
-
-
-#### createApplication
-
-- ##### What's New
-	- [Added] property <code>app.isSisEnabled</code> of schema <code>Application</code> in response with status code 200
-
-
-#### getApplications
-
-- ##### What's New
-	- [Added] property <code>items[].isSisEnabled</code> of schema <code>Application</code> in response with status code 200
-
-
-#### getApplicationById
-
-- ##### What's New
-	- [Added] property <code>isSisEnabled</code> of schema <code>Application</code> in response with status code 200
-
-
-#### updateApplication
-
-- ##### What's New
-	- [Added] property <code>isSisEnabled</code> of schema <code>Application</code> in request body
-	- [Added] property <code>isSisEnabled</code> of schema <code>Application</code> in response with status code 200
-
-
-#### createTokens
-
-- ##### What's New
-	- [Added] property <code>isSisEnabled</code> of schema <code>Application</code> in response with status code 200
-
-
-#### deleteToken
-
-- ##### What's New
-	- [Added] property <code>isSisEnabled</code> of schema <code>Application</code> in response with status code 200
-
-
-#### getAllStoreInStoreEntries
-
-- ##### What's New
-	- [Added] method <code>getAllStoreInStoreEntries</code>
-
-
-
-#### createStoreInStoreEntry
-
-- ##### What's New
-	- [Added] method <code>createStoreInStoreEntry</code>
-
-
-
-#### getStoreInStoreEntry
-
-- ##### What's New
-	- [Added] method <code>getStoreInStoreEntry</code>
-
-
-
-#### updateStoreInStoreEntry
-
-- ##### What's New
-	- [Added] method <code>updateStoreInStoreEntry</code>
-
-
-
-#### deleteStoreInStoreEntry
-
-- ##### What's New
-	- [Added] method <code>deleteStoreInStoreEntry</code>
-
-
-
-#### toggleStoreInStoreFeature
-
-- ##### What's New
-	- [Added] method <code>toggleStoreInStoreFeature</code>
-
-
-
-### Content
-
-
-
-#### getNavigations
-
-- ##### What's New
-	- [Added] property <code>items[].status</code> of schema <code>NavigationSchema</code> in response with status code 200
-	- [Added] property <code>items[].predicate</code> of schema <code>NavigationSchema</code> in response with status code 200
-	- [Added] property <code>items[].storeId</code> of schema <code>NavigationSchema</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].domain</code> of schema <code>NavigationSchema</code> in response with status code 200
-
-
-#### createNavigation
-
-- ##### What's New
-	- [Added] property <code>predicate</code> of schema <code>NavigationRequestSchema</code> in request body
-	- [Added] property <code>storeId</code> of schema <code>NavigationRequestSchema</code> in request body
-	- [Added] property <code>status</code> of schema <code>NavigationSchema</code> in response with status code 200
-	- [Added] property <code>predicate</code> of schema <code>NavigationSchema</code> in response with status code 200
-	- [Added] property <code>storeId</code> of schema <code>NavigationSchema</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>domain</code> of schema <code>NavigationRequestSchema</code> in request body
-	- [Breaking] [Deleted] property <code>domain</code> of schema <code>NavigationSchema</code> in response with status code 200
-
-
-#### getDefaultNavigations
-
-- ##### What's New
-	- [Added] property <code>items[].status</code> of schema <code>NavigationSchema</code> in response with status code 200
-	- [Added] property <code>items[].predicate</code> of schema <code>NavigationSchema</code> in response with status code 200
-	- [Added] property <code>items[].storeId</code> of schema <code>NavigationSchema</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].domain</code> of schema <code>NavigationSchema</code> in response with status code 200
+	- [Added] property <code>qcBasedReturnInventorySync</code> of schema <code>GetLocationSchema</code> in response with status code 200
 
 
 ### Serviceability
 
 
 
-#### deleteCourierPartnerRule
+#### createGeoArea
 
 - ##### What's New
-	- [Added] property <code>code</code> of schema <code>StandardError</code> in response with status code 400
+	- [Added] property <code>isPolygon</code> of schema <code>GeoAreaRequestBody</code> in request body
+	- [Added] property <code>isPolygon</code> of schema <code>GeoAreaResponseBody</code> in response with status code 200
 
 
-#### deleteStoreRule
-
-- ##### What's New
-	- [Added] property <code>code</code> of schema <code>StandardError</code> in response with status code 400
-
-
-#### deletePackageMaterialRule
+#### getGeoArea
 
 - ##### What's New
-	- [Added] property <code>code</code> of schema <code>StandardError</code> in response with status code 400
+	- [Added] property <code>isPolygon</code> of schema <code>GeoAreaDetails</code> in response with status code 200
 
 
-#### deletePackageMaterials
-
-- ##### What's New
-	- [Added] property <code>code</code> of schema <code>StandardError</code> in response with status code 400
-
-
-#### bulkServiceability
+#### updateGeoArea
 
 - ##### What's New
-	- [Added] method <code>bulkServiceability</code>
+	- [Added] property <code>isPolygon</code> of schema <code>GeoAreaRequestBody</code> in request body
+	- [Added] property <code>isPolygon</code> of schema <code>GeoAreaPutResponseBody</code> in response with status code 200
 
 
-
-#### getBulkServiceability
-
-- ##### What's New
-	- [Added] method <code>getBulkServiceability</code>
-
-
-
-#### sampleFileServiceability
+#### updateCourierRule
 
 - ##### What's New
-	- [Added] method <code>sampleFileServiceability</code>
+	- [Added] property <code>cpList[].schemeRules.defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Deleted] Value format from <code>date-time</code> from property <code>cpList[].schemeRules.defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
+	- [Deleted] Value format from <code>date-time</code> from property <code>cpList[].schemeRules.defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
 
 
-
-#### getSampleFileServiceabilityStatus
-
-- ##### What's New
-	- [Added] method <code>getSampleFileServiceabilityStatus</code>
-
-
-
-#### bulkTat
+#### getCourierPartnerRule
 
 - ##### What's New
-	- [Added] method <code>bulkTat</code>
+	- [Added] property <code>cpList[].schemeRules.defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Deleted] Value format from <code>date-time</code> from property <code>cpList[].schemeRules.defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
+	- [Deleted] Value format from <code>date-time</code> from property <code>cpList[].schemeRules.defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
 
 
-
-#### getBulkTat
-
-- ##### What's New
-	- [Added] method <code>getBulkTat</code>
-
-
-
-#### validateBulkGeoarea
+#### createCourierPartnerRule
 
 - ##### What's New
-	- [Added] method <code>validateBulkGeoarea</code>
+	- [Added] property <code>cpList[].schemeRules.defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Deleted] Value format from <code>date-time</code> from property <code>cpList[].schemeRules.defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
+	- [Deleted] Value format from <code>date-time</code> from property <code>cpList[].schemeRules.defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
 
 
-
-#### getBulkGeoareaValidation
-
-- ##### What's New
-	- [Added] method <code>getBulkGeoareaValidation</code>
-
-
-
-#### importBulkGeoarea
+#### getCourierPartnerRules
 
 - ##### What's New
-	- [Added] method <code>importBulkGeoarea</code>
+	- [Added] property <code>items[].cpList[].schemeRules.defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
 
-
-
-#### importBulkGeoareaStatus
-
-- ##### What's New
-	- [Added] method <code>importBulkGeoareaStatus</code>
-
-
-
-#### overrideBulkGeoarea
-
-- ##### What's New
-	- [Added] method <code>overrideBulkGeoarea</code>
-
-
-
-#### getGeoareaOverrideStatus
-
-- ##### What's New
-	- [Added] method <code>getGeoareaOverrideStatus</code>
-
+- ##### What's Deprecated
+	- [Deleted] Value format from <code>date-time</code> from property <code>items[].cpList[].schemeRules.defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
+	- [Deleted] Value format from <code>date-time</code> from property <code>items[].cpList[].schemeRules.defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in response with status code 200
 
 
 #### createCourierPartnerScheme
 
 - ##### What's New
-	- [Added] method <code>createCourierPartnerScheme</code>
+	- [Added] property <code>defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in request body
+	- [Added] property <code>defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultTat</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
 
+- ##### What's Deprecated
+	- [Deleted] Value format from <code>date-time</code> from property <code>defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in request body
+	- [Deleted] Value format from <code>date-time</code> from property <code>defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeDetailsModel</code> in request body
+
+
+#### getCourierPartnerSchemes
+
+- ##### What's New
+	- [Added] property <code>items[].defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>items[].defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>items[].defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>items[].defaultTat</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
 
 
 #### updateCourierPartnerScheme
 
 - ##### What's New
-	- [Added] method <code>updateCourierPartnerScheme</code>
+	- [Added] property <code>defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultTat</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
 
 
-
-#### validateBulkZone
-
-- ##### What's New
-	- [Added] method <code>validateBulkZone</code>
-
-
-
-#### getBulkZoneValidation
+#### getCourierPartnerScheme
 
 - ##### What's New
-	- [Added] method <code>getBulkZoneValidation</code>
-
-
-
-#### importBulkZone
-
-- ##### What's New
-	- [Added] method <code>importBulkZone</code>
-
-
-
-#### overrideZoneById
-
-- ##### What's New
-	- [Added] method <code>overrideZoneById</code>
-
-
-
-#### getZoneOverrideStatus
-
-- ##### What's New
-	- [Added] method <code>getZoneOverrideStatus</code>
-
-
-
-#### overrideBulkZone
-
-- ##### What's New
-	- [Added] method <code>overrideBulkZone</code>
-
-
-
-#### getBulkZoneOverrideStatus
-
-- ##### What's New
-	- [Added] method <code>getBulkZoneOverrideStatus</code>
-
+	- [Added] property <code>defaultForwardPickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultReversePickupCutoff</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultCutoffTimezone</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
+	- [Added] property <code>defaultTat</code> of schema <code>CourierPartnerSchemeModelSchema</code> in response with status code 200
 
 
 ### Order
 
 
 
-#### postRefundStateConfiguration
+#### updateShipmentStatus
 
 - ##### What's New
-	- [Breaking] [Added] Required <code>query</code> parameter <code>paymentType</code> (type: <code>string</code>)
-
-	- [Added] property <code>configurations</code> of schema <code>PostRefundStateConfiguration</code> in request body
-	- [Added] property <code>paymentType</code> of schema <code>PostRefundStateConfiguration</code> in request body
-	- [Added] property <code>applicationId</code> of schema <code>PostRefundStateConfiguration</code> in request body
-	- [Breaking] [Added] <code>payment_type</code>, <code>configurations</code>, <code>application_id</code> made required in request body
-	- [Added] property <code>message</code> of schema <code>PostRefundStateConfigurationResponseSchema</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>prepaid</code> of schema <code>PostRefundStateConfiguration</code> in request body
-	- [Breaking] [Deleted] property <code>nonPrepaid</code> of schema <code>PostRefundStateConfiguration</code> in request body
-	- [Breaking] [Deleted] property <code>mixMop</code> of schema <code>PostRefundStateConfiguration</code> in request body
-	- [Breaking] [Deleted] property <code>refundConfig</code> of schema <code>PostRefundStateConfigurationResponseSchema</code> in response with status code 200
+	- [Added] property <code>statuses[].shipments[].dataUpdates.entityStatus</code> of schema <code>DataUpdates</code> in request body
 
 
-#### getRefundStateConfiguration
+#### createOrder
 
-- ##### What's New
-	- [Breaking] [Added] Required <code>query</code> parameter <code>paymentType</code> (type: <code>string</code>)
-
-	- [Added] property <code>config.configurations</code> of schema <code>RefundConfigurationResponseData</code> in response with status code 200
-	- [Added] property <code>config.paymentType</code> of schema <code>RefundConfigurationResponseData</code> in response with status code 200
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>config.prepaid</code> of schema <code>PostRefundStateConfiguration</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>config.nonPrepaid</code> of schema <code>PostRefundStateConfiguration</code> in response with status code 200
-	- [Breaking] [Deleted] property <code>config.mixMop</code> of schema <code>PostRefundStateConfiguration</code> in response with status code 200
-
-
-#### orderUpdate
-
-- ##### What's New
-	- [Added] property <code>status</code> of schema <code>ResponseDetail</code> in response with status code 400
-
-
-#### getQuestions
-
-- ##### What's New
-	- [Added] property <code>items[].question_type</code> of schema <code></code> in response with status code 200
-	- [Added] property <code>items[].parameter_type</code> of schema <code></code> in response with status code 200
-	- [Added] property <code>items[].json_path</code> of schema <code></code> in response with status code 200
-	- [Added] property <code>items[].static_value</code> of schema <code></code> in response with status code 200
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].billingAddressJson.longitude</code> of schema <code>Address</code> in request body
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].billingAddressJson.latitude</code> of schema <code>Address</code> in request body
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>shipments[].billingAddressJson.deliveryAddressId</code> of schema <code>Address</code> in request body
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].deliveryAddressJson.longitude</code> of schema <code>Address</code> in request body
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].deliveryAddressJson.latitude</code> of schema <code>Address</code> in request body
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>shipments[].deliveryAddressJson.deliveryAddressId</code> of schema <code>Address</code> in request body
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].handOverContactJson.longitude</code> of schema <code>Address</code> in request body
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].handOverContactJson.latitude</code> of schema <code>Address</code> in request body
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>shipments[].handOverContactJson.deliveryAddressId</code> of schema <code>Address</code> in request body
 
 
 #### getShipments
 
+- ##### What's New
+	- [Breaking] [Added] Value format <code>date-time</code> to property <code>items[].orderCreatedTs</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+
 - ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].isLapaEnabled</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].deliveryAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].deliveryAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>items[].deliveryAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].billingAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].billingAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>items[].billingAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
 
 
 #### getShipmentById
 
+- ##### What's New
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+
 - ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>shipments[].isLapaEnabled</code> of schema <code>PlatformShipment</code> in response with status code 200
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].bags[].deliveryAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].bags[].deliveryAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>shipments[].bags[].deliveryAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].rtoAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].rtoAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>shipments[].rtoAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
 
 
 #### getOrderById
 
+- ##### What's New
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+
 - ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>shipments[].isLapaEnabled</code> of schema <code>PlatformShipment</code> in response with status code 200
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>order.orderingSource</code> of schema <code>OrderData</code> in response with status code 200
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].bags[].deliveryAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].bags[].deliveryAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>shipments[].bags[].deliveryAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].rtoAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>shipments[].rtoAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>shipments[].rtoAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
 
 
 #### getOrders
 
+- ##### What's New
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+
 - ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].shipments[].isLapaEnabled</code> of schema <code>PlatformShipment</code> in response with status code 200
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>items[].shipments[].order.orderingSource</code> of schema <code>OrderDetailsData</code> in response with status code 200
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>items[].shipments[].orderStatus.orderDetails.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].shipments[].bags[].deliveryAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].shipments[].bags[].deliveryAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>items[].shipments[].bags[].deliveryAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].shipments[].rtoAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].shipments[].rtoAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>items[].shipments[].rtoAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
 
 
 #### getApplicationShipments
 
+- ##### What's New
+	- [Breaking] [Added] Value format <code>date-time</code> to property <code>items[].orderCreatedTs</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+
 - ##### What's Deprecated
-	- [Breaking] [Deleted] property <code>items[].isLapaEnabled</code> of schema <code>ShipmentItem</code> in response with status code 200
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>items[].orderingSource</code> of schema <code>ShipmentItem</code> in response with status code 200
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].deliveryAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].deliveryAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>items[].deliveryAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].billingAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>items[].billingAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>items[].billingAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
 
 
-### Payment
-
-
-
-#### patchPaymentModeSequencing
-
-- ##### What's New
-	- [Added] property <code>items[].isCodRefundAgg</code> of schema <code>PaymentOptionItem</code> in response with status code 200
-
-
-#### copyConfigPaymentModes
+#### getBagById
 
 - ##### What's New
-	- [Added] property <code>items[].isCodRefundAgg</code> of schema <code>PaymentOptionItem</code> in response with status code 200
-
-
-#### copyConfigAggPaymentModes
-
-- ##### What's New
-	- [Added] property <code>items[].isCodRefundAgg</code> of schema <code>PaymentOptionItem</code> in response with status code 200
-
-
-#### getCodRefundAggregator
-
-- ##### What's New
-	- [Added] method <code>getCodRefundAggregator</code>
-
-
-
-#### updateCodRefundAggregator
-
-- ##### What's New
-	- [Added] method <code>updateCodRefundAggregator</code>
-
-
-
-### Share
-
-
-
-#### createShortLink
-
-- ##### What's New
-	- [Added] Response with status 400
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
 
 - ##### What's Deprecated
-	- [Breaking] [Deleted] Response with status 4XX
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>data.order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.shipment.billingAddressJson.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.shipment.billingAddressJson.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.shipment.billingAddressJson.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.shipment.deliveryAddressJson.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.shipment.deliveryAddressJson.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.shipment.deliveryAddressJson.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.shipment.handOverContactJson.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.shipment.handOverContactJson.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.shipment.handOverContactJson.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.deliveryAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.deliveryAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.deliveryAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.rtoAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.rtoAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.rtoAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
 
 
-#### getShortLinks
+#### getBags
+
+- ##### What's New
+	- [Added] Possible values <code>nykaa_fashion</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>etsy</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>vuivui</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zilingo</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>firstcry</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bukalapak</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_ppmp</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lazada</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiktok</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sfcc</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>debenhams</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestomall</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>meesho</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_vdf</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>bigcommerce</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>sendo</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>storehippo</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cdiscount</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>nykaa</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>trendyol</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>weloveshopping</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jollee</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>wish</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tiki</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>central_online</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>q10</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>cred</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>walmart</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>snapdeal</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>blibli</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_jit</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>pharmeasy</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ezmall</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>adobe_commerce</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartmax</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopee</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zalora</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>prestashop</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>smytten</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_sc</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>urbanpiper</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_quick</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woocommerce</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zivame</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>lelong</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>facebook</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jiomart</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>gmc</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>robins</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>akulaku</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>noon</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tatacliq</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>kartrocket</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>inorbit</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_business</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>swiggy</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>asos</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tokopedia</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>limeroad</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>myntra_omni</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>spoyl</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>fulfilled_by_lazada</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ebay</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>jd</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_pharmacy</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>ajio_vms</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>daraz</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>oker</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>flipkart_b2b</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>amazon_mlf_ss</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>woovly</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>tata1mg</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>zomato</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
+	- [Added] Possible values <code>shopify</code> to property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
 
 - ##### What's Deprecated
-	- [Breaking] [Deleted] Response with status 400
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>data.items[].order.orderingSource</code> of schema <code>OrderDetails</code> in response with status code 200
 
-
-#### getShortLinkByHash
-
-- ##### What's New
-	- [Added] Response with status 404
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] Response with status 4XX
-
-
-#### updateShortLinkById
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] Response with status 4XX
-
-
-### Theme
-
-
-
-#### getPageMapperConfig
-
-- ##### What's New
-	- [Added] method <code>getPageMapperConfig</code>
-
-
-
-#### updatePageMapperConfig
-
-- ##### What's New
-	- [Added] method <code>updatePageMapperConfig</code>
-
-
-
-#### createPageMapping
-
-- ##### What's New
-	- [Added] method <code>createPageMapping</code>
-
-
-
-#### updatePageMapping
-
-- ##### What's New
-	- [Added] method <code>updatePageMapping</code>
-
-
-
-#### deletePageMapping
-
-- ##### What's New
-	- [Added] method <code>deletePageMapping</code>
-
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].shipment.billingAddressJson.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].shipment.billingAddressJson.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.items[].shipment.billingAddressJson.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].shipment.deliveryAddressJson.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].shipment.deliveryAddressJson.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.items[].shipment.deliveryAddressJson.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].shipment.handOverContactJson.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].shipment.handOverContactJson.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.items[].shipment.handOverContactJson.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].deliveryAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].deliveryAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.items[].deliveryAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].rtoAddress.longitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>integer</code> to <code>number</code> of property <code>data.items[].rtoAddress.latitude</code> of schema <code>Address</code> in response with status code 200
+	- [Breaking] [Changed] Type from <code>string</code> to <code>integer</code> of property <code>data.items[].rtoAddress.deliveryAddressId</code> of schema <code>Address</code> in response with status code 200
 
 
 ### User
 
 
 
-#### getCustomers
-
-- ##### What's Deprecated
-	- [Breaking] [Deleted] Response with status 400
-
-
-#### createUserGroup
+#### createUserAttributeDefinition
 
 - ##### What's New
-	- [Added] property <code>category</code> of schema <code>CreateUserGroup</code> in request body
-
-- ##### What's Changed
-	- [Breaking] [Changed] Possible values from <code>general</code> to <code>default_category</code> of property <code>category</code> of schema <code>UserGroupResponseSchema</code> in response with status code 201
-
-
-#### getUserGroups
-
-- ##### What's Changed
-	- [Breaking] [Changed] Possible values from <code>general</code> to <code>default_category</code> of property <code>items[].category</code> of schema <code>UserGroupResponseSchema</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>type</code> of schema <code>CreateUserAttributeDefinition</code> in request body
+	- [Added] Possible values <code>dropdown</code> to property <code>type</code> of schema <code>CreateUserAttributeDefinition</code> in request body
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>type</code> of schema <code>CreateUserAttributeDefinition</code> in request body
+	- [Added] Possible values <code>date</code> to property <code>type</code> of schema <code>CreateUserAttributeDefinition</code> in request body
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>type</code> of schema <code>UserAttributeDefinitionDetails</code> in response with status code 200
+	- [Added] Possible values <code>dropdown</code> to property <code>type</code> of schema <code>UserAttributeDefinitionDetails</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>type</code> of schema <code>UserAttributeDefinitionDetails</code> in response with status code 200
+	- [Added] Possible values <code>date</code> to property <code>type</code> of schema <code>UserAttributeDefinitionDetails</code> in response with status code 200
 
 
-#### getUserGroupCategories
-
-- ##### What's Changed
-	- [Breaking] [Changed] Possible values from <code>general</code> to <code>default_category</code> of property <code>items[].key</code> of schema <code>UserGroupCategory</code> in response with status code 200
-
-
-#### updateUserGroup
-
-- ##### What's Changed
-	- [Breaking] [Changed] Possible values from <code>general</code> to <code>default_category</code> of property <code>category</code> of schema <code>UserGroupResponseSchema</code> in response with status code 200
-
-
-#### getUserGroupById
-
-- ##### What's Changed
-	- [Breaking] [Changed] Possible values from <code>general</code> to <code>default_category</code> of property <code>category</code> of schema <code>UserGroupResponseSchema</code> in response with status code 200
-
-
-#### updateUserGroupPartially
-
-- ##### What's Changed
-	- [Breaking] [Changed] Possible values from <code>general</code> to <code>default_category</code> of property <code>category</code> of schema <code>UserGroupResponseSchema</code> in response with status code 200
-
-
-#### checkUserGroupsExists
+#### getUserAttributeDefinitions
 
 - ##### What's New
-	- [Added] method <code>checkUserGroupsExists</code>
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>items[].type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
+	- [Added] Possible values <code>dropdown</code> to property <code>items[].type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>items[].type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
+	- [Added] Possible values <code>date</code> to property <code>items[].type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
 
 
+#### updateUserAttributeDefinition
 
-## Public Client
+- ##### What's New
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>type</code> of schema <code>CreateUserAttributeDefinition</code> in request body
+	- [Added] Possible values <code>dropdown</code> to property <code>type</code> of schema <code>CreateUserAttributeDefinition</code> in request body
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>type</code> of schema <code>CreateUserAttributeDefinition</code> in request body
+	- [Added] Possible values <code>date</code> to property <code>type</code> of schema <code>CreateUserAttributeDefinition</code> in request body
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
+	- [Added] Possible values <code>dropdown</code> to property <code>type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
+	- [Added] Possible values <code>date</code> to property <code>type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
 
 
+#### getUserAttributeDefinitionById
 
-### Content
+- ##### What's New
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
+	- [Added] Possible values <code>dropdown</code> to property <code>type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
+	- [Added] Possible values <code>date</code> to property <code>type</code> of schema <code>UserAttributeDefinition</code> in response with status code 200
 
 
+#### updateUserAttribute
 
-#### getAnalyticsTags
+- ##### What's New
+	- [Added] Possible values <code>encrypted_string</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_string_array</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number_array</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date_time</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
 
-- ##### What's Deprecated
-	- [Breaking] [Deleted] method <code>getAnalyticsTags</code>
 
+#### getUserAttribute
+
+- ##### What's New
+	- [Added] Possible values <code>encrypted_string</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_string_array</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number_array</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date_time</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+
+
+#### getUserAttributesForUser
+
+- ##### What's New
+	- [Added] Possible values <code>encrypted_string</code> to property <code>items[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_string_array</code> to property <code>items[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number</code> to property <code>items[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number_array</code> to property <code>items[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>items[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>items[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date</code> to property <code>items[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date_time</code> to property <code>items[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+
+
+#### updateUserAttributes
+
+- ##### What's New
+	- [Added] Possible values <code>encrypted_string</code> to property <code>attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_string_array</code> to property <code>attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number</code> to property <code>attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number_array</code> to property <code>attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date</code> to property <code>attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date_time</code> to property <code>attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+
+
+#### getUserAttributeById
+
+- ##### What's New
+	- [Added] Possible values <code>encrypted_string</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_string_array</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number_array</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date_time</code> to property <code>type</code> of schema <code>UserAttribute</code> in response with status code 200
+
+
+#### filterUsersByAttributes
+
+- ##### What's New
+	- [Added] Possible values <code>encrypted_string</code> to property <code>items[].attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_string_array</code> to property <code>items[].attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number</code> to property <code>items[].attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_number_array</code> to property <code>items[].attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_boolean</code> to property <code>items[].attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_dropdown</code> to property <code>items[].attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date</code> to property <code>items[].attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
+	- [Added] Possible values <code>encrypted_date_time</code> to property <code>items[].attributes[].type</code> of schema <code>UserAttribute</code> in response with status code 200
 
 
 # CHANGE LOG (3.4.0) - 2.7.0
