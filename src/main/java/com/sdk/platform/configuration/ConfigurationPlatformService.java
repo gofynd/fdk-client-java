@@ -1143,6 +1143,33 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
+    public Object toggleStoreInStoreFeature() throws FDKServerResponseError, FDKException {
+        return this.toggleStoreInStoreFeature(new HashMap<>());
+    }
+
+    public Object toggleStoreInStoreFeature(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<Object> response = null;
+            try {
+            response = configurationPlatformApiList.toggleStoreInStoreFeature(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     public ConfigurationPlatformModels.StoreInStoreResponseSchema getAllStoreInStoreEntries() throws FDKServerResponseError, FDKException {
         return this.getAllStoreInStoreEntries(new HashMap<>());
     }
@@ -1260,33 +1287,6 @@ public class ApplicationClient {
             Response<Object> response = null;
             try {
             response = configurationPlatformApiList.deleteStoreInStoreEntry(this.companyId, this.applicationId, sisId, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public Object toggleStoreInStoreFeature() throws FDKServerResponseError, FDKException {
-        return this.toggleStoreInStoreFeature(new HashMap<>());
-    }
-
-    public Object toggleStoreInStoreFeature(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<Object> response = null;
-            try {
-            response = configurationPlatformApiList.toggleStoreInStoreFeature(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

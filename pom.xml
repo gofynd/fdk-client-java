@@ -6,7 +6,7 @@
 
     <groupId>com.azure.gofynd</groupId>
     <artifactId>fdk-client-java</artifactId>
-    <version>1.10.6-2</version>
+    <version>1.10.6-3</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

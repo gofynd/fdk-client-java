@@ -1,4 +1,635 @@
-# CHANGE LOG (1.10.6-2) - 1.10.6
+# CHANGE LOG (1.10.6-3) - 1.10.6
+
+## Platform Client
+
+
+
+### Cart
+
+
+
+#### createCoupon
+
+- ##### What's New
+	- [Added] property <code>author.approvedBy</code> of schema <code>CouponAuthor</code> in request body
+	- [Added] property <code>author.reviewedBy</code> of schema <code>CouponAuthor</code> in request body
+	- [Added] property <code>author.rejectedBy</code> of schema <code>CouponAuthor</code> in request body
+	- [Added] property <code>restrictions.isPltBypass</code> of schema <code>Restrictions</code> in request body
+	- [Added] property <code>identifiers.emailDomain</code> of schema <code>Identifier</code> in request body
+	- [Added] property <code>dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in request body
+	- [Added] property <code>dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in request body
+	- [Added] property <code>dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in request body
+	- [Added] property <code>schedule.status</code> of schema <code>CouponSchedule</code> in request body
+	- [Added] property <code>data.author.approvedBy</code> of schema <code>CouponAuthor</code> in response with status code 201
+	- [Added] property <code>data.author.reviewedBy</code> of schema <code>CouponAuthor</code> in response with status code 201
+	- [Added] property <code>data.author.rejectedBy</code> of schema <code>CouponAuthor</code> in response with status code 201
+	- [Added] property <code>data.restrictions.isPltBypass</code> of schema <code>Restrictions</code> in response with status code 201
+	- [Added] property <code>data.identifiers.emailDomain</code> of schema <code>Identifier</code> in response with status code 201
+	- [Added] property <code>data.dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in response with status code 201
+	- [Added] property <code>data.dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in response with status code 201
+	- [Added] property <code>data.dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in response with status code 201
+	- [Added] property <code>data.schedule.status</code> of schema <code>CouponSchedule</code> in response with status code 201
+	- [Added] property <code>data.medias</code> of schema <code>CouponDetailObj</code> in response with status code 201
+	- [Added] property <code>data.couponType</code> of schema <code>CouponDetailObj</code> in response with status code 201
+	- [Added] property <code>data.couponPrefix</code> of schema <code>CouponDetailObj</code> in response with status code 201
+	- [Added] property <code>data.couponCounts</code> of schema <code>CouponDetailObj</code> in response with status code 201
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 400
+
+
+#### getCoupons
+
+- ##### What's New
+	- [Added] property <code>items[].author.approvedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
+	- [Added] property <code>items[].author.reviewedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
+	- [Added] property <code>items[].author.rejectedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
+	- [Added] property <code>items[].dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
+	- [Added] property <code>items[].dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
+	- [Added] property <code>items[].dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
+	- [Added] property <code>items[].schedule.status</code> of schema <code>CouponSchedule</code> in response with status code 200
+	- [Added] property <code>items[].draft</code> of schema <code>CouponObj</code> in response with status code 200
+	- [Added] property <code>items[].review</code> of schema <code>CouponObj</code> in response with status code 200
+	- [Added] property <code>items[].rejected</code> of schema <code>CouponObj</code> in response with status code 200
+	- [Added] property <code>items[].approved</code> of schema <code>CouponObj</code> in response with status code 200
+	- [Added] property <code>items[].identifiers</code> of schema <code>CouponObj</code> in response with status code 200
+	- [Added] property <code>items[].validity</code> of schema <code>CouponObj</code> in response with status code 200
+	- [Added] property <code>items[].rule</code> of schema <code>CouponObj</code> in response with status code 200
+	- [Added] property <code>items[].isArchived</code> of schema <code>CouponObj</code> in response with status code 200
+	- [Added] property <code>draft</code> of schema <code>CouponsResponseObject</code> in response with status code 200
+	- [Added] property <code>review</code> of schema <code>CouponsResponseObject</code> in response with status code 200
+	- [Added] property <code>rejected</code> of schema <code>CouponsResponseObject</code> in response with status code 200
+	- [Added] property <code>approved</code> of schema <code>CouponsResponseObject</code> in response with status code 200
+
+
+#### getCouponById
+
+- ##### What's New
+	- [Added] property <code>author.approvedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
+	- [Added] property <code>author.reviewedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
+	- [Added] property <code>author.rejectedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
+	- [Added] property <code>restrictions.isPltBypass</code> of schema <code>Restrictions</code> in response with status code 200
+	- [Added] property <code>identifiers.emailDomain</code> of schema <code>Identifier</code> in response with status code 200
+	- [Added] property <code>dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
+	- [Added] property <code>dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
+	- [Added] property <code>dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
+	- [Added] property <code>schedule.status</code> of schema <code>CouponSchedule</code> in response with status code 200
+	- [Added] property <code>medias</code> of schema <code>CouponUpdate</code> in response with status code 200
+	- [Added] property <code>couponType</code> of schema <code>CouponUpdate</code> in response with status code 200
+	- [Added] property <code>couponPrefix</code> of schema <code>CouponUpdate</code> in response with status code 200
+	- [Added] property <code>couponCounts</code> of schema <code>CouponUpdate</code> in response with status code 200
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 404
+
+
+#### updateCoupon
+
+- ##### What's New
+	- [Added] property <code>author.approvedBy</code> of schema <code>CouponAuthor</code> in request body
+	- [Added] property <code>author.reviewedBy</code> of schema <code>CouponAuthor</code> in request body
+	- [Added] property <code>author.rejectedBy</code> of schema <code>CouponAuthor</code> in request body
+	- [Added] property <code>restrictions.isPltBypass</code> of schema <code>Restrictions</code> in request body
+	- [Added] property <code>identifiers.emailDomain</code> of schema <code>Identifier</code> in request body
+	- [Added] property <code>dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in request body
+	- [Added] property <code>dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in request body
+	- [Added] property <code>dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in request body
+	- [Added] property <code>schedule.status</code> of schema <code>CouponSchedule</code> in request body
+	- [Added] property <code>medias</code> of schema <code>CouponUpdate</code> in request body
+	- [Added] property <code>couponType</code> of schema <code>CouponUpdate</code> in request body
+	- [Added] property <code>couponPrefix</code> of schema <code>CouponUpdate</code> in request body
+	- [Added] property <code>couponCounts</code> of schema <code>CouponUpdate</code> in request body
+	- [Added] property <code>data.author.approvedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
+	- [Added] property <code>data.author.reviewedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
+	- [Added] property <code>data.author.rejectedBy</code> of schema <code>CouponAuthor</code> in response with status code 200
+	- [Added] property <code>data.restrictions.isPltBypass</code> of schema <code>Restrictions</code> in response with status code 200
+	- [Added] property <code>data.identifiers.emailDomain</code> of schema <code>Identifier</code> in response with status code 200
+	- [Added] property <code>data.dateMeta.approvedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
+	- [Added] property <code>data.dateMeta.rejectedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
+	- [Added] property <code>data.dateMeta.reviewedOn</code> of schema <code>CouponDateMeta</code> in response with status code 200
+	- [Added] property <code>data.schedule.status</code> of schema <code>CouponSchedule</code> in response with status code 200
+	- [Added] property <code>data.medias</code> of schema <code>CouponDetailObj</code> in response with status code 200
+	- [Added] property <code>data.couponType</code> of schema <code>CouponDetailObj</code> in response with status code 200
+	- [Added] property <code>data.couponPrefix</code> of schema <code>CouponDetailObj</code> in response with status code 200
+	- [Added] property <code>data.couponCounts</code> of schema <code>CouponDetailObj</code> in response with status code 200
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 404
+
+
+#### getPromotions
+
+- ##### What's New
+	- [Added] property <code>items[].author.rejectedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
+	- [Added] property <code>items[].author.approvedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
+	- [Added] property <code>items[].author.reviewedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
+	- [Added] property <code>items[].schedule.status</code> of schema <code>PromotionSchedule</code> in response with status code 200
+	- [Added] property <code>items[].dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
+	- [Added] property <code>items[].dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
+	- [Added] property <code>items[].dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
+	- [Added] property <code>items[].draft</code> of schema <code>PromotionListItem</code> in response with status code 200
+	- [Added] property <code>items[].review</code> of schema <code>PromotionListItem</code> in response with status code 200
+	- [Added] property <code>items[].rejected</code> of schema <code>PromotionListItem</code> in response with status code 200
+	- [Added] property <code>items[].approved</code> of schema <code>PromotionListItem</code> in response with status code 200
+	- [Added] property <code>items[].promotionType</code> of schema <code>PromotionListItem</code> in response with status code 200
+	- [Added] property <code>items[].isArchived</code> of schema <code>PromotionListItem</code> in response with status code 200
+	- [Added] property <code>draft</code> of schema <code>PromotionsResponseObject</code> in response with status code 200
+	- [Added] property <code>review</code> of schema <code>PromotionsResponseObject</code> in response with status code 200
+	- [Added] property <code>rejected</code> of schema <code>PromotionsResponseObject</code> in response with status code 200
+	- [Added] property <code>approved</code> of schema <code>PromotionsResponseObject</code> in response with status code 200
+
+
+#### createPromotion
+
+- ##### What's New
+	- [Added] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in request body
+	- [Added] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in request body
+	- [Added] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in request body
+	- [Added] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in request body
+	- [Breaking] [Added] <code>postOrderAction.action_type</code> made required in request body
+	- [Added] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in request body
+	- [Added] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in request body
+	- [Added] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in request body
+	- [Added] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in response with status code 201
+	- [Added] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in response with status code 201
+	- [Added] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in response with status code 201
+	- [Added] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in response with status code 201
+	- [Breaking] [Added] <code>postOrderAction.action_type</code> made required in response with status code 201
+	- [Added] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 201
+	- [Added] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 201
+	- [Added] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 201
+	- [Added] property <code>draft</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>review</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>rejected</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>approved</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>medias</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>visibility</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>offerCounts</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>offerPrefix</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>isBankOffer</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>customContent</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>offerType</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>isArchived</code> of schema <code>PromotionAddResult</code> in response with status code 201
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in request body
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in response with status code 201
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 400
+
+
+#### getPromotionById
+
+- ##### What's New
+	- [Added] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
+	- [Added] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
+	- [Added] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
+	- [Added] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in response with status code 200
+	- [Breaking] [Added] <code>postOrderAction.action_type</code> made required in response with status code 200
+	- [Added] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
+	- [Added] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
+	- [Added] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
+	- [Added] property <code>medias</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>visibility</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>isArchived</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>offerPrefix</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>customContent</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>offerCounts</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>offerType</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>isBankOffer</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in response with status code 200
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 404
+
+
+#### updatePromotion
+
+- ##### What's New
+	- [Added] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in request body
+	- [Added] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in request body
+	- [Added] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in request body
+	- [Added] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in request body
+	- [Breaking] [Added] <code>postOrderAction.action_type</code> made required in request body
+	- [Added] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in request body
+	- [Added] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in request body
+	- [Added] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in request body
+	- [Added] property <code>author.rejectedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
+	- [Added] property <code>author.approvedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
+	- [Added] property <code>author.reviewedBy</code> of schema <code>PromotionAuthor</code> in response with status code 200
+	- [Added] property <code>schedule.status</code> of schema <code>PromotionSchedule</code> in response with status code 200
+	- [Breaking] [Added] <code>postOrderAction.action_type</code> made required in response with status code 200
+	- [Added] property <code>dateMeta.approvedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
+	- [Added] property <code>dateMeta.rejectedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
+	- [Added] property <code>dateMeta.reviewedOn</code> of schema <code>PromotionDateMeta</code> in response with status code 200
+	- [Added] property <code>medias</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>visibility</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>isArchived</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>offerPrefix</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>customContent</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>offerCounts</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>offerType</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>isBankOffer</code> of schema <code>PromotionUpdateResult</code> in response with status code 200
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in request body
+	- [Breaking] [Deleted] Possible nullable value from <code>true</code> from property <code>postOrderAction.actionDate</code> of schema <code>PromotionAction</code> in response with status code 200
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 404
+
+
+#### getCartMetaConfig
+
+- ##### What's New
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 404
+
+
+#### updateCartMetaConfig
+
+- ##### What's New
+	- [Added] property <code>createdOn</code> of schema <code>CartMetaConfigUpdate</code> in request body
+	- [Added] property <code>createdOn</code> of schema <code>CartMetaConfigUpdate</code> in response with status code 200
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 404
+
+
+#### deleteCartMetaConfig
+
+- ##### What's New
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 404
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 404
+
+
+#### getCartMetaConfigs
+
+- ##### What's New
+	- [Added] property <code>data[].enabled</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].appId</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].companyId</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].updatedOn</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].lastModifiedBy</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].minCartValue</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].maxCartValue</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].bulkCoupons</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].maxCartItems</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].giftDisplayText</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].deliveryCharges</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].revenueEngineCoupon</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].giftPricing</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].orderPlacing</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].articleTags</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].allowCouponWithRewards</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].gstInput</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].staffSelection</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].placingForCustomer</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].hideOnStorefront</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].panCard</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].isUniversal</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].emptyCart</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+	- [Added] property <code>data[].internationalDeliveryCharges</code> of schema <code>CartMetaConfigListObject</code> in response with status code 200
+
+
+#### addPriceAdjustment
+
+- ##### What's New
+	- [Added] property <code>data.expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 201
+	- [Added] property <code>priceAdjustments[].expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 201
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 400
+
+
+#### getPriceAdjustments
+
+- ##### What's New
+	- [Added] property <code>data[].expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 200
+	- [Added] property <code>priceAdjustments[].expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 200
+
+
+#### updatePriceAdjustment
+
+- ##### What's New
+	- [Added] property <code>data.expireAt</code> of schema <code>PriceAdjustment</code> in response with status code 200
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 400
+
+
+#### removePriceAdjustment
+
+- ##### What's New
+	- [Added] property <code>meta</code> of schema <code>OperationErrorResponseObject</code> in response with status code 400
+
+- ##### What's Changed
+	- [Breaking] [Changed] Type from <code>string</code> to <code>object</code> of property <code>errors</code> of schema <code>OperationErrorResult</code> in response with status code 400
+
+
+#### fetchAndvalidateCartItems
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### checkCartServiceability
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### getAbandonedCartDetails
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### addItems
+
+- ##### What's New
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### updateCart
+
+- ##### What's New
+	- [Added] property <code>items[].storeId</code> of schema <code>UpdateProductCart</code> in request body
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### overrideCart
+
+- ##### What's New
+	- [Added] property <code>callbackUrl</code> of schema <code>OverrideCheckoutResponseObject</code> in response with status code 200
+	- [Added] property <code>paymentConfirmUrl</code> of schema <code>OverrideCheckoutResponseObject</code> in response with status code 200
+	- [Added] property <code>appInterceptUrl</code> of schema <code>OverrideCheckoutResponseObject</code> in response with status code 200
+
+
+#### getCartSharedItems
+
+- ##### What's New
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 404
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 404
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 404
+
+
+#### updateCartWithSharedItems
+
+- ##### What's New
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 404
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 404
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 404
+
+
+#### updateCartUser
+
+- ##### What's New
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### platformAddItems
+
+- ##### What's New
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### getCart
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### platformUpdateCart
+
+- ##### What's New
+	- [Added] property <code>items[].storeId</code> of schema <code>UpdateProductCart</code> in request body
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>cart.errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### applyCoupon
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### removeCoupon
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### addAddress
+
+- ##### What's New
+	- [Added] Possible nullable value <code>true</code> to property <code>pincode</code> of schema <code>PlatformAddress</code> in request body
+	- [Added] properties <code>customJson.metaData</code>, <code>customJson.metaDataInt</code> in request body
+
+
+#### getAddresses
+
+- ##### What's New
+	- [Added] Possible nullable value <code>true</code> to property <code>address[].pincode</code> of schema <code>PlatformAddress</code> in response with status code 200
+	- [Added] properties <code>address[].customJson.metaData</code>, <code>address[].customJson.metaDataInt</code> in response with status code 200
+
+
+#### getAddressById
+
+- ##### What's New
+	- [Added] Possible nullable value <code>true</code> to property <code>pincode</code> of schema <code>PlatformAddress</code> in response with status code 200
+	- [Added] properties <code>customJson.metaData</code>, <code>customJson.metaDataInt</code> in response with status code 200
+
+
+#### updateAddress
+
+- ##### What's New
+	- [Added] Possible nullable value <code>true</code> to property <code>pincode</code> of schema <code>PlatformAddress</code> in request body
+	- [Added] properties <code>customJson.metaData</code>, <code>customJson.metaDataInt</code> in request body
+
+
+#### selectAddress
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+	- [Added] Possible nullable value <code>true</code> to property <code>address.address[].pincode</code> of schema <code>PlatformAddress</code> in response with status code 400
+	- [Added] properties <code>address.address[].customJson.metaData</code>, <code>address.address[].customJson.metaDataInt</code> in response with status code 400
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### getShipments
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>shipments[].items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>shipments[].meta.debug</code> of schema <code>ShipmentMeta</code> in response with status code 200
+	- [Added] property <code>shipments[].debug</code> of schema <code>PlatformShipmentResponseObject</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>PlatformCartShipmentsResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+	- [Breaking] [Deleted] property <code>shipments[].items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+	- [Breaking] [Deleted] property <code>shipments[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### updateShipments
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>shipments[].items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>shipments[].meta.debug</code> of schema <code>ShipmentMeta</code> in response with status code 200
+	- [Added] property <code>shipments[].debug</code> of schema <code>PlatformShipmentResponseObject</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>PlatformCartShipmentsResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+	- [Breaking] [Deleted] property <code>shipments[].items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+	- [Breaking] [Deleted] property <code>shipments[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### platformCheckoutCart
+
+- ##### What's New
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].message</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].restrictions</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].appliedArticlesIds</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].removeArticles</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].autoRemove</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].id</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.errorMessage</code> of schema <code>CheckCart</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>CartCheckoutResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].articleId</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+
+
+#### selectPaymentMode
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
+
+#### platformCheckoutCartV2
+
+- ##### What's New
+	- [Added] property <code>cart.items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>cart.coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].message</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].restrictions</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].appliedArticlesIds</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].removeArticles</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].autoRemove</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.priceAdjustmentApplied[].id</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+	- [Added] property <code>cart.errorMessage</code> of schema <code>CheckCart</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>CartCheckoutResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>cart.items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+	- [Breaking] [Deleted] property <code>cart.priceAdjustmentApplied[].articleId</code> of schema <code>PriceAdjustmentApplied</code> in response with status code 200
+
+
+#### selectPaymentModeV2
+
+- ##### What's New
+	- [Added] property <code>items[].product.action.page</code> of schema <code>ProductAction</code> in response with status code 200
+	- [Added] property <code>coupon.mrpCoupon</code> of schema <code>CartDetailCoupon</code> in response with status code 200
+	- [Added] property <code>errorMessage</code> of schema <code>CartDetailResponseObject</code> in response with status code 200
+
+- ##### What's Deprecated
+	- [Breaking] [Deleted] property <code>items[].journeyWisePromise[].meta</code> of schema <code>JourneyPromiseObject</code> in response with status code 200
+
 
 # CHANGE LOG (3.4.1) - 2.7.1
 

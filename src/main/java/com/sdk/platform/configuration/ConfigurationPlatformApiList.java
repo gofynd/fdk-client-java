@@ -6,6 +6,9 @@ import java.util.*;
 
 interface ConfigurationPlatformApiList {
 
+    @POST ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/store-in-store/sis_enabled")
+    Call<Object> toggleStoreInStoreFeature(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/store-in-store")
     Call<ConfigurationPlatformModels.StoreInStoreResponseSchema> getAllStoreInStoreEntries(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
@@ -20,9 +23,6 @@ interface ConfigurationPlatformApiList {
 
     @DELETE ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/store-in-store/{sis_id}")
     Call<Object> deleteStoreInStoreEntry(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("sis_id") String sisId, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/store-in-store/sis_enabled")
-    Call<Object> toggleStoreInStoreFeature(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/configuration/v1.0/company/{company_id}/application/{application_id}/feature")
     Call<ConfigurationPlatformModels.AppFeatureResponseSchema> getAppFeatures(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
