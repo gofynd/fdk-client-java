@@ -29,36 +29,37 @@ import com.sdk.application.*;
         this.catalogApplicationApiList = generateCatalogApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
-        relativeUrls.put("getProductDetailBySlug","/service/application/catalog/v1.0/products/{slug}".substring(1));
-        relativeUrls.put("getProductSizesBySlug","/service/application/catalog/v1.0/products/{slug}/sizes".substring(1));
-        relativeUrls.put("getProductComparisonBySlugs","/service/application/catalog/v1.0/products/compare".substring(1));
-        relativeUrls.put("getSimilarComparisonProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compare".substring(1));
-        relativeUrls.put("getComparedFrequentlyProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently".substring(1));
-        relativeUrls.put("getProductVariantsBySlug","/service/application/catalog/v1.0/products/{slug}/variants".substring(1));
-        relativeUrls.put("getProductStockByIds","/service/application/catalog/v1.0/products/stock-status".substring(1));
-        relativeUrls.put("getProductStockForTimeByIds","/service/application/catalog/v1.0/products/stock-status/poll".substring(1));
-        relativeUrls.put("getProducts","/service/application/catalog/v1.0/products".substring(1));
-        relativeUrls.put("getBrands","/service/application/catalog/v1.0/brands".substring(1));
-        relativeUrls.put("getBrandDetailBySlug","/service/application/catalog/v1.0/brands/{slug}".substring(1));
-        relativeUrls.put("getCategories","/service/application/catalog/v1.0/categories".substring(1));
-        relativeUrls.put("getCategoryDetailBySlug","/service/application/catalog/v1.0/categories/{slug}".substring(1));
-        relativeUrls.put("getHomeProducts","/service/application/catalog/v1.0/home/listing".substring(1));
-        relativeUrls.put("getDepartments","/service/application/catalog/v1.0/departments".substring(1));
-        relativeUrls.put("getSearchResults","/service/application/catalog/v1.0/auto-complete".substring(1));
-        relativeUrls.put("getCollections","/service/application/catalog/v1.0/collections".substring(1));
-        relativeUrls.put("getCollectionItemsBySlug","/service/application/catalog/v1.0/collections/{slug}/items".substring(1));
-        relativeUrls.put("getCollectionDetailBySlug","/service/application/catalog/v1.0/collections/{slug}".substring(1));
-        relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}".substring(1));
-        relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}".substring(1));
-        relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}".substring(1));
-        relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count".substring(1));
-        relativeUrls.put("getFollowIds","/service/application/catalog/v1.0/follow/ids".substring(1));
-        relativeUrls.put("getStores","/service/application/catalog/v2.0/locations".substring(1));
-        relativeUrls.put("getInStockLocations","/service/application/catalog/v2.0/in-stock/locations".substring(1));
-        relativeUrls.put("getLocationDetailsById","/service/application/catalog/v2.0/locations/{location_id}".substring(1));
-        relativeUrls.put("getProductBundlesBySlug","/service/application/catalog/v2.0/product-grouping".substring(1));
-        relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v1.0/products/sizes/price".substring(1));
-        relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v4.0/products/{slug}/sizes/{size}/sellers".substring(1)); 
+        relativeUrls.put("getProductDetailBySlug","/service/application/catalog/v1.0/products/{slug}/".substring(1));
+        relativeUrls.put("getProductSizesBySlug","/service/application/catalog/v1.0/products/{slug}/sizes/".substring(1));
+        relativeUrls.put("getProductComparisonBySlugs","/service/application/catalog/v1.0/products/compare/".substring(1));
+        relativeUrls.put("getSimilarComparisonProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compare/".substring(1));
+        relativeUrls.put("getComparedFrequentlyProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compared-frequently/".substring(1));
+        relativeUrls.put("getProductVariantsBySlug","/service/application/catalog/v1.0/products/{slug}/variants/".substring(1));
+        relativeUrls.put("getProductStockByIds","/service/application/catalog/v1.0/products/stock-status/".substring(1));
+        relativeUrls.put("getProductStockForTimeByIds","/service/application/catalog/v1.0/products/stock-status/poll/".substring(1));
+        relativeUrls.put("getProducts","/service/application/catalog/v1.0/products/".substring(1));
+        relativeUrls.put("getBrands","/service/application/catalog/v1.0/brands/".substring(1));
+        relativeUrls.put("getBrandDetailBySlug","/service/application/catalog/v1.0/brands/{slug}/".substring(1));
+        relativeUrls.put("getCategories","/service/application/catalog/v1.0/categories/".substring(1));
+        relativeUrls.put("getCategoryDetailBySlug","/service/application/catalog/v1.0/categories/{slug}/".substring(1));
+        relativeUrls.put("getHomeProducts","/service/application/catalog/v1.0/home/listing/".substring(1));
+        relativeUrls.put("getDepartments","/service/application/catalog/v1.0/departments/".substring(1));
+        relativeUrls.put("getSearchResults","/service/application/catalog/v1.0/auto-complete/".substring(1));
+        relativeUrls.put("getCollections","/service/application/catalog/v1.0/collections/".substring(1));
+        relativeUrls.put("getCollectionItemsBySlug","/service/application/catalog/v1.0/collections/{slug}/items/".substring(1));
+        relativeUrls.put("getCollectionDetailBySlug","/service/application/catalog/v1.0/collections/{slug}/".substring(1));
+        relativeUrls.put("getFollowedListing","/service/application/catalog/v1.0/follow/{collection_type}/".substring(1));
+        relativeUrls.put("unfollowById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+        relativeUrls.put("followById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/".substring(1));
+        relativeUrls.put("getFollowerCountById","/service/application/catalog/v1.0/follow/{collection_type}/{collection_id}/count/".substring(1));
+        relativeUrls.put("getFollowIds","/service/application/catalog/v1.0/follow/ids/".substring(1));
+        relativeUrls.put("getStores","/service/application/catalog/v1.0/locations/".substring(1));
+        relativeUrls.put("getInStockLocations","/service/application/catalog/v1.0/in-stock/locations/".substring(1));
+        relativeUrls.put("getLocationDetailsById","/service/application/catalog/v1.0/locations/{location_id}/".substring(1));
+        relativeUrls.put("getProductBundlesBySlug","/service/application/catalog/v1.0/product-grouping/".substring(1));
+        relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v3.0/products/{slug}/sizes/{size}/price/".substring(1));
+        relativeUrls.put("getProductsServiceability","/service/application/catalog/v1.0/products/serviceability".substring(1));
+        relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v3.0/products/{slug}/sizes/{size}/sellers/".substring(1)); 
 
     }
 
@@ -111,15 +112,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductsComparisonResponseSchema getProductComparisonBySlugs(List<String> slug) throws IOException {
+    public CatalogApplicationModels.ProductsComparisonResponse getProductComparisonBySlugs(List<String> slug) throws IOException {
         return this.getProductComparisonBySlugs(slug, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductsComparisonResponseSchema getProductComparisonBySlugs(List<String> slug, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductsComparisonResponse getProductComparisonBySlugs(List<String> slug, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductComparisonBySlugs");
 
-        Response<CatalogApplicationModels.ProductsComparisonResponseSchema> response = catalogApplicationApiList.getProductComparisonBySlugs(fullUrl, slug, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductsComparisonResponse> response = catalogApplicationApiList.getProductComparisonBySlugs(fullUrl, slug, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -128,16 +129,16 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductCompareResponseSchema getSimilarComparisonProductBySlug(String slug) throws IOException {
+    public CatalogApplicationModels.ProductCompareResponse getSimilarComparisonProductBySlug(String slug) throws IOException {
         return this.getSimilarComparisonProductBySlug(slug, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductCompareResponseSchema getSimilarComparisonProductBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductCompareResponse getSimilarComparisonProductBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getSimilarComparisonProductBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<CatalogApplicationModels.ProductCompareResponseSchema> response = catalogApplicationApiList.getSimilarComparisonProductBySlug(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductCompareResponse> response = catalogApplicationApiList.getSimilarComparisonProductBySlug(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -146,16 +147,16 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductFrequentlyComparedSimilarResponseSchema getComparedFrequentlyProductBySlug(String slug) throws IOException {
+    public CatalogApplicationModels.ProductFrequentlyComparedSimilarResponse getComparedFrequentlyProductBySlug(String slug) throws IOException {
         return this.getComparedFrequentlyProductBySlug(slug, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductFrequentlyComparedSimilarResponseSchema getComparedFrequentlyProductBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductFrequentlyComparedSimilarResponse getComparedFrequentlyProductBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getComparedFrequentlyProductBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<CatalogApplicationModels.ProductFrequentlyComparedSimilarResponseSchema> response = catalogApplicationApiList.getComparedFrequentlyProductBySlug(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductFrequentlyComparedSimilarResponse> response = catalogApplicationApiList.getComparedFrequentlyProductBySlug(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -164,16 +165,16 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductVariantsResponseSchema getProductVariantsBySlug(String slug) throws IOException {
+    public CatalogApplicationModels.ProductVariantsResponse getProductVariantsBySlug(String slug) throws IOException {
         return this.getProductVariantsBySlug(slug, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductVariantsResponseSchema getProductVariantsBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductVariantsResponse getProductVariantsBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductVariantsBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<CatalogApplicationModels.ProductVariantsResponseSchema> response = catalogApplicationApiList.getProductVariantsBySlug(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductVariantsResponse> response = catalogApplicationApiList.getProductVariantsBySlug(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -182,15 +183,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductStockStatusResponseSchema getProductStockByIds(Integer itemId, String alu, String skuCode, String ean, String upc) throws IOException {
+    public CatalogApplicationModels.ProductStockStatusResponse getProductStockByIds(String itemId, String alu, String skuCode, String ean, String upc) throws IOException {
         return this.getProductStockByIds(itemId, alu, skuCode, ean, upc, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductStockStatusResponseSchema getProductStockByIds(Integer itemId, String alu, String skuCode, String ean, String upc, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductStockStatusResponse getProductStockByIds(String itemId, String alu, String skuCode, String ean, String upc, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductStockByIds");
 
-        Response<CatalogApplicationModels.ProductStockStatusResponseSchema> response = catalogApplicationApiList.getProductStockByIds(fullUrl, itemId, alu, skuCode, ean, upc, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductStockStatusResponse> response = catalogApplicationApiList.getProductStockByIds(fullUrl, itemId, alu, skuCode, ean, upc, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -252,15 +253,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductListingResponseSchema getProducts(String q, String f, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType) throws IOException {
+    public CatalogApplicationModels.ProductListingResponse getProducts(String q, String f, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType) throws IOException {
         return this.getProducts(q, f, filters, sortOn, pageId, pageSize, pageNo, pageType, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductListingResponseSchema getProducts(String q, String f, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductListingResponse getProducts(String q, String f, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProducts");
 
-        Response<CatalogApplicationModels.ProductListingResponseSchema> response = catalogApplicationApiList.getProducts(fullUrl, q, f, filters, sortOn, pageId, pageSize, pageNo, pageType, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductListingResponse> response = catalogApplicationApiList.getProducts(fullUrl, q, f, filters, sortOn, pageId, pageSize, pageNo, pageType, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -272,7 +273,7 @@ import com.sdk.application.*;
     * Summary: get paginator for getProducts
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogApplicationModels.ProductListingResponseSchema> getProductsPagination(
+    public Paginator<CatalogApplicationModels.ProductListingResponse> getProductsPagination(
         
         String q,
         String f,
@@ -284,11 +285,11 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogApplicationModels.ProductListingResponseSchema> paginator = new Paginator<>(pageSize, "cursor");
+    Paginator<CatalogApplicationModels.ProductListingResponse> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
-            CatalogApplicationModels.ProductListingResponseSchema callback = this.getProducts(
+            CatalogApplicationModels.ProductListingResponse callback = this.getProducts(
                 
                  q,
                  f,
@@ -315,15 +316,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.BrandListingResponseSchema getBrands(String department, Integer pageNo, Integer pageSize) throws IOException {
+    public CatalogApplicationModels.BrandListingResponse getBrands(String department, Integer pageNo, Integer pageSize) throws IOException {
         return this.getBrands(department, pageNo, pageSize, new HashMap<>());
     }
 
-    public CatalogApplicationModels.BrandListingResponseSchema getBrands(String department, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.BrandListingResponse getBrands(String department, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBrands");
 
-        Response<CatalogApplicationModels.BrandListingResponseSchema> response = catalogApplicationApiList.getBrands(fullUrl, department, pageNo, pageSize, requestHeaders).execute();
+        Response<CatalogApplicationModels.BrandListingResponse> response = catalogApplicationApiList.getBrands(fullUrl, department, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -335,7 +336,7 @@ import com.sdk.application.*;
     * Summary: get paginator for getBrands
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogApplicationModels.BrandListingResponseSchema> getBrandsPagination(
+    public Paginator<CatalogApplicationModels.BrandListingResponse> getBrandsPagination(
         
         String department,
         Integer pageSize
@@ -344,11 +345,11 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogApplicationModels.BrandListingResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogApplicationModels.BrandListingResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogApplicationModels.BrandListingResponseSchema callback = this.getBrands(
+            CatalogApplicationModels.BrandListingResponse callback = this.getBrands(
                 
                  department,
                  paginator.getPageNo()
@@ -368,16 +369,16 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.BrandDetailResponseSchema getBrandDetailBySlug(String slug) throws IOException {
+    public CatalogApplicationModels.BrandDetailResponse getBrandDetailBySlug(String slug) throws IOException {
         return this.getBrandDetailBySlug(slug, new HashMap<>());
     }
 
-    public CatalogApplicationModels.BrandDetailResponseSchema getBrandDetailBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.BrandDetailResponse getBrandDetailBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getBrandDetailBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<CatalogApplicationModels.BrandDetailResponseSchema> response = catalogApplicationApiList.getBrandDetailBySlug(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.BrandDetailResponse> response = catalogApplicationApiList.getBrandDetailBySlug(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -386,15 +387,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.CategoryListingResponseSchema getCategories(String department) throws IOException {
+    public CatalogApplicationModels.CategoryListingResponse getCategories(String department) throws IOException {
         return this.getCategories(department, new HashMap<>());
     }
 
-    public CatalogApplicationModels.CategoryListingResponseSchema getCategories(String department, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.CategoryListingResponse getCategories(String department, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCategories");
 
-        Response<CatalogApplicationModels.CategoryListingResponseSchema> response = catalogApplicationApiList.getCategories(fullUrl, department, requestHeaders).execute();
+        Response<CatalogApplicationModels.CategoryListingResponse> response = catalogApplicationApiList.getCategories(fullUrl, department, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -403,16 +404,16 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.CategoryMetaResponseSchema getCategoryDetailBySlug(String slug) throws IOException {
+    public CatalogApplicationModels.CategoryMetaResponse getCategoryDetailBySlug(String slug) throws IOException {
         return this.getCategoryDetailBySlug(slug, new HashMap<>());
     }
 
-    public CatalogApplicationModels.CategoryMetaResponseSchema getCategoryDetailBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.CategoryMetaResponse getCategoryDetailBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCategoryDetailBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<CatalogApplicationModels.CategoryMetaResponseSchema> response = catalogApplicationApiList.getCategoryDetailBySlug(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.CategoryMetaResponse> response = catalogApplicationApiList.getCategoryDetailBySlug(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -421,15 +422,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.HomeListingResponseSchema getHomeProducts(String sortOn, String pageId, Integer pageSize) throws IOException {
+    public CatalogApplicationModels.HomeListingResponse getHomeProducts(String sortOn, String pageId, Integer pageSize) throws IOException {
         return this.getHomeProducts(sortOn, pageId, pageSize, new HashMap<>());
     }
 
-    public CatalogApplicationModels.HomeListingResponseSchema getHomeProducts(String sortOn, String pageId, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.HomeListingResponse getHomeProducts(String sortOn, String pageId, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getHomeProducts");
 
-        Response<CatalogApplicationModels.HomeListingResponseSchema> response = catalogApplicationApiList.getHomeProducts(fullUrl, sortOn, pageId, pageSize, requestHeaders).execute();
+        Response<CatalogApplicationModels.HomeListingResponse> response = catalogApplicationApiList.getHomeProducts(fullUrl, sortOn, pageId, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -441,7 +442,7 @@ import com.sdk.application.*;
     * Summary: get paginator for getHomeProducts
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogApplicationModels.HomeListingResponseSchema> getHomeProductsPagination(
+    public Paginator<CatalogApplicationModels.HomeListingResponse> getHomeProductsPagination(
         
         String sortOn,
         Integer pageSize
@@ -450,11 +451,11 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogApplicationModels.HomeListingResponseSchema> paginator = new Paginator<>(pageSize, "cursor");
+    Paginator<CatalogApplicationModels.HomeListingResponse> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
-            CatalogApplicationModels.HomeListingResponseSchema callback = this.getHomeProducts(
+            CatalogApplicationModels.HomeListingResponse callback = this.getHomeProducts(
                 
                  sortOn,
                  paginator.getNextId()
@@ -474,15 +475,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.DepartmentResponseSchema getDepartments() throws IOException {
+    public CatalogApplicationModels.DepartmentResponse getDepartments() throws IOException {
         return this.getDepartments(new HashMap<>());
     }
 
-    public CatalogApplicationModels.DepartmentResponseSchema getDepartments(Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.DepartmentResponse getDepartments(Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getDepartments");
 
-        Response<CatalogApplicationModels.DepartmentResponseSchema> response = catalogApplicationApiList.getDepartments(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.DepartmentResponse> response = catalogApplicationApiList.getDepartments(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -491,15 +492,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.AutoCompleteResponseSchema getSearchResults(String q) throws IOException {
+    public CatalogApplicationModels.AutoCompleteResponse getSearchResults(String q) throws IOException {
         return this.getSearchResults(q, new HashMap<>());
     }
 
-    public CatalogApplicationModels.AutoCompleteResponseSchema getSearchResults(String q, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.AutoCompleteResponse getSearchResults(String q, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getSearchResults");
 
-        Response<CatalogApplicationModels.AutoCompleteResponseSchema> response = catalogApplicationApiList.getSearchResults(fullUrl, q, requestHeaders).execute();
+        Response<CatalogApplicationModels.AutoCompleteResponse> response = catalogApplicationApiList.getSearchResults(fullUrl, q, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -508,15 +509,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.GetCollectionListingResponseSchema getCollections(Integer pageNo, Integer pageSize, List<String> tag, String q) throws IOException {
+    public CatalogApplicationModels.GetCollectionListingResponse getCollections(Integer pageNo, Integer pageSize, List<String> tag, String q) throws IOException {
         return this.getCollections(pageNo, pageSize, tag, q, new HashMap<>());
     }
 
-    public CatalogApplicationModels.GetCollectionListingResponseSchema getCollections(Integer pageNo, Integer pageSize, List<String> tag, String q, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.GetCollectionListingResponse getCollections(Integer pageNo, Integer pageSize, List<String> tag, String q, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCollections");
 
-        Response<CatalogApplicationModels.GetCollectionListingResponseSchema> response = catalogApplicationApiList.getCollections(fullUrl, pageNo, pageSize, tag, q, requestHeaders).execute();
+        Response<CatalogApplicationModels.GetCollectionListingResponse> response = catalogApplicationApiList.getCollections(fullUrl, pageNo, pageSize, tag, q, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -528,7 +529,7 @@ import com.sdk.application.*;
     * Summary: get paginator for getCollections
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogApplicationModels.GetCollectionListingResponseSchema> getCollectionsPagination(
+    public Paginator<CatalogApplicationModels.GetCollectionListingResponse> getCollectionsPagination(
         
         Integer pageSize,
         List<String> tag,
@@ -538,11 +539,11 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogApplicationModels.GetCollectionListingResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogApplicationModels.GetCollectionListingResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogApplicationModels.GetCollectionListingResponseSchema callback = this.getCollections(
+            CatalogApplicationModels.GetCollectionListingResponse callback = this.getCollections(
                 
                  paginator.getPageNo()
                 ,
@@ -563,16 +564,16 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductListingResponseSchema getCollectionItemsBySlug(String slug, String f, String q, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType) throws IOException {
+    public CatalogApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug, String f, String q, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType) throws IOException {
         return this.getCollectionItemsBySlug(slug, f, q, filters, sortOn, pageId, pageSize, pageNo, pageType, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductListingResponseSchema getCollectionItemsBySlug(String slug, String f, String q, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductListingResponse getCollectionItemsBySlug(String slug, String f, String q, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCollectionItemsBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<CatalogApplicationModels.ProductListingResponseSchema> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl, f, q, filters, sortOn, pageId, pageSize, pageNo, pageType, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductListingResponse> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl, f, q, filters, sortOn, pageId, pageSize, pageNo, pageType, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -584,7 +585,7 @@ import com.sdk.application.*;
     * Summary: get paginator for getCollectionItemsBySlug
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogApplicationModels.ProductListingResponseSchema> getCollectionItemsBySlugPagination(
+    public Paginator<CatalogApplicationModels.ProductListingResponse> getCollectionItemsBySlugPagination(
         
         String slug,
         String f,
@@ -597,11 +598,11 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogApplicationModels.ProductListingResponseSchema> paginator = new Paginator<>(pageSize, "cursor");
+    Paginator<CatalogApplicationModels.ProductListingResponse> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
-            CatalogApplicationModels.ProductListingResponseSchema callback = this.getCollectionItemsBySlug(
+            CatalogApplicationModels.ProductListingResponse callback = this.getCollectionItemsBySlug(
                 
                  slug,
                  f,
@@ -629,16 +630,16 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.CollectionDetailResponseSchema getCollectionDetailBySlug(String slug) throws IOException {
+    public CatalogApplicationModels.CollectionDetailResponse getCollectionDetailBySlug(String slug) throws IOException {
         return this.getCollectionDetailBySlug(slug, new HashMap<>());
     }
 
-    public CatalogApplicationModels.CollectionDetailResponseSchema getCollectionDetailBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.CollectionDetailResponse getCollectionDetailBySlug(String slug, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCollectionDetailBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<CatalogApplicationModels.CollectionDetailResponseSchema> response = catalogApplicationApiList.getCollectionDetailBySlug(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.CollectionDetailResponse> response = catalogApplicationApiList.getCollectionDetailBySlug(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -647,16 +648,16 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.GetFollowListingResponseSchema getFollowedListing(String collectionType, String pageId, Integer pageSize) throws IOException {
+    public CatalogApplicationModels.GetFollowListingResponse getFollowedListing(String collectionType, String pageId, Integer pageSize) throws IOException {
         return this.getFollowedListing(collectionType, pageId, pageSize, new HashMap<>());
     }
 
-    public CatalogApplicationModels.GetFollowListingResponseSchema getFollowedListing(String collectionType, String pageId, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.GetFollowListingResponse getFollowedListing(String collectionType, String pageId, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getFollowedListing");
         fullUrl = fullUrl.replace("{" + "collection_type" + "}",collectionType.toString());
 
-        Response<CatalogApplicationModels.GetFollowListingResponseSchema> response = catalogApplicationApiList.getFollowedListing(fullUrl, pageId, pageSize, requestHeaders).execute();
+        Response<CatalogApplicationModels.GetFollowListingResponse> response = catalogApplicationApiList.getFollowedListing(fullUrl, pageId, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -668,7 +669,7 @@ import com.sdk.application.*;
     * Summary: get paginator for getFollowedListing
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogApplicationModels.GetFollowListingResponseSchema> getFollowedListingPagination(
+    public Paginator<CatalogApplicationModels.GetFollowListingResponse> getFollowedListingPagination(
         
         String collectionType,
         Integer pageSize
@@ -677,11 +678,11 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogApplicationModels.GetFollowListingResponseSchema> paginator = new Paginator<>(pageSize, "cursor");
+    Paginator<CatalogApplicationModels.GetFollowListingResponse> paginator = new Paginator<>(pageSize, "cursor");
 
     paginator.setCallback(()-> {
         try {
-            CatalogApplicationModels.GetFollowListingResponseSchema callback = this.getFollowedListing(
+            CatalogApplicationModels.GetFollowListingResponse callback = this.getFollowedListing(
                 
                  collectionType,
                  paginator.getNextId()
@@ -701,17 +702,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.FollowPostResponseSchema unfollowById(String collectionType, String collectionId) throws IOException {
+    public CatalogApplicationModels.FollowPostResponse unfollowById(String collectionType, String collectionId) throws IOException {
         return this.unfollowById(collectionType, collectionId, new HashMap<>());
     }
 
-    public CatalogApplicationModels.FollowPostResponseSchema unfollowById(String collectionType, String collectionId, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.FollowPostResponse unfollowById(String collectionType, String collectionId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("unfollowById");
         fullUrl = fullUrl.replace("{" + "collection_type" + "}",collectionType.toString());
         fullUrl = fullUrl.replace("{" + "collection_id" + "}",collectionId.toString());
 
-        Response<CatalogApplicationModels.FollowPostResponseSchema> response = catalogApplicationApiList.unfollowById(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.FollowPostResponse> response = catalogApplicationApiList.unfollowById(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -720,17 +721,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.FollowPostResponseSchema followById(String collectionType, String collectionId) throws IOException {
+    public CatalogApplicationModels.FollowPostResponse followById(String collectionType, String collectionId) throws IOException {
         return this.followById(collectionType, collectionId, new HashMap<>());
     }
 
-    public CatalogApplicationModels.FollowPostResponseSchema followById(String collectionType, String collectionId, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.FollowPostResponse followById(String collectionType, String collectionId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("followById");
         fullUrl = fullUrl.replace("{" + "collection_type" + "}",collectionType.toString());
         fullUrl = fullUrl.replace("{" + "collection_id" + "}",collectionId.toString());
 
-        Response<CatalogApplicationModels.FollowPostResponseSchema> response = catalogApplicationApiList.followById(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.FollowPostResponse> response = catalogApplicationApiList.followById(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -739,17 +740,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.FollowerCountResponseSchema getFollowerCountById(String collectionType, Integer collectionId) throws IOException {
+    public CatalogApplicationModels.FollowerCountResponse getFollowerCountById(String collectionType, String collectionId) throws IOException {
         return this.getFollowerCountById(collectionType, collectionId, new HashMap<>());
     }
 
-    public CatalogApplicationModels.FollowerCountResponseSchema getFollowerCountById(String collectionType, Integer collectionId, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.FollowerCountResponse getFollowerCountById(String collectionType, String collectionId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getFollowerCountById");
         fullUrl = fullUrl.replace("{" + "collection_type" + "}",collectionType.toString());
         fullUrl = fullUrl.replace("{" + "collection_id" + "}",collectionId.toString());
 
-        Response<CatalogApplicationModels.FollowerCountResponseSchema> response = catalogApplicationApiList.getFollowerCountById(fullUrl, requestHeaders).execute();
+        Response<CatalogApplicationModels.FollowerCountResponse> response = catalogApplicationApiList.getFollowerCountById(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -758,15 +759,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.FollowIdsResponseSchema getFollowIds(String collectionType) throws IOException {
+    public CatalogApplicationModels.FollowIdsResponse getFollowIds(String collectionType) throws IOException {
         return this.getFollowIds(collectionType, new HashMap<>());
     }
 
-    public CatalogApplicationModels.FollowIdsResponseSchema getFollowIds(String collectionType, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.FollowIdsResponse getFollowIds(String collectionType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getFollowIds");
 
-        Response<CatalogApplicationModels.FollowIdsResponseSchema> response = catalogApplicationApiList.getFollowIds(fullUrl, collectionType, requestHeaders).execute();
+        Response<CatalogApplicationModels.FollowIdsResponse> response = catalogApplicationApiList.getFollowIds(fullUrl, collectionType, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -775,15 +776,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.StoreListingResponseSchema getStores(Integer pageNo, Integer pageSize, String q, String city, Integer range, Double latitude, Double longitude, String tags) throws IOException {
+    public CatalogApplicationModels.StoreListingResponse getStores(Integer pageNo, Integer pageSize, String q, String city, Integer range, Double latitude, Double longitude, String tags) throws IOException {
         return this.getStores(pageNo, pageSize, q, city, range, latitude, longitude, tags, new HashMap<>());
     }
 
-    public CatalogApplicationModels.StoreListingResponseSchema getStores(Integer pageNo, Integer pageSize, String q, String city, Integer range, Double latitude, Double longitude, String tags, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.StoreListingResponse getStores(Integer pageNo, Integer pageSize, String q, String city, Integer range, Double latitude, Double longitude, String tags, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getStores");
 
-        Response<CatalogApplicationModels.StoreListingResponseSchema> response = catalogApplicationApiList.getStores(fullUrl, pageNo, pageSize, q, city, range, latitude, longitude, tags, requestHeaders).execute();
+        Response<CatalogApplicationModels.StoreListingResponse> response = catalogApplicationApiList.getStores(fullUrl, pageNo, pageSize, q, city, range, latitude, longitude, tags, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -795,7 +796,7 @@ import com.sdk.application.*;
     * Summary: get paginator for getStores
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogApplicationModels.StoreListingResponseSchema> getStoresPagination(
+    public Paginator<CatalogApplicationModels.StoreListingResponse> getStoresPagination(
         
         Integer pageSize,
         String q,
@@ -809,11 +810,11 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogApplicationModels.StoreListingResponseSchema> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogApplicationModels.StoreListingResponse> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogApplicationModels.StoreListingResponseSchema callback = this.getStores(
+            CatalogApplicationModels.StoreListingResponse callback = this.getStores(
                 
                  paginator.getPageNo()
                 ,
@@ -917,15 +918,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id, String size, Integer sellerId) throws IOException {
-        return this.getProductBundlesBySlug(slug, id, size, sellerId, new HashMap<>());
+    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, String id) throws IOException {
+        return this.getProductBundlesBySlug(slug, id, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id, String size, Integer sellerId, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, String id, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductBundlesBySlug");
 
-        Response<CatalogApplicationModels.ProductBundle> response = catalogApplicationApiList.getProductBundlesBySlug(fullUrl, slug, id, size, sellerId, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductBundle> response = catalogApplicationApiList.getProductBundlesBySlug(fullUrl, slug, id, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -934,15 +935,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductSizePriceResponseV1 getProductPriceBySlug(CatalogApplicationModels.ProductSizePriceV1RequestSchema body) throws IOException {
-        return this.getProductPriceBySlug(body, new HashMap<>());
+    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, Integer moq) throws IOException {
+        return this.getProductPriceBySlug(slug, size, storeId, moq, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductSizePriceResponseV1 getProductPriceBySlug(CatalogApplicationModels.ProductSizePriceV1RequestSchema body, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductSizePriceResponseV3 getProductPriceBySlug(String slug, String size, Integer storeId, Integer moq, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductPriceBySlug");
+        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
+        fullUrl = fullUrl.replace("{" + "size" + "}",size.toString());
 
-        Response<CatalogApplicationModels.ProductSizePriceResponseV1> response = catalogApplicationApiList.getProductPriceBySlug(fullUrl, body, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductSizePriceResponseV3> response = catalogApplicationApiList.getProductPriceBySlug(fullUrl, storeId, moq, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -951,17 +954,34 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductSizeSellersResponseV4 getProductSellersBySlug(String slug, String size, String pincode, String strategy, Integer pageNo, Integer pageSize) throws IOException {
-        return this.getProductSellersBySlug(slug, size, pincode, strategy, pageNo, pageSize, new HashMap<>());
+    public CatalogApplicationModels.ProductSizePriceServiceabilityResponse getProductsServiceability(CatalogApplicationModels.ProductSizePriceServiceabilityRequest body) throws IOException {
+        return this.getProductsServiceability(body, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductSizeSellersResponseV4 getProductSellersBySlug(String slug, String size, String pincode, String strategy, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductSizePriceServiceabilityResponse getProductsServiceability(CatalogApplicationModels.ProductSizePriceServiceabilityRequest body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getProductsServiceability");
+
+        Response<CatalogApplicationModels.ProductSizePriceServiceabilityResponse> response = catalogApplicationApiList.getProductsServiceability(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CatalogApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlug(String slug, String size, String strategy, Integer pageNo, Integer pageSize) throws IOException {
+        return this.getProductSellersBySlug(slug, size, strategy, pageNo, pageSize, new HashMap<>());
+    }
+
+    public CatalogApplicationModels.ProductSizeSellersResponseV3 getProductSellersBySlug(String slug, String size, String strategy, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductSellersBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
         fullUrl = fullUrl.replace("{" + "size" + "}",size.toString());
 
-        Response<CatalogApplicationModels.ProductSizeSellersResponseV4> response = catalogApplicationApiList.getProductSellersBySlug(fullUrl, pincode, strategy, pageNo, pageSize, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductSizeSellersResponseV3> response = catalogApplicationApiList.getProductSellersBySlug(fullUrl, strategy, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -973,11 +993,10 @@ import com.sdk.application.*;
     * Summary: get paginator for getProductSellersBySlug
     * Description: fetch the next page by calling .next(...) function
     **/
-    public Paginator<CatalogApplicationModels.ProductSizeSellersResponseV4> getProductSellersBySlugPagination(
+    public Paginator<CatalogApplicationModels.ProductSizeSellersResponseV3> getProductSellersBySlugPagination(
         
         String slug,
         String size,
-        String pincode,
         String strategy,
         Integer pageSize
         
@@ -985,15 +1004,14 @@ import com.sdk.application.*;
     
     pageSize = pageSize!=0?20:pageSize; 
 
-    Paginator<CatalogApplicationModels.ProductSizeSellersResponseV4> paginator = new Paginator<>(pageSize, "number");
+    Paginator<CatalogApplicationModels.ProductSizeSellersResponseV3> paginator = new Paginator<>(pageSize, "number");
 
     paginator.setCallback(()-> {
         try {
-            CatalogApplicationModels.ProductSizeSellersResponseV4 callback = this.getProductSellersBySlug(
+            CatalogApplicationModels.ProductSizeSellersResponseV3 callback = this.getProductSellersBySlug(
                 
                  slug,
                  size,
-                 pincode,
                  strategy,
                  paginator.getPageNo()
                 ,

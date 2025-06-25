@@ -31,9 +31,7 @@ import com.sdk.application.*;
         
         relativeUrls.put("getCommunicationConsent","/service/application/communication/v1.0/consent".substring(1));
         relativeUrls.put("upsertCommunicationConsent","/service/application/communication/v1.0/consent".substring(1));
-        relativeUrls.put("getCurrentCommunicationConsent","/service/application/communication/v1.0/current/communication/consent".substring(1));
-        relativeUrls.put("upsertCurrentCommunicationConsent","/service/application/communication/v1.0/current/communication/consent".substring(1));
-        relativeUrls.put("getOtpConfiguration","/service/application/communication/v1.0/otp/otp-configuration".substring(1)); 
+        relativeUrls.put("upsertAppPushtoken","/service/application/communication/v1.0/pn-token".substring(1)); 
 
     }
 
@@ -84,49 +82,15 @@ import com.sdk.application.*;
     }
     
 
-    public CommunicationApplicationModels.CommunicationConsent getCurrentCommunicationConsent() throws IOException {
-        return this.getCurrentCommunicationConsent(new HashMap<>());
+    public CommunicationApplicationModels.PushtokenRes upsertAppPushtoken(CommunicationApplicationModels.PushtokenReq body) throws IOException {
+        return this.upsertAppPushtoken(body, new HashMap<>());
     }
 
-    public CommunicationApplicationModels.CommunicationConsent getCurrentCommunicationConsent(Map<String, String> requestHeaders) throws IOException {
+    public CommunicationApplicationModels.PushtokenRes upsertAppPushtoken(CommunicationApplicationModels.PushtokenReq body, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("getCurrentCommunicationConsent");
+        String fullUrl = relativeUrls.get("upsertAppPushtoken");
 
-        Response<CommunicationApplicationModels.CommunicationConsent> response = communicationApplicationApiList.getCurrentCommunicationConsent(fullUrl, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public CommunicationApplicationModels.CommunicationConsentRes upsertCurrentCommunicationConsent(CommunicationApplicationModels.CommunicationConsentReq body) throws IOException {
-        return this.upsertCurrentCommunicationConsent(body, new HashMap<>());
-    }
-
-    public CommunicationApplicationModels.CommunicationConsentRes upsertCurrentCommunicationConsent(CommunicationApplicationModels.CommunicationConsentReq body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("upsertCurrentCommunicationConsent");
-
-        Response<CommunicationApplicationModels.CommunicationConsentRes> response = communicationApplicationApiList.upsertCurrentCommunicationConsent(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public CommunicationApplicationModels.OtpConfiguration getOtpConfiguration() throws IOException {
-        return this.getOtpConfiguration(new HashMap<>());
-    }
-
-    public CommunicationApplicationModels.OtpConfiguration getOtpConfiguration(Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getOtpConfiguration");
-
-        Response<CommunicationApplicationModels.OtpConfiguration> response = communicationApplicationApiList.getOtpConfiguration(fullUrl, requestHeaders).execute();
+        Response<CommunicationApplicationModels.PushtokenRes> response = communicationApplicationApiList.upsertAppPushtoken(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

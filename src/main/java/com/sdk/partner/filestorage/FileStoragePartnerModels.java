@@ -14,253 +14,6 @@ public class FileStoragePartnerModels{
 
 
 /*
-    Model: SizeConstraints
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SizeConstraints{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("max")
-    private Integer max;
-    
-    
-    
-}
-
-
-/*
-    Model: SaveProxy
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SaveProxy{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-}
-
-
-/*
-    Model: ProxyFileData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProxyFileData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("email")
-    private String email;
-    
-    
-    
-    
-    @JsonProperty("password")
-    private String password;
-    
-    
-    
-}
-
-
-/*
-    Model: ProxyFile
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ProxyFile{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private Integer id;
-    
-    
-    
-    
-    @JsonProperty("customer")
-    private String customer;
-    
-    
-    
-    
-    @JsonProperty("quantity")
-    private Integer quantity;
-    
-    
-    
-    
-    @JsonProperty("price")
-    private Double price;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private ProxyFileData data;
-    
-    
-    
-    
-    @JsonProperty("url")
-    private String url;
-    
-    
-    
-    
-    @JsonProperty("headers")
-    private HashMap<String,Object> headers;
-    
-    
-    
-}
-
-
-/*
-    Model: FetchProxyDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FetchProxyDetails{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private HashMap<String,Object> data;
-    
-    
-    
-    
-    @JsonProperty("support")
-    private HashMap<String,Object> support;
-    
-    
-    
-}
-
-
-/*
-    Model: NamespaceDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NamespaceDetails{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("namespace")
-    private String namespace;
-    
-    
-    
-    
-    @JsonProperty("valid_content_types")
-    private List<String> validContentTypes;
-    
-    
-    
-    
-    @JsonProperty("size")
-    private SizeConstraints size;
-    
-    
-    
-    
-    @JsonProperty("file_acl")
-    private String fileAcl;
-    
-    
-    
-}
-
-
-/*
-    Model: AllNamespaceDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AllNamespaceDetails{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<NamespaceDetails> items;
-    
-    
-    
-}
-
-
-/*
     Model: CDN
 */
 @AllArgsConstructor
@@ -329,7 +82,7 @@ public static class Upload{
 
 
 /*
-    Model: FileUpload
+    Model: StartResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -337,7 +90,7 @@ public static class Upload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileUpload{
+public static class StartResponse{
 
     
 
@@ -393,6 +146,12 @@ public static class FileUpload{
     
     
     
+    @JsonProperty("cdn")
+    private CDN cdn;
+    
+    
+    
+    
     @JsonProperty("tags")
     private List<String> tags;
     
@@ -402,7 +161,7 @@ public static class FileUpload{
 
 
 /*
-    Model: FileUploadStart
+    Model: StartRequest
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -410,7 +169,7 @@ public static class FileUpload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileUploadStart{
+public static class StartRequest{
 
     
 
@@ -473,12 +232,6 @@ public static class CreatedBy{
     
     
     
-    @JsonProperty("user_id")
-    private String userId;
-    
-    
-    
-    
     @JsonProperty("username")
     private String username;
     
@@ -488,7 +241,7 @@ public static class CreatedBy{
 
 
 /*
-    Model: FileUploadComplete
+    Model: CompleteResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -496,7 +249,7 @@ public static class CreatedBy{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileUploadComplete{
+public static class CompleteResponse{
 
     
 
@@ -591,7 +344,7 @@ public static class FileUploadComplete{
 
 
 /*
-    Model: FailedBrowseFilesResult
+    Model: FailedResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -599,7 +352,7 @@ public static class FileUploadComplete{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FailedBrowseFilesResult{
+public static class FailedResponse{
 
     
 

@@ -83,12 +83,6 @@ public static class ApplicationLegal{
     
     
     
-    
-    @JsonProperty("__v")
-    private Double v;
-    
-    
-    
 }
 
 
@@ -189,14 +183,8 @@ public static class SeoSchema{
     
     
     
-    @JsonProperty("additional_sitemap")
-    private String additionalSitemap;
-    
-    
-    
-    
-    @JsonProperty("sitemap")
-    private SEOSitemap sitemap;
+    @JsonProperty("additonal_sitemap")
+    private String additonalSitemap;
     
     
     
@@ -227,12 +215,6 @@ public static class SeoSchema{
     
     @JsonProperty("updated_at")
     private String updatedAt;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
     
     
     
@@ -355,7 +337,7 @@ public static class SEOSchemaMarkupTemplate{
     
     
     
-    @JsonProperty("_id")
+    @JsonProperty("id")
     private String id;
     
     
@@ -385,12 +367,6 @@ public static class SEOSchemaMarkupTemplate{
     
     
     
-    @JsonProperty("target_json")
-    private HashMap<String,Object> targetJson;
-    
-    
-    
-    
     @JsonProperty("active")
     private Boolean active;
     
@@ -411,12 +387,6 @@ public static class SEOSchemaMarkupTemplate{
     
     @JsonProperty("application")
     private String application;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
     
     
     
@@ -566,7 +536,7 @@ public static class ScheduleStartSchema{
 
 
 /*
-    Model: BlogGetResponseSchema
+    Model: BlogGetResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -574,7 +544,7 @@ public static class ScheduleStartSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BlogGetResponseSchema{
+public static class BlogGetResponse{
 
     
 
@@ -756,7 +726,7 @@ public static class BlogSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -844,12 +814,6 @@ public static class BlogSchema{
     
     
     
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
 }
 
 
@@ -900,8 +864,8 @@ public static class SEO{
     
     
     
-    @JsonProperty("breadcrumbs")
-    private List<SEObreadcrumb> breadcrumbs;
+    @JsonProperty("breadcrumb")
+    private List<SEObreadcrumb> breadcrumb;
     
     
     
@@ -1057,196 +1021,6 @@ public static class SEObreadcrumb{
     
     @JsonProperty("action")
     private Action action;
-    
-    
-    
-}
-
-
-/*
-    Model: DefaultSitemapIndividualConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DefaultSitemapIndividualConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-}
-
-
-/*
-    Model: DefaultSitemapConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DefaultSitemapConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("root")
-    private DefaultSitemapIndividualConfig root;
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private DefaultSitemapIndividualConfig brand;
-    
-    
-    
-    
-    @JsonProperty("collections")
-    private DefaultSitemapIndividualConfig collections;
-    
-    
-    
-    
-    @JsonProperty("category_l1")
-    private DefaultSitemapIndividualConfig categoryL1;
-    
-    
-    
-    
-    @JsonProperty("category_l2")
-    private DefaultSitemapIndividualConfig categoryL2;
-    
-    
-    
-    
-    @JsonProperty("category_l3")
-    private DefaultSitemapIndividualConfig categoryL3;
-    
-    
-    
-    
-    @JsonProperty("pages")
-    private DefaultSitemapIndividualConfig pages;
-    
-    
-    
-    
-    @JsonProperty("blog")
-    private DefaultSitemapIndividualConfig blog;
-    
-    
-    
-    
-    @JsonProperty("section")
-    private DefaultSitemapIndividualConfig section;
-    
-    
-    
-    
-    @JsonProperty("faq")
-    private DefaultSitemapIndividualConfig faq;
-    
-    
-    
-    
-    @JsonProperty("sitemap")
-    private DefaultSitemapIndividualConfig sitemap;
-    
-    
-    
-}
-
-
-/*
-    Model: SitemapConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SitemapConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
-    
-    
-    
-    
-    @JsonProperty("sitemap")
-    private String sitemap;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
-    
-    
-    
-}
-
-
-/*
-    Model: SitemapConfigurationList
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SitemapConfigurationList{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<SitemapConfig> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
     
     
     
@@ -1579,6 +1353,104 @@ public static class NavigationReference{
 
 
 /*
+    Model: ConfigurationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ConfigurationSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sleep_time")
+    private Integer sleepTime;
+    
+    
+    
+    
+    @JsonProperty("start_on_launch")
+    private Boolean startOnLaunch;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Integer duration;
+    
+    
+    
+    
+    @JsonProperty("slide_direction")
+    private String slideDirection;
+    
+    
+    
+}
+
+
+/*
+    Model: SlideshowMedia
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowMedia{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("url")
+    private String url;
+    
+    
+    
+    
+    @JsonProperty("bg_color")
+    private String bgColor;
+    
+    
+    
+    
+    @JsonProperty("duration")
+    private Integer duration;
+    
+    
+    
+    
+    @JsonProperty("auto_decide_duration")
+    private Boolean autoDecideDuration;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private Action action;
+    
+    
+    
+}
+
+
+/*
     Model: AnnouncementsResponseSchema
 */
 @AllArgsConstructor
@@ -1677,36 +1549,6 @@ public static class DataLoaderSchema{
     
     @JsonProperty("type")
     private String type;
-    
-    
-    
-    
-    @JsonProperty("is_selected")
-    private Boolean isSelected;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
-    
-    
-    
-    
-    @JsonProperty("company")
-    private String company;
-    
-    
-    
-    
-    @JsonProperty("application")
-    private String application;
     
     
     
@@ -1853,7 +1695,32 @@ public static class ContentAPIError{
     
     
     @JsonProperty("meta")
-    private HashMap<String,Object> meta;
+    private Object meta;
+    
+    
+    
+}
+
+
+/*
+    Model: CommonError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CommonError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -1926,13 +1793,7 @@ public static class CategorySchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
+    private Object customJson;
     
     
     
@@ -2054,13 +1915,7 @@ public static class FAQCategorySchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
+    private Object customJson;
     
     
     
@@ -2116,12 +1971,6 @@ public static class FaqSchema{
     
     @JsonProperty("tags")
     private List<String> tags;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
     
     
     
@@ -2261,12 +2110,6 @@ public static class Page{
     
     
     
-    
-    @JsonProperty("total")
-    private Integer total;
-    
-    
-    
 }
 
 
@@ -2336,13 +2179,7 @@ public static class LandingPageSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
+    private Object customJson;
     
     
     
@@ -2350,7 +2187,7 @@ public static class LandingPageSchema{
 
 
 /*
-    Model: NavigationGetResponseSchema
+    Model: NavigationGetResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2358,7 +2195,7 @@ public static class LandingPageSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NavigationGetResponseSchema{
+public static class NavigationGetResponse{
 
     
 
@@ -2493,17 +2330,11 @@ public static class NavigationSchema{
     
     
     
-    
-    @JsonProperty("__v")
-    private Double v;
-    
-    
-    
 }
 
 
 /*
-    Model: PageGetResponseSchema
+    Model: PageGetResponse
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2511,7 +2342,7 @@ public static class NavigationSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PageGetResponseSchema{
+public static class PageGetResponse{
 
     
 
@@ -2617,7 +2448,7 @@ public static class PageSchema{
     
     
     @JsonProperty("_custom_json")
-    private HashMap<String,Object> customJson;
+    private Object customJson;
     
     
     
@@ -2671,56 +2502,13 @@ public static class PageSchema{
     
     
     @JsonProperty("visibility")
-    private HashMap<String,Object> visibility;
+    private Object visibility;
     
     
     
     
     @JsonProperty("archived")
     private Boolean archived;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
-    
-    
-    
-    
-    @JsonProperty("sanitized_content")
-    private List<SanitizedContent> sanitizedContent;
-    
-    
-    
-}
-
-
-/*
-    Model: SanitizedContent
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SanitizedContent{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
     
     
     
@@ -2746,6 +2534,116 @@ public static class CreatedBySchema{
     
     @JsonProperty("id")
     private String id;
+    
+    
+    
+}
+
+
+/*
+    Model: SlideshowGetResponse
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowGetResponse{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<SlideshowSchema> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: SlideshowSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SlideshowSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("date_meta")
+    private DateMeta dateMeta;
+    
+    
+    
+    
+    @JsonProperty("application")
+    private String application;
+    
+    
+    
+    
+    @JsonProperty("platform")
+    private String platform;
+    
+    
+    
+    
+    @JsonProperty("configuration")
+    private ConfigurationSchema configuration;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private List<SlideshowMedia> media;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("archived")
+    private Boolean archived;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private Object customJson;
     
     
     
@@ -3003,20 +2901,8 @@ public static class TagsSchema{
     
     
     
-    @JsonProperty("company")
-    private String company;
-    
-    
-    
-    
     @JsonProperty("tags")
     private List<TagSchema> tags;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
     
     
     
@@ -3077,19 +2963,13 @@ public static class TagSchema{
     
     
     @JsonProperty("attributes")
-    private HashMap<String,Object> attributes;
+    private Object attributes;
     
     
     
     
     @JsonProperty("content")
     private String content;
-    
-    
-    
-    
-    @JsonProperty("compatible_engines")
-    private List<String> compatibleEngines;
     
     
     
@@ -3140,7 +3020,7 @@ public static class TagSourceSchema{
 
 
 /*
-    Model: WellKnownResponseSchema
+    Model: CustomObjectFieldValue
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3148,7 +3028,7 @@ public static class TagSourceSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class WellKnownResponseSchema{
+public static class CustomObjectFieldValue{
 
     
 
@@ -3156,44 +3036,8 @@ public static class WellKnownResponseSchema{
     
     
     
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("application_id")
-    private String applicationId;
-    
-    
-    
-    
-    @JsonProperty("content")
-    private String content;
-    
-    
-    
-    
-    @JsonProperty("content_type")
-    private String contentType;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("updated_at")
-    private String updatedAt;
+    @JsonProperty("value")
+    private Object value;
     
     
     
@@ -3217,7 +3061,7 @@ public static class CustomObjectListItemDefinationSchema{
     
     
     
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private String id;
     
     
@@ -3260,8 +3104,14 @@ public static class CustomObjectFieldSchema{
     
     
     
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private List<CustomObjectFieldValue> value;
     
     
     
@@ -3297,7 +3147,7 @@ public static class CustomObjectByIdSchema{
     
     
     
-    @JsonProperty("id")
+    @JsonProperty("_id")
     private String id;
     
     
@@ -3336,6 +3186,31 @@ public static class CustomObjectByIdSchema{
 
 
 /*
+    Model: CustomFieldValue
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomFieldValue{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
     Model: CustomFieldSchema
 */
 @AllArgsConstructor
@@ -3364,14 +3239,26 @@ public static class CustomFieldSchema{
     
     
     
-    @JsonProperty("slug")
-    private String slug;
+    @JsonProperty("key")
+    private String key;
     
     
     
     
     @JsonProperty("resource")
     private String resource;
+    
+    
+    
+    
+    @JsonProperty("creator")
+    private String creator;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private List<CustomFieldValue> value;
     
     
     
@@ -3420,6 +3307,12 @@ public static class CustomFieldSchema{
     
     @JsonProperty("invalid_value_errors")
     private List<Object> invalidValueErrors;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
     
     
     
