@@ -1,7 +1,8 @@
 package com.sdk.platform;
-
+import com.sdk.common.model.AccessTokenDto;
 import lombok.Getter;
 import lombok.Setter;
+import java.net.CookieStore;
 import com.sdk.common.CustomRequest;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -111,6 +112,20 @@ public class PlatformClient {
 
     public PlatformClient(PlatformConfig config)   
     {
+        this.initialiseConfigAndServices(config);
+    }
+
+    public PlatformClient(String companyId, String apiKey, String apiSecret, String domain){
+        PlatformConfig config = new PlatformConfig(companyId, apiKey, apiSecret, domain);
+        this.initialiseConfigAndServices(config);
+    }
+
+    public PlatformClient(String companyId, String apiKey, String apiSecret, String domain, boolean useAutoRenewTimer){
+        PlatformConfig config = new PlatformConfig(companyId, apiKey, apiSecret, domain, useAutoRenewTimer);
+        this.initialiseConfigAndServices(config);
+    }
+
+    private void initialiseConfigAndServices(PlatformConfig config) {
         this.config = config;
         
         this.analytics = new AnalyticsPlatformService(config);
@@ -157,6 +172,18 @@ public class PlatformClient {
         
         this.webhook = new WebhookPlatformService(config);
         
+    }
+
+    public AccessTokenDto getAccessTokenObj(String grantType) throws IOException  {
+        return this.config.getPlatformOauthClient().getAccessTokenObj(grantType);
+    }
+
+    public CookieStore getPersistentCookieStore() {
+        return this.config.getPersistentCookieStore();
+    }
+
+    public void setToken(AccessTokenDto token){
+        this.config.getPlatformOauthClient().setToken(token);
     }
 
     public ApplicationClient application(String applicationId) {

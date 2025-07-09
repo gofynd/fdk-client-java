@@ -434,4 +434,13 @@ interface CatalogPlatformApiList {
 
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/channel/{marketplace_slug}/opt-in")
     Call<CatalogPlatformModels.CreateMarketplaceOptinResponseSchema> createMarketplaceOptin(@Path("company_id") String companyId, @Path("marketplace_slug") String marketplaceSlug, @Body CatalogPlatformModels.OptInPostRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/user/{user_id}/products/follow")
+    Call<CatalogPlatformModels.FollowedProducts> getFollowedProducts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("user_id") String userId, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/user/{user_id}/products/{item_id}/follow")
+    Call<CatalogPlatformModels.FollowProduct> followProductById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("user_id") String userId, @Path("item_id") String itemId, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/user/{user_id}/products/{item_id}/follow")
+    Call<CatalogPlatformModels.FollowProduct> unfollowProductById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("user_id") String userId, @Path("item_id") String itemId, @HeaderMap Map<String, String> requestHeaders);
 }

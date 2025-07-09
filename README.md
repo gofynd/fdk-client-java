@@ -16,7 +16,7 @@ Get started with the Java Development SDK for Fynd Platform
 <dependency>
     <groupId>com.github.gofynd</groupId>
     <artifactId>fdk-client-java</artifactId>
-    <version>3.4.1</version>
+    <version>3.4.2</version>
 </dependency>
 ```
 
@@ -42,16 +42,10 @@ make sure to check the available version list on [jitpack](https://jitpack.io/#g
 ### Sample Usage - ApplicationClient
 
 ```java
-    ApplicationConfig applicationConfig = null;
     try {
-          applicationConfig = new ApplicationConfig(
-              "YOUR_APPLICATION_ID",
-              "YOUR_APPLICATION_TOKEN"
-              );
-        if(Objects.nonNull(applicationConfig)) {
-            ApplicationClient applicationClient = new ApplicationClient(applicationConfig);
+            ApplicationClient applicationClient = new ApplicationClient("YOUR_APPLICATION_ID","YOUR_APPLICATION_TOKEN");
             return applicationClient.catalog.getProductDetailBySlug("product-slug");
-        }
+
     } catch (Exception e) {
         System.out.println(e.getMessage());
     }
@@ -124,27 +118,21 @@ Response responsePost = platformClient.request(urlPost, null , null, bodyMap , m
 ### Sample Usage - PlatformClient
 
 ```java
-    PlatformConfig platformConfig = null;
     try {
-          platformConfig = new PlatformConfig(
-          "COMPANY_ID",
-          "API_KEY",
-          "API_SECRET",
-          "DOMAIN"
-          );
-        
-        if(Objects.nonNull(platformConfig)) {
-            PlatformClient platformClient = new PlatformClient(platformConfig); 
-            
-            // API's without application_id
-            PlatformModels.OptinCompanyDetail companyDetail = platformClient.catalog.getCompanyDetail();
-            System.out.println("Company Name : " + companyDetail.getName() );
+        PlatformClient platformClient = new PlatformClient("COMPANY_ID" "API_KEY", "API_SECRET", "DOMAIN"); 
 
-            // API's with application_id
-            PlatformClient.ApplicationClient applicationClient = platformClient.application("APPLICATION_ID");
-            PlatformModels.GetCatalogConfigurationMetaData configurationData =  applicationClient.catalog.getCatalogConfiguration();
-            return configurationData.getListing();
-        }
+        AccessTokenDto token = platformClient.getAccessTokenObj("client_credentials");
+        platformClient.setToken(token);
+        
+        // API's without application_id
+        PlatformModels.OptinCompanyDetail companyDetail = platformClient.catalog.getCompanyDetail();
+        System.out.println("Company Name : " + companyDetail.getName() );
+
+        // API's with application_id
+        PlatformClient.ApplicationClient applicationClient = platformClient.application("APPLICATION_ID");
+        PlatformModels.GetCatalogConfigurationMetaData configurationData =  applicationClient.catalog.getCatalogConfiguration();
+        return configurationData.getListing();
+    
     } catch (Exception e) {
         System.out.println(e.getMessage());
     }
@@ -154,7 +142,7 @@ Response responsePost = platformClient.request(urlPost, null , null, bodyMap , m
 
 ### Cookie
 
-You can use `persistentCookieStore` from `PlatformConfig` or `ApplicationConfig` to read and write cookies.
+You can use `persistentCookieStore` from `PlatformClient` or `ApplicationClient` to read and write cookies.
 
 Following code snippet will demonstrate how to use `persistentCookieStore`.
 
@@ -168,12 +156,11 @@ public class CookieExample {
     public static void main(String[] args) {
 
         try {
-            ApplicationConfig applicationConfig = new ApplicationConfig("APPLICATION_ID", "APPLICATION_TOKEN");
 
-            ApplicationClient applicationClient = new ApplicationClient(applicationConfig);
+            ApplicationClient applicationClient = new ApplicationClient("APPLICATION_ID", "APPLICATION_TOKEN");
 
             // Accessing cookie store
-            CookieStore cookieStore = applicationConfig.getPersistentCookieStore();
+            CookieStore cookieStore = applicationClient.getPersistentCookieStore();
 
             // get cookies
             cookieStore.getCookies();

@@ -1,7 +1,8 @@
 package com.sdk.partner;
-
+import com.sdk.common.model.AccessTokenDto;
 import lombok.Getter;
 import lombok.Setter;
+import java.net.CookieStore;
 import com.sdk.common.CustomRequest;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,6 +44,23 @@ public class PartnerClient {
 
     public PartnerClient(PartnerConfig config)   
     {
+        this.initialiseConfigAndServices(config);
+    }
+
+    public PartnerClient(String organizationId, String apiKey, String apiSecret, String domain, boolean useAutoRenewTimer)   
+    {
+        PartnerConfig config = new PartnerConfig(organizationId, apiKey, apiSecret, domain, useAutoRenewTimer);
+        this.initialiseConfigAndServices(config);
+    }
+
+    public PartnerClient(String organizationId, String apiKey, String apiSecret, String domain)   
+    {
+        PartnerConfig config = new PartnerConfig(organizationId, apiKey, apiSecret, domain);
+        this.initialiseConfigAndServices(config);
+    }
+
+
+    private void initialiseConfigAndServices(PartnerConfig config) {
         this.config = config;
         
         this.fileStorage = new FileStoragePartnerService(config);
@@ -55,6 +73,18 @@ public class PartnerClient {
         
         this.webhook = new WebhookPartnerService(config);
         
+    }
+
+    public CookieStore getPersistentCookieStore() {
+        return this.config.getPersistentCookieStore();
+    }
+
+    public AccessTokenDto getAccessTokenObj(String grantType) throws IOException  {
+        return this.config.getPartnerOauthClient().getAccessTokenObj(grantType);
+    }
+
+    public void setToken(AccessTokenDto token){
+        this.config.getPartnerOauthClient().setToken(token);
     }
 
      public void setExtraHeader(String key, String value){

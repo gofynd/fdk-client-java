@@ -3,6 +3,7 @@ package com.sdk.application;
 import com.sdk.common.RequestSignerInterceptor;
 import lombok.Getter;
 import lombok.Setter;
+import java.net.CookieStore;
 import com.sdk.common.CustomRequest;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -93,6 +94,58 @@ public class ApplicationClient {
         this.config.getExtraHeaders().put(key, value);
     }
 
+    public ApplicationClient(ApplicationConfig config) {
+        this.initialiseConfigAndServices(config);
+    }
+
+    public ApplicationClient(String applicationId, String applicationToken, String domain) {
+        ApplicationConfig config = new ApplicationConfig(applicationId, applicationToken, domain);
+        this.initialiseConfigAndServices(config);
+    }
+
+    public ApplicationClient(String applicationId, String applicationToken) {
+        ApplicationConfig config = new ApplicationConfig(applicationId, applicationToken);
+        this.initialiseConfigAndServices(config);
+    }
+
+    private void initialiseConfigAndServices(ApplicationConfig config) {
+        this.config = config;
+        
+        this.cart = new CartApplicationService(config);
+        
+        this.catalog = new CatalogApplicationService(config);
+        
+        this.common = new CommonApplicationService(config);
+        
+        this.communication = new CommunicationApplicationService(config);
+        
+        this.configuration = new ConfigurationApplicationService(config);
+        
+        this.content = new ContentApplicationService(config);
+        
+        this.fileStorage = new FileStorageApplicationService(config);
+        
+        this.finance = new FinanceApplicationService(config);
+        
+        this.lead = new LeadApplicationService(config);
+        
+        this.logistic = new LogisticApplicationService(config);
+        
+        this.order = new OrderApplicationService(config);
+        
+        this.payment = new PaymentApplicationService(config);
+        
+        this.rewards = new RewardsApplicationService(config);
+        
+        this.share = new ShareApplicationService(config);
+        
+        this.theme = new ThemeApplicationService(config);
+        
+        this.user = new UserApplicationService(config);
+        
+        this.webhook = new WebhookApplicationService(config);
+        
+    }
     public Response request(String url, Map<String, String> queryParams, Map<String, String> headers, Object bodyObject, String method) throws IOException {
         List<Interceptor> interceptorList = new ArrayList<>();
         interceptorList.add(new ApplicationHeaderInterceptor(this.config));
@@ -104,43 +157,9 @@ public class ApplicationClient {
             throw new RuntimeException(e);
         }
     }
+        
 
-    public ApplicationClient(ApplicationConfig applicationConfig) {
-        this.config = applicationConfig;
-        
-        this.cart = new CartApplicationService(applicationConfig);
-        
-        this.catalog = new CatalogApplicationService(applicationConfig);
-        
-        this.common = new CommonApplicationService(applicationConfig);
-        
-        this.communication = new CommunicationApplicationService(applicationConfig);
-        
-        this.configuration = new ConfigurationApplicationService(applicationConfig);
-        
-        this.content = new ContentApplicationService(applicationConfig);
-        
-        this.fileStorage = new FileStorageApplicationService(applicationConfig);
-        
-        this.finance = new FinanceApplicationService(applicationConfig);
-        
-        this.lead = new LeadApplicationService(applicationConfig);
-        
-        this.logistic = new LogisticApplicationService(applicationConfig);
-        
-        this.order = new OrderApplicationService(applicationConfig);
-        
-        this.payment = new PaymentApplicationService(applicationConfig);
-        
-        this.rewards = new RewardsApplicationService(applicationConfig);
-        
-        this.share = new ShareApplicationService(applicationConfig);
-        
-        this.theme = new ThemeApplicationService(applicationConfig);
-        
-        this.user = new UserApplicationService(applicationConfig);
-        
-        this.webhook = new WebhookApplicationService(applicationConfig);
-        
+    public CookieStore getPersistentCookieStore() {
+        return this.config.getPersistentCookieStore();
     }
 }

@@ -1019,11 +1019,11 @@ public class ApplicationClient {
         }    
     }
 
-    public PaymentPlatformModels.PaymentModeRouteDetails getPosPaymentModeRoutes(PaymentPlatformModels.OrderingSource xOrderingSource, Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String orderId, String cardReference, String orderType, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, String customerId) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentModeRouteDetails getPosPaymentModeRoutes(String xOrderingSource, Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String orderId, String cardReference, String orderType, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, String customerId) throws FDKServerResponseError, FDKException {
         return this.getPosPaymentModeRoutes(xOrderingSource, amount, cartId, pincode, checkoutMode, refresh, orderId, cardReference, orderType, userDetails, displaySplit, advancePayment, shipmentId, customerId, new HashMap<>());
     }
 
-    public PaymentPlatformModels.PaymentModeRouteDetails getPosPaymentModeRoutes(PaymentPlatformModels.OrderingSource xOrderingSource, Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String orderId, String cardReference, String orderType, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, String customerId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PaymentPlatformModels.PaymentModeRouteDetails getPosPaymentModeRoutes(String xOrderingSource, Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String orderId, String cardReference, String orderType, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, String customerId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<PaymentPlatformModels.PaymentModeRouteDetails> response = null;
             try {
