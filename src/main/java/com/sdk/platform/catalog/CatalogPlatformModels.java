@@ -3404,12 +3404,6 @@ public static class BulkJob{
     
     
     
-    
-    @JsonProperty("tags")
-    private List<String> tags;
-    
-    
-    
 }
 
 
@@ -22375,6 +22369,12 @@ public static class BulkInventoryJob{
     
     @JsonProperty("file_path")
     private String filePath;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
     
     
     

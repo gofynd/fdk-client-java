@@ -207,12 +207,6 @@ public static class CommunicationConsentChannelsWhatsapp{
     
     
     
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
 }
 
 

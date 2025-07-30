@@ -13579,6 +13579,12 @@ public static class PlatformItem{
     
     
     
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
 }
 
 
