@@ -726,6 +726,12 @@ public static class CampaignReq{
     
     
     
+    @JsonProperty("datasource_type")
+    private String datasourceType;
+    
+    
+    
+    
     @JsonProperty("records_count")
     private Integer recordsCount;
     
@@ -925,6 +931,12 @@ public static class Campaign{
     
     @JsonProperty("type")
     private String type;
+    
+    
+    
+    
+    @JsonProperty("datasource_type")
+    private String datasourceType;
     
     
     

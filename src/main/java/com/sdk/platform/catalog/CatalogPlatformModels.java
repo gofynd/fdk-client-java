@@ -14074,6 +14074,12 @@ public static class LocationQuantityRequestSchema{
     
     
     
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
 }
 
 
