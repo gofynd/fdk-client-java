@@ -1515,6 +1515,8 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
 
 
 
@@ -2566,6 +2568,33 @@ public class ApplicationClient {
             Response<ServiceabilityPlatformModels.FulfillmentOption> response = null;
             try {
             response = serviceabilityPlatformApiList.createFulfillmentOption(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ServiceabilityPlatformModels.FulfillmentOptionsList getFulfillmentOptionsList(String productSlug, Integer storeId, String status) throws FDKServerResponseError, FDKException {
+        return this.getFulfillmentOptionsList(productSlug, storeId, status, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.FulfillmentOptionsList getFulfillmentOptionsList(String productSlug, Integer storeId, String status, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.FulfillmentOptionsList> response = null;
+            try {
+            response = serviceabilityPlatformApiList.getFulfillmentOptionsList(this.companyId, this.applicationId, productSlug, storeId, status, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

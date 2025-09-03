@@ -331,6 +331,31 @@ public static class FstIdentification{
 
 
 /*
+    Model: SkgIdentification
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SkgIdentification{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
     Model: QuerySuggestions
 */
 @AllArgsConstructor
@@ -386,6 +411,12 @@ public static class SearchConfig{
     
     @JsonProperty("query_suggestions")
     private QuerySuggestions querySuggestions;
+    
+    
+    
+    
+    @JsonProperty("skg_identification")
+    private SkgIdentification skgIdentification;
     
     
     

@@ -111,6 +111,31 @@ public static class FulfillmentOption{
 
 
 /*
+    Model: FulfillmentOptionsList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FulfillmentOptionsList{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<FulfillmentOptionItem> items;
+    
+    
+    
+}
+
+
+/*
     Model: FulfillmentOptionProducts
 */
 @AllArgsConstructor
@@ -6006,6 +6031,61 @@ public static class CourierPartnerScheme{
     
     @JsonProperty("cp_ext_id")
     private String cpExtId;
+    
+    
+    
+}
+
+
+/*
+    Model: FulfillmentOptionItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FulfillmentOptionItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     

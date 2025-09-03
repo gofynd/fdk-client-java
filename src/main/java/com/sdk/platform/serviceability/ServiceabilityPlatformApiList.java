@@ -207,6 +207,9 @@ interface ServiceabilityPlatformApiList {
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/fulfillment-options")
     Call<ServiceabilityPlatformModels.FulfillmentOption> createFulfillmentOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.FulfillmentOption payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/fulfillment-options")
+    Call<ServiceabilityPlatformModels.FulfillmentOptionsList> getFulfillmentOptionsList(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("product_slug") String productSlug, @Query("store_id") Integer storeId, @Query("status") String status, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/fulfillment-options/{slug}")
     Call<ServiceabilityPlatformModels.FulfillmentOption> getFulfillmentOptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("slug") String slug, @Query("product_id") Integer productId, @Query("store_id") Integer storeId, @HeaderMap Map<String, String> requestHeaders);
 
