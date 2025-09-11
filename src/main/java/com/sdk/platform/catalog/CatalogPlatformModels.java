@@ -6782,6 +6782,12 @@ public static class RawProduct{
     
     
     
+    @JsonProperty("hs_code")
+    private String hsCode;
+    
+    
+    
+    
     @JsonProperty("hsn_code")
     private String hsnCode;
     
@@ -10359,6 +10365,12 @@ public static class HSNDataInsertV2{
     
     @JsonProperty("hsn_code")
     private String hsnCode;
+    
+    
+    
+    
+    @JsonProperty("tax_rule_id")
+    private String taxRuleId;
     
     
     
@@ -14938,6 +14950,12 @@ public static class Product{
     
     
     
+    @JsonProperty("hs_code")
+    private String hsCode;
+    
+    
+    
+    
     @JsonProperty("hsn_code")
     private String hsnCode;
     
@@ -15938,6 +15956,12 @@ public static class ProductUpdateSchemaV2{
     
     
     
+    @JsonProperty("hs_code")
+    private String hsCode;
+    
+    
+    
+    
     @JsonProperty("teaser_tag")
     private TeaserTag teaserTag;
     
@@ -16223,6 +16247,554 @@ public static class ProductCreateSchemaV2{
     
     @JsonProperty("trader")
     private List<Trader> trader;
+    
+    
+    
+    
+    @JsonProperty("variant_group")
+    private HashMap<String,Object> variantGroup;
+    
+    
+    
+    
+    @JsonProperty("variant_media")
+    private HashMap<String,Object> variantMedia;
+    
+    
+    
+    
+    @JsonProperty("variants")
+    private HashMap<String,Object> variants;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductCreateSchemaV3
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductCreateSchemaV3{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private HashMap<String,Object> attributes;
+    
+    
+    
+    
+    @JsonProperty("brand_uid")
+    private Integer brandUid;
+    
+    
+    
+    
+    @JsonProperty("bulk_job_id")
+    private String bulkJobId;
+    
+    
+    
+    
+    @JsonProperty("category_slug")
+    private String categorySlug;
+    
+    
+    
+    
+    @JsonProperty("change_request_id")
+    private String changeRequestId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("country_of_origin")
+    private String countryOfOrigin;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("custom_order")
+    private CustomOrder customOrder;
+    
+    
+    
+    
+    @JsonProperty("departments")
+    private List<Integer> departments;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("highlights")
+    private List<String> highlights;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("is_dependent")
+    private Boolean isDependent;
+    
+    
+    
+    
+    @JsonProperty("is_image_less_product")
+    private Boolean isImageLessProduct;
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    
+    
+    @JsonProperty("item_type")
+    private String itemType;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private List<Media> media;
+    
+    
+    
+    
+    @JsonProperty("multi_size")
+    private Boolean multiSize;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("net_quantity")
+    private NetQuantity netQuantity;
+    
+    
+    
+    
+    @JsonProperty("no_of_boxes")
+    private Integer noOfBoxes;
+    
+    
+    
+    
+    @JsonProperty("product_group_tag")
+    private List<String> productGroupTag;
+    
+    
+    
+    
+    @JsonProperty("product_publish")
+    private ProductPublish productPublish;
+    
+    
+    
+    
+    @JsonProperty("requester")
+    private String requester;
+    
+    
+    
+    
+    @JsonProperty("return_config")
+    private ReturnConfig returnConfig;
+    
+    
+    
+    
+    @JsonProperty("short_description")
+    private String shortDescription;
+    
+    
+    
+    
+    @JsonProperty("size_guide")
+    private String sizeGuide;
+    
+    
+    
+    
+    @JsonProperty("sizes")
+    private List<HashMap<String,Object>> sizes;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("tax_identifier")
+    private TaxIdentifierV3 taxIdentifier;
+    
+    
+    
+    
+    @JsonProperty("teaser_tag")
+    private TeaserTag teaserTag;
+    
+    
+    
+    
+    @JsonProperty("template_tag")
+    private String templateTag;
+    
+    
+    
+    
+    @JsonProperty("trader")
+    private List<Trader> trader;
+    
+    
+    
+    
+    @JsonProperty("variant_group")
+    private HashMap<String,Object> variantGroup;
+    
+    
+    
+    
+    @JsonProperty("variant_media")
+    private HashMap<String,Object> variantMedia;
+    
+    
+    
+    
+    @JsonProperty("variants")
+    private HashMap<String,Object> variants;
+    
+    
+    
+    
+    @JsonProperty("hs_code")
+    private String hsCode;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductUpdateSchemaV3
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductUpdateSchemaV3{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private HashMap<String,Object> attributes;
+    
+    
+    
+    
+    @JsonProperty("brand_uid")
+    private Integer brandUid;
+    
+    
+    
+    
+    @JsonProperty("bulk_job_id")
+    private String bulkJobId;
+    
+    
+    
+    
+    @JsonProperty("category_slug")
+    private String categorySlug;
+    
+    
+    
+    
+    @JsonProperty("change_request_id")
+    private String changeRequestId;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("country_of_origin")
+    private String countryOfOrigin;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("custom_order")
+    private CustomOrder customOrder;
+    
+    
+    
+    
+    @JsonProperty("departments")
+    private List<Integer> departments;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("highlights")
+    private List<String> highlights;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("is_dependent")
+    private Boolean isDependent;
+    
+    
+    
+    
+    @JsonProperty("is_image_less_product")
+    private Boolean isImageLessProduct;
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    
+    
+    @JsonProperty("item_type")
+    private String itemType;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private List<Media> media;
+    
+    
+    
+    
+    @JsonProperty("multi_size")
+    private Boolean multiSize;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("net_quantity")
+    private NetQuantity netQuantity;
+    
+    
+    
+    
+    @JsonProperty("no_of_boxes")
+    private Integer noOfBoxes;
+    
+    
+    
+    
+    @JsonProperty("product_group_tag")
+    private List<String> productGroupTag;
+    
+    
+    
+    
+    @JsonProperty("product_publish")
+    private ProductPublish productPublish;
+    
+    
+    
+    
+    @JsonProperty("requester")
+    private String requester;
+    
+    
+    
+    
+    @JsonProperty("return_config")
+    private ReturnConfig returnConfig;
+    
+    
+    
+    
+    @JsonProperty("short_description")
+    private String shortDescription;
+    
+    
+    
+    
+    @JsonProperty("size_guide")
+    private String sizeGuide;
+    
+    
+    
+    
+    @JsonProperty("sizes")
+    private List<HashMap<String,Object>> sizes;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("tax_identifier")
+    private TaxIdentifierV3 taxIdentifier;
+    
+    
+    
+    
+    @JsonProperty("hs_code")
+    private String hsCode;
+    
+    
+    
+    
+    @JsonProperty("teaser_tag")
+    private TeaserTag teaserTag;
+    
+    
+    
+    
+    @JsonProperty("template_tag")
+    private String templateTag;
+    
+    
+    
+    
+    @JsonProperty("trader")
+    private List<Trader> trader;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
     
     
     
@@ -18379,6 +18951,12 @@ public static class ProductSchemaV2{
     
     
     
+    @JsonProperty("hs_code")
+    private String hsCode;
+    
+    
+    
+    
     @JsonProperty("hsn_code")
     private String hsnCode;
     
@@ -19074,6 +19652,12 @@ public static class ProductTemplateExportFilterRequestSchema{
     
     
     
+    @JsonProperty("tax_rule_ids")
+    private List<String> taxRuleIds;
+    
+    
+    
+    
     @JsonProperty("catalogue_types")
     private List<String> catalogueTypes;
     
@@ -19326,6 +19910,12 @@ public static class Properties{
     
     @JsonProperty("highlights")
     private HashMap<String,Object> highlights;
+    
+    
+    
+    
+    @JsonProperty("hs_code")
+    private HashMap<String,Object> hsCode;
     
     
     
@@ -20994,6 +21584,12 @@ public static class TaxIdentifier{
     
     
     
+    @JsonProperty("tax_rule_id")
+    private String taxRuleId;
+    
+    
+    
+    
     @JsonProperty("hsn_code")
     private String hsnCode;
     
@@ -21008,6 +21604,31 @@ public static class TaxIdentifier{
     
     @JsonProperty("reporting_hsn")
     private String reportingHsn;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxIdentifierV3
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxIdentifierV3{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("tax_rule_id")
+    private String taxRuleId;
     
     
     
@@ -22749,6 +23370,850 @@ public static class FollowProduct{
 
 
 /*
+    Model: TaxReqBodyRule
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxReqBodyRule{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxThreshold
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxThreshold{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("rate")
+    private Double rate;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxComponent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxComponent{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slabs")
+    private List<TaxThreshold> slabs;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxComponentRes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxComponentRes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("slabs")
+    private List<TaxThreshold> slabs;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxReqBodyVersion
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxReqBodyVersion{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("components")
+    private List<TaxComponent> components;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateTaxRequestBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateTaxRequestBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private TaxReqBodyRule rule;
+    
+    
+    
+    
+    @JsonProperty("versions")
+    private List<TaxReqBodyVersion> versions;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxVersion
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxVersion{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("rule_id")
+    private String ruleId;
+    
+    
+    
+    
+    @JsonProperty("applicable_date")
+    private String applicableDate;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private TaxStatusEnum status;
+    
+    
+    
+    
+    @JsonProperty("components")
+    private List<TaxComponentRes> components;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateTaxVersionRequestBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateTaxVersionRequestBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("components")
+    private List<TaxComponentRes> components;
+    
+    
+    
+    
+    @JsonProperty("applicable_date")
+    private String applicableDate;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateTaxVersionRequestBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateTaxVersionRequestBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("components")
+    private List<TaxComponent> components;
+    
+    
+    
+    
+    @JsonProperty("applicable_date")
+    private String applicableDate;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxRule
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxRule{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private TaxStatusEnum status;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxVersionDetail
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxVersionDetail{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("rule_id")
+    private String ruleId;
+    
+    
+    
+    
+    @JsonProperty("applicable_date")
+    private String applicableDate;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private TaxStatusEnum status;
+    
+    
+    
+    
+    @JsonProperty("components")
+    private List<TaxComponent> components;
+    
+    
+    
+    
+    @JsonProperty("version_status")
+    private String versionStatus;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateTax
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateTax{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private TaxRule rule;
+    
+    
+    
+    
+    @JsonProperty("versions")
+    private TaxVersion versions;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateTaxVersion
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateTaxVersion{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("components")
+    private List<TaxComponent> components;
+    
+    
+    
+    
+    @JsonProperty("applicable_date")
+    private String applicableDate;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateTaxRequestBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateTaxRequestBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("status")
+    private TaxStatusEnum status;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxRuleItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxRuleItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("versions")
+    private List<TaxVersionDetail> versions;
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private TaxRule rule;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxRules
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxRules{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<TaxRuleItem> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxVersionPastData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxVersionPastData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<TaxVersion> data;
+    
+    
+    
+    
+    @JsonProperty("pagination")
+    private Page pagination;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxRuleVersion
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxRuleVersion{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<TaxVersionDetail> items;
+    
+    
+    
+    
+    @JsonProperty("rule")
+    private TaxRule rule;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: HSCodeItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HSCodeItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private HsTypeEnum type;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("hs_code")
+    private String hsCode;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("country_iso")
+    private String countryIso;
+    
+    
+    
+}
+
+
+/*
+    Model: HSCodes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HSCodes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<HSCodeItem> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateTaxComponentName
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateTaxComponentName{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: GetTaxComponents
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetTaxComponents{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<TaxComponentRes> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
     Model: ActionPage
 */
 @AllArgsConstructor
@@ -22980,6 +24445,72 @@ public static class CustomMeta{
 
     
     /*
+        Enum: TaxStatusEnum
+        Used By: Catalog
+    */
+    @Getter
+    public enum TaxStatusEnum {
+
+        
+        active("ACTIVE"), 
+        
+        inactive("INACTIVE"), 
+        
+        deleted("DELETED");
+        
+
+        private String priority;
+        TaxStatusEnum(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
+            return priority;
+        }
+
+    }
+
+
+    
+    /*
+        Enum: HsTypeEnum
+        Used By: Catalog
+    */
+    @Getter
+    public enum HsTypeEnum {
+
+        
+        hs("HS"), 
+        
+        sac("SAC");
+        
+
+        private String priority;
+        HsTypeEnum(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
+            return priority;
+        }
+
+    }
+
+
+    
+    /*
         Enum: PageType
         Used By: Catalog
     */
@@ -23091,6 +24622,11 @@ public static class CustomMeta{
 
         @JsonValue
         public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
             return priority;
         }
 

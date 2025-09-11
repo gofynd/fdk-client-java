@@ -1661,6 +1661,11 @@ public static class ErrorMessage{
             return priority;
         }
 
+        @Override
+        public String toString() {
+            return priority;
+        }
+
     }
 
 
@@ -1689,6 +1694,11 @@ public static class ErrorMessage{
 
         @JsonValue
         public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
             return priority;
         }
 
@@ -1733,6 +1743,11 @@ public static class ErrorMessage{
             return priority;
         }
 
+        @Override
+        public String toString() {
+            return priority;
+        }
+
     }
 
 
@@ -1757,6 +1772,11 @@ public static class ErrorMessage{
 
         @JsonValue
         public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
             return priority;
         }
 

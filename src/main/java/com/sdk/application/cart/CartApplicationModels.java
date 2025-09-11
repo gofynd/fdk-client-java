@@ -2093,6 +2093,12 @@ public static class RawBreakup{
     
     
     
+    
+    @JsonProperty("taxes")
+    private Double taxes;
+    
+    
+    
 }
 
 
@@ -6693,6 +6699,11 @@ public static class ValidationError{
 
         @JsonValue
         public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
             return priority;
         }
 

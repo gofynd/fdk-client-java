@@ -8706,6 +8706,11 @@ public static class OperationResponseSchema{
             return priority;
         }
 
+        @Override
+        public String toString() {
+            return priority;
+        }
+
     }
 
 
@@ -8822,6 +8827,11 @@ public static class OperationResponseSchema{
 
         @JsonValue
         public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
             return priority;
         }
 

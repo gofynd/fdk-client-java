@@ -3816,6 +3816,12 @@ public static class Article{
     
     
     
+    
+    @JsonProperty("min_price_threshold")
+    private Double minPriceThreshold;
+    
+    
+    
 }
 
 
@@ -12530,6 +12536,11 @@ public static class ValidationError{
 
         @JsonValue
         public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
             return priority;
         }
 

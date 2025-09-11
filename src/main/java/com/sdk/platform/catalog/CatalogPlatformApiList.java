@@ -390,26 +390,26 @@ interface CatalogPlatformApiList {
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/")
     Call<CatalogPlatformModels.ProductListingResponseV2> getProducts(@Path("company_id") String companyId, @Query("brand_ids") List<Integer> brandIds, @Query("category_ids") List<Integer> categoryIds, @Query("item_ids") List<Integer> itemIds, @Query("department_ids") List<Integer> departmentIds, @Query("item_code") List<String> itemCode, @Query("name") String name, @Query("slug") String slug, @Query("all_identifiers") List<String> allIdentifiers, @Query("q") String q, @Query("tags") List<String> tags, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("page_type") String pageType, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/")
-    Call<CatalogPlatformModels.SuccessResponseObject> createProduct(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductCreateSchemaV2 payload, @HeaderMap Map<String, String> requestHeaders);
+    @POST ("/service/platform/catalog/v3.0/company/{company_id}/products/")
+    Call<CatalogPlatformModels.SuccessResponseObject> createProduct(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductCreateSchemaV3 payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/bulk")
+    @POST ("/service/platform/catalog/v3.0/company/{company_id}/products/bulk")
     Call<CatalogPlatformModels.BulkResponseSchema> uploadBulkProducts(@Path("company_id") String companyId, @Query("department") String department, @Query("product_type") String productType, @Body CatalogPlatformModels.BulkProductJob payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/catalog/v3.0/company/{company_id}/products/downloads/")
+    Call<CatalogPlatformModels.ProductDownloadsResponseSchema> createProductExportJob(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductTemplateDownloadsExport payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/downloads/")
     Call<CatalogPlatformModels.ProductDownloadsResponseSchema> getProductExportJobs(@Path("company_id") String companyId, @Query("status") String status, @Query("from_date") String fromDate, @Query("to_date") String toDate, @Query("q") String q, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/downloads/")
-    Call<CatalogPlatformModels.ProductDownloadsResponseSchema> createProductExportJob(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductTemplateDownloadsExport payload, @HeaderMap Map<String, String> requestHeaders);
+    @PUT ("/service/platform/catalog/v3.0/company/{company_id}/products/{item_id}/")
+    Call<CatalogPlatformModels.SuccessResponseSchema> editProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Body CatalogPlatformModels.ProductUpdateSchemaV3 payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
     Call<CatalogPlatformModels.SuccessResponseSchema> deleteProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
     Call<CatalogPlatformModels.SingleProductResponseSchema> getProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Query("brand_uid") Integer brandUid, @Query("item_code") String itemCode, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
-    Call<CatalogPlatformModels.SuccessResponseSchema> editProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Body CatalogPlatformModels.ProductUpdateSchemaV2 payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/all_sizes")
     Call<CatalogPlatformModels.GetAllSizes> allSizes(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @HeaderMap Map<String, String> requestHeaders);
@@ -435,8 +435,44 @@ interface CatalogPlatformApiList {
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/channel/{marketplace_slug}/opt-in")
     Call<CatalogPlatformModels.CreateMarketplaceOptinResponseSchema> createMarketplaceOptin(@Path("company_id") String companyId, @Path("marketplace_slug") String marketplaceSlug, @Body CatalogPlatformModels.OptInPostRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules/versions")
+    Call<CatalogPlatformModels.CreateTax> createTax(@Path("company_id") String companyId, @Body CatalogPlatformModels.CreateTaxRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules")
+    Call<CatalogPlatformModels.TaxRules> getAllTaxRules(@Path("company_id") String companyId, @Query("q") String q, @Query("statuses") String statuses, @Query("page") Integer page, @Query("limit") Integer limit, @Query("version_status") String versionStatus, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules/{rule_id}")
+    Call<CatalogPlatformModels.TaxRule> updateTaxRule(@Path("company_id") String companyId, @Path("rule_id") String ruleId, @Body CatalogPlatformModels.UpdateTaxRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules/{rule_id}")
+    Call<Object> deleteTaxRule(@Path("rule_id") String ruleId, @Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules/{rule_id}/versions")
+    Call<CatalogPlatformModels.TaxRuleVersion> getTaxVersionDetails(@Path("company_id") String companyId, @Path("rule_id") String ruleId, @Query("version_status") String versionStatus, @Query("limit") String limit, @Query("page") String page, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules/{rule_id}/versions")
+    Call<CatalogPlatformModels.TaxVersion> createTaxVersion(@Path("company_id") String companyId, @Path("rule_id") String ruleId, @Body CatalogPlatformModels.CreateTaxVersionRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules/{rule_id}/versions/{version_id}")
+    Call<Object> deleteTaxVersion(@Path("rule_id") String ruleId, @Path("version_id") String versionId, @Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules/{rule_id}/versions/{version_id}")
+    Call<CatalogPlatformModels.TaxVersion> updateTaxVersion(@Path("rule_id") String ruleId, @Path("version_id") String versionId, @Path("company_id") String companyId, @Body CatalogPlatformModels.UpdateTaxVersionRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/taxes/hscodes")
+    Call<CatalogPlatformModels.HSCodes> getHsCodes(@Path("company_id") String companyId, @Query("page") Integer page, @Query("limit") Integer limit, @Query("type") CatalogPlatformModels.HsTypeEnum type, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/taxes/hscodes")
+    Call<CatalogPlatformModels.HSCodeItem> createHsCode(@Path("company_id") String companyId, @Body CatalogPlatformModels.HSCodeItem payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/user/{user_id}/products/follow")
-    Call<CatalogPlatformModels.FollowedProducts> getFollowedProducts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("user_id") String userId, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.FollowedProducts> getFollowedProducts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("user_id") String userId, @Query("page_id") String pageId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/taxes/component-names")
+    Call<CatalogPlatformModels.TaxComponentRes> createTaxComponentName(@Path("company_id") String companyId, @Body CatalogPlatformModels.CreateTaxComponentName payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/taxes/component-names")
+    Call<CatalogPlatformModels.GetTaxComponents> getTaxComponentNames(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/user/{user_id}/products/{item_id}/follow")
     Call<CatalogPlatformModels.FollowProduct> followProductById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("user_id") String userId, @Path("item_id") String itemId, @HeaderMap Map<String, String> requestHeaders);

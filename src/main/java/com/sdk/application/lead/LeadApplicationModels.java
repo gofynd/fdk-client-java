@@ -956,6 +956,11 @@ public static class Ticket{
             return priority;
         }
 
+        @Override
+        public String toString() {
+            return priority;
+        }
+
     }
 
 
@@ -984,6 +989,11 @@ public static class Ticket{
 
         @JsonValue
         public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
             return priority;
         }
 
@@ -1028,6 +1038,11 @@ public static class Ticket{
             return priority;
         }
 
+        @Override
+        public String toString() {
+            return priority;
+        }
+
     }
 
 
@@ -1052,6 +1067,11 @@ public static class Ticket{
 
         @JsonValue
         public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
             return priority;
         }
 

@@ -3715,6 +3715,11 @@ public static class ResourcePayload{
             return priority;
         }
 
+        @Override
+        public String toString() {
+            return priority;
+        }
+
     }
 
 

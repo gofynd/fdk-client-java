@@ -1733,6 +1733,11 @@ public static class UpsertSubscriberConfigResult{
             return priority;
         }
 
+        @Override
+        public String toString() {
+            return priority;
+        }
+
     }
 
 
