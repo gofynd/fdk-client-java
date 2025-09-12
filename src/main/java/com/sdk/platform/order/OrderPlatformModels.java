@@ -12423,49 +12423,6 @@ public static class Identifier{
 
 
 /*
-    Model: TaxComponent
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TaxComponent{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("rate")
-    private Double rate;
-    
-    
-    
-    
-    @JsonProperty("tax_amount")
-    private Double taxAmount;
-    
-    
-    
-    
-    @JsonProperty("taxable_amount")
-    private Double taxableAmount;
-    
-    
-    
-}
-
-
-/*
     Model: FinancialBreakup
 */
 @AllArgsConstructor
@@ -12646,12 +12603,6 @@ public static class FinancialBreakup{
     
     @JsonProperty("added_to_fynd_cash")
     private Boolean addedToFyndCash;
-    
-    
-    
-    
-    @JsonProperty("taxes")
-    private List<TaxComponent> taxes;
     
     
     
@@ -13125,12 +13076,6 @@ public static class Article{
     
     
     
-    @JsonProperty("child_details")
-    private HashMap<String,Object> childDetails;
-    
-    
-    
-    
     @JsonProperty("seller_identifier")
     private String sellerIdentifier;
     
@@ -13217,6 +13162,12 @@ public static class Article{
     
     @JsonProperty("tags")
     private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("_custom_json")
+    private HashMap<String,Object> customJson;
     
     
     

@@ -143,19 +143,4 @@ interface PaymentApplicationApiList {
 
     @POST 
     Call<PaymentApplicationModels.ValidateCustomerCreditSchema> validateCustomerAndCreditSummary(@Url String url1, @Body PaymentApplicationModels.CustomerValidationSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<PaymentApplicationModels.RefundBeneficiaries> getRefundBeneficiaries(@Url String url1, @Query("order_id") String orderId, @Query("shipment_id") String shipmentId, @Query("filter_by") String filterBy, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<PaymentApplicationModels.AddBeneficiaryResponseDetails> addBeneficiary(@Url String url1, @Body PaymentApplicationModels.AddBeneficiaryRequestDetails payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @DELETE 
-    Call<PaymentApplicationModels.DeleteBeneficiaryDetails> deleteBeneficiary(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<PaymentApplicationModels.RefundBeneficiaries> getRefundBeneficiariesUsingOTPSession(@Url String url1, @Query("order_id") String orderId, @Query("shipment_id") String shipmentId, @Query("filter_by") String filterBy, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST 
-    Call<PaymentApplicationModels.AddBeneficiaryResponseDetails> addRefundBeneficiaryUsingOTPSession(@Url String url1, @Body PaymentApplicationModels.AddBeneficiaryRequestDetails payload, @HeaderMap Map<String, String> requestHeaders);
 }

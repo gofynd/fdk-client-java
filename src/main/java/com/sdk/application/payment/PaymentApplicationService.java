@@ -74,12 +74,7 @@ import com.sdk.application.*;
         relativeUrls.put("customerOnboard","/service/application/payment/v1.0/credit-onboard/".substring(1));
         relativeUrls.put("paidOrderDetails","/service/application/payment/v1.0/payment/paid-orders/".substring(1));
         relativeUrls.put("createPaymentOrder","/service/application/payment/v1.0/payment-orders/".substring(1));
-        relativeUrls.put("validateCustomerAndCreditSummary","/service/application/payment/v1.0/payment/validate/customer-credits-v2".substring(1));
-        relativeUrls.put("getRefundBeneficiaries","/service/application/payment/v2.0/refund/user/beneficiary".substring(1));
-        relativeUrls.put("addBeneficiary","/service/application/payment/v2.0/refund/user/beneficiary".substring(1));
-        relativeUrls.put("deleteBeneficiary","/service/application/payment/v1.0/refund/account/{id}".substring(1));
-        relativeUrls.put("getRefundBeneficiariesUsingOTPSession","/service/application/payment/v2.0/refund/user/beneficiary-otp".substring(1));
-        relativeUrls.put("addRefundBeneficiaryUsingOTPSession","/service/application/payment/v2.0/refund/user/beneficiary-otp".substring(1)); 
+        relativeUrls.put("validateCustomerAndCreditSummary","/service/application/payment/v1.0/payment/validate/customer-credits-v2".substring(1)); 
 
     }
 
@@ -871,92 +866,6 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("validateCustomerAndCreditSummary");
 
         Response<PaymentApplicationModels.ValidateCustomerCreditSchema> response = paymentApplicationApiList.validateCustomerAndCreditSummary(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public PaymentApplicationModels.RefundBeneficiaries getRefundBeneficiaries(String orderId, String shipmentId, String filterBy) throws IOException {
-        return this.getRefundBeneficiaries(orderId, shipmentId, filterBy, new HashMap<>());
-    }
-
-    public PaymentApplicationModels.RefundBeneficiaries getRefundBeneficiaries(String orderId, String shipmentId, String filterBy, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getRefundBeneficiaries");
-
-        Response<PaymentApplicationModels.RefundBeneficiaries> response = paymentApplicationApiList.getRefundBeneficiaries(fullUrl, orderId, shipmentId, filterBy, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public PaymentApplicationModels.AddBeneficiaryResponseDetails addBeneficiary(PaymentApplicationModels.AddBeneficiaryRequestDetails body) throws IOException {
-        return this.addBeneficiary(body, new HashMap<>());
-    }
-
-    public PaymentApplicationModels.AddBeneficiaryResponseDetails addBeneficiary(PaymentApplicationModels.AddBeneficiaryRequestDetails body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("addBeneficiary");
-
-        Response<PaymentApplicationModels.AddBeneficiaryResponseDetails> response = paymentApplicationApiList.addBeneficiary(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public PaymentApplicationModels.DeleteBeneficiaryDetails deleteBeneficiary(String id) throws IOException {
-        return this.deleteBeneficiary(id, new HashMap<>());
-    }
-
-    public PaymentApplicationModels.DeleteBeneficiaryDetails deleteBeneficiary(String id, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("deleteBeneficiary");
-        fullUrl = fullUrl.replace("{" + "id" + "}",id.toString());
-
-        Response<PaymentApplicationModels.DeleteBeneficiaryDetails> response = paymentApplicationApiList.deleteBeneficiary(fullUrl, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public PaymentApplicationModels.RefundBeneficiaries getRefundBeneficiariesUsingOTPSession(String orderId, String shipmentId, String filterBy) throws IOException {
-        return this.getRefundBeneficiariesUsingOTPSession(orderId, shipmentId, filterBy, new HashMap<>());
-    }
-
-    public PaymentApplicationModels.RefundBeneficiaries getRefundBeneficiariesUsingOTPSession(String orderId, String shipmentId, String filterBy, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getRefundBeneficiariesUsingOTPSession");
-
-        Response<PaymentApplicationModels.RefundBeneficiaries> response = paymentApplicationApiList.getRefundBeneficiariesUsingOTPSession(fullUrl, orderId, shipmentId, filterBy, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public PaymentApplicationModels.AddBeneficiaryResponseDetails addRefundBeneficiaryUsingOTPSession(PaymentApplicationModels.AddBeneficiaryRequestDetails body) throws IOException {
-        return this.addRefundBeneficiaryUsingOTPSession(body, new HashMap<>());
-    }
-
-    public PaymentApplicationModels.AddBeneficiaryResponseDetails addRefundBeneficiaryUsingOTPSession(PaymentApplicationModels.AddBeneficiaryRequestDetails body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("addRefundBeneficiaryUsingOTPSession");
-
-        Response<PaymentApplicationModels.AddBeneficiaryResponseDetails> response = paymentApplicationApiList.addRefundBeneficiaryUsingOTPSession(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -379,8 +379,14 @@ public static class ProxyFileAccess{
     
     
     
-    @JsonProperty("success")
-    private Boolean success;
+    @JsonProperty("data")
+    private HashMap<String,Object> data;
+    
+    
+    
+    
+    @JsonProperty("support")
+    private HashMap<String,Object> support;
     
     
     

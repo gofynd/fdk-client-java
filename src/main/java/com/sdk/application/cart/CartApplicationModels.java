@@ -2093,12 +2093,6 @@ public static class RawBreakup{
     
     
     
-    
-    @JsonProperty("taxes")
-    private Double taxes;
-    
-    
-    
 }
 
 
