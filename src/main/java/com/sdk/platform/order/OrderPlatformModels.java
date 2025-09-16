@@ -12423,6 +12423,49 @@ public static class Identifier{
 
 
 /*
+    Model: TaxComponent
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxComponent{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("rate")
+    private Double rate;
+    
+    
+    
+    
+    @JsonProperty("tax_amount")
+    private Double taxAmount;
+    
+    
+    
+    
+    @JsonProperty("taxable_amount")
+    private Double taxableAmount;
+    
+    
+    
+}
+
+
+/*
     Model: FinancialBreakup
 */
 @AllArgsConstructor
@@ -12603,6 +12646,12 @@ public static class FinancialBreakup{
     
     @JsonProperty("added_to_fynd_cash")
     private Boolean addedToFyndCash;
+    
+    
+    
+    
+    @JsonProperty("taxes")
+    private List<TaxComponent> taxes;
     
     
     

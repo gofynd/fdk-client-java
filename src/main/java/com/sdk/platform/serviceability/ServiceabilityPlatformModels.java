@@ -3847,12 +3847,6 @@ public static class PackageMaterialResult{
     
     
     
-    @JsonProperty("item_id")
-    private Integer itemId;
-    
-    
-    
-    
     @JsonProperty("width")
     private Double width;
     
@@ -4231,12 +4225,6 @@ public static class PackageItem{
     
     @JsonProperty("company_id")
     private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("item_id")
-    private Integer itemId;
     
     
     
