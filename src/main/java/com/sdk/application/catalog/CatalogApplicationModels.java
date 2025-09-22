@@ -474,6 +474,12 @@ public static class ProductDetailGroupedAttribute{
     
     
     
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
     @JsonProperty("details")
     private List<ProductDetailAttribute> details;
     

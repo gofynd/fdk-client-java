@@ -186,13 +186,13 @@ public class ContentPublicService {
         return response.body();
     }
 
-    public Object getAllLanguages() throws IOException {
-        return this.getAllLanguages(new HashMap<>());
+    public Object getAllLanguages(Boolean isEnabled) throws IOException {
+        return this.getAllLanguages(isEnabled, new HashMap<>());
     }
 
-    public Object getAllLanguages(Map<String, String> requestHeaders) throws IOException {
+    public Object getAllLanguages(Boolean isEnabled, Map<String, String> requestHeaders) throws IOException {
     
-        Response<Object> response = contentPublicApiList.getAllLanguages(requestHeaders).execute();
+        Response<Object> response = contentPublicApiList.getAllLanguages(isEnabled, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -14,6 +14,31 @@ public class CartPlatformModels{
 
 
 /*
+    Model: RedeemLoyaltyPoints
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RedeemLoyaltyPoints{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("redeem_points")
+    private Boolean redeemPoints;
+    
+    
+    
+}
+
+
+/*
     Model: CouponDateMeta
 */
 @AllArgsConstructor
@@ -3817,6 +3842,12 @@ public static class Article{
     
     
     
+    @JsonProperty("article_index")
+    private Integer articleIndex;
+    
+    
+    
+    
     @JsonProperty("min_price_threshold")
     private Double minPriceThreshold;
     
@@ -4605,6 +4636,54 @@ public static class LoyaltyPoints{
     
     
     
+    
+    @JsonProperty("total_points")
+    private Double totalPoints;
+    
+    
+    
+    
+    @JsonProperty("points")
+    private Double points;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("mop_amount")
+    private Double mopAmount;
+    
+    
+    
+    
+    @JsonProperty("earn_points")
+    private Double earnPoints;
+    
+    
+    
+    
+    @JsonProperty("earn_points_amount")
+    private Double earnPointsAmount;
+    
+    
+    
+    
+    @JsonProperty("earn_title")
+    private String earnTitle;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
 }
 
 
@@ -4639,6 +4718,18 @@ public static class RawBreakup{
     
     @JsonProperty("mrp_total")
     private Double mrpTotal;
+    
+    
+    
+    
+    @JsonProperty("engage_amount")
+    private Double engageAmount;
+    
+    
+    
+    
+    @JsonProperty("engage_mop_amount")
+    private Double engageMopAmount;
     
     
     
@@ -8559,7 +8650,7 @@ public static class OverrideCheckoutReq{
     
     
     @JsonProperty("billing_address")
-    private HashMap<String,Object> billingAddress;
+    private ShippingAddress billingAddress;
     
     
     
@@ -8612,8 +8703,93 @@ public static class OverrideCheckoutReq{
     
     
     
+    @JsonProperty("device_id")
+    private String deviceId;
+    
+    
+    
+    
     @JsonProperty("shipping_address")
-    private HashMap<String,Object> shippingAddress;
+    private ShippingAddress shippingAddress;
+    
+    
+    
+}
+
+
+/*
+    Model: OverrideCheckoutData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OverrideCheckoutData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Integer amount;
+    
+    
+    
+    
+    @JsonProperty("order_id")
+    private String orderId;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("contact")
+    private String contact;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("customer_id")
+    private String customerId;
+    
+    
+    
+    
+    @JsonProperty("callback_url")
+    private String callbackUrl;
+    
+    
+    
+    
+    @JsonProperty("bank")
+    private String bank;
+    
+    
+    
+    
+    @JsonProperty("method")
+    private String method;
+    
+    
+    
+    
+    @JsonProperty("vpa")
+    private String vpa;
     
     
     
@@ -8638,13 +8814,13 @@ public static class OverrideCheckoutResult{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private OverrideCheckoutData data;
     
     
     
     
     @JsonProperty("cart")
-    private HashMap<String,Object> cart;
+    private CheckCart cart;
     
     
     

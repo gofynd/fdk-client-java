@@ -161,6 +161,8 @@ public class CartPlatformService {
     
     
     
+    
+    
 
 
 
@@ -1833,6 +1835,33 @@ public class ApplicationClient {
             Response<CartPlatformModels.CartDetailResult> response = null;
             try {
             response = cartPlatformApiList.selectPaymentModeV2(this.companyId, this.applicationId, id, buyNow, orderType, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public CartPlatformModels.CartDetailResult applyLoyaltyPoints(CartPlatformModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.RedeemLoyaltyPoints body) throws FDKServerResponseError, FDKException {
+        return this.applyLoyaltyPoints(xOrderingSource, id, i, b, buyNow, body, new HashMap<>());
+    }
+
+    public CartPlatformModels.CartDetailResult applyLoyaltyPoints(CartPlatformModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.RedeemLoyaltyPoints body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<CartPlatformModels.CartDetailResult> response = null;
+            try {
+            response = cartPlatformApiList.applyLoyaltyPoints(this.companyId, this.applicationId, id, i, b, buyNow, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

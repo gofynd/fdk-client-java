@@ -1768,6 +1768,12 @@ public static class Language{
     
     
     
+    
+    @JsonProperty("is_enabled")
+    private Boolean isEnabled;
+    
+    
+    
 }
 
 

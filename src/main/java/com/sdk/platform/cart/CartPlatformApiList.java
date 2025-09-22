@@ -191,4 +191,7 @@ interface CartPlatformApiList {
 
     @PUT ("/service/platform/cart/v2.0/company/{company_id}/application/{application_id}/payment")
     Call<CartPlatformModels.CartDetailResult> selectPaymentModeV2(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("order_type") String orderType, @Body CartPlatformModels.UpdateCartPaymentRequestV2 payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/cart/v2.0/company/{company_id}/application/{application_id}/redeem")
+    Call<CartPlatformModels.CartDetailResult> applyLoyaltyPoints(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Body CartPlatformModels.RedeemLoyaltyPoints payload, @HeaderMap Map<String, String> requestHeaders);
 }

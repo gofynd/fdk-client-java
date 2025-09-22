@@ -2016,6 +2016,18 @@ public static class RawBreakup{
     
     
     
+    @JsonProperty("engage_amount")
+    private Double engageAmount;
+    
+    
+    
+    
+    @JsonProperty("engage_mop_amount")
+    private Double engageMopAmount;
+    
+    
+    
+    
     @JsonProperty("fynd_cash")
     private Double fyndCash;
     
@@ -2230,6 +2242,54 @@ public static class LoyaltyPoints{
     
     @JsonProperty("is_applied")
     private Boolean isApplied;
+    
+    
+    
+    
+    @JsonProperty("total_points")
+    private Double totalPoints;
+    
+    
+    
+    
+    @JsonProperty("points")
+    private Double points;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("mop_amount")
+    private Double mopAmount;
+    
+    
+    
+    
+    @JsonProperty("earn_points")
+    private Double earnPoints;
+    
+    
+    
+    
+    @JsonProperty("earn_points_amount")
+    private Double earnPointsAmount;
+    
+    
+    
+    
+    @JsonProperty("earn_title")
+    private String earnTitle;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
     
     
     
@@ -3790,7 +3850,7 @@ public static class BulkPriceResult{
 
 
 /*
-    Model: RewardPointCreation
+    Model: RedeemLoyaltyPoints
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3798,7 +3858,7 @@ public static class BulkPriceResult{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RewardPointCreation{
+public static class RedeemLoyaltyPoints{
 
     
 
@@ -3806,8 +3866,8 @@ public static class RewardPointCreation{
     
     
     
-    @JsonProperty("points")
-    private Boolean points;
+    @JsonProperty("redeem_points")
+    private Boolean redeemPoints;
     
     
     

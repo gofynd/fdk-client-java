@@ -40,7 +40,7 @@ import com.sdk.application.*;
         relativeUrls.put("applyCoupon","/service/application/cart/v1.0/coupon".substring(1));
         relativeUrls.put("removeCoupon","/service/application/cart/v1.0/coupon".substring(1));
         relativeUrls.put("getBulkDiscountOffers","/service/application/cart/v1.0/bulk-price".substring(1));
-        relativeUrls.put("applyRewardPoints","/service/application/cart/v1.0/redeem/points/".substring(1));
+        relativeUrls.put("applyLoyaltyPoints","/service/application/cart/v1.0/redeem".substring(1));
         relativeUrls.put("getAddresses","/service/application/cart/v1.0/address".substring(1));
         relativeUrls.put("addAddress","/service/application/cart/v1.0/address".substring(1));
         relativeUrls.put("getAddressById","/service/application/cart/v1.0/address/{id}".substring(1));
@@ -262,15 +262,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult applyRewardPoints(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RewardPointCreation body) throws IOException {
-        return this.applyRewardPoints(xOrderingSource, id, i, b, buyNow, body, new HashMap<>());
+    public CartApplicationModels.CartDetailResult applyLoyaltyPoints(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RedeemLoyaltyPoints body) throws IOException {
+        return this.applyLoyaltyPoints(xOrderingSource, id, i, b, buyNow, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult applyRewardPoints(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RewardPointCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResult applyLoyaltyPoints(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RedeemLoyaltyPoints body, Map<String, String> requestHeaders) throws IOException {
      
-        String fullUrl = relativeUrls.get("applyRewardPoints");
+        String fullUrl = relativeUrls.get("applyLoyaltyPoints");
 
-        Response<CartApplicationModels.CartDetailResult> response = cartApplicationApiList.applyRewardPoints(fullUrl, xOrderingSource, id, i, b, buyNow, body, requestHeaders).execute();
+        Response<CartApplicationModels.CartDetailResult> response = cartApplicationApiList.applyLoyaltyPoints(fullUrl, xOrderingSource, id, i, b, buyNow, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -40,7 +40,7 @@ interface ContentPublicApiList {
     Call<ContentPublicModels.CredentialsSchema> getCredentialsByEntity(@Path("entity_type") String entityType, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/public/content/languages")
-    Call<Object> getAllLanguages(@HeaderMap Map<String, String> requestHeaders);
+    Call<Object> getAllLanguages(@Query("is_enabled") Boolean isEnabled, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/public/content/languages/{locale}")
     Call<ContentPublicModels.Language> getLanguageByLocale(@Path("locale") String locale, @HeaderMap Map<String, String> requestHeaders);

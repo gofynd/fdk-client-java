@@ -40,7 +40,7 @@ interface CartApplicationApiList {
     Call<CartApplicationModels.BulkPriceResult> getBulkDiscountOffers(@Url String url1, @Query("item_id") Integer itemId, @Query("article_id") String articleId, @Query("uid") Integer uid, @Query("slug") String slug, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.CartDetailResult> applyRewardPoints(@Url String url1, @Header("x-ordering-source") CartApplicationModels.OrderingSource xOrderingSource, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Body CartApplicationModels.RewardPointCreation payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartDetailResult> applyLoyaltyPoints(@Url String url1, @Header("x-ordering-source") CartApplicationModels.OrderingSource xOrderingSource, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Body CartApplicationModels.RedeemLoyaltyPoints payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CartApplicationModels.GetAddressesResult> getAddresses(@Url String url1, @Query("cart_id") String cartId, @Query("buy_now") Boolean buyNow, @Query("mobile_no") String mobileNo, @Query("checkout_mode") String checkoutMode, @Query("tags") String tags, @Query("is_default") Boolean isDefault, @HeaderMap Map<String, String> requestHeaders);
