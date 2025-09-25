@@ -1033,6 +1033,12 @@ public static class Prices{
     
     
     
+    
+    @JsonProperty("loyalty_discount")
+    private Double loyaltyDiscount;
+    
+    
+    
 }
 
 
@@ -1535,6 +1541,12 @@ public static class FinancialBreakup{
     
     @JsonProperty("taxes")
     private List<TaxComponent> taxes;
+    
+    
+    
+    
+    @JsonProperty("loyalty_discount")
+    private Double loyaltyDiscount;
     
     
     

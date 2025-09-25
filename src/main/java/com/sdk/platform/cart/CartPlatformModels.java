@@ -3842,12 +3842,6 @@ public static class Article{
     
     
     
-    @JsonProperty("article_index")
-    private Integer articleIndex;
-    
-    
-    
-    
     @JsonProperty("min_price_threshold")
     private Double minPriceThreshold;
     

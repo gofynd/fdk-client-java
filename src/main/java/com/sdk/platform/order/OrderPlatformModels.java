@@ -4099,6 +4099,12 @@ public static class OrderDetails{
     
     
     
+    
+    @JsonProperty("loyalty_discount_details")
+    private LoyaltyDiscountDetails loyaltyDiscountDetails;
+    
+    
+    
 }
 
 
@@ -12046,6 +12052,12 @@ public static class Prices{
     
     
     
+    
+    @JsonProperty("loyalty_discount")
+    private Double loyaltyDiscount;
+    
+    
+    
 }
 
 
@@ -12370,6 +12382,12 @@ public static class OrderingCurrencyPrices{
     
     
     
+    
+    @JsonProperty("loyalty_discount")
+    private Double loyaltyDiscount;
+    
+    
+    
 }
 
 
@@ -12652,6 +12670,12 @@ public static class FinancialBreakup{
     
     @JsonProperty("taxes")
     private List<TaxComponent> taxes;
+    
+    
+    
+    
+    @JsonProperty("loyalty_discount")
+    private Double loyaltyDiscount;
     
     
     
@@ -14568,6 +14592,43 @@ public static class InvoiceInfo{
 
 
 /*
+    Model: LoyaltyDiscountDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LoyaltyDiscountDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("discount")
+    private Double discount;
+    
+    
+    
+    
+    @JsonProperty("ownership")
+    private String ownership;
+    
+    
+    
+    
+    @JsonProperty("is_applied")
+    private Boolean isApplied;
+    
+    
+    
+}
+
+
+/*
     Model: OrderDetailsData
 */
 @AllArgsConstructor
@@ -14652,6 +14713,12 @@ public static class OrderDetailsData{
     
     @JsonProperty("ordering_source")
     private String orderingSource;
+    
+    
+    
+    
+    @JsonProperty("loyalty_discount_details")
+    private LoyaltyDiscountDetails loyaltyDiscountDetails;
     
     
     
@@ -17679,6 +17746,12 @@ public static class OrderData{
     
     
     
+    
+    @JsonProperty("loyalty_discount_details")
+    private LoyaltyDiscountDetails loyaltyDiscountDetails;
+    
+    
+    
 }
 
 
@@ -18007,6 +18080,12 @@ public static class PlatformOrderItems{
     
     @JsonProperty("ordering_currency_prices")
     private OrderingCurrencyPrices orderingCurrencyPrices;
+    
+    
+    
+    
+    @JsonProperty("loyalty_discount_details")
+    private LoyaltyDiscountDetails loyaltyDiscountDetails;
     
     
     
