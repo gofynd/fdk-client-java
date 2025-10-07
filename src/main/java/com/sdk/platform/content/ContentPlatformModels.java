@@ -8817,7 +8817,9 @@ public static class OperationResponseSchema{
         
         orderStatus("order-status"), 
         
-        locateUs("locate-us");
+        locateUs("locate-us"), 
+        
+        singlePageCheckout("single-page-checkout");
         
 
         private String priority;

@@ -1832,6 +1832,12 @@ public static class AttributeMetadata{
     
     
     
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
     @JsonProperty("title")
     private String title;
     

@@ -83,6 +83,7 @@ public class Constant {
         public static final String RETURN_POLICY = "return-policy";
         public static final String ORDER_STATUS = "order-status";
         public static final String LOCATE_US = "locate-us";
+        public static final String SINGLE_PAGE_CHECKOUT = "single-page-checkout";
         
     }
 
@@ -370,6 +371,10 @@ public class Constant {
 	"locate-us": {
 		"name": "Locate us",
 		"link": "/locate-us"
+	},
+	"single-page-checkout": {
+		"name": "Single Page Checkout",
+		"link": "/cart/checkout"
 	}
 }
             """;
