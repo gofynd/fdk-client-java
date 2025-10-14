@@ -252,18 +252,6 @@ interface CatalogPlatformApiList {
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/product-attributes/{attribute_slug}")
     Call<CatalogPlatformModels.AttributeDetail> getAttribute(@Path("company_id") String companyId, @Path("attribute_slug") String attributeSlug, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/product-bundle/")
-    Call<CatalogPlatformModels.GetProductBundleListingResponseSchema> getProductBundle(@Path("company_id") String companyId, @Query("q") String q, @Query("slug") List<String> slug, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/catalog/v1.0/company/{company_id}/product-bundle/")
-    Call<CatalogPlatformModels.GetProductBundleCreateResponseSchema> createProductBundle(@Path("company_id") String companyId, @Body CatalogPlatformModels.ProductBundleRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/catalog/v1.0/company/{company_id}/product-bundle/{id}/")
-    Call<CatalogPlatformModels.GetProductBundleResponseSchema> getProductBundleDetail(@Path("company_id") String companyId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
-
-    @PUT ("/service/platform/catalog/v1.0/company/{company_id}/product-bundle/{id}/")
-    Call<CatalogPlatformModels.GetProductBundleCreateResponseSchema> updateProductBundle(@Path("company_id") String companyId, @Path("id") String id, @Body CatalogPlatformModels.ProductBundleUpdateRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/products/assets/bulk/")
     Call<CatalogPlatformModels.BulkAssetResponseSchema> getProductAssetsInBulk(@Path("company_id") String companyId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
@@ -401,6 +389,9 @@ interface CatalogPlatformApiList {
 
     @PUT ("/service/platform/catalog/v3.0/company/{company_id}/products/{item_id}/")
     Call<CatalogPlatformModels.SuccessResponseSchema> editProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Body CatalogPlatformModels.ProductUpdateSchemaV3 payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/catalog/v3.0/company/{company_id}/products/{item_id}/")
+    Call<CatalogPlatformModels.SuccessResponseSchema> partialUpdateProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Body CatalogPlatformModels.ProductPatchSchemaV3 payload, @HeaderMap Map<String, String> requestHeaders);
 
     @DELETE ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/")
     Call<CatalogPlatformModels.SuccessResponseSchema> deleteProduct(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @HeaderMap Map<String, String> requestHeaders);

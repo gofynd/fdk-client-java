@@ -10,6 +10,12 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.ProductDetail> getProductDetailBySlug(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
+    Call<CatalogApplicationModels.ProductBundleItems> getProductBundleItems(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<CatalogApplicationModels.ProductBundleItemsWithSlug> getProductBundlesByChildSku(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
     Call<CatalogApplicationModels.ProductSizes> getProductSizesBySlug(@Url String url1, @Query("store_id") Integer storeId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
@@ -86,9 +92,6 @@ interface CatalogApplicationApiList {
 
     @GET 
     Call<CatalogApplicationModels.StoreDetails> getLocationDetailsById(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<CatalogApplicationModels.ProductBundle> getProductBundlesBySlug(@Url String url1, @Query("slug") String slug, @Query("id") Integer id, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CatalogApplicationModels.ProductSizePriceResponseV4> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId, @Query("moq") Integer moq, @Query("fulfillment_option_slug") String fulfillmentOptionSlug, @HeaderMap Map<String, String> requestHeaders);

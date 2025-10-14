@@ -30,6 +30,8 @@ import com.sdk.application.*;
 
         
         relativeUrls.put("getProductDetailBySlug","/service/application/catalog/v1.0/products/{slug}/".substring(1));
+        relativeUrls.put("getProductBundleItems","/service/application/catalog/v1.0/products/{slug}/bundle/items".substring(1));
+        relativeUrls.put("getProductBundlesByChildSku","/service/application/catalog/v1.0/products/{slug}/size/{size}/bundle".substring(1));
         relativeUrls.put("getProductSizesBySlug","/service/application/catalog/v1.0/products/{slug}/sizes/".substring(1));
         relativeUrls.put("getProductComparisonBySlugs","/service/application/catalog/v1.0/products/compare/".substring(1));
         relativeUrls.put("getSimilarComparisonProductBySlug","/service/application/catalog/v1.0/products/{slug}/similar/compare/".substring(1));
@@ -56,7 +58,6 @@ import com.sdk.application.*;
         relativeUrls.put("getStores","/service/application/catalog/v2.0/locations/".substring(1));
         relativeUrls.put("getInStockLocations","/service/application/catalog/v2.0/in-stock/locations/".substring(1));
         relativeUrls.put("getLocationDetailsById","/service/application/catalog/v2.0/locations/{location_id}/".substring(1));
-        relativeUrls.put("getProductBundlesBySlug","/service/application/catalog/v1.0/product-grouping/".substring(1));
         relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v4.0/products/{slug}/sizes/{size}/price/".substring(1));
         relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v4.0/products/{slug}/sizes/{size}/sellers/".substring(1)); 
 
@@ -85,6 +86,43 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
         Response<CatalogApplicationModels.ProductDetail> response = catalogApplicationApiList.getProductDetailBySlug(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CatalogApplicationModels.ProductBundleItems getProductBundleItems(String slug, Integer pageNo, Integer pageSize) throws IOException {
+        return this.getProductBundleItems(slug, pageNo, pageSize, new HashMap<>());
+    }
+
+    public CatalogApplicationModels.ProductBundleItems getProductBundleItems(String slug, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getProductBundleItems");
+        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
+
+        Response<CatalogApplicationModels.ProductBundleItems> response = catalogApplicationApiList.getProductBundleItems(fullUrl, pageNo, pageSize, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CatalogApplicationModels.ProductBundleItemsWithSlug getProductBundlesByChildSku(String slug, String size, Integer pageNo, Integer pageSize) throws IOException {
+        return this.getProductBundlesByChildSku(slug, size, pageNo, pageSize, new HashMap<>());
+    }
+
+    public CatalogApplicationModels.ProductBundleItemsWithSlug getProductBundlesByChildSku(String slug, String size, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getProductBundlesByChildSku");
+        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
+        fullUrl = fullUrl.replace("{" + "size" + "}",size.toString());
+
+        Response<CatalogApplicationModels.ProductBundleItemsWithSlug> response = catalogApplicationApiList.getProductBundlesByChildSku(fullUrl, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -909,23 +947,6 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "location_id" + "}",locationId.toString());
 
         Response<CatalogApplicationModels.StoreDetails> response = catalogApplicationApiList.getLocationDetailsById(fullUrl, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id) throws IOException {
-        return this.getProductBundlesBySlug(slug, id, new HashMap<>());
-    }
-
-    public CatalogApplicationModels.ProductBundle getProductBundlesBySlug(String slug, Integer id, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getProductBundlesBySlug");
-
-        Response<CatalogApplicationModels.ProductBundle> response = catalogApplicationApiList.getProductBundlesBySlug(fullUrl, slug, id, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -75,11 +75,11 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),CartApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public CartApplicationModels.CartDetailResult getCart(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, String orderType) throws IOException {
+    public CartApplicationModels.CartDetailResult getCart(String xOrderingSource, String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, String orderType) throws IOException {
         return this.getCart(xOrderingSource, id, i, b, c, assignCardId, areaCode, buyNow, orderType, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult getCart(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, String orderType, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResult getCart(String xOrderingSource, String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, String orderType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCart");
 
@@ -109,11 +109,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.AddCartDetailResult addItems(CartApplicationModels.OrderingSource xOrderingSource, Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body) throws IOException {
+    public CartApplicationModels.AddCartDetailResult addItems(String xOrderingSource, Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body) throws IOException {
         return this.addItems(xOrderingSource, i, b, areaCode, buyNow, id, orderType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.AddCartDetailResult addItems(CartApplicationModels.OrderingSource xOrderingSource, Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.AddCartDetailResult addItems(String xOrderingSource, Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("addItems");
 
@@ -126,11 +126,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.UpdateCartDetailResult updateCart(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body) throws IOException {
+    public CartApplicationModels.UpdateCartDetailResult updateCart(String xOrderingSource, String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body) throws IOException {
         return this.updateCart(xOrderingSource, id, i, b, areaCode, buyNow, cartType, orderType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.UpdateCartDetailResult updateCart(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.UpdateCartDetailResult updateCart(String xOrderingSource, String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateCart");
 
@@ -143,11 +143,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.UpdateCartDetailResult updateCartBreakup(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.UpdateCartBreakup body) throws IOException {
+    public CartApplicationModels.UpdateCartDetailResult updateCartBreakup(String xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.UpdateCartBreakup body) throws IOException {
         return this.updateCartBreakup(xOrderingSource, id, i, b, buyNow, cartType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.UpdateCartDetailResult updateCartBreakup(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.UpdateCartBreakup body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.UpdateCartDetailResult updateCartBreakup(String xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, String cartType, CartApplicationModels.UpdateCartBreakup body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateCartBreakup");
 
@@ -211,11 +211,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult applyCoupon(CartApplicationModels.OrderingSource xOrderingSource, Boolean i, Boolean b, Boolean p, String id, Boolean buyNow, String cartType, CartApplicationModels.ApplyCoupon body) throws IOException {
+    public CartApplicationModels.CartDetailResult applyCoupon(String xOrderingSource, Boolean i, Boolean b, Boolean p, String id, Boolean buyNow, String cartType, CartApplicationModels.ApplyCoupon body) throws IOException {
         return this.applyCoupon(xOrderingSource, i, b, p, id, buyNow, cartType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult applyCoupon(CartApplicationModels.OrderingSource xOrderingSource, Boolean i, Boolean b, Boolean p, String id, Boolean buyNow, String cartType, CartApplicationModels.ApplyCoupon body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResult applyCoupon(String xOrderingSource, Boolean i, Boolean b, Boolean p, String id, Boolean buyNow, String cartType, CartApplicationModels.ApplyCoupon body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("applyCoupon");
 
@@ -228,11 +228,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult removeCoupon(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow) throws IOException {
+    public CartApplicationModels.CartDetailResult removeCoupon(String xOrderingSource, String id, Boolean buyNow) throws IOException {
         return this.removeCoupon(xOrderingSource, id, buyNow, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult removeCoupon(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResult removeCoupon(String xOrderingSource, String id, Boolean buyNow, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("removeCoupon");
 
@@ -262,11 +262,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult applyLoyaltyPoints(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RedeemLoyaltyPoints body) throws IOException {
+    public CartApplicationModels.CartDetailResult applyLoyaltyPoints(String xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RedeemLoyaltyPoints body) throws IOException {
         return this.applyLoyaltyPoints(xOrderingSource, id, i, b, buyNow, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult applyLoyaltyPoints(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RedeemLoyaltyPoints body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResult applyLoyaltyPoints(String xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartApplicationModels.RedeemLoyaltyPoints body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("applyLoyaltyPoints");
 
@@ -367,11 +367,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult selectAddress(CartApplicationModels.OrderingSource xOrderingSource, String cartId, Boolean buyNow, Boolean i, Boolean b, CartApplicationModels.SelectCartAddressCreation body) throws IOException {
+    public CartApplicationModels.CartDetailResult selectAddress(String xOrderingSource, String cartId, Boolean buyNow, Boolean i, Boolean b, CartApplicationModels.SelectCartAddressCreation body) throws IOException {
         return this.selectAddress(xOrderingSource, cartId, buyNow, i, b, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult selectAddress(CartApplicationModels.OrderingSource xOrderingSource, String cartId, Boolean buyNow, Boolean i, Boolean b, CartApplicationModels.SelectCartAddressCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResult selectAddress(String xOrderingSource, String cartId, Boolean buyNow, Boolean i, Boolean b, CartApplicationModels.SelectCartAddressCreation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("selectAddress");
 
@@ -384,11 +384,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartDetailResult selectPaymentMode(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, CartApplicationModels.UpdateCartPaymentCreation body) throws IOException {
+    public CartApplicationModels.CartDetailResult selectPaymentMode(String xOrderingSource, String id, Boolean buyNow, CartApplicationModels.UpdateCartPaymentCreation body) throws IOException {
         return this.selectPaymentMode(xOrderingSource, id, buyNow, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartDetailResult selectPaymentMode(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, CartApplicationModels.UpdateCartPaymentCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartDetailResult selectPaymentMode(String xOrderingSource, String id, Boolean buyNow, CartApplicationModels.UpdateCartPaymentCreation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("selectPaymentMode");
 
@@ -401,11 +401,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, String addressId, String paymentMode, String paymentIdentifier, String aggregatorName, String merchantCode, String iin, String network, String type, String cardId, String cartType) throws IOException {
+    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(String xOrderingSource, String id, Boolean buyNow, String addressId, String paymentMode, String paymentIdentifier, String aggregatorName, String merchantCode, String iin, String network, String type, String cardId, String cartType) throws IOException {
         return this.validateCouponForPayment(xOrderingSource, id, buyNow, addressId, paymentMode, paymentIdentifier, aggregatorName, merchantCode, iin, network, type, cardId, cartType, new HashMap<>());
     }
 
-    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(CartApplicationModels.OrderingSource xOrderingSource, String id, Boolean buyNow, String addressId, String paymentMode, String paymentIdentifier, String aggregatorName, String merchantCode, String iin, String network, String type, String cardId, String cartType, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.PaymentCouponValidate validateCouponForPayment(String xOrderingSource, String id, Boolean buyNow, String addressId, String paymentMode, String paymentIdentifier, String aggregatorName, String merchantCode, String iin, String network, String type, String cardId, String cartType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("validateCouponForPayment");
 
@@ -435,11 +435,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartCheckoutResult checkoutCart(CartApplicationModels.OrderingSource xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailCreation body) throws IOException {
+    public CartApplicationModels.CartCheckoutResult checkoutCart(String xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailCreation body) throws IOException {
         return this.checkoutCart(xOrderingSource, buyNow, cartType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartCheckoutResult checkoutCart(CartApplicationModels.OrderingSource xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartCheckoutResult checkoutCart(String xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailCreation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("checkoutCart");
 
@@ -574,11 +574,11 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartCheckoutResult checkoutCartV2(CartApplicationModels.OrderingSource xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body) throws IOException {
+    public CartApplicationModels.CartCheckoutResult checkoutCartV2(String xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body) throws IOException {
         return this.checkoutCartV2(xOrderingSource, buyNow, cartType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartCheckoutResult checkoutCartV2(CartApplicationModels.OrderingSource xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartCheckoutResult checkoutCartV2(String xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("checkoutCartV2");
 

@@ -1726,6 +1726,18 @@ public static class Bags{
     
     
     
+    
+    @JsonProperty("is_bundle_item")
+    private Boolean isBundleItem;
+    
+    
+    
+    
+    @JsonProperty("bundle_details")
+    private BundleDetails bundleDetails;
+    
+    
+    
 }
 
 
@@ -2213,6 +2225,164 @@ public static class Shipments{
     
     @JsonProperty("fulfillment_option")
     private FulfillmentOption fulfillmentOption;
+    
+    
+    
+}
+
+
+/*
+    Model: BundleReturnConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BundleReturnConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("allow_partial_return")
+    private Boolean allowPartialReturn;
+    
+    
+    
+    
+    @JsonProperty("returnable")
+    private Boolean returnable;
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private Boolean unit;
+    
+    
+    
+    
+    @JsonProperty("time")
+    private Boolean time;
+    
+    
+    
+}
+
+
+/*
+    Model: BundleDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BundleDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("bundle_group_id")
+    private String bundleGroupId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("bundle_count")
+    private Integer bundleCount;
+    
+    
+    
+    
+    @JsonProperty("article_bundle_id")
+    private String articleBundleId;
+    
+    
+    
+    
+    @JsonProperty("bundle_article_quantity")
+    private Integer bundleArticleQuantity;
+    
+    
+    
+    
+    @JsonProperty("is_base")
+    private Boolean isBase;
+    
+    
+    
+    
+    @JsonProperty("price_marked")
+    private Double priceMarked;
+    
+    
+    
+    
+    @JsonProperty("price_effective")
+    private Double priceEffective;
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("item_type")
+    private String itemType;
+    
+    
+    
+    
+    @JsonProperty("return_config")
+    private BundleReturnConfig returnConfig;
+    
+    
+    
+    
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
+    
+    
+    
+    
+    @JsonProperty("images")
+    private List<String> images;
+    
+    
+    
+    
+    @JsonProperty("brand_name")
+    private String brandName;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
     
     
     
