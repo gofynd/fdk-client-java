@@ -233,4 +233,7 @@ interface ServiceabilityPlatformApiList {
 
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/fulfillment-options/poll/validate/{bulk_id}")
     Call<ServiceabilityPlatformModels.FulfillmentOptionBulkValidate> getBulkFulfillmentValidationStatus(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("bulk_id") String bulkId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/shipments")
+    Call<ServiceabilityPlatformModels.PlatformShipmentsResponseSchema> createShipments(@Path("application_id") String applicationId, @Path("company_id") String companyId, @Body ServiceabilityPlatformModels.PlatformShipmentsRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

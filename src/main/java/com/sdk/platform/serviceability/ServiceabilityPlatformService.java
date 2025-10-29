@@ -1517,6 +1517,8 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
 
 
 
@@ -2811,6 +2813,33 @@ public class ApplicationClient {
             Response<ServiceabilityPlatformModels.FulfillmentOptionBulkValidate> response = null;
             try {
             response = serviceabilityPlatformApiList.getBulkFulfillmentValidationStatus(this.companyId, this.applicationId, bulkId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ServiceabilityPlatformModels.PlatformShipmentsResponseSchema createShipments(String xOrderingSource, ServiceabilityPlatformModels.PlatformShipmentsRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.createShipments(xOrderingSource, body, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.PlatformShipmentsResponseSchema createShipments(String xOrderingSource, ServiceabilityPlatformModels.PlatformShipmentsRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.PlatformShipmentsResponseSchema> response = null;
+            try {
+            response = serviceabilityPlatformApiList.createShipments(this.applicationId, this.companyId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

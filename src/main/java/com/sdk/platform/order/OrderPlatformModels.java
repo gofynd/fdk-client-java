@@ -11625,6 +11625,12 @@ public static class DimensionSchema{
     
     
     
+    @JsonProperty("width")
+    private Integer width;
+    
+    
+    
+    
     @JsonProperty("is_default")
     private Boolean isDefault;
     
@@ -11633,12 +11639,6 @@ public static class DimensionSchema{
     
     @JsonProperty("unit")
     private String unit;
-    
-    
-    
-    
-    @JsonProperty("width")
-    private Integer width;
     
     
     

@@ -294,6 +294,12 @@ public static class TransformEventData{
     
     
     
+    @JsonProperty("region")
+    private String region;
+    
+    
+    
+    
     @JsonProperty("event")
     private InternalTransformEvent event;
     
