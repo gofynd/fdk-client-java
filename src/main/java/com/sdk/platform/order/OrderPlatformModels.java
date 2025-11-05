@@ -13082,6 +13082,12 @@ public static class CreateOrderRequestSchema{
     
     
     
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
 }
 
 

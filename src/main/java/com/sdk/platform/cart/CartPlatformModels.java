@@ -9623,6 +9623,12 @@ public static class PlatformAddCartDetails{
     
     
     
+    @JsonProperty("default_cart")
+    private Boolean defaultCart;
+    
+    
+    
+    
     @JsonProperty("items")
     private List<AddProductCart> items;
     
