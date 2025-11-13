@@ -3548,9 +3548,9 @@ public static class ActionPage{
         
         profileCompany("profile-company"), 
         
-        profileEmails("profile-emails"), 
+        profileEmail("profile-email"), 
         
-        profilePhones("profile-phones"), 
+        profilePhone("profile-phone"), 
         
         rateUs("rate-us"), 
         
@@ -3588,7 +3588,9 @@ public static class ActionPage{
         
         locateUs("locate-us"), 
         
-        singlePageCheckout("single-page-checkout");
+        singlePageCheckout("single-page-checkout"), 
+        
+        requestReattempt("request-reattempt");
         
 
         private String priority;

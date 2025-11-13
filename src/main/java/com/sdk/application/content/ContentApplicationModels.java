@@ -3664,9 +3664,9 @@ public static class ResourcePayload{
         
         profileCompany("profile-company"), 
         
-        profileEmails("profile-emails"), 
+        profileEmail("profile-email"), 
         
-        profilePhones("profile-phones"), 
+        profilePhone("profile-phone"), 
         
         rateUs("rate-us"), 
         
@@ -3704,7 +3704,9 @@ public static class ResourcePayload{
         
         locateUs("locate-us"), 
         
-        singlePageCheckout("single-page-checkout");
+        singlePageCheckout("single-page-checkout"), 
+        
+        requestReattempt("request-reattempt");
         
 
         private String priority;

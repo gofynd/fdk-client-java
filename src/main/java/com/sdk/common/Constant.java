@@ -63,8 +63,8 @@ public class Constant {
         public static final String PROFILE_ORDER_SHIPMENT = "profile-order-shipment";
         public static final String PROFILE_BASIC = "profile-basic";
         public static final String PROFILE_COMPANY = "profile-company";
-        public static final String PROFILE_EMAILS = "profile-emails";
-        public static final String PROFILE_PHONES = "profile-phones";
+        public static final String PROFILE_EMAIL = "profile-email";
+        public static final String PROFILE_PHONE = "profile-phone";
         public static final String RATE_US = "rate-us";
         public static final String REFER_EARN = "refer-earn";
         public static final String SETTINGS = "settings";
@@ -84,6 +84,7 @@ public class Constant {
         public static final String ORDER_STATUS = "order-status";
         public static final String LOCATE_US = "locate-us";
         public static final String SINGLE_PAGE_CHECKOUT = "single-page-checkout";
+        public static final String REQUEST_REATTEMPT = "request-reattempt";
         
     }
 
@@ -268,12 +269,12 @@ public class Constant {
 		"name": "Profile Company",
 		"link": "/profile/company"
 	},
-	"profile-emails": {
-		"name": "Profile Emails",
+	"profile-email": {
+		"name": "Profile Email",
 		"link": "/profile/email"
 	},
-	"profile-phones": {
-		"name": "Profile Phones",
+	"profile-phone": {
+		"name": "Profile Phone",
 		"link": "/profile/phone"
 	},
 	"rate-us": {
@@ -375,6 +376,16 @@ public class Constant {
 	"single-page-checkout": {
 		"name": "Single Page Checkout",
 		"link": "/cart/checkout"
+	},
+	"request-reattempt": {
+		"name": "Request Reattempt",
+		"link": "/reattempt/shipment/:shipmentId",
+		"params": [
+			{
+				"key": "shipmentId",
+				"required": true
+			}
+		]
 	}
 }
             """;

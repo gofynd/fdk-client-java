@@ -39,6 +39,37 @@ public static class SuccessMessage{
 
 
 /*
+    Model: UserAttributeDefinitionList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributeDefinitionList{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<UserAttributeDefinition> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PaginationSchema page;
+    
+    
+    
+}
+
+
+/*
     Model: UserAttributeDefinition
 */
 @AllArgsConstructor

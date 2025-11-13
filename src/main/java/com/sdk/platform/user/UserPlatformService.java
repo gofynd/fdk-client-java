@@ -667,13 +667,13 @@ public class ApplicationClient {
         }    
     }
 
-    public Object getUserAttributeDefinitions(String excludingIds, String slug, String type, Boolean customerEditable, Boolean encrypted, Boolean pinned, Integer pinOrder, Boolean isLocked, String name, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeDefinitionList getUserAttributeDefinitions(String excludingIds, String slug, String type, Boolean customerEditable, Boolean encrypted, Boolean pinned, Integer pinOrder, Boolean isLocked, String name, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
         return this.getUserAttributeDefinitions(excludingIds, slug, type, customerEditable, encrypted, pinned, pinOrder, isLocked, name, pageSize, pageNo, new HashMap<>());
     }
 
-    public Object getUserAttributeDefinitions(String excludingIds, String slug, String type, Boolean customerEditable, Boolean encrypted, Boolean pinned, Integer pinOrder, Boolean isLocked, String name, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeDefinitionList getUserAttributeDefinitions(String excludingIds, String slug, String type, Boolean customerEditable, Boolean encrypted, Boolean pinned, Integer pinOrder, Boolean isLocked, String name, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<Object> response = null;
+            Response<UserPlatformModels.UserAttributeDefinitionList> response = null;
             try {
             response = userPlatformApiList.getUserAttributeDefinitions(this.companyId, this.applicationId, excludingIds, slug, type, customerEditable, encrypted, pinned, pinOrder, isLocked, name, pageSize, pageNo, requestHeaders).execute();
                 if (!response.isSuccessful()) {
