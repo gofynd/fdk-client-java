@@ -555,10 +555,6 @@ public class PaymentPlatformService {
     
     
     
-    
-    
-    
-    
 
 
 
@@ -1016,60 +1012,6 @@ public class ApplicationClient {
             Response<PaymentPlatformModels.RevokeOAuthToken> response = null;
             try {
             response = paymentPlatformApiList.revokeOauthToken(this.companyId, this.applicationId, aggregator, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public PaymentPlatformModels.RepaymentDetails repaymentDetails(PaymentPlatformModels.RepaymentDetailsSerialiserPayAll body) throws FDKServerResponseError, FDKException {
-        return this.repaymentDetails(body, new HashMap<>());
-    }
-
-    public PaymentPlatformModels.RepaymentDetails repaymentDetails(PaymentPlatformModels.RepaymentDetailsSerialiserPayAll body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.RepaymentDetails> response = null;
-            try {
-            response = paymentPlatformApiList.repaymentDetails(this.companyId, this.applicationId, body, requestHeaders).execute();
-                if (!response.isSuccessful()) {
-                        throw new FDKServerResponseError(response.code(),
-                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
-                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
-                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
-                }
-            } catch (IOException e) {
-                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
-            }
-            return response.body();
-        } else {
-            return null;
-        }    
-    }
-
-    public PaymentPlatformModels.MerchantOnBoardingDetails merchantOnBoarding(PaymentPlatformModels.MerchantOnBoardingCreation body) throws FDKServerResponseError, FDKException {
-        return this.merchantOnBoarding(body, new HashMap<>());
-    }
-
-    public PaymentPlatformModels.MerchantOnBoardingDetails merchantOnBoarding(PaymentPlatformModels.MerchantOnBoardingCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
-        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PaymentPlatformModels.MerchantOnBoardingDetails> response = null;
-            try {
-            response = paymentPlatformApiList.merchantOnBoarding(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

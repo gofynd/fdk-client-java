@@ -1484,7 +1484,7 @@ public static class PincodeMopBulkError{
     
     
     @JsonProperty("error")
-    private Object error;
+    private List<Error> error;
     
     
     
@@ -1521,7 +1521,7 @@ public static class CommonError{
     
     
     @JsonProperty("error")
-    private Object error;
+    private List<Error> error;
     
     
     
@@ -6277,6 +6277,18 @@ public static class PlatformShipmentsSchema{
     
     
     
+    
+    @JsonProperty("count")
+    private Integer count;
+    
+    
+    
+    
+    @JsonProperty("is_cod_available")
+    private Boolean isCodAvailable;
+    
+    
+    
 }
 
 
@@ -7809,7 +7821,7 @@ public static class Size{
     
     
     @JsonProperty("_custom_json")
-    private Object customJson;
+    private HashMap<String,Object> customJson;
     
     
     
@@ -9189,7 +9201,7 @@ public static class CourierPartnerRuleConditions{
     
     
     @JsonProperty("order_place_date")
-    private ArithmeticOperations orderPlaceDate;
+    private DateOperations orderPlaceDate;
     
     
     
@@ -9374,6 +9386,37 @@ public static class IntComparisonOperations{
     
     @JsonProperty("includes")
     private List<Integer> includes;
+    
+    
+    
+}
+
+
+/*
+    Model: DateOperations
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DateOperations{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("lte")
+    private String lte;
+    
+    
+    
+    
+    @JsonProperty("gte")
+    private String gte;
     
     
     
@@ -10740,49 +10783,6 @@ public static class CustomerRadiusSchema{
     
     @JsonProperty("gte")
     private Integer gte;
-    
-    
-    
-}
-
-
-/*
-    Model: DateOperations
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DateOperations{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("lt")
-    private String lt;
-    
-    
-    
-    
-    @JsonProperty("gt")
-    private String gt;
-    
-    
-    
-    
-    @JsonProperty("lte")
-    private String lte;
-    
-    
-    
-    
-    @JsonProperty("gte")
-    private String gte;
     
     
     

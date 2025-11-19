@@ -40,7 +40,8 @@ import com.sdk.application.*;
         relativeUrls.put("verifyOtpShipmentCustomer","/service/application/order/v1.0/orders/{order_id}/shipments/{shipment_id}/otp/verify/".substring(1));
         relativeUrls.put("getShipmentBagReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/bags/{bag_id}/reasons".substring(1));
         relativeUrls.put("getShipmentReasons","/service/application/order/v1.0/orders/shipments/{shipment_id}/reasons".substring(1));
-        relativeUrls.put("updateShipmentStatus","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1)); 
+        relativeUrls.put("updateShipmentStatus","/service/application/order/v1.0/orders/shipments/{shipment_id}/status".substring(1));
+        relativeUrls.put("submitDeliveryReattemptRequest","/service/application/order/v1.0/shipments/{shipment_id}/delivery-reattempt".substring(1)); 
 
     }
 
@@ -183,17 +184,17 @@ import com.sdk.application.*;
     }
     
 
-    public OrderApplicationModels.SendOtpToCustomerResponseSchema sendOtpToShipmentCustomer(String orderId, String shipmentId) throws IOException {
-        return this.sendOtpToShipmentCustomer(orderId, shipmentId, new HashMap<>());
+    public OrderApplicationModels.SendOtpToCustomerResponseSchema sendOtpToShipmentCustomer(String orderId, String shipmentId, String eventType) throws IOException {
+        return this.sendOtpToShipmentCustomer(orderId, shipmentId, eventType, new HashMap<>());
     }
 
-    public OrderApplicationModels.SendOtpToCustomerResponseSchema sendOtpToShipmentCustomer(String orderId, String shipmentId, Map<String, String> requestHeaders) throws IOException {
+    public OrderApplicationModels.SendOtpToCustomerResponseSchema sendOtpToShipmentCustomer(String orderId, String shipmentId, String eventType, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("sendOtpToShipmentCustomer");
         fullUrl = fullUrl.replace("{" + "order_id" + "}",orderId.toString());
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
-        Response<OrderApplicationModels.SendOtpToCustomerResponseSchema> response = orderApplicationApiList.sendOtpToShipmentCustomer(fullUrl, requestHeaders).execute();
+        Response<OrderApplicationModels.SendOtpToCustomerResponseSchema> response = orderApplicationApiList.sendOtpToShipmentCustomer(fullUrl, eventType, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -268,6 +269,24 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
         Response<OrderApplicationModels.ShipmentApplicationStatusResponseSchema> response = orderApplicationApiList.updateShipmentStatus(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public OrderApplicationModels.DeliveryReattemptSuccessResponseSchema submitDeliveryReattemptRequest(String shipmentId, OrderApplicationModels.DeliveryReattemptRequestSchema body) throws IOException {
+        return this.submitDeliveryReattemptRequest(shipmentId, body, new HashMap<>());
+    }
+
+    public OrderApplicationModels.DeliveryReattemptSuccessResponseSchema submitDeliveryReattemptRequest(String shipmentId, OrderApplicationModels.DeliveryReattemptRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("submitDeliveryReattemptRequest");
+        fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
+
+        Response<OrderApplicationModels.DeliveryReattemptSuccessResponseSchema> response = orderApplicationApiList.submitDeliveryReattemptRequest(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

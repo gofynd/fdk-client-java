@@ -48,12 +48,6 @@ interface PaymentApplicationApiList {
     @POST 
     Call<PaymentApplicationModels.WalletResponseSchema> delinkWallet(@Url String url1, @Body PaymentApplicationModels.WalletDelinkRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET 
-    Call<PaymentApplicationModels.RupifiBannerDetails> getRupifiBannerDetails(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET 
-    Call<PaymentApplicationModels.EpaylaterBannerDetails> getEpaylaterBannerDetails(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
-
     @POST 
     Call<PaymentApplicationModels.ResendOrCancelPaymentDetails> resendOrCancelPayment(@Url String url1, @Body PaymentApplicationModels.ResendOrCancelPayment payload, @HeaderMap Map<String, String> requestHeaders);
 

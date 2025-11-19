@@ -43,8 +43,6 @@ import com.sdk.application.*;
         relativeUrls.put("walletLinkInitiate","/service/application/payment/v1.0/payment/options/wallet/link".substring(1));
         relativeUrls.put("linkWallet","/service/application/payment/v1.0/payment/options/wallet/verify".substring(1));
         relativeUrls.put("delinkWallet","/service/application/payment/v1.0/payment/options/wallet/delink".substring(1));
-        relativeUrls.put("getRupifiBannerDetails","/service/application/payment/v1.0/rupifi/banner".substring(1));
-        relativeUrls.put("getEpaylaterBannerDetails","/service/application/payment/v1.0/epaylater/banner".substring(1));
         relativeUrls.put("resendOrCancelPayment","/service/application/payment/v1.0/payment/resend_or_cancel".substring(1));
         relativeUrls.put("renderHTML","/service/application/payment/v1.0/payment/html/render/".substring(1));
         relativeUrls.put("validateVPA","/service/application/payment/v1.0/validate-vpa".substring(1));
@@ -326,40 +324,6 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("delinkWallet");
 
         Response<PaymentApplicationModels.WalletResponseSchema> response = paymentApplicationApiList.delinkWallet(fullUrl, body, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public PaymentApplicationModels.RupifiBannerDetails getRupifiBannerDetails() throws IOException {
-        return this.getRupifiBannerDetails(new HashMap<>());
-    }
-
-    public PaymentApplicationModels.RupifiBannerDetails getRupifiBannerDetails(Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getRupifiBannerDetails");
-
-        Response<PaymentApplicationModels.RupifiBannerDetails> response = paymentApplicationApiList.getRupifiBannerDetails(fullUrl, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public PaymentApplicationModels.EpaylaterBannerDetails getEpaylaterBannerDetails() throws IOException {
-        return this.getEpaylaterBannerDetails(new HashMap<>());
-    }
-
-    public PaymentApplicationModels.EpaylaterBannerDetails getEpaylaterBannerDetails(Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getEpaylaterBannerDetails");
-
-        Response<PaymentApplicationModels.EpaylaterBannerDetails> response = paymentApplicationApiList.getEpaylaterBannerDetails(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -28,7 +28,7 @@ interface OrderApplicationApiList {
     Call<OrderApplicationModels.CustomerDetailsResponseSchema> getCustomerDetailsByShipmentId(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<OrderApplicationModels.SendOtpToCustomerResponseSchema> sendOtpToShipmentCustomer(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+    Call<OrderApplicationModels.SendOtpToCustomerResponseSchema> sendOtpToShipmentCustomer(@Url String url1, @Query("event_type") String eventType, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
     Call<OrderApplicationModels.VerifyOtpResponseSchema> verifyOtpShipmentCustomer(@Url String url1, @Body OrderApplicationModels.VerifyOtp payload, @HeaderMap Map<String, String> requestHeaders);
@@ -41,4 +41,7 @@ interface OrderApplicationApiList {
 
     @PUT 
     Call<OrderApplicationModels.ShipmentApplicationStatusResponseSchema> updateShipmentStatus(@Url String url1, @Body OrderApplicationModels.UpdateShipmentStatusRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT 
+    Call<OrderApplicationModels.DeliveryReattemptSuccessResponseSchema> submitDeliveryReattemptRequest(@Url String url1, @Body OrderApplicationModels.DeliveryReattemptRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

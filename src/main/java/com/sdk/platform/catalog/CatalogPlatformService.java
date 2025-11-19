@@ -186,11 +186,11 @@ public class CatalogPlatformService {
     
     
 
-    public CatalogPlatformModels.CategoryResponseSchema listCategories(String level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CategoryResponseSchema listCategories(List<Integer> level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug) throws FDKServerResponseError, FDKException {
         return this.listCategories(level, department, q, pageNo, pageSize, uids, slug, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CategoryResponseSchema listCategories(String level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CategoryResponseSchema listCategories(List<Integer> level, Integer department, String q, Integer pageNo, Integer pageSize, List<Integer> uids, String slug, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.CategoryResponseSchema> response = null;
             try {
@@ -271,7 +271,7 @@ public class CatalogPlatformService {
     * Description: fetch the next page by calling .next(...) function
     **/
     public Paginator<CatalogPlatformModels.CategoryResponseSchema> listCategoriesPagination(
-        String level ,
+        List<Integer> level ,
         Integer department ,
         String q ,
         Integer pageSize ,
@@ -5923,15 +5923,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.GetCollectionItemsResponseSchema getCollectionItems(String id, String sortOn, String pageId, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
-        return this.getCollectionItems(id, sortOn, pageId, pageSize, pageNo, new HashMap<>());
+    public CatalogPlatformModels.CommonResponseSchemaCollection addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdateSchema body) throws FDKServerResponseError, FDKException {
+        return this.addCollectionItems(id, body, new HashMap<>());
     }
 
-    public CatalogPlatformModels.GetCollectionItemsResponseSchema getCollectionItems(String id, String sortOn, String pageId, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.CommonResponseSchemaCollection addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdateSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.GetCollectionItemsResponseSchema> response = null;
+            Response<CatalogPlatformModels.CommonResponseSchemaCollection> response = null;
             try {
-            response = catalogPlatformApiList.getCollectionItems(this.companyId, this.applicationId, id, sortOn, pageId, pageSize, pageNo, requestHeaders).execute();
+            response = catalogPlatformApiList.addCollectionItems(this.companyId, this.applicationId, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -5950,15 +5950,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.CommonResponseSchemaCollection addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdateSchema body) throws FDKServerResponseError, FDKException {
-        return this.addCollectionItems(id, body, new HashMap<>());
+    public CatalogPlatformModels.GetCollectionItemsResponseSchemaV2 getCollectionItems(String collectionId, Integer pageNo, Integer pageSize, String q) throws FDKServerResponseError, FDKException {
+        return this.getCollectionItems(collectionId, pageNo, pageSize, q, new HashMap<>());
     }
 
-    public CatalogPlatformModels.CommonResponseSchemaCollection addCollectionItems(String id, CatalogPlatformModels.CollectionItemUpdateSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.GetCollectionItemsResponseSchemaV2 getCollectionItems(String collectionId, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CatalogPlatformModels.CommonResponseSchemaCollection> response = null;
+            Response<CatalogPlatformModels.GetCollectionItemsResponseSchemaV2> response = null;
             try {
-            response = catalogPlatformApiList.addCollectionItems(this.companyId, this.applicationId, id, body, requestHeaders).execute();
+            response = catalogPlatformApiList.getCollectionItems(this.companyId, this.applicationId, collectionId, pageNo, pageSize, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

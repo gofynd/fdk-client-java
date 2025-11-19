@@ -139,24 +139,6 @@ public static class AggregatorsConfigDetail{
     
     
     
-    @JsonProperty("rupifi")
-    private AggregatorConfigDetail rupifi;
-    
-    
-    
-    
-    @JsonProperty("mswipe")
-    private AggregatorConfigDetail mswipe;
-    
-    
-    
-    
-    @JsonProperty("stripe")
-    private AggregatorConfigDetail stripe;
-    
-    
-    
-    
     @JsonProperty("ccavenue")
     private AggregatorConfigDetail ccavenue;
     
@@ -1805,12 +1787,6 @@ public static class PaymentFlow{
     
     
     
-    @JsonProperty("epaylater")
-    private AggregatorRoute epaylater;
-    
-    
-    
-    
     @JsonProperty("razorpay")
     private AggregatorRoute razorpay;
     
@@ -1823,32 +1799,8 @@ public static class PaymentFlow{
     
     
     
-    @JsonProperty("ajiodhan")
-    private AggregatorRoute ajiodhan;
-    
-    
-    
-    
     @JsonProperty("simpl")
     private AggregatorRoute simpl;
-    
-    
-    
-    
-    @JsonProperty("rupifi")
-    private AggregatorRoute rupifi;
-    
-    
-    
-    
-    @JsonProperty("mswipe")
-    private AggregatorRoute mswipe;
-    
-    
-    
-    
-    @JsonProperty("stripe")
-    private AggregatorRoute stripe;
     
     
     
@@ -1861,12 +1813,6 @@ public static class PaymentFlow{
     
     @JsonProperty("payubiz")
     private AggregatorRoute payubiz;
-    
-    
-    
-    
-    @JsonProperty("jiopay")
-    private AggregatorRoute jiopay;
     
     
     
@@ -2429,136 +2375,6 @@ public static class WalletResponseSchema{
     
     @JsonProperty("data")
     private HashMap<String,Object> data;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: RupifiBannerData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RupifiBannerData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("kyc_url")
-    private String kycUrl;
-    
-    
-    
-}
-
-
-/*
-    Model: RupifiBannerDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RupifiBannerDetails{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private RupifiBannerData data;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-}
-
-
-/*
-    Model: EpaylaterBannerData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EpaylaterBannerData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-    
-    @JsonProperty("display")
-    private Boolean display;
-    
-    
-    
-}
-
-
-/*
-    Model: EpaylaterBannerDetails
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EpaylaterBannerDetails{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private EpaylaterBannerData data;
     
     
     

@@ -87,12 +87,6 @@ interface PaymentPlatformApiList {
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/revoke/{aggregator}/")
     Call<PaymentPlatformModels.RevokeOAuthToken> revokeOauthToken(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/repayment-details")
-    Call<PaymentPlatformModels.RepaymentDetails> repaymentDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.RepaymentDetailsSerialiserPayAll payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/merchant-onboarding")
-    Call<PaymentPlatformModels.MerchantOnBoardingDetails> merchantOnBoarding(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.MerchantOnBoardingCreation payload, @HeaderMap Map<String, String> requestHeaders);
-
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/customer/validation")
     Call<PaymentPlatformModels.ValidateCustomerDetails> verifyCustomerForPayment(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.ValidateCustomerCreation payload, @HeaderMap Map<String, String> requestHeaders);
 

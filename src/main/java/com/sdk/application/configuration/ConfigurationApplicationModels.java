@@ -2183,6 +2183,18 @@ public static class OrderFeature{
     
     
     
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
 }
 
 

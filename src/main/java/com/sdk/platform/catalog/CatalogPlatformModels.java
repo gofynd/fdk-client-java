@@ -7947,49 +7947,6 @@ public static class GetCollectionDetailNest{
 
 
 /*
-    Model: GetCollectionItemsResponseSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetCollectionItemsResponseSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("filters")
-    private List<ProductFilters> filters;
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<ApplicationProductsSchema> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-    
-    @JsonProperty("sort_on")
-    private List<ProductSortOn> sortOn;
-    
-    
-    
-}
-
-
-/*
     Model: GetCollectionListingResponseSchema
 */
 @AllArgsConstructor
@@ -9374,6 +9331,12 @@ public static class GetCollectionDetailResponseSchema{
     
     
     
+    
+    @JsonProperty("handpicked_collection_item_ids")
+    private List<String> handpickedCollectionItemIds;
+    
+    
+    
 }
 
 
@@ -9494,13 +9457,74 @@ public static class GetCollectionItemsResponseSchemaV2{
     
     
     @JsonProperty("items")
-    private List<ProductDetailV2> items;
+    private List<CollectionItemV2> items;
     
     
     
     
     @JsonProperty("page")
-    private Page1 page;
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: CollectionItemV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CollectionItemV2{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("short_description")
+    private String shortDescription;
+    
+    
+    
+    
+    @JsonProperty("medias")
+    private List<Media> medias;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private Integer uid;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    
+    
+    @JsonProperty("item_type")
+    private String itemType;
     
     
     

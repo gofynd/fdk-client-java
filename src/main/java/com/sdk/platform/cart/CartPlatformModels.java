@@ -9687,6 +9687,31 @@ public static class PlatformUpdateCartDetails{
 
 
 /*
+    Model: UpdateCartBreakup
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateCartBreakup{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_credit")
+    private Boolean storeCredit;
+    
+    
+    
+}
+
+
+/*
     Model: DeleteCartDetails
 */
 @AllArgsConstructor
