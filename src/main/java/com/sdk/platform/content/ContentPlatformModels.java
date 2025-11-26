@@ -2213,6 +2213,12 @@ public static class HandpickedTagSchema{
     
     
     
+    
+    @JsonProperty("template")
+    private TemplateSchema template;
+    
+    
+    
 }
 
 
@@ -2317,6 +2323,80 @@ public static class CreateTagSchema{
     
     
     
+    
+    @JsonProperty("template")
+    private TemplateSchema template;
+    
+    
+    
+}
+
+
+/*
+    Model: TemplateSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TemplateSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("template_id")
+    private String templateId;
+    
+    
+    
+    
+    @JsonProperty("template_version")
+    private String templateVersion;
+    
+    
+    
+    
+    @JsonProperty("template_fields")
+    private List<TemplateField> templateFields;
+    
+    
+    
+}
+
+
+/*
+    Model: TemplateField
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TemplateField{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
 }
 
 
@@ -2406,6 +2486,305 @@ public static class DataLoaderSchema{
     
     @JsonProperty("_id")
     private String id;
+    
+    
+    
+}
+
+
+/*
+    Model: TagsTemplateSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TagsTemplateSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<TagTemplateItem> items;
+    
+    
+    
+}
+
+
+/*
+    Model: TagTemplateItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TagTemplateItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("template_name")
+    private String templateName;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("sub_type")
+    private String subType;
+    
+    
+    
+    
+    @JsonProperty("position")
+    private String position;
+    
+    
+    
+    
+    @JsonProperty("pages")
+    private List<String> pages;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private HashMap<String,Object> attributes;
+    
+    
+    
+    
+    @JsonProperty("compatible_engines")
+    private List<String> compatibleEngines;
+    
+    
+    
+    
+    @JsonProperty("field_mappings")
+    private HashMap<String,Object> fieldMappings;
+    
+    
+    
+    
+    @JsonProperty("layout")
+    private TemplateLayout layout;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("path")
+    private String path;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("image")
+    private String image;
+    
+    
+    
+    
+    @JsonProperty("note")
+    private String note;
+    
+    
+    
+    
+    @JsonProperty("template_id")
+    private String templateId;
+    
+    
+    
+    
+    @JsonProperty("template_version")
+    private String templateVersion;
+    
+    
+    
+    
+    @JsonProperty("category")
+    private String category;
+    
+    
+    
+    
+    @JsonProperty("fields")
+    private List<FieldDefinition> fields;
+    
+    
+    
+    
+    @JsonProperty("script")
+    private String script;
+    
+    
+    
+}
+
+
+/*
+    Model: TemplateLayout
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TemplateLayout{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("columns")
+    private Integer columns;
+    
+    
+    
+    
+    @JsonProperty("gap")
+    private String gap;
+    
+    
+    
+    
+    @JsonProperty("responsive")
+    private Boolean responsive;
+    
+    
+    
+}
+
+
+/*
+    Model: FieldDefinition
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FieldDefinition{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("label")
+    private String label;
+    
+    
+    
+    
+    @JsonProperty("placeholder")
+    private String placeholder;
+    
+    
+    
+    
+    @JsonProperty("required")
+    private Boolean required;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("validation")
+    private FieldValidation validation;
+    
+    
+    
+    
+    @JsonProperty("events")
+    private HashMap<String,Object> events;
+    
+    
+    
+}
+
+
+/*
+    Model: FieldValidation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FieldValidation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("pattern")
+    private String pattern;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -4254,8 +4633,20 @@ public static class TagsSchema{
     
     
     
+    @JsonProperty("company")
+    private String company;
+    
+    
+    
+    
     @JsonProperty("tags")
     private List<TagSchema> tags;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
     
     
     
@@ -4341,6 +4732,12 @@ public static class TagSchema{
     
     @JsonProperty("__source")
     private TagSourceSchema source;
+    
+    
+    
+    
+    @JsonProperty("template")
+    private TemplateSchema template;
     
     
     

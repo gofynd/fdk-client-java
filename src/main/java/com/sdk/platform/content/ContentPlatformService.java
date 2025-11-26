@@ -185,6 +185,8 @@ public class ContentPlatformService {
     
     
     
+    
+    
 
     public ContentPlatformModels.MetafieldTypesSchema getCustomFieldTypes() throws FDKServerResponseError, FDKException {
         return this.getCustomFieldTypes(new HashMap<>());
@@ -3747,15 +3749,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all) throws FDKServerResponseError, FDKException {
-        return this.getInjectableTags(all, new HashMap<>());
+    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all, Integer pageNo, Integer pageSize, String search) throws FDKServerResponseError, FDKException {
+        return this.getInjectableTags(all, pageNo, pageSize, search, new HashMap<>());
     }
 
-    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all, Integer pageNo, Integer pageSize, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.TagsSchema> response = null;
             try {
-            response = contentPlatformApiList.getInjectableTags(this.companyId, this.applicationId, all, requestHeaders).execute();
+            response = contentPlatformApiList.getInjectableTags(this.companyId, this.applicationId, all, pageNo, pageSize, search, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3837,6 +3839,33 @@ public class ApplicationClient {
             Response<ContentPlatformModels.TagsSchema> response = null;
             try {
             response = contentPlatformApiList.editInjectableTag(this.companyId, this.applicationId, tagId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.TagsTemplateSchema getTagsTemplate() throws FDKServerResponseError, FDKException {
+        return this.getTagsTemplate(new HashMap<>());
+    }
+
+    public ContentPlatformModels.TagsTemplateSchema getTagsTemplate(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.TagsTemplateSchema> response = null;
+            try {
+            response = contentPlatformApiList.getTagsTemplate(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

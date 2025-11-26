@@ -1896,6 +1896,18 @@ public static class UserAttributeFilterQuery{
     
     
     
+    @JsonProperty("has_email")
+    private Boolean hasEmail;
+    
+    
+    
+    
+    @JsonProperty("has_phone")
+    private Boolean hasPhone;
+    
+    
+    
+    
     @JsonProperty("phone")
     private String phone;
     

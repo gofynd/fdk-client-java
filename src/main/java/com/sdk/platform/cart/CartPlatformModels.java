@@ -6251,6 +6251,18 @@ public static class ProductPrice{
     
     
     
+    
+    @JsonProperty("final_price")
+    private Double finalPrice;
+    
+    
+    
+    
+    @JsonProperty("discount")
+    private Double discount;
+    
+    
+    
 }
 
 
