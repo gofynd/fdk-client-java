@@ -13,7 +13,7 @@ interface UserPlatformApiList {
     Call<UserPlatformModels.UserSearchResponseSchema> searchUsers(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("q") String q, @Query("query") List<String> query, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers")
-    Call<UserPlatformModels.CreateUserResponseSchema> createUser(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.CreateUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserPlatformModels.CreateUserResponseSchema> createUser(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("verified") Boolean verified, @Body UserPlatformModels.CreateUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/customers/activation")
     Call<UserPlatformModels.BlockUserSuccess> blockOrUnblockUsers(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.BlockUserRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);

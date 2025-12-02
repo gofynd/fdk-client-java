@@ -181,15 +181,15 @@ public class ApplicationClient {
         }    
     }
 
-    public UserPlatformModels.CreateUserResponseSchema createUser(UserPlatformModels.CreateUserRequestSchema body) throws FDKServerResponseError, FDKException {
-        return this.createUser(body, new HashMap<>());
+    public UserPlatformModels.CreateUserResponseSchema createUser(Boolean verified, UserPlatformModels.CreateUserRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.createUser(verified, body, new HashMap<>());
     }
 
-    public UserPlatformModels.CreateUserResponseSchema createUser(UserPlatformModels.CreateUserRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.CreateUserResponseSchema createUser(Boolean verified, UserPlatformModels.CreateUserRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<UserPlatformModels.CreateUserResponseSchema> response = null;
             try {
-            response = userPlatformApiList.createUser(this.companyId, this.applicationId, body, requestHeaders).execute();
+            response = userPlatformApiList.createUser(this.companyId, this.applicationId, verified, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
