@@ -135,6 +135,9 @@ interface UserApplicationApiList {
     @PATCH 
     Call<UserApplicationModels.UserAttributes> updateUserAttributes(@Url String url1, @Body UserApplicationModels.UpdateUserAttributes payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET 
+    Call<Object> getAttributesDefinition(@Url String url1, @Query("excluding_ids") String excludingIds, @Query("slug") String slug, @Query("type") String type, @Query("customer_editable") Boolean customerEditable, @Query("encrypted") Boolean encrypted, @Query("pinned") Boolean pinned, @Query("pin_order") Integer pinOrder, @Query("is_locked") Boolean isLocked, @Query("name") String name, @Query("registration_enabled") Boolean registrationEnabled, @Query("registration_type") Object registrationType, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
+
     @POST 
     Call<UserApplicationModels.SendOtpSuccess> sendOTPOnPrimary(@Url String url1, @Body UserApplicationModels.SendPrimaryOTPRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 

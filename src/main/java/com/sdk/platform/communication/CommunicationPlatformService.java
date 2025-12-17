@@ -1585,15 +1585,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CommunicationPlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo, Integer pageSize, String populate) throws FDKServerResponseError, FDKException {
-        return this.getEventSubscriptions(pageNo, pageSize, populate, new HashMap<>());
+    public CommunicationPlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo, Integer pageSize, String populate, String group, String subGroup, String fulfillmentOptionTypes) throws FDKServerResponseError, FDKException {
+        return this.getEventSubscriptions(pageNo, pageSize, populate, group, subGroup, fulfillmentOptionTypes, new HashMap<>());
     }
 
-    public CommunicationPlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo, Integer pageSize, String populate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CommunicationPlatformModels.EventSubscriptions getEventSubscriptions(Integer pageNo, Integer pageSize, String populate, String group, String subGroup, String fulfillmentOptionTypes, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CommunicationPlatformModels.EventSubscriptions> response = null;
             try {
-            response = communicationPlatformApiList.getEventSubscriptions(this.companyId, this.applicationId, pageNo, pageSize, populate, requestHeaders).execute();
+            response = communicationPlatformApiList.getEventSubscriptions(this.companyId, this.applicationId, pageNo, pageSize, populate, group, subGroup, fulfillmentOptionTypes, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

@@ -63,6 +63,9 @@ interface UserPlatformApiList {
     @PATCH ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_group/{group_id}")
     Call<UserPlatformModels.UserGroupResponseSchema> updateUserGroupPartially(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("group_id") String groupId, @Body UserPlatformModels.PartialUserGroupUpdateSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @DELETE ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_group/{group_id}")
+    Call<UserPlatformModels.DeleteUserGroupSuccess> deleteUserGroup(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("group_id") String groupId, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/definition")
     Call<UserPlatformModels.UserAttributeDefinitionDetails> createUserAttributeDefinition(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body UserPlatformModels.CreateUserAttributeDefinition payload, @HeaderMap Map<String, String> requestHeaders);
 

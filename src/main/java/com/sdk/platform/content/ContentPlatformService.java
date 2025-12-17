@@ -3749,15 +3749,15 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all, Integer pageNo, Integer pageSize, String search) throws FDKServerResponseError, FDKException {
-        return this.getInjectableTags(all, pageNo, pageSize, search, new HashMap<>());
+    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all, String search) throws FDKServerResponseError, FDKException {
+        return this.getInjectableTags(all, search, new HashMap<>());
     }
 
-    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all, Integer pageNo, Integer pageSize, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.TagsSchema getInjectableTags(Boolean all, String search, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.TagsSchema> response = null;
             try {
-            response = contentPlatformApiList.getInjectableTags(this.companyId, this.applicationId, all, pageNo, pageSize, search, requestHeaders).execute();
+            response = contentPlatformApiList.getInjectableTags(this.companyId, this.applicationId, all, search, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

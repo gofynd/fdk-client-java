@@ -72,6 +72,7 @@ import com.sdk.application.*;
         relativeUrls.put("logout","/service/application/user/authentication/v1.0/logout".substring(1));
         relativeUrls.put("getUserAttributes","/service/application/user/profile/v1.0/user-attributes".substring(1));
         relativeUrls.put("updateUserAttributes","/service/application/user/profile/v1.0/user-attributes".substring(1));
+        relativeUrls.put("getAttributesDefinition","/service/application/user/profile/v1.0/attributes/definition".substring(1));
         relativeUrls.put("sendOTPOnPrimary","/service/application/user/profile/v2.0/{entity}/primary/otp/send".substring(1));
         relativeUrls.put("verifyOTPonPrimary","/service/application/user/profile/v2.0/{entity}/primary/otp/verify".substring(1));
         relativeUrls.put("sendOTPForUpdate","/service/application/user/profile/v2.0/{entity}/otp/send".substring(1));
@@ -815,6 +816,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("updateUserAttributes");
 
         Response<UserApplicationModels.UserAttributes> response = userApplicationApiList.updateUserAttributes(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public Object getAttributesDefinition(String excludingIds, String slug, String type, Boolean customerEditable, Boolean encrypted, Boolean pinned, Integer pinOrder, Boolean isLocked, String name, Boolean registrationEnabled, Object registrationType, Integer pageSize, Integer pageNo) throws IOException {
+        return this.getAttributesDefinition(excludingIds, slug, type, customerEditable, encrypted, pinned, pinOrder, isLocked, name, registrationEnabled, registrationType, pageSize, pageNo, new HashMap<>());
+    }
+
+    public Object getAttributesDefinition(String excludingIds, String slug, String type, Boolean customerEditable, Boolean encrypted, Boolean pinned, Integer pinOrder, Boolean isLocked, String name, Boolean registrationEnabled, Object registrationType, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getAttributesDefinition");
+
+        Response<Object> response = userApplicationApiList.getAttributesDefinition(fullUrl, excludingIds, slug, type, customerEditable, encrypted, pinned, pinOrder, isLocked, name, registrationEnabled, registrationType, pageSize, pageNo, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -14,6 +14,99 @@ public class CommunicationPlatformModels{
 
 
 /*
+    Model: GroupMapping
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GroupMapping{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<EventGroup> items;
+    
+    
+    
+}
+
+
+/*
+    Model: EventGroup
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EventGroup{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("subgroups")
+    private List<EventSubgroup> subgroups;
+    
+    
+    
+}
+
+
+/*
+    Model: EventSubgroup
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EventSubgroup{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+}
+
+
+/*
     Model: EventSubscriptionsBulkUpdatePayload
 */
 @AllArgsConstructor

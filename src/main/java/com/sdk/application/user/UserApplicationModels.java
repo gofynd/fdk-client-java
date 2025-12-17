@@ -14,6 +14,232 @@ public class UserApplicationModels{
 
 
 /*
+    Model: UserAttributesDefinition
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributesDefinition{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("icon")
+    private String icon;
+    
+    
+    
+    
+    @JsonProperty("ordering_channels")
+    private List<String> orderingChannels;
+    
+    
+    
+    
+    @JsonProperty("masking")
+    private AttributeMaskingProperties masking;
+    
+    
+    
+    
+    @JsonProperty("registration")
+    private AttributeRegistrationProperties registration;
+    
+    
+    
+    
+    @JsonProperty("is_multi_value")
+    private Boolean isMultiValue;
+    
+    
+    
+    
+    @JsonProperty("customer_editable")
+    private Boolean customerEditable;
+    
+    
+    
+    
+    @JsonProperty("encrypted")
+    private Boolean encrypted;
+    
+    
+    
+    
+    @JsonProperty("pinned")
+    private Boolean pinned;
+    
+    
+    
+    
+    @JsonProperty("pin_order")
+    private Integer pinOrder;
+    
+    
+    
+    
+    @JsonProperty("validations")
+    private List<Object> validations;
+    
+    
+    
+    
+    @JsonProperty("is_locked")
+    private Boolean isLocked;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("modified_at")
+    private String modifiedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: AttributeMaskingProperties
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AttributeMaskingProperties{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
+    Model: AttributeRegistrationProperties
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AttributeRegistrationProperties{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
+    Model: UserAttributeDefinitionValidation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributeDefinitionValidation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
     Model: VerifyOTPForUpdateRequestSchema
 */
 @AllArgsConstructor

@@ -1802,6 +1802,12 @@ public static class ConditionsSchema{
     
     
     
+    
+    @JsonProperty("ignore_year")
+    private Boolean ignoreYear;
+    
+    
+    
 }
 
 
@@ -3888,6 +3894,37 @@ public static class UserConsent{
     
     @JsonProperty("privacy_policy")
     private PrivacyPolicyConsentSchema privacyPolicy;
+    
+    
+    
+}
+
+
+/*
+    Model: DeleteUserGroupSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeleteUserGroupSuccess{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
     
     
     
