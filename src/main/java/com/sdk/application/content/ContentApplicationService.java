@@ -49,6 +49,7 @@ import com.sdk.application.*;
         relativeUrls.put("getPages","/service/application/content/v2.0/pages".substring(1));
         relativeUrls.put("getCustomObjectBySlug","/service/application/content/v2.0/customobjects/definition/{definition_slug}/entries/{slug}".substring(1));
         relativeUrls.put("getCustomFieldsByResourceId","/service/application/content/v2.0/customfields/resource/{resource}/{resource_slug}".substring(1));
+        relativeUrls.put("getBulkCustomFieldsByResource","/service/application/content/v2.0/customfields/resource/{resource}".substring(1));
         relativeUrls.put("getTranslateUILabels","/service/application/content/v1.0/translate-ui-labels".substring(1));
         relativeUrls.put("fetchResourceTranslations","/service/application/content/v1.0/resource/translations/{type}/{locale}".substring(1));
         relativeUrls.put("fetchResourceTranslationsWithPayload","/service/application/content/v1.0/resource/translations/{type}/{locale}".substring(1));
@@ -410,6 +411,24 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "resource_slug" + "}",resourceSlug.toString());
 
         Response<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> response = contentApplicationApiList.getCustomFieldsByResourceId(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.BulkCustomFieldsResponseByResourceSchema getBulkCustomFieldsByResource(String resource, String resourceIds, String keys, String namespaces) throws IOException {
+        return this.getBulkCustomFieldsByResource(resource, resourceIds, keys, namespaces, new HashMap<>());
+    }
+
+    public ContentApplicationModels.BulkCustomFieldsResponseByResourceSchema getBulkCustomFieldsByResource(String resource, String resourceIds, String keys, String namespaces, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getBulkCustomFieldsByResource");
+        fullUrl = fullUrl.replace("{" + "resource" + "}",resource.toString());
+
+        Response<ContentApplicationModels.BulkCustomFieldsResponseByResourceSchema> response = contentApplicationApiList.getBulkCustomFieldsByResource(fullUrl, resourceIds, keys, namespaces, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

@@ -843,15 +843,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.RefundBeneficiaries getRefundBeneficiaries(String orderId, String shipmentId, String filterBy) throws IOException {
-        return this.getRefundBeneficiaries(orderId, shipmentId, filterBy, new HashMap<>());
+    public PaymentApplicationModels.GetRefundBeneficiary getRefundBeneficiaries(String orderId, String shipmentId) throws IOException {
+        return this.getRefundBeneficiaries(orderId, shipmentId, new HashMap<>());
     }
 
-    public PaymentApplicationModels.RefundBeneficiaries getRefundBeneficiaries(String orderId, String shipmentId, String filterBy, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.GetRefundBeneficiary getRefundBeneficiaries(String orderId, String shipmentId, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getRefundBeneficiaries");
 
-        Response<PaymentApplicationModels.RefundBeneficiaries> response = paymentApplicationApiList.getRefundBeneficiaries(fullUrl, orderId, shipmentId, filterBy, requestHeaders).execute();
+        Response<PaymentApplicationModels.GetRefundBeneficiary> response = paymentApplicationApiList.getRefundBeneficiaries(fullUrl, orderId, shipmentId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -895,15 +895,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.RefundBeneficiaries getRefundBeneficiariesUsingOTPSession(String orderId, String shipmentId, String filterBy) throws IOException {
+    public PaymentApplicationModels.GetRefundBeneficiary getRefundBeneficiariesUsingOTPSession(String orderId, String shipmentId, String filterBy) throws IOException {
         return this.getRefundBeneficiariesUsingOTPSession(orderId, shipmentId, filterBy, new HashMap<>());
     }
 
-    public PaymentApplicationModels.RefundBeneficiaries getRefundBeneficiariesUsingOTPSession(String orderId, String shipmentId, String filterBy, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.GetRefundBeneficiary getRefundBeneficiariesUsingOTPSession(String orderId, String shipmentId, String filterBy, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getRefundBeneficiariesUsingOTPSession");
 
-        Response<PaymentApplicationModels.RefundBeneficiaries> response = paymentApplicationApiList.getRefundBeneficiariesUsingOTPSession(fullUrl, orderId, shipmentId, filterBy, requestHeaders).execute();
+        Response<PaymentApplicationModels.GetRefundBeneficiary> response = paymentApplicationApiList.getRefundBeneficiariesUsingOTPSession(fullUrl, orderId, shipmentId, filterBy, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

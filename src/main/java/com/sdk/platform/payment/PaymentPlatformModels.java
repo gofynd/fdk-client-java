@@ -2106,6 +2106,12 @@ public static class BankDetailsForOTP{
     
     
     
+    
+    @JsonProperty("upi")
+    private String upi;
+    
+    
+    
 }
 
 
@@ -2128,6 +2134,12 @@ public static class AddBeneficiaryDetailsOTPCreation{
     
     @JsonProperty("order_id")
     private String orderId;
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
     
     
     

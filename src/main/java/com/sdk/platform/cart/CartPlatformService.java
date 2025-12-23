@@ -1288,13 +1288,13 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.UpdateCartDetailResult updateCartBreakup(String xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.UpdateCartBreakup body) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDetailResult updateCartBreakup(String xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.UpdateCartBreakup body) throws FDKServerResponseError, FDKException {
         return this.updateCartBreakup(xOrderingSource, id, i, b, buyNow, body, new HashMap<>());
     }
 
-    public CartPlatformModels.UpdateCartDetailResult updateCartBreakup(String xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.UpdateCartBreakup body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDetailResult updateCartBreakup(String xOrderingSource, String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.UpdateCartBreakup body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<CartPlatformModels.UpdateCartDetailResult> response = null;
+            Response<CartPlatformModels.CartDetailResult> response = null;
             try {
             response = cartPlatformApiList.updateCartBreakup(this.companyId, this.applicationId, id, i, b, buyNow, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {

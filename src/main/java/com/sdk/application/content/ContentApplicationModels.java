@@ -3180,6 +3180,177 @@ public static class CustomFieldsResponseByResourceIdSchema{
 
 
 /*
+    Model: BulkCustomFieldsResponseByResourceSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkCustomFieldsResponseByResourceSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ResourceCustomFieldsSchema> items;
+    
+    
+    
+}
+
+
+/*
+    Model: ResourceCustomFieldsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ResourceCustomFieldsSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("resource_id")
+    private String resourceId;
+    
+    
+    
+    
+    @JsonProperty("resource_slug")
+    private String resourceSlug;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CustomFieldItemSchema> items;
+    
+    
+    
+}
+
+
+/*
+    Model: CustomFieldItemSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CustomFieldItemSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("namespace")
+    private String namespace;
+    
+    
+    
+    
+    @JsonProperty("resource")
+    private String resource;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private List<String> value;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("multi_value")
+    private Boolean multiValue;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private String companyId;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("has_invalid_values")
+    private Boolean hasInvalidValues;
+    
+    
+    
+    
+    @JsonProperty("invalid_value_errors")
+    private List<Object> invalidValueErrors;
+    
+    
+    
+    
+    @JsonProperty("is_deleted")
+    private Boolean isDeleted;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("resource_slug")
+    private String resourceSlug;
+    
+    
+    
+}
+
+
+/*
     Model: CustomObjectListItemSchema
 */
 @AllArgsConstructor

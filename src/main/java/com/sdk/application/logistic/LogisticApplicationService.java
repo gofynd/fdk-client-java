@@ -29,16 +29,15 @@ import com.sdk.application.*;
         this.logisticApplicationApiList = generateLogisticApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
-        relativeUrls.put("getPincodeCity","/service/application/logistics/v1.0/pincode/{pincode}".substring(1));
         relativeUrls.put("getAllCountries","/service/application/logistics/v1.0/country-list".substring(1));
-        relativeUrls.put("getCourierPartners","/service/application/logistics/v1.0/company/{company_id}/application/{application_id}/shipment/courier-partners".substring(1));
         relativeUrls.put("getCountries","/service/application/logistics/v2.0/countries".substring(1));
         relativeUrls.put("getCountry","/service/application/logistics/v1.0/countries/{country_iso_code}".substring(1));
         relativeUrls.put("getDeliveryPromise","/service/application/logistics/v1.0/delivery-promise".substring(1));
         relativeUrls.put("getLocalities","/service/application/logistics/v1.0/localities/{locality_type}".substring(1));
         relativeUrls.put("getLocality","/service/application/logistics/v1.0/localities/{locality_type}/{locality_value}".substring(1));
         relativeUrls.put("validateAddress","/service/application/logistics/v1.0/country/{country_iso_code}/address/templates/{template_name}/validate".substring(1));
-        relativeUrls.put("getFulfillmentOptions","/service/application/logistics/v1.0/fulfillment-options".substring(1)); 
+        relativeUrls.put("getFulfillmentOptions","/service/application/logistics/v1.0/fulfillment-options".substring(1));
+        relativeUrls.put("getFulfillmentOptionStores","/service/application/logistics/v1.0/fulfillment-options/{slug}/stores".substring(1)); 
 
     }
 
@@ -55,24 +54,6 @@ import com.sdk.application.*;
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),LogisticApplicationApiList.class, interceptorList, cookieStore);
     }
 
-    public LogisticApplicationModels.PincodeDetailsResult getPincodeCity(String pincode) throws IOException {
-        return this.getPincodeCity(pincode, new HashMap<>());
-    }
-
-    public LogisticApplicationModels.PincodeDetailsResult getPincodeCity(String pincode, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getPincodeCity");
-        fullUrl = fullUrl.replace("{" + "pincode" + "}",pincode.toString());
-
-        Response<LogisticApplicationModels.PincodeDetailsResult> response = logisticApplicationApiList.getPincodeCity(fullUrl, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
     public LogisticApplicationModels.CountryResult getAllCountries() throws IOException {
         return this.getAllCountries(new HashMap<>());
     }
@@ -82,25 +63,6 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("getAllCountries");
 
         Response<LogisticApplicationModels.CountryResult> response = logisticApplicationApiList.getAllCountries(fullUrl, requestHeaders).execute();
-        if(!response.isSuccessful()) {
-            throw new IOException(response.errorBody() != null
-                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
-        }
-        return response.body();
-    }
-    
-
-    public LogisticApplicationModels.ShipmentCourierPartnerResult getCourierPartners(Integer companyId, String applicationId, LogisticApplicationModels.ShipmentCourierPartnerDetails body) throws IOException {
-        return this.getCourierPartners(companyId, applicationId, body, new HashMap<>());
-    }
-
-    public LogisticApplicationModels.ShipmentCourierPartnerResult getCourierPartners(Integer companyId, String applicationId, LogisticApplicationModels.ShipmentCourierPartnerDetails body, Map<String, String> requestHeaders) throws IOException {
-     
-        String fullUrl = relativeUrls.get("getCourierPartners");
-        fullUrl = fullUrl.replace("{" + "company_id" + "}",companyId.toString());
-        fullUrl = fullUrl.replace("{" + "application_id" + "}",applicationId.toString());
-
-        Response<LogisticApplicationModels.ShipmentCourierPartnerResult> response = logisticApplicationApiList.getCourierPartners(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -144,15 +106,15 @@ import com.sdk.application.*;
     }
     
 
-    public LogisticApplicationModels.GetPromiseDetails getDeliveryPromise(String xLocationDetail, String xApplicationData, Integer pageNo, Integer pageSize) throws IOException {
-        return this.getDeliveryPromise(xLocationDetail, xApplicationData, pageNo, pageSize, new HashMap<>());
+    public LogisticApplicationModels.GetPromiseDetails getDeliveryPromise(String xLocationDetail, Integer pageNo, Integer pageSize) throws IOException {
+        return this.getDeliveryPromise(xLocationDetail, pageNo, pageSize, new HashMap<>());
     }
 
-    public LogisticApplicationModels.GetPromiseDetails getDeliveryPromise(String xLocationDetail, String xApplicationData, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public LogisticApplicationModels.GetPromiseDetails getDeliveryPromise(String xLocationDetail, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getDeliveryPromise");
 
-        Response<LogisticApplicationModels.GetPromiseDetails> response = logisticApplicationApiList.getDeliveryPromise(fullUrl, xLocationDetail, xApplicationData, pageNo, pageSize, requestHeaders).execute();
+        Response<LogisticApplicationModels.GetPromiseDetails> response = logisticApplicationApiList.getDeliveryPromise(fullUrl, xLocationDetail, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -226,6 +188,24 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("getFulfillmentOptions");
 
         Response<LogisticApplicationModels.FulfillmentOptionsList> response = logisticApplicationApiList.getFulfillmentOptions(fullUrl, xApplicationData, productSlug, storeId, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public LogisticApplicationModels.FulfillmentOptionStores getFulfillmentOptionStores(String slug, Integer pageNo, Integer pageSize) throws IOException {
+        return this.getFulfillmentOptionStores(slug, pageNo, pageSize, new HashMap<>());
+    }
+
+    public LogisticApplicationModels.FulfillmentOptionStores getFulfillmentOptionStores(String slug, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getFulfillmentOptionStores");
+        fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
+
+        Response<LogisticApplicationModels.FulfillmentOptionStores> response = logisticApplicationApiList.getFulfillmentOptionStores(fullUrl, pageNo, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

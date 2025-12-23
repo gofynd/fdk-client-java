@@ -130,7 +130,7 @@ interface CartPlatformApiList {
     Call<CartPlatformModels.UpdateCartDetailResult> platformUpdateCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("i") Boolean i, @Query("order_type") String orderType, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Body CartPlatformModels.PlatformUpdateCartDetails payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PATCH ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/detail")
-    Call<CartPlatformModels.UpdateCartDetailResult> updateCartBreakup(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Body CartPlatformModels.UpdateCartBreakup payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartPlatformModels.CartDetailResult> updateCartBreakup(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Body CartPlatformModels.UpdateCartBreakup payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart_archive")
     Call<CartPlatformModels.DeleteCartDetailResult> deleteCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Body CartPlatformModels.DeleteCartDetails payload, @HeaderMap Map<String, String> requestHeaders);

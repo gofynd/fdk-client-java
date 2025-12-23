@@ -2294,6 +2294,12 @@ public static class GetLocationSchema{
     
     
     
+    @JsonProperty("multi_piece_shipment")
+    private Boolean multiPieceShipment;
+    
+    
+    
+    
     @JsonProperty("auto_assign_courier_partner")
     private Boolean autoAssignCourierPartner;
     
@@ -2599,6 +2605,12 @@ public static class LocationSchema{
     
     @JsonProperty("bulk_shipment")
     private Boolean bulkShipment;
+    
+    
+    
+    
+    @JsonProperty("multi_piece_shipment")
+    private Boolean multiPieceShipment;
     
     
     

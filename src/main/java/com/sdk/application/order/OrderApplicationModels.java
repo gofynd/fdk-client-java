@@ -14,6 +14,208 @@ public class OrderApplicationModels{
 
 
 /*
+    Model: PriceBreakupValues
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceBreakupValues{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("display")
+    private String display;
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("sub_values")
+    private List<PriceBreakupValues> subValues;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundMode
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundMode{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("refund_mode")
+    private String refundMode;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("payment_identifiers")
+    private List<String> paymentIdentifiers;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundOption
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundOption{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("beneficiary_type")
+    private String beneficiaryType;
+    
+    
+    
+    
+    @JsonProperty("suggested_list")
+    private List<String> suggestedList;
+    
+    
+    
+    
+    @JsonProperty("refund_modes")
+    private List<RefundMode> refundModes;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundOptions
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundOptions{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("refund_options")
+    private List<RefundOption> refundOptions;
+    
+    
+    
+    
+    @JsonProperty("refund_price_breakup")
+    private List<PriceBreakupValues> refundPriceBreakup;
+    
+    
+    
+    
+    @JsonProperty("is_refund_config_enabled")
+    private Boolean isRefundConfigEnabled;
+    
+    
+    
+}
+
+
+/*
     Model: ValidationErrors
 */
 @AllArgsConstructor
@@ -253,6 +455,12 @@ public static class BreakupValues{
     
     @JsonProperty("currency_code")
     private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("sub_values")
+    private List<BreakupValues> subValues;
     
     
     
@@ -2163,6 +2371,219 @@ public static class Address{
 
 
 /*
+    Model: RefundStatus
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundStatus{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("created_ts")
+    private String createdTs;
+    
+    
+    
+    
+    @JsonProperty("updated_ts")
+    private String updatedTs;
+    
+    
+    
+    
+    @JsonProperty("updated_by")
+    private String updatedBy;
+    
+    
+    
+}
+
+
+/*
+    Model: BeneficiaryDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BeneficiaryDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("account_holder")
+    private String accountHolder;
+    
+    
+    
+    
+    @JsonProperty("account_no")
+    private String accountNo;
+    
+    
+    
+    
+    @JsonProperty("bank_name")
+    private String bankName;
+    
+    
+    
+    
+    @JsonProperty("beneficiary_id")
+    private String beneficiaryId;
+    
+    
+    
+    
+    @JsonProperty("branch_name")
+    private String branchName;
+    
+    
+    
+    
+    @JsonProperty("is_verified")
+    private Boolean isVerified;
+    
+    
+    
+    
+    @JsonProperty("vpa_address")
+    private String vpaAddress;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundModeData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundModeData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("identifier")
+    private String identifier;
+    
+    
+    
+    
+    @JsonProperty("amount_paid")
+    private Double amountPaid;
+    
+    
+    
+    
+    @JsonProperty("refund_amount")
+    private Double refundAmount;
+    
+    
+    
+    
+    @JsonProperty("refund_status")
+    private RefundStatus refundStatus;
+    
+    
+    
+    
+    @JsonProperty("remarks")
+    private String remarks;
+    
+    
+    
+    
+    @JsonProperty("beneficiary_details")
+    private BeneficiaryDetails beneficiaryDetails;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("refund_mode")
+    private String refundMode;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("payment_identifiers")
+    private List<String> paymentIdentifiers;
+    
+    
+    
+    
+    @JsonProperty("operational_status")
+    private String operationalStatus;
+    
+    
+    
+    
+    @JsonProperty("transaction_data")
+    private HashMap<String,Object> transactionData;
+    
+    
+    
+    
+    @JsonProperty("default_refund_mode")
+    private Boolean defaultRefundMode;
+    
+    
+    
+}
+
+
+/*
     Model: Shipments
 */
 @AllArgsConstructor
@@ -2439,6 +2860,24 @@ public static class Shipments{
     
     @JsonProperty("ndr_details")
     private NdrDetailsSchema ndrDetails;
+    
+    
+    
+    
+    @JsonProperty("refund_modes")
+    private List<RefundModeData> refundModes;
+    
+    
+    
+    
+    @JsonProperty("refund_breakup_values")
+    private List<BreakupValues> refundBreakupValues;
+    
+    
+    
+    
+    @JsonProperty("is_refund_config_enabled")
+    private Boolean isRefundConfigEnabled;
     
     
     
@@ -4170,6 +4609,74 @@ public static class DataUpdates{
 
 
 /*
+    Model: RefundModeTransitionBeneficiaryData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundModeTransitionBeneficiaryData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("beneficiary_id")
+    private String beneficiaryId;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundModeTransitionData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundModeTransitionData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("refund_mode")
+    private String refundMode;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("beneficiary_details")
+    private RefundModeTransitionBeneficiaryData beneficiaryDetails;
+    
+    
+    
+    
+    @JsonProperty("payment_identifiers")
+    private List<String> paymentIdentifiers;
+    
+    
+    
+}
+
+
+/*
     Model: TransitionComments
 */
 @AllArgsConstructor
@@ -4243,6 +4750,12 @@ public static class ShipmentsRequestSchema{
     
     @JsonProperty("identifier")
     private String identifier;
+    
+    
+    
+    
+    @JsonProperty("refund_modes")
+    private List<RefundModeTransitionData> refundModes;
     
     
     

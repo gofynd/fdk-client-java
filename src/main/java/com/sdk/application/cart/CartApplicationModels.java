@@ -3564,6 +3564,12 @@ public static class Coupon{
     
     
     
+    @JsonProperty("coupon_id")
+    private String couponId;
+    
+    
+    
+    
     @JsonProperty("is_applicable")
     private Boolean isApplicable;
     

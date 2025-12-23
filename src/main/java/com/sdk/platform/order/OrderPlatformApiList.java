@@ -6,9 +6,6 @@ import java.util.*;
 
 interface OrderPlatformApiList {
 
-    @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/update-cache")
-    Call<OrderPlatformModels.InvalidateShipmentCacheResponseSchema> invalidateShipmentCache(@Path("company_id") String companyId, @Body OrderPlatformModels.InvalidateShipmentCachePayload payload, @HeaderMap Map<String, String> requestHeaders);
-
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/store/reassign-internal")
     Call<OrderPlatformModels.StoreReassignResponseSchema> reassignLocation(@Path("company_id") String companyId, @Body OrderPlatformModels.StoreReassign payload, @HeaderMap Map<String, String> requestHeaders);
 
@@ -38,9 +35,6 @@ interface OrderPlatformApiList {
 
     @POST ("/service/platform/order-manage/v1.0/company/{company_id}/update-packaging-dimension")
     Call<OrderPlatformModels.UpdatePackagingDimensionsResponseSchema> updatePackagingDimensions(@Path("company_id") String companyId, @Body OrderPlatformModels.UpdatePackagingDimensionsPayload payload, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/create-order")
-    Call<OrderPlatformModels.CreateOrderResponseSchema> createOrderDeprecated(@Path("company_id") String companyId, @Body OrderPlatformModels.CreateOrderAPI payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order-manage/v1.0/company/{company_id}/order-config")
     Call<OrderPlatformModels.CreateChannelConfigData> getChannelConfig(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
@@ -161,6 +155,15 @@ interface OrderPlatformApiList {
 
     @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/account/{channel_account_id}")
     Call<OrderPlatformModels.Account> updateAccount(@Path("company_id") String companyId, @Path("channel_account_id") String channelAccountId, @Body OrderPlatformModels.CreateAccount payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/{shipment_id}/packages")
+    Call<OrderPlatformModels.PackagesResponseSchema> getShipmentPackages(@Path("company_id") String companyId, @Path("shipment_id") String shipmentId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/{shipment_id}/packages")
+    Call<OrderPlatformModels.BaseResponseSchema> createShipmentPackages(@Path("company_id") String companyId, @Path("shipment_id") String shipmentId, @Body OrderPlatformModels.PackagesSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/{shipment_id}/packages")
+    Call<OrderPlatformModels.BaseResponseSchema> updateShipmentPackages(@Path("company_id") String companyId, @Path("shipment_id") String shipmentId, @Body OrderPlatformModels.PackagesSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/shipments/{shipment_id}/line_number/{line_number}/reasons")
     Call<OrderPlatformModels.ShipmentBagReasons> getShipmentBagReasons(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("shipment_id") String shipmentId, @Path("line_number") Integer lineNumber, @HeaderMap Map<String, String> requestHeaders);

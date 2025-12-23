@@ -99,9 +99,6 @@ interface ServiceabilityPlatformApiList {
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/configuration")
     Call<ServiceabilityPlatformModels.CompanyConfig> getCompanyConfiguration(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/configuration")
-    Call<ServiceabilityPlatformModels.ApplicationConfigPut> updateApplicationConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.ApplicationConfigPutDetail payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/configuration")
     Call<ServiceabilityPlatformModels.ApplicationConfigGetResult> getApplicationConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 

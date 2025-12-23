@@ -80,4 +80,28 @@ interface LogisticsPartnerApiList {
 
     @GET ("/service/partner/logistics/v2.0/organization/{organization_id}/courier-partner/scheme/{scheme_id}")
     Call<LogisticsPartnerModels.CourierPartnerSchemeModelSchema> getCourierPartnerScheme(@Path("organization_id") String organizationId, @Path("scheme_id") String schemeId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/partner/logistics/v1.0/organization/{organization_id}/rate-card/sample-file")
+    Call<LogisticsPartnerModels.RateCardSampleFile> getSampleFileRateCard(@Path("organization_id") String organizationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/logistics/v1.0/organization/{organization_id}/courier-partner/{extension_id}/scheme/{scheme_id}/rate-card/bulk")
+    Call<LogisticsPartnerModels.BulkRateCardJob> bulkRateCard(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Body LogisticsPartnerModels.BulkRateCardJobDetails payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/partner/logistics/v1.0/organization/{organization_id}/courier-partner/{extension_id}/scheme/{scheme_id}/rate-card/bulk")
+    Call<LogisticsPartnerModels.BulkRateCardJob> getBulkRateCard(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("batch_id") String batchId, @Query("action") String action, @Query("status") String status, @Query("start_date") String startDate, @Query("end_date") String endDate, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/logistics/v1.0/organization/{organization_id}/rate-card/zone/sample-file")
+    Call<LogisticsPartnerModels.BulkRateCardJob> getSampleFileRateZone(@Path("organization_id") String organizationId, @Body LogisticsPartnerModels.SampleFileRateZoneRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/logistics/v1.0/organization/{organization_id}/courier-partner/{extension_id}/scheme/{scheme_id}/rate-card/zone/bulk")
+    Call<LogisticsPartnerModels.BulkRateCardJob> createRateZoneBulkJob(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Body LogisticsPartnerModels.RateZoneBulkJobDetails payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/partner/logistics/v1.0/organization/{organization_id}/courier-partner/{extension_id}/scheme/{scheme_id}/rate-card/zone/bulk")
+    Call<LogisticsPartnerModels.RateZoneBulkJobList> getBulkRateZoneJobHistory(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("batch_id") String batchId, @Query("action") String action, @Query("status") String status, @Query("zone_type") String zoneType, @Query("start_date") String startDate, @Query("end_date") String endDate, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/partner/logistics/v1.0/organization/{organization_id}/courier-partner/{extension_id}/scheme/{scheme_id}/rate-card/zone/configuration")
+    Call<LogisticsPartnerModels.RateZoneConfigurationDetails> getRateZoneConfig(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/partner/logistics/v1.0/organization/{organization_id}/courier-partner/{extension_id}/scheme/{scheme_id}/rate-card/zone/configuration")
+    Call<LogisticsPartnerModels.RateZoneConfigurationDetails> updateRateZoneConfiguration(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("scheme_id") String schemeId, @Body LogisticsPartnerModels.RateZoneConfigurationDetails payload, @HeaderMap Map<String, String> requestHeaders);
 }

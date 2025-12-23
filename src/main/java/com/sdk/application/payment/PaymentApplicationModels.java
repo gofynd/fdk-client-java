@@ -3527,12 +3527,6 @@ public static class RefundAccountDetails{
     
     
     
-    @JsonProperty("is_verified_flag")
-    private Boolean isVerifiedFlag;
-    
-    
-    
-    
     @JsonProperty("data")
     private HashMap<String,Object> data;
     
@@ -3599,6 +3593,12 @@ public static class BankDetailsForOTP{
     
     
     
+    
+    @JsonProperty("upi")
+    private String upi;
+    
+    
+    
 }
 
 
@@ -3621,6 +3621,12 @@ public static class AddBeneficiaryDetailsOTP{
     
     @JsonProperty("order_id")
     private String orderId;
+    
+    
+    
+    
+    @JsonProperty("shipment_id")
+    private String shipmentId;
     
     
     
@@ -6634,7 +6640,7 @@ public static class ValidateCustomerCreditSchema{
 
 
 /*
-    Model: RefundBeneficiaries
+    Model: GetRefundBeneficiary
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6642,7 +6648,32 @@ public static class ValidateCustomerCreditSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RefundBeneficiaries{
+public static class GetRefundBeneficiary{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private BeneficiaryData data;
+    
+    
+    
+}
+
+
+/*
+    Model: BeneficiaryData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BeneficiaryData{
 
     
 

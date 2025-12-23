@@ -14,7 +14,7 @@ public class OrderPlatformModels{
 
 
 /*
-    Model: InvalidateShipmentCachePayload
+    Model: PackageSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,7 @@ public class OrderPlatformModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvalidateShipmentCachePayload{
+public static class PackageSchema{
 
     
 
@@ -30,88 +30,92 @@ public static class InvalidateShipmentCachePayload{
     
     
     
-    @JsonProperty("shipment_ids")
-    private List<String> shipmentIds;
+    @JsonProperty("id")
+    private String id;
     
     
     
     
-    @JsonProperty("affiliate_bag_ids")
-    private List<String> affiliateBagIds;
+    @JsonProperty("packaging_id")
+    private String packagingId;
     
     
     
     
-    @JsonProperty("bag_ids")
-    private List<String> bagIds;
-    
-    
-    
-}
-
-
-/*
-    Model: InvalidateShipmentCacheNestedResponseSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvalidateShipmentCacheNestedResponseSchema{
-
-    
-
+    @JsonProperty("name")
+    private String name;
     
     
     
     
-    @JsonProperty("shipment_id")
-    private String shipmentId;
+    @JsonProperty("size")
+    private String size;
     
     
     
     
-    @JsonProperty("status")
-    private Integer status;
+    @JsonProperty("package_type")
+    private String packageType;
     
     
     
     
-    @JsonProperty("message")
-    private String message;
+    @JsonProperty("length")
+    private Double length;
     
     
     
     
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-}
-
-
-/*
-    Model: InvalidateShipmentCacheResponseSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvalidateShipmentCacheResponseSchema{
-
-    
-
+    @JsonProperty("width")
+    private Double width;
     
     
     
     
-    @JsonProperty("response")
-    private List<InvalidateShipmentCacheNestedResponseSchema> response;
+    @JsonProperty("height")
+    private Double height;
+    
+    
+    
+    
+    @JsonProperty("weight")
+    private Double weight;
+    
+    
+    
+    
+    @JsonProperty("error_rate")
+    private Double errorRate;
+    
+    
+    
+    
+    @JsonProperty("package_vol_weight")
+    private Double packageVolWeight;
+    
+    
+    
+    
+    @JsonProperty("max_weight")
+    private Double maxWeight;
+    
+    
+    
+    
+    @JsonProperty("awb")
+    private String awb;
+    
+    
+    
+    
+    @JsonProperty("pdf_links")
+    private HashMap<String,String> pdfLinks;
+    
+    
+    
+    
+    @JsonProperty("products")
+    private List<PackageProduct> products;
     
     
     
@@ -1381,6 +1385,43 @@ public static class TransitionComments{
 
 
 /*
+    Model: RefundModeTransitionData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundModeTransitionData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("refund_mode")
+    private String refundMode;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("payment_identifiers")
+    private List<String> paymentIdentifiers;
+    
+    
+    
+}
+
+
+/*
     Model: ShipmentsRequestSchema
 */
 @AllArgsConstructor
@@ -1423,6 +1464,12 @@ public static class ShipmentsRequestSchema{
     
     @JsonProperty("transition_comments")
     private List<TransitionComments> transitionComments;
+    
+    
+    
+    
+    @JsonProperty("refund_modes")
+    private List<RefundModeTransitionData> refundModes;
     
     
     
@@ -10217,6 +10264,12 @@ public static class Filter{
     
     
     
+    
+    @JsonProperty("fulfillment_option_slug")
+    private String fulfillmentOptionSlug;
+    
+    
+    
 }
 
 
@@ -11426,6 +11479,99 @@ public static class LineItemPaymentMethodSchema{
     
     @JsonProperty("transaction_party")
     private PaymentMethodTransactionPartySchema transactionParty;
+    
+    
+    
+}
+
+
+/*
+    Model: PackagesSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PackagesSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("packages")
+    private List<PackageSchema> packages;
+    
+    
+    
+}
+
+
+/*
+    Model: PackagesResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PackagesResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private PackagesSchema data;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: PackagesErrorResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PackagesErrorResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private String error;
     
     
     
@@ -13394,6 +13540,43 @@ public static class AccountsList{
 
 
 /*
+    Model: PackageProduct
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PackageProduct{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("line_number")
+    private Integer lineNumber;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Double quantity;
+    
+    
+    
+    
+    @JsonProperty("identifier")
+    private String identifier;
+    
+    
+    
+}
+
+
+/*
     Model: ValidationError
 */
 @AllArgsConstructor
@@ -13657,6 +13840,55 @@ public static class ShipmentStatus{
     
     @JsonProperty("status")
     private String status;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderingSourceDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderingSourceDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private String logo;
     
     
     
@@ -14321,6 +14553,12 @@ public static class Prices{
     
     
     
+    @JsonProperty("cost_price")
+    private Double costPrice;
+    
+    
+    
+    
     @JsonProperty("loyalty_discount")
     private Double loyaltyDiscount;
     
@@ -14651,6 +14889,12 @@ public static class OrderingCurrencyPrices{
     
     
     
+    @JsonProperty("cost_price")
+    private Double costPrice;
+    
+    
+    
+    
     @JsonProperty("loyalty_discount")
     private Double loyaltyDiscount;
     
@@ -14745,6 +14989,43 @@ public static class TaxComponent{
     
     @JsonProperty("taxable_amount")
     private Double taxableAmount;
+    
+    
+    
+}
+
+
+/*
+    Model: SellerQcDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SellerQcDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("line_number")
+    private Integer lineNumber;
+    
+    
+    
+    
+    @JsonProperty("bad_quantity")
+    private Integer badQuantity;
+    
+    
+    
+    
+    @JsonProperty("good_quantity")
+    private Integer goodQuantity;
     
     
     
@@ -16448,6 +16729,12 @@ public static class ShipmentItem{
     
     @JsonProperty("order_created_ts")
     private String orderCreatedTs;
+    
+    
+    
+    
+    @JsonProperty("ordering_source_details")
+    private OrderingSourceDetails orderingSourceDetails;
     
     
     
@@ -18846,6 +19133,12 @@ public static class OrderBags{
     
     
     
+    @JsonProperty("seller_qc_details")
+    private SellerQcDetails sellerQcDetails;
+    
+    
+    
+    
     @JsonProperty("financial_breakup")
     private FinancialBreakup financialBreakup;
     
@@ -19739,6 +20032,12 @@ public static class PlatformShipment{
     
     
     
+    
+    @JsonProperty("packages")
+    private List<PackageSchema> packages;
+    
+    
+    
 }
 
 
@@ -19908,6 +20207,12 @@ public static class OrderData{
     
     @JsonProperty("ordering_source")
     private String orderingSource;
+    
+    
+    
+    
+    @JsonProperty("ordering_source_details")
+    private OrderingSourceDetails orderingSourceDetails;
     
     
     
@@ -20269,6 +20574,18 @@ public static class PlatformOrderItems{
     
     @JsonProperty("order_created_ts")
     private String orderCreatedTs;
+    
+    
+    
+    
+    @JsonProperty("ordering_source")
+    private String orderingSource;
+    
+    
+    
+    
+    @JsonProperty("ordering_source_details")
+    private OrderingSourceDetails orderingSourceDetails;
     
     
     

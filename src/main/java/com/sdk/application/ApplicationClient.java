@@ -37,8 +37,6 @@ import com.sdk.application.order.OrderApplicationService;
 
 import com.sdk.application.payment.PaymentApplicationService;
 
-import com.sdk.application.rewards.RewardsApplicationService;
-
 import com.sdk.application.share.ShareApplicationService;
 
 import com.sdk.application.theme.ThemeApplicationService;
@@ -78,8 +76,6 @@ public class ApplicationClient {
     public OrderApplicationService order;
     
     public PaymentApplicationService payment;
-    
-    public RewardsApplicationService rewards;
     
     public ShareApplicationService share;
     
@@ -134,8 +130,6 @@ public class ApplicationClient {
         this.order = new OrderApplicationService(config);
         
         this.payment = new PaymentApplicationService(config);
-        
-        this.rewards = new RewardsApplicationService(config);
         
         this.share = new ShareApplicationService(config);
         

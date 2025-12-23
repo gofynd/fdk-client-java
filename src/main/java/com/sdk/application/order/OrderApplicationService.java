@@ -29,6 +29,7 @@ import com.sdk.application.*;
         this.orderApplicationApiList = generateOrderApplicationApiList(this.applicationConfig.getPersistentCookieStore());
 
         
+        relativeUrls.put("getRefundModes","/service/application/order-manage/v1.0/shipment/{shipment_id}/refund/modes".substring(1));
         relativeUrls.put("getOrders","/service/application/order/v1.0/orders".substring(1));
         relativeUrls.put("getOrderById","/service/application/order/v1.0/orders/{order_id}".substring(1));
         relativeUrls.put("getPosOrderById","/service/application/order/v1.0/orders/pos-order/{order_id}".substring(1));
@@ -57,6 +58,24 @@ import com.sdk.application.*;
         interceptorList.add(new RequestSignerInterceptor());
         return retrofitServiceFactory.createService(applicationConfig.getDomain(),OrderApplicationApiList.class, interceptorList, cookieStore);
     }
+
+    public OrderApplicationModels.RefundOptions getRefundModes(String shipmentId, List<Integer> lineNumbers) throws IOException {
+        return this.getRefundModes(shipmentId, lineNumbers, new HashMap<>());
+    }
+
+    public OrderApplicationModels.RefundOptions getRefundModes(String shipmentId, List<Integer> lineNumbers, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getRefundModes");
+        fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
+
+        Response<OrderApplicationModels.RefundOptions> response = orderApplicationApiList.getRefundModes(fullUrl, lineNumbers, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
 
     public OrderApplicationModels.OrderList getOrders(Integer status, Integer pageNo, Integer pageSize, String fromDate, String toDate, String startDate, String endDate, String customMeta, Boolean allowInactive) throws IOException {
         return this.getOrders(status, pageNo, pageSize, fromDate, toDate, startDate, endDate, customMeta, allowInactive, new HashMap<>());

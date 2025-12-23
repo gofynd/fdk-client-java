@@ -67,6 +67,9 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.CustomFieldsResponseByResourceIdSchema> getCustomFieldsByResourceId(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
+    Call<ContentApplicationModels.BulkCustomFieldsResponseByResourceSchema> getBulkCustomFieldsByResource(@Url String url1, @Query("resource_ids") String resourceIds, @Query("keys") String keys, @Query("namespaces") String namespaces, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
     Call<ContentApplicationModels.TranslateUiLabelsPage> getTranslateUILabels(@Url String url1, @Query("template") Boolean template, @Query("template_theme_id") String templateThemeId, @Query("theme_id") String themeId, @Query("locale") String locale, @Query("type") String type, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 

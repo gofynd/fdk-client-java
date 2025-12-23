@@ -14,6 +14,74 @@ public class LogisticsPartnerModels{
 
 
 /*
+    Model: RateZoneConfigurationDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RateZoneConfigurationDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("standard_zone_mapping")
+    private List<StandardRateZone> standardZoneMapping;
+    
+    
+    
+    
+    @JsonProperty("custom_zones")
+    private List<String> customZones;
+    
+    
+    
+}
+
+
+/*
+    Model: RateCardSampleFile
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RateCardSampleFile{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+}
+
+
+/*
     Model: CourierPartnerSchemeModelSchema
 */
 @AllArgsConstructor
@@ -380,6 +448,251 @@ public static class BulkRegionServiceabilityTatResult{
     
     @JsonProperty("items")
     private List<BulkRegionServiceabilityTatResultItemData> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkRateCardJob
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkRateCardJob{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private Integer failed;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Integer success;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("batch_id")
+    private String batchId;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("failed_records")
+    private List<HashMap<String,Object>> failedRecords;
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
+    
+    
+    
+    
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+}
+
+
+/*
+    Model: BulkRateCardJobDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BulkRateCardJobDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
+    
+    
+    
+    
+    @JsonProperty("rate_card_type")
+    private String rateCardType;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("company_ids")
+    private List<Integer> companyIds;
+    
+    
+    
+}
+
+
+/*
+    Model: SampleFileRateZoneRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SampleFileRateZoneRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("zone_type")
+    private String zoneType;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("region")
+    private String region;
+    
+    
+    
+}
+
+
+/*
+    Model: RateZoneBulkJobDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RateZoneBulkJobDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
+    
+    
+    
+    
+    @JsonProperty("zone_type")
+    private String zoneType;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("region")
+    private String region;
+    
+    
+    
+}
+
+
+/*
+    Model: RateZoneBulkJobList
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RateZoneBulkJobList{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<BulkRateCardJob> items;
     
     
     
@@ -2035,6 +2348,37 @@ public static class ValidationErrors{
 
 
 /*
+    Model: StandardRateZone
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StandardRateZone{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("zone_name")
+    private String zoneName;
+    
+    
+    
+    
+    @JsonProperty("zone_slug")
+    private String zoneSlug;
+    
+    
+    
+}
+
+
+/*
     Model: CreatedBy
 */
 @AllArgsConstructor
@@ -2158,6 +2502,12 @@ public static class CourierPartnerSchemeFeatures{
     
     @JsonProperty("mps")
     private Boolean mps;
+    
+    
+    
+    
+    @JsonProperty("b2b")
+    private Boolean b2B;
     
     
     

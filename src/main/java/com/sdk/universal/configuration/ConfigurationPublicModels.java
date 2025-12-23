@@ -212,6 +212,37 @@ public static class ApplicationRedirections{
 
 
 /*
+    Model: RegionDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RegionDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("zone")
+    private String zone;
+    
+    
+    
+}
+
+
+/*
     Model: ApplicationMeta
 */
 @AllArgsConstructor
@@ -436,6 +467,18 @@ public static class Application{
     
     @JsonProperty("slug")
     private String slug;
+    
+    
+    
+    
+    @JsonProperty("region")
+    private String region;
+    
+    
+    
+    
+    @JsonProperty("region_details")
+    private RegionDetails regionDetails;
     
     
     

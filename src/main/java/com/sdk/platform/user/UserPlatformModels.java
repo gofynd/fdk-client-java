@@ -611,7 +611,7 @@ public static class BulkUserAttributeRequestBody{
     
     
     @JsonProperty("value")
-    private Object value;
+    private HashMap<String,Object> value;
     
     
     
@@ -1798,7 +1798,7 @@ public static class ConditionsSchema{
     
     
     @JsonProperty("value")
-    private String value;
+    private HashMap<String,Object> value;
     
     
     
@@ -1964,7 +1964,7 @@ public static class UserAttributeFilterRequestConditions{
     
     
     @JsonProperty("value")
-    private Object value;
+    private HashMap<String,Object> value;
     
     
     

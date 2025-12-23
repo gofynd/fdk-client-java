@@ -228,9 +228,6 @@ interface CatalogPlatformApiList {
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/inventory/templates/validation/schema/")
     Call<CatalogPlatformModels.InventoryValidationResponseSchema> validateProductTemplateSchema(@Path("company_id") String companyId, @Query("item_type") String itemType, @Query("schema_type") String schemaType, @HeaderMap Map<String, String> requestHeaders);
 
-    @POST ("/service/platform/catalog/v1.0/company/{company_id}/location/reassign/")
-    Call<CatalogPlatformModels.StoreAssignResponseSchema> getOptimalLocations(@Path("company_id") String companyId, @Body CatalogPlatformModels.AssignStore payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/marketplaces/")
     Call<CatalogPlatformModels.GetOptInPlatform> getMarketplaceOptinDetail(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 

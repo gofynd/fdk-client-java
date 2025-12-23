@@ -1457,6 +1457,434 @@ public class LogisticsPartnerService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticsPartnerModels.RateCardSampleFile getSampleFileRateCard() throws FDKServerResponseError, FDKException {
+        return this.getSampleFileRateCard(new HashMap<>());
+    }
+
+    public LogisticsPartnerModels.RateCardSampleFile getSampleFileRateCard(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<LogisticsPartnerModels.RateCardSampleFile> response = null;
+            try {
+                response = logisticsPartnerApiList.getSampleFileRateCard(this.organizationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticsPartnerModels.BulkRateCardJob bulkRateCard(String extensionId, String schemeId, LogisticsPartnerModels.BulkRateCardJobDetails body) throws FDKServerResponseError, FDKException {
+        return this.bulkRateCard(extensionId, schemeId, body, new HashMap<>());
+    }
+
+    public LogisticsPartnerModels.BulkRateCardJob bulkRateCard(String extensionId, String schemeId, LogisticsPartnerModels.BulkRateCardJobDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<LogisticsPartnerModels.BulkRateCardJob> response = null;
+            try {
+                response = logisticsPartnerApiList.bulkRateCard(this.organizationId, extensionId, schemeId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticsPartnerModels.BulkRateCardJob getBulkRateCard(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String startDate, String endDate) throws FDKServerResponseError, FDKException {
+        return this.getBulkRateCard(extensionId, schemeId, pageNo, pageSize, batchId, action, status, startDate, endDate, new HashMap<>());
+    }
+
+    public LogisticsPartnerModels.BulkRateCardJob getBulkRateCard(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String startDate, String endDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<LogisticsPartnerModels.BulkRateCardJob> response = null;
+            try {
+                response = logisticsPartnerApiList.getBulkRateCard(this.organizationId, extensionId, schemeId, pageNo, pageSize, batchId, action, status, startDate, endDate, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticsPartnerModels.BulkRateCardJob getSampleFileRateZone(LogisticsPartnerModels.SampleFileRateZoneRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.getSampleFileRateZone(body, new HashMap<>());
+    }
+
+    public LogisticsPartnerModels.BulkRateCardJob getSampleFileRateZone(LogisticsPartnerModels.SampleFileRateZoneRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<LogisticsPartnerModels.BulkRateCardJob> response = null;
+            try {
+                response = logisticsPartnerApiList.getSampleFileRateZone(this.organizationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticsPartnerModels.BulkRateCardJob createRateZoneBulkJob(String extensionId, String schemeId, LogisticsPartnerModels.RateZoneBulkJobDetails body) throws FDKServerResponseError, FDKException {
+        return this.createRateZoneBulkJob(extensionId, schemeId, body, new HashMap<>());
+    }
+
+    public LogisticsPartnerModels.BulkRateCardJob createRateZoneBulkJob(String extensionId, String schemeId, LogisticsPartnerModels.RateZoneBulkJobDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<LogisticsPartnerModels.BulkRateCardJob> response = null;
+            try {
+                response = logisticsPartnerApiList.createRateZoneBulkJob(this.organizationId, extensionId, schemeId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticsPartnerModels.RateZoneBulkJobList getBulkRateZoneJobHistory(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String zoneType, String startDate, String endDate) throws FDKServerResponseError, FDKException {
+        return this.getBulkRateZoneJobHistory(extensionId, schemeId, pageNo, pageSize, batchId, action, status, zoneType, startDate, endDate, new HashMap<>());
+    }
+
+    public LogisticsPartnerModels.RateZoneBulkJobList getBulkRateZoneJobHistory(String extensionId, String schemeId, Integer pageNo, Integer pageSize, String batchId, String action, String status, String zoneType, String startDate, String endDate, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<LogisticsPartnerModels.RateZoneBulkJobList> response = null;
+            try {
+                response = logisticsPartnerApiList.getBulkRateZoneJobHistory(this.organizationId, extensionId, schemeId, pageNo, pageSize, batchId, action, status, zoneType, startDate, endDate, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticsPartnerModels.RateZoneConfigurationDetails getRateZoneConfig(String extensionId, String schemeId) throws FDKServerResponseError, FDKException {
+        return this.getRateZoneConfig(extensionId, schemeId, new HashMap<>());
+    }
+
+    public LogisticsPartnerModels.RateZoneConfigurationDetails getRateZoneConfig(String extensionId, String schemeId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<LogisticsPartnerModels.RateZoneConfigurationDetails> response = null;
+            try {
+                response = logisticsPartnerApiList.getRateZoneConfig(this.organizationId, extensionId, schemeId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public LogisticsPartnerModels.RateZoneConfigurationDetails updateRateZoneConfiguration(String extensionId, String schemeId, LogisticsPartnerModels.RateZoneConfigurationDetails body) throws FDKServerResponseError, FDKException {
+        return this.updateRateZoneConfiguration(extensionId, schemeId, body, new HashMap<>());
+    }
+
+    public LogisticsPartnerModels.RateZoneConfigurationDetails updateRateZoneConfiguration(String extensionId, String schemeId, LogisticsPartnerModels.RateZoneConfigurationDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<LogisticsPartnerModels.RateZoneConfigurationDetails> response = null;
+            try {
+                response = logisticsPartnerApiList.updateRateZoneConfiguration(this.organizationId, extensionId, schemeId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
 
 
 private interface Fields {

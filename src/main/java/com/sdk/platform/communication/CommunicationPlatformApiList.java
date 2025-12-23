@@ -63,24 +63,6 @@ interface CommunicationPlatformApiList {
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/campaigns/get-stats/{id}")
     Call<CommunicationPlatformModels.GetStats> getStatsOfCampaignById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/bigquery-row-count/{id}")
-    Call<Object> getBigQueryRowCountById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/bigquery-row-count")
-    Call<Object> createBigQueryRowCount(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/bigquery-headers/{id}")
-    Call<Object> getBigQueryHeadersById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/bigquery-n-records")
-    Call<Object> createBigQueryNCount(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/bigquery-headers")
-    Call<Object> createBigQueryHeaders(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
-    @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/system-datasources")
-    Call<Object> getSystemAudiences(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/sources/datasources")
     Call<CommunicationPlatformModels.Audiences> getAudiences(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("sort") Object sort, @Query("query") Object query, @HeaderMap Map<String, String> requestHeaders);
 
@@ -157,7 +139,7 @@ interface CommunicationPlatformApiList {
     Call<CommunicationPlatformModels.EngineResult> sendCommunicationAsynchronously(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.EnginePayload payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions")
-    Call<CommunicationPlatformModels.EventSubscriptions> getEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("populate") String populate, @Query("group") String group, @Query("sub_group") String subGroup, @Query("fulfillment_option_types") String fulfillmentOptionTypes, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommunicationPlatformModels.EventSubscriptions> getEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("populate") String populate, @Query("group") String group, @Query("sub_group") String subGroup, @Query("fulfillment_option_slug") String fulfillmentOptionSlug, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/communication/v1.0/company/{company_id}/application/{application_id}/event/event-subscriptions")
     Call<CommunicationPlatformModels.EventSubscriptionsBulkUpdateResult> createEventSubscriptions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CommunicationPlatformModels.SubscriptionsObject payload, @HeaderMap Map<String, String> requestHeaders);
