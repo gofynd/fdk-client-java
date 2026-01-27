@@ -136,10 +136,10 @@ interface PaymentPlatformApiList {
     Call<PaymentPlatformModels.PlatformPaymentModeDetails> patchMerchantPaymentOption(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.MerchnatPaymentModeCreation payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}")
-    Call<PaymentPlatformModels.PlatformPaymentModeDetails> getMerchantAggregatorPaymentModeDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Query("business_unit") String businessUnit, @Query("device") String device, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PaymentModeConfig> getMerchantAggregatorPaymentModeDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Query("business_unit") String businessUnit, @Query("device") String device, @HeaderMap Map<String, String> requestHeaders);
 
     @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}")
-    Call<PaymentPlatformModels.PlatformPaymentModeDetails> patchMerchantAggregatorPaymentModeDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Body PaymentPlatformModels.PlatformPaymentModeDetails payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<PaymentPlatformModels.PlatformPaymentModeDetails> patchMerchantAggregatorPaymentModeDetails(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Body PaymentPlatformModels.PlatformConfigPaymentModeDetails payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/configuration/aggregator")
     Call<PaymentPlatformModels.PlatformPaymentModeDetails> getPGConfigAggregators(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
@@ -164,4 +164,7 @@ interface PaymentPlatformApiList {
 
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/validate/customer-credits")
     Call<PaymentPlatformModels.ValidateCustomerCreditSchema> validateCustomerAndCreditSummary(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.CustomerValidationSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/aggregators/{aggregator_id}/token")
+    Call<PaymentPlatformModels.OperationResponseSchema> saveTokenForAggregator(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") String aggregatorId, @Body PaymentPlatformModels.AggregatorToken payload, @HeaderMap Map<String, String> requestHeaders);
 }

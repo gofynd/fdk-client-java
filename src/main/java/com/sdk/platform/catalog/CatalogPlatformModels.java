@@ -192,6 +192,31 @@ public static class ValidationErrors{
 
 
 /*
+    Model: StandardError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StandardError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
     Model: AllSizes
 */
 @AllArgsConstructor
@@ -661,6 +686,643 @@ public static class AppConfigurationsSort{
     
     @JsonProperty("priority")
     private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+    
+    @JsonProperty("cohorts")
+    private CohortSortingConfiguration cohorts;
+    
+    
+    
+}
+
+
+/*
+    Model: SortWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SortWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("popularity")
+    private Double popularity;
+    
+    
+    
+    
+    @JsonProperty("availability")
+    private Double availability;
+    
+    
+    
+    
+    @JsonProperty("conversion")
+    private Double conversion;
+    
+    
+    
+    
+    @JsonProperty("sold_quantity")
+    private Double soldQuantity;
+    
+    
+    
+    
+    @JsonProperty("depth")
+    private Double depth;
+    
+    
+    
+    
+    @JsonProperty("listing")
+    private Double listing;
+    
+    
+    
+    
+    @JsonProperty("discount")
+    private Double discount;
+    
+    
+    
+    
+    @JsonProperty("cancelled")
+    private Double cancelled;
+    
+    
+    
+    
+    @JsonProperty("returns")
+    private Double returns;
+    
+    
+    
+    
+    @JsonProperty("catalogue")
+    private Double catalogue;
+    
+    
+    
+    
+    @JsonProperty("revenue")
+    private Double revenue;
+    
+    
+    
+}
+
+
+/*
+    Model: CohortWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CohortWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: HighSpenderRepeatCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HighSpenderRepeatCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: HyperactiveRepeatCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HyperactiveRepeatCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: HighSpenderOccasionalCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HighSpenderOccasionalCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: StandardOccasionalCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StandardOccasionalCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: DormantPremiumCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DormantPremiumCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: BudgetRegularCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BudgetRegularCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: HighSpenderRegularCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HighSpenderRegularCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: StandardCustomerAboutToChurnWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StandardCustomerAboutToChurnWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: PremiumCustomerAboutToChurnWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PremiumCustomerAboutToChurnWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: HighSpenderCustomerAboutToChurnWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HighSpenderCustomerAboutToChurnWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: StandardDormantCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StandardDormantCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: HighSpenderDormantCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class HighSpenderDormantCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: PotentialCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PotentialCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: NewCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class NewCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: BudgetRepeatCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BudgetRepeatCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: AverageSpenderRepeatCustomerWeights
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AverageSpenderRepeatCustomerWeights{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("weights")
+    private SortWeights weights;
+    
+    
+    
+}
+
+
+/*
+    Model: CohortSortingConfiguration
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CohortSortingConfiguration{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("high_spender_repeat_customer")
+    private HighSpenderRepeatCustomerWeights highSpenderRepeatCustomer;
+    
+    
+    
+    
+    @JsonProperty("hyperactive_premium_repeat_customer")
+    private HyperactiveRepeatCustomerWeights hyperactivePremiumRepeatCustomer;
+    
+    
+    
+    
+    @JsonProperty("high_spender_occasional_customer")
+    private HighSpenderOccasionalCustomerWeights highSpenderOccasionalCustomer;
+    
+    
+    
+    
+    @JsonProperty("standard_occasional_customer")
+    private StandardOccasionalCustomerWeights standardOccasionalCustomer;
+    
+    
+    
+    
+    @JsonProperty("dormant_premium_customer")
+    private DormantPremiumCustomerWeights dormantPremiumCustomer;
+    
+    
+    
+    
+    @JsonProperty("budget_regular_customer")
+    private BudgetRegularCustomerWeights budgetRegularCustomer;
+    
+    
+    
+    
+    @JsonProperty("high_spender_regular_customer")
+    private HighSpenderRegularCustomerWeights highSpenderRegularCustomer;
+    
+    
+    
+    
+    @JsonProperty("standard_customer_about_to_churn")
+    private StandardCustomerAboutToChurnWeights standardCustomerAboutToChurn;
+    
+    
+    
+    
+    @JsonProperty("premium_customer_about_to_churn")
+    private PremiumCustomerAboutToChurnWeights premiumCustomerAboutToChurn;
+    
+    
+    
+    
+    @JsonProperty("high_spender_customer_about_to_churn")
+    private HighSpenderCustomerAboutToChurnWeights highSpenderCustomerAboutToChurn;
+    
+    
+    
+    
+    @JsonProperty("standard_dormant_customer")
+    private StandardDormantCustomerWeights standardDormantCustomer;
+    
+    
+    
+    
+    @JsonProperty("high_spender_dormant_customer")
+    private HighSpenderDormantCustomerWeights highSpenderDormantCustomer;
+    
+    
+    
+    
+    @JsonProperty("potential_customer")
+    private PotentialCustomerWeights potentialCustomer;
+    
+    
+    
+    
+    @JsonProperty("new_customer")
+    private NewCustomerWeights newCustomer;
+    
+    
+    
+    
+    @JsonProperty("budget_repeat_customer")
+    private BudgetRepeatCustomerWeights budgetRepeatCustomer;
+    
+    
+    
+    
+    @JsonProperty("average_spender_repeat_customer")
+    private AverageSpenderRepeatCustomerWeights averageSpenderRepeatCustomer;
     
     
     
@@ -14538,6 +15200,110 @@ public static class ProdcutTemplateCategoriesResponseSchema{
 
 
 /*
+    Model: PriceStrategySchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceStrategySchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("adjustment_value")
+    private Double adjustmentValue;
+    
+    
+    
+    
+    @JsonProperty("adjustment_type")
+    private String adjustmentType;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceFactoryResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceFactoryResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("price_zone_id")
+    private String priceZoneId;
+    
+    
+    
+    
+    @JsonProperty("price_factory_id")
+    private String priceFactoryId;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private String modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("currencies")
+    private List<String> currencies;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("price_strategy")
+    private List<PriceStrategySchema> priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+}
+
+
+/*
     Model: Product
 */
 @AllArgsConstructor
@@ -22715,6 +23481,203 @@ public static class TaxReqBodyVersion{
     
     
     
+    
+    @JsonProperty("applicable_date")
+    private String applicableDate;
+    
+    
+    
+    
+    @JsonProperty("region_type")
+    private String regionType;
+    
+    
+    
+    
+    @JsonProperty("areas")
+    private TaxGeoArea areas;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+}
+
+
+/*
+    Model: TaxGeoArea
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TaxGeoArea{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("regions")
+    private List<String> regions;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+}
+
+
+/*
+    Model: AreaDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AreaDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("sub_type")
+    private String subType;
+    
+    
+    
+    
+    @JsonProperty("parent_id")
+    private List<String> parentId;
+    
+    
+    
+}
+
+
+/*
+    Model: Country
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Country{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+}
+
+
+/*
+    Model: Area
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Area{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("regions")
+    private List<AreaDetails> regions;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private Country country;
+    
+    
+    
+}
+
+
+/*
+    Model: RegionReference
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RegionReference{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("areas")
+    private List<Area> areas;
+    
+    
+    
 }
 
 
@@ -22808,6 +23771,30 @@ public static class TaxVersion{
     
     
     
+    @JsonProperty("region_type")
+    private String regionType;
+    
+    
+    
+    
+    @JsonProperty("areas")
+    private TaxGeoArea areas;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+    
+    @JsonProperty("scope")
+    private TaxVersionScopeEnum scope;
+    
+    
+    
+    
     @JsonProperty("components")
     private List<TaxComponentResponseSchema> components;
     
@@ -22844,6 +23831,24 @@ public static class UpdateTaxVersionRequestBody{
     
     
     
+    
+    @JsonProperty("region_type")
+    private String regionType;
+    
+    
+    
+    
+    @JsonProperty("areas")
+    private TaxGeoArea areas;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
 }
 
 
@@ -22872,6 +23877,24 @@ public static class CreateTaxVersionRequestBody{
     
     @JsonProperty("applicable_date")
     private String applicableDate;
+    
+    
+    
+    
+    @JsonProperty("region_type")
+    private String regionType;
+    
+    
+    
+    
+    @JsonProperty("areas")
+    private TaxGeoArea areas;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
     
     
     
@@ -23004,8 +24027,32 @@ public static class TaxVersionDetail{
     
     
     
+    @JsonProperty("region_code")
+    private String regionCode;
+    
+    
+    
+    
+    @JsonProperty("store_ids")
+    private List<Integer> storeIds;
+    
+    
+    
+    
+    @JsonProperty("region")
+    private RegionReference region;
+    
+    
+    
+    
     @JsonProperty("components")
     private List<TaxComponent> components;
+    
+    
+    
+    
+    @JsonProperty("scope")
+    private TaxVersionScopeEnum scope;
     
     
     
@@ -23043,37 +24090,6 @@ public static class CreateTax{
     
     @JsonProperty("versions")
     private TaxVersion versions;
-    
-    
-    
-}
-
-
-/*
-    Model: UpdateTaxVersion
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateTaxVersion{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("components")
-    private List<TaxComponent> components;
-    
-    
-    
-    
-    @JsonProperty("applicable_date")
-    private String applicableDate;
     
     
     
@@ -23377,6 +24393,718 @@ public static class GetTaxComponents{
 
 
 /*
+    Model: PriceFactoryListItemsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceFactoryListItemsSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("price_factory_id")
+    private String priceFactoryId;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("currencies")
+    private List<String> currencies;
+    
+    
+    
+    
+    @JsonProperty("price_strategy")
+    private List<PriceStrategySchema> priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("price_zone_id")
+    private String priceZoneId;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private CreatedBy modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private CreatedBy createdBy;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceFactoryListResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceFactoryListResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<PriceFactoryListItemsSchema> data;
+    
+    
+    
+}
+
+
+/*
+    Model: CreatePriceFactoryConfigSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreatePriceFactoryConfigSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("currencies")
+    private List<String> currencies;
+    
+    
+    
+    
+    @JsonProperty("price_strategy")
+    private List<PriceStrategySchema> priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("price_zone_id")
+    private String priceZoneId;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdatePriceFactoryConfigSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdatePriceFactoryConfigSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("currencies")
+    private List<String> currencies;
+    
+    
+    
+    
+    @JsonProperty("price_strategy")
+    private List<PriceStrategySchema> priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("price_zone_id")
+    private String priceZoneId;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceFactoryConfigSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceFactoryConfigSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("currencies")
+    private List<String> currencies;
+    
+    
+    
+    
+    @JsonProperty("price_strategy")
+    private List<PriceStrategySchema> priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("price_zone_id")
+    private String priceZoneId;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private CreatedBy createdBy;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private CreatedBy modifiedBy;
+    
+    
+    
+}
+
+
+/*
+    Model: CurrencyPriceSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CurrencyPriceSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("marked_price")
+    private Double markedPrice;
+    
+    
+    
+    
+    @JsonProperty("selling_price")
+    private Double sellingPrice;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+}
+
+
+/*
+    Model: UpsertPriceFactorySizesSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpsertPriceFactorySizesSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("currency_prices")
+    private List<CurrencyPriceSchema> currencyPrices;
+    
+    
+    
+}
+
+
+/*
+    Model: UpsertPriceFactoryProductSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpsertPriceFactoryProductSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sizes")
+    private List<UpsertPriceFactorySizesSchema> sizes;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceFactoryCurrencyPriceSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceFactoryCurrencyPriceSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("base_price")
+    private Boolean basePrice;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("selling_price")
+    private Double sellingPrice;
+    
+    
+    
+    
+    @JsonProperty("marked_price")
+    private Double markedPrice;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceFactorySizesSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceFactorySizesSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("price_factory_id")
+    private String priceFactoryId;
+    
+    
+    
+    
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("price_zone_id")
+    private String priceZoneId;
+    
+    
+    
+    
+    @JsonProperty("currency_prices")
+    private List<PriceFactoryCurrencyPriceSchema> currencyPrices;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceFactoryProductResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceFactoryProductResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("active")
+    private Boolean active;
+    
+    
+    
+    
+    @JsonProperty("media")
+    private List<String> media;
+    
+    
+    
+    
+    @JsonProperty("sizes")
+    private List<PriceFactorySizesSchema> sizes;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceFactoryProductListResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceFactoryProductListResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<PriceFactoryProductResponseSchema> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: PriceRange
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PriceRange{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Double min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Double max;
+    
+    
+    
+}
+
+
+/*
+    Model: CurrencyPrice
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CurrencyPrice{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("discount")
+    private Double discount;
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("currency_symbol")
+    private String currencySymbol;
+    
+    
+    
+    
+    @JsonProperty("marked")
+    private PriceRange marked;
+    
+    
+    
+    
+    @JsonProperty("effective")
+    private PriceRange effective;
+    
+    
+    
+    
+    @JsonProperty("selling")
+    private PriceRange selling;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductPrice
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductPrice{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("zone_type")
+    private String zoneType;
+    
+    
+    
+    
+    @JsonProperty("zone_identifier")
+    private String zoneIdentifier;
+    
+    
+    
+    
+    @JsonProperty("currency_prices")
+    private List<CurrencyPrice> currencyPrices;
+    
+    
+    
+}
+
+
+/*
+    Model: AppProductPricesSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppProductPricesSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("item_code")
+    private String itemCode;
+    
+    
+    
+    
+    @JsonProperty("brand_uid")
+    private Integer brandUid;
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("discount_meta")
+    private HashMap<String,Object> discountMeta;
+    
+    
+    
+    
+    @JsonProperty("product_price")
+    private List<ProductPrice> productPrice;
+    
+    
+    
+}
+
+
+/*
     Model: ActionPage
 */
 @AllArgsConstructor
@@ -23624,6 +25352,40 @@ public static class CustomMeta{
 
         private String priority;
         TaxStatusEnum(String priority) {
+            this.priority = priority;
+        }
+
+        @JsonValue
+        public String getPriority() {
+            return priority;
+        }
+
+        @Override
+        public String toString() {
+            return priority;
+        }
+
+    }
+
+
+    
+    /*
+        Enum: TaxVersionScopeEnum
+        Used By: Catalog
+    */
+    @Getter
+    public enum TaxVersionScopeEnum {
+
+        
+        country("COUNTRY"), 
+        
+        region("REGION"), 
+        
+        store("STORE");
+        
+
+        private String priority;
+        TaxVersionScopeEnum(String priority) {
             this.priority = priority;
         }
 

@@ -98,4 +98,7 @@ interface CatalogApplicationApiList {
 
     @GET 
     Call<CatalogApplicationModels.ProductSizeSellersResponseV4> getProductSellersBySlug(@Url String url1, @Query("strategy") String strategy, @Query("fulfillment_option_slug") String fulfillmentOptionSlug, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<CatalogApplicationModels.AvailableCountrySchema> listCountryCurrencyMappings(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 }

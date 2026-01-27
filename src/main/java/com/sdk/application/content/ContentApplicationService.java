@@ -53,7 +53,8 @@ import com.sdk.application.*;
         relativeUrls.put("getTranslateUILabels","/service/application/content/v1.0/translate-ui-labels".substring(1));
         relativeUrls.put("fetchResourceTranslations","/service/application/content/v1.0/resource/translations/{type}/{locale}".substring(1));
         relativeUrls.put("fetchResourceTranslationsWithPayload","/service/application/content/v1.0/resource/translations/{type}/{locale}".substring(1));
-        relativeUrls.put("getSupportedLanguages","/service/application/content/v1.0/languages".substring(1)); 
+        relativeUrls.put("getSupportedLanguages","/service/application/content/v1.0/languages".substring(1));
+        relativeUrls.put("getOrderTranslation","/service/application/content/v1.0/resource/translations/orders".substring(1)); 
 
     }
 
@@ -473,17 +474,17 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.ResourceTranslations fetchResourceTranslationsWithPayload(String type, String locale, String resourceId, ContentApplicationModels.ResourcePayload body) throws IOException {
-        return this.fetchResourceTranslationsWithPayload(type, locale, resourceId, body, new HashMap<>());
+    public ContentApplicationModels.ResourceTranslations fetchResourceTranslationsWithPayload(String type, String locale, ContentApplicationModels.ResourcePayload body) throws IOException {
+        return this.fetchResourceTranslationsWithPayload(type, locale, body, new HashMap<>());
     }
 
-    public ContentApplicationModels.ResourceTranslations fetchResourceTranslationsWithPayload(String type, String locale, String resourceId, ContentApplicationModels.ResourcePayload body, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.ResourceTranslations fetchResourceTranslationsWithPayload(String type, String locale, ContentApplicationModels.ResourcePayload body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("fetchResourceTranslationsWithPayload");
         fullUrl = fullUrl.replace("{" + "type" + "}",type.toString());
         fullUrl = fullUrl.replace("{" + "locale" + "}",locale.toString());
 
-        Response<ContentApplicationModels.ResourceTranslations> response = contentApplicationApiList.fetchResourceTranslationsWithPayload(fullUrl, resourceId, body, requestHeaders).execute();
+        Response<ContentApplicationModels.ResourceTranslations> response = contentApplicationApiList.fetchResourceTranslationsWithPayload(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -501,6 +502,23 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("getSupportedLanguages");
 
         Response<Object> response = contentApplicationApiList.getSupportedLanguages(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public ContentApplicationModels.TranslationResult getOrderTranslation(ContentApplicationModels.OrderTranslationRequestSchema body) throws IOException {
+        return this.getOrderTranslation(body, new HashMap<>());
+    }
+
+    public ContentApplicationModels.TranslationResult getOrderTranslation(ContentApplicationModels.OrderTranslationRequestSchema body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getOrderTranslation");
+
+        Response<ContentApplicationModels.TranslationResult> response = contentApplicationApiList.getOrderTranslation(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

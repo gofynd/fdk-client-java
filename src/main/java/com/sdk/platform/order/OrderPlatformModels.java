@@ -12390,6 +12390,12 @@ public static class CreateOrderShipmentSchema{
     
     
     
+    @JsonProperty("invoice_id")
+    private String invoiceId;
+    
+    
+    
+    
     @JsonProperty("line_items")
     private List<LineItemSchema> lineItems;
     
@@ -13225,6 +13231,12 @@ public static class CreateOrderRequestSchema{
     
     @JsonProperty("is_draft")
     private Boolean isDraft;
+    
+    
+    
+    
+    @JsonProperty("is_offline_order")
+    private Boolean isOfflineOrder;
     
     
     

@@ -304,6 +304,24 @@ public static class EventConfig{
     
     
     
+    @JsonProperty("sunset_date")
+    private String sunsetDate;
+    
+    
+    
+    
+    @JsonProperty("announcement_date")
+    private String announcementDate;
+    
+    
+    
+    
+    @JsonProperty("support_end_date")
+    private String supportEndDate;
+    
+    
+    
+    
     @JsonProperty("group")
     private String group;
     

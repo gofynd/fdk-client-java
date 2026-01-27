@@ -2399,6 +2399,18 @@ public static class RefundStatus{
     
     
     
+    @JsonProperty("operational_status")
+    private String operationalStatus;
+    
+    
+    
+    
+    @JsonProperty("transaction_info")
+    private List<RefundTransactionInfo> transactionInfo;
+    
+    
+    
+    
     @JsonProperty("created_ts")
     private String createdTs;
     
@@ -2474,6 +2486,43 @@ public static class BeneficiaryDetails{
     
     @JsonProperty("vpa_address")
     private String vpaAddress;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundTransactionInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundTransactionInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("rrn")
+    private String rrn;
+    
+    
+    
+    
+    @JsonProperty("utr")
+    private String utr;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
     
     
     

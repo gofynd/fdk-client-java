@@ -1653,6 +1653,12 @@ public static class AppFeature{
     
     
     
+    @JsonProperty("security")
+    private SecurityFeature security;
+    
+    
+    
+    
     @JsonProperty("fulfillment_option")
     private FulfillmentOption fulfillmentOption;
     
@@ -1661,6 +1667,18 @@ public static class AppFeature{
     
     @JsonProperty("delivery_strategy")
     private DeliveryStrategy deliveryStrategy;
+    
+    
+    
+    
+    @JsonProperty("price_strategy")
+    private String priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("international")
+    private Boolean international;
     
     
     
@@ -2192,6 +2210,62 @@ public static class OrderFeature{
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: SecurityFeature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SecurityFeature{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("domains")
+    private List<AllowedDomain> domains;
+    
+    
+    
+}
+
+
+/*
+    Model: AllowedDomain
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AllowedDomain{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("host")
+    private String host;
+    
+    
+    
+    
+    @JsonProperty("url_scheme")
+    private String urlScheme;
     
     
     

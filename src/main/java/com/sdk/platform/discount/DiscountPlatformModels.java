@@ -139,6 +139,12 @@ public static class CreateUpdateDiscount{
     
     
     
+    @JsonProperty("price_factory_ids")
+    private List<String> priceFactoryIds;
+    
+    
+    
+    
     @JsonProperty("validity")
     private ValidityObject validity;
     
@@ -281,6 +287,12 @@ public static class DiscountJob{
     
     @JsonProperty("zone_ids")
     private List<String> zoneIds;
+    
+    
+    
+    
+    @JsonProperty("price_factory_ids")
+    private List<String> priceFactoryIds;
     
     
     
@@ -767,6 +779,12 @@ public static class FileJobRequestSchema{
     
     @JsonProperty("store_ids")
     private List<Integer> storeIds;
+    
+    
+    
+    
+    @JsonProperty("price_factory_ids")
+    private List<String> priceFactoryIds;
     
     
     

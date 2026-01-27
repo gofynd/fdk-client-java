@@ -14,6 +14,61 @@ public class PaymentPlatformModels{
 
 
 /*
+    Model: AggregatorToken
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AggregatorToken{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("payment_mode_id")
+    private Integer paymentModeId;
+    
+    
+    
+    
+    @JsonProperty("sub_payment_mode_code")
+    private String subPaymentModeCode;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("domain")
+    private String domain;
+    
+    
+    
+}
+
+
+/*
     Model: PaymentGatewayConfigDetails
 */
 @AllArgsConstructor
@@ -4387,6 +4442,398 @@ public static class PlatformPaymentModeDetails{
 
 
 /*
+    Model: PaymentModeConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentModeConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("business_unit")
+    private String businessUnit;
+    
+    
+    
+    
+    @JsonProperty("device")
+    private String device;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<PaymentModeItems> items;
+    
+    
+    
+}
+
+
+/*
+    Model: PaymentModeItems
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PaymentModeItems{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("short_code")
+    private String shortCode;
+    
+    
+    
+    
+    @JsonProperty("logos")
+    private LogoSet logos;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("sub_payment_mode")
+    private List<SubPaymentMode> subPaymentMode;
+    
+    
+    
+    
+    @JsonProperty("is_active_at_pg")
+    private Boolean isActiveAtPg;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_options")
+    private HashMap<String,Object> fulfillmentOptions;
+    
+    
+    
+}
+
+
+/*
+    Model: SubPaymentMode
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SubPaymentMode{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("logos")
+    private LogoSet logos;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("is_active_at_pg")
+    private Boolean isActiveAtPg;
+    
+    
+    
+}
+
+
+/*
+    Model: LogoSet
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LogoSet{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("large")
+    private String large;
+    
+    
+    
+    
+    @JsonProperty("small")
+    private String small;
+    
+    
+    
+}
+
+
+/*
+    Model: PlatformLogoSet
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlatformLogoSet{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("large")
+    private String large;
+    
+    
+    
+    
+    @JsonProperty("small")
+    private String small;
+    
+    
+    
+}
+
+
+/*
+    Model: PlatformConfigPaymentModeDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlatformConfigPaymentModeDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("business_unit")
+    private String businessUnit;
+    
+    
+    
+    
+    @JsonProperty("device")
+    private String device;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_options")
+    private HashMap<String,Object> fulfillmentOptions;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<PlatformPaymentModeItem> items;
+    
+    
+    
+}
+
+
+/*
+    Model: PlatformPaymentModeItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlatformPaymentModeItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("short_code")
+    private String shortCode;
+    
+    
+    
+    
+    @JsonProperty("logos")
+    private PlatformLogoSet logos;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("is_active_at_pg")
+    private Boolean isActiveAtPg;
+    
+    
+    
+    
+    @JsonProperty("sub_payment_mode")
+    private List<PlatformSubPaymentMode> subPaymentMode;
+    
+    
+    
+}
+
+
+/*
+    Model: PlatformSubPaymentMode
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlatformSubPaymentMode{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("is_active_at_pg")
+    private Boolean isActiveAtPg;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+    
+    @JsonProperty("logos")
+    private PlatformLogoSet logos;
+    
+    
+    
+}
+
+
+/*
     Model: MerchnatPaymentModeCreation
 */
 @AllArgsConstructor
@@ -6674,6 +7121,37 @@ public static class ValidateCustomerCreditSchema{
     
     @JsonProperty("account")
     private CreditAccountSummary account;
+    
+    
+    
+}
+
+
+/*
+    Model: OperationResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OperationResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
     
     
     

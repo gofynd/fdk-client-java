@@ -247,15 +247,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId) throws IOException {
-        return this.getPaymentModeRoutes(amount, cartId, checkoutMode, refresh, orderId, cardReference, userDetails, displaySplit, advancePayment, shipmentId, new HashMap<>());
+    public PaymentApplicationModels.PaymentModeRouteDetails getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, List<String> fulfillmentOption) throws IOException {
+        return this.getPaymentModeRoutes(amount, cartId, checkoutMode, refresh, orderId, cardReference, userDetails, displaySplit, advancePayment, shipmentId, fulfillmentOption, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteDetails getPaymentModeRoutes(Integer amount, String cartId, String checkoutMode, Boolean refresh, String orderId, String cardReference, String userDetails, Boolean displaySplit, Boolean advancePayment, String shipmentId, List<String> fulfillmentOption, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPaymentModeRoutes");
 
-        Response<PaymentApplicationModels.PaymentModeRouteDetails> response = paymentApplicationApiList.getPaymentModeRoutes(fullUrl, amount, cartId, checkoutMode, refresh, orderId, cardReference, userDetails, displaySplit, advancePayment, shipmentId, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentModeRouteDetails> response = paymentApplicationApiList.getPaymentModeRoutes(fullUrl, amount, cartId, checkoutMode, refresh, orderId, cardReference, userDetails, displaySplit, advancePayment, shipmentId, fulfillmentOption, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

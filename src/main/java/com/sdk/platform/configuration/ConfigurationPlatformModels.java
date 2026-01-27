@@ -476,6 +476,30 @@ public static class AppInventoryConfig{
     
     
     
+    @JsonProperty("price_strategy")
+    private String priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("international")
+    private Boolean international;
+    
+    
+    
+    
+    @JsonProperty("strategy_change_pending")
+    private Boolean strategyChangePending;
+    
+    
+    
+    
+    @JsonProperty("strategy_modified_at")
+    private String strategyModifiedAt;
+    
+    
+    
+    
     @JsonProperty("out_of_stock")
     private Boolean outOfStock;
     
@@ -4964,6 +4988,12 @@ public static class AppFeature{
     
     
     
+    @JsonProperty("security")
+    private SecurityFeature security;
+    
+    
+    
+    
     @JsonProperty("buybox")
     private BuyboxFeature buybox;
     
@@ -4972,6 +5002,30 @@ public static class AppFeature{
     
     @JsonProperty("delivery_strategy")
     private DeliveryStrategy deliveryStrategy;
+    
+    
+    
+    
+    @JsonProperty("price_strategy")
+    private String priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("international")
+    private Boolean international;
+    
+    
+    
+    
+    @JsonProperty("strategy_change_pending")
+    private Boolean strategyChangePending;
+    
+    
+    
+    
+    @JsonProperty("strategy_modified_at")
+    private String strategyModifiedAt;
     
     
     
@@ -5472,6 +5526,62 @@ public static class OrderFeature{
     
     @JsonProperty("buy_again")
     private Boolean buyAgain;
+    
+    
+    
+}
+
+
+/*
+    Model: SecurityFeature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SecurityFeature{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("domains")
+    private List<AllowedDomain> domains;
+    
+    
+    
+}
+
+
+/*
+    Model: AllowedDomain
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AllowedDomain{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("host")
+    private String host;
+    
+    
+    
+    
+    @JsonProperty("url_scheme")
+    private String urlScheme;
     
     
     

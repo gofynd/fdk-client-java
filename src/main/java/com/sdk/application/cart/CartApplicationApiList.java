@@ -95,4 +95,16 @@ interface CartApplicationApiList {
 
     @POST 
     Call<CartApplicationModels.CartCheckoutResult> checkoutCartV2(@Url String url1, @Header("x-ordering-source") String xOrderingSource, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailV2Creation payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<CartApplicationModels.GetOfferResult> getOffers(@Url String url1, @Query("mode") String mode, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("product_slug") String productSlug, @Query("store_id") String storeId, @Query("type") Boolean type, @Query("product_size") String productSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<CartApplicationModels.OfferListItem> applyOffer(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Body CartApplicationModels.ApplyOfferSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE 
+    Call<CartApplicationModels.OfferListItem> removeOffer(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<CartApplicationModels.EligibleProductsResult> getProductsByOfferId(@Url String url1, @Query("offer_id") String offerId, @Query("page") Integer page, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 }

@@ -76,8 +76,11 @@ interface ContentApplicationApiList {
     Call<ContentApplicationModels.ResourceTranslations> fetchResourceTranslations(@Url String url1, @Query("resource_id") String resourceId, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<ContentApplicationModels.ResourceTranslations> fetchResourceTranslationsWithPayload(@Url String url1, @Query("resource_id") String resourceId, @Body ContentApplicationModels.ResourcePayload payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<ContentApplicationModels.ResourceTranslations> fetchResourceTranslationsWithPayload(@Url String url1, @Body ContentApplicationModels.ResourcePayload payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<Object> getSupportedLanguages(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST 
+    Call<ContentApplicationModels.TranslationResult> getOrderTranslation(@Url String url1, @Body ContentApplicationModels.OrderTranslationRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

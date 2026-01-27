@@ -197,4 +197,22 @@ interface CartPlatformApiList {
 
     @POST ("/service/platform/cart/v2.0/company/{company_id}/application/{application_id}/redeem")
     Call<CartPlatformModels.CartDetailResult> applyLoyaltyPoints(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Body CartPlatformModels.RedeemLoyaltyPoints payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/offers")
+    Call<CartPlatformModels.OfferListResult> getOffers(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("search") String search, @Query("mode") String mode, @Query("type") String type, @Query("promo_group") String promoGroup, @Query("exclude_contract_offers") Boolean excludeContractOffers, @Query("offer_id") String offerId, @Query("created_by") String createdBy, @Query("reviewed_by") String reviewedBy, @Query("approved_start_time") String approvedStartTime, @Query("approved_end_time") String approvedEndTime, @Query("status") String status, @Query("code") String code, @Query("is_public") Boolean isPublic, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/offers")
+    Call<CartPlatformModels.OfferSchema> createOffer(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.OfferSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/offers/{id}")
+    Call<CartPlatformModels.OfferSchema> getOfferById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/offers/{id}")
+    Call<CartPlatformModels.OfferSchema> updateOffer(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CartPlatformModels.OfferSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/offers/{id}")
+    Call<CartPlatformModels.SuccessMessage> updateOfferPartially(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @Body CartPlatformModels.OfferPartialUpdate payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/offers/{id}")
+    Call<CartPlatformModels.SuccessMessage> deleteOffer(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("id") String id, @HeaderMap Map<String, String> requestHeaders);
 }

@@ -105,6 +105,9 @@ interface CatalogPlatformApiList {
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/raw-products/")
     Call<CatalogPlatformModels.RawProductListingResponseSchema> getAppProducts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("brand_ids") List<Integer> brandIds, @Query("category_ids") List<Integer> categoryIds, @Query("department_ids") List<Integer> departmentIds, @Query("tags") List<String> tags, @Query("item_ids") List<Integer> itemIds, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/raw-products/price")
+    Call<CatalogPlatformModels.AppProductPricesSchema> getAppProductPrices(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("item_ids") List<Integer> itemIds, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/return-config")
     Call<CatalogPlatformModels.AppReturnConfigResponseSchema> getAppReturnConfiguration(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
 
@@ -433,7 +436,7 @@ interface CatalogPlatformApiList {
     Call<Object> deleteTaxRule(@Path("rule_id") String ruleId, @Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules/{rule_id}/versions")
-    Call<CatalogPlatformModels.TaxRuleVersion> getTaxVersionDetails(@Path("company_id") String companyId, @Path("rule_id") String ruleId, @Query("version_status") String versionStatus, @Query("limit") String limit, @Query("page") String page, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.TaxRuleVersion> getTaxVersionDetails(@Path("company_id") String companyId, @Path("rule_id") String ruleId, @Query("version_status") String versionStatus, @Query("q") String q, @Query("limit") String limit, @Query("page") String page, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/taxes/rules/{rule_id}/versions")
     Call<CatalogPlatformModels.TaxVersion> createTaxVersion(@Path("company_id") String companyId, @Path("rule_id") String ruleId, @Body CatalogPlatformModels.CreateTaxVersionRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
@@ -464,4 +467,28 @@ interface CatalogPlatformApiList {
 
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/user/{user_id}/products/{item_id}/follow")
     Call<CatalogPlatformModels.FollowProduct> unfollowProductById(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("user_id") String userId, @Path("item_id") String itemId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/price/list")
+    Call<CatalogPlatformModels.PriceFactoryListResponseSchema> getPriceFactories(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/price")
+    Call<CatalogPlatformModels.SuccessResponseSchema> createPriceFactory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CatalogPlatformModels.CreatePriceFactoryConfigSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/price/{price_factory_id}")
+    Call<CatalogPlatformModels.PriceFactoryConfigSchema> getPriceFactory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("price_factory_id") String priceFactoryId, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/price/{price_factory_id}")
+    Call<CatalogPlatformModels.SuccessResponseSchema> updatePriceFactory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("price_factory_id") String priceFactoryId, @Body CatalogPlatformModels.UpdatePriceFactoryConfigSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/price/{price_factory_id}")
+    Call<CatalogPlatformModels.SuccessResponseSchema> deletePriceFactory(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("price_factory_id") String priceFactoryId, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/price/{price_factory_id}/products")
+    Call<CatalogPlatformModels.PriceFactoryProductListResponseSchema> getPriceFactoryProducts(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("price_factory_id") String priceFactoryId, @Query("brand_ids") List<Integer> brandIds, @Query("category_ids") List<Integer> categoryIds, @Query("seller_identifier") String sellerIdentifier, @Query("item_code") String itemCode, @Query("slug") String slug, @Query("name") String name, @Query("active") Boolean active, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/price/{price_factory_id}/products/{item_id}")
+    Call<CatalogPlatformModels.PriceFactoryProductResponseSchema> getPriceFactoryProduct(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("price_factory_id") String priceFactoryId, @Path("item_id") Integer itemId, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/catalog/v1.0/company/{company_id}/application/{application_id}/price/{price_factory_id}/products/{item_id}")
+    Call<CatalogPlatformModels.SuccessResponseSchema> updatePriceFactoryProduct(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("price_factory_id") String priceFactoryId, @Path("item_id") Integer itemId, @Body CatalogPlatformModels.UpsertPriceFactoryProductSchema payload, @HeaderMap Map<String, String> requestHeaders);
 }

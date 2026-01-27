@@ -59,7 +59,8 @@ import com.sdk.application.*;
         relativeUrls.put("getInStockLocations","/service/application/catalog/v2.0/in-stock/locations/".substring(1));
         relativeUrls.put("getLocationDetailsById","/service/application/catalog/v2.0/locations/{location_id}/".substring(1));
         relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v4.0/products/{slug}/sizes/{size}/price/".substring(1));
-        relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v4.0/products/{slug}/sizes/{size}/sellers/".substring(1)); 
+        relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v4.0/products/{slug}/sizes/{size}/sellers/".substring(1));
+        relativeUrls.put("listCountryCurrencyMappings","/service/application/catalog/v1.0/available-countries/".substring(1)); 
 
     }
 
@@ -1032,6 +1033,23 @@ import com.sdk.application.*;
         }
     });
     return paginator;
+    }
+    
+
+    public CatalogApplicationModels.AvailableCountrySchema listCountryCurrencyMappings() throws IOException {
+        return this.listCountryCurrencyMappings(new HashMap<>());
+    }
+
+    public CatalogApplicationModels.AvailableCountrySchema listCountryCurrencyMappings(Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("listCountryCurrencyMappings");
+
+        Response<CatalogApplicationModels.AvailableCountrySchema> response = catalogApplicationApiList.listCountryCurrencyMappings(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
     }
       
 

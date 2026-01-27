@@ -3760,8 +3760,70 @@ public static class ResourcePayload{
     
     
     
+    @JsonProperty("resource_id")
+    private List<String> resourceId;
+    
+    
+    
+    
     @JsonProperty("payload")
     private List<HashMap<String,Object>> payload;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderTranslationRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderTranslationRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("payload_type")
+    private String payloadType;
+    
+    
+    
+    
+    @JsonProperty("payload")
+    private List<HashMap<String,Object>> payload;
+    
+    
+    
+}
+
+
+/*
+    Model: TranslationResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TranslationResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<HashMap<String,Object>> items;
     
     
     
