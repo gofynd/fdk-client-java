@@ -24,16 +24,9 @@ public class DiscountPlatformService {
 
     public DiscountPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.discountPlatformApiList = generateDiscountPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private DiscountPlatformApiList generateDiscountPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),DiscountPlatformApiList.class, interceptorList, cookieStore);
+        this.discountPlatformApiList = retrofitServiceFactory.getService(DiscountPlatformApiList.class);
     }
 
     

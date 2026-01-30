@@ -24,16 +24,9 @@ public class RewardsPlatformService {
 
     public RewardsPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.rewardsPlatformApiList = generateRewardsPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private RewardsPlatformApiList generateRewardsPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),RewardsPlatformApiList.class, interceptorList, cookieStore);
+        this.rewardsPlatformApiList = retrofitServiceFactory.getService(RewardsPlatformApiList.class);
     }
 
     

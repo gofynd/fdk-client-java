@@ -24,16 +24,9 @@ public class PaymentPlatformService {
 
     public PaymentPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.paymentPlatformApiList = generatePaymentPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private PaymentPlatformApiList generatePaymentPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),PaymentPlatformApiList.class, interceptorList, cookieStore);
+        this.paymentPlatformApiList = retrofitServiceFactory.getService(PaymentPlatformApiList.class);
     }
 
     

@@ -24,16 +24,9 @@ public class CommonPlatformService {
 
     public CommonPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.commonPlatformApiList = generateCommonPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private CommonPlatformApiList generateCommonPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),CommonPlatformApiList.class, interceptorList, cookieStore);
+        this.commonPlatformApiList = retrofitServiceFactory.getService(CommonPlatformApiList.class);
     }
 
     

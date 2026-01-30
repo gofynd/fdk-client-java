@@ -24,16 +24,9 @@ public class LeadPlatformService {
 
     public LeadPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.leadPlatformApiList = generateLeadPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private LeadPlatformApiList generateLeadPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),LeadPlatformApiList.class, interceptorList, cookieStore);
+        this.leadPlatformApiList = retrofitServiceFactory.getService(LeadPlatformApiList.class);
     }
 
     

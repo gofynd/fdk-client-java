@@ -24,16 +24,9 @@ public class AuditTrailPlatformService {
 
     public AuditTrailPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.audittrailPlatformApiList = generateAuditTrailPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private AuditTrailPlatformApiList generateAuditTrailPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),AuditTrailPlatformApiList.class, interceptorList, cookieStore);
+        this.audittrailPlatformApiList = retrofitServiceFactory.getService(AuditTrailPlatformApiList.class);
     }
 
     

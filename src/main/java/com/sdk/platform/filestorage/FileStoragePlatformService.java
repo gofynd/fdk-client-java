@@ -24,16 +24,9 @@ public class FileStoragePlatformService {
 
     public FileStoragePlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.filestoragePlatformApiList = generateFileStoragePlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private FileStoragePlatformApiList generateFileStoragePlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),FileStoragePlatformApiList.class, interceptorList, cookieStore);
+        this.filestoragePlatformApiList = retrofitServiceFactory.getService(FileStoragePlatformApiList.class);
     }
 
     

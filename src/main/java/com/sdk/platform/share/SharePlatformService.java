@@ -24,16 +24,9 @@ public class SharePlatformService {
 
     public SharePlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.sharePlatformApiList = generateSharePlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private SharePlatformApiList generateSharePlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),SharePlatformApiList.class, interceptorList, cookieStore);
+        this.sharePlatformApiList = retrofitServiceFactory.getService(SharePlatformApiList.class);
     }
 
     

@@ -24,16 +24,9 @@ public class BillingPlatformService {
 
     public BillingPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.billingPlatformApiList = generateBillingPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private BillingPlatformApiList generateBillingPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),BillingPlatformApiList.class, interceptorList, cookieStore);
+        this.billingPlatformApiList = retrofitServiceFactory.getService(BillingPlatformApiList.class);
     }
 
     

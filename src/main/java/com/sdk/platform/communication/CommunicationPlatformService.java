@@ -24,16 +24,9 @@ public class CommunicationPlatformService {
 
     public CommunicationPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.communicationPlatformApiList = generateCommunicationPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private CommunicationPlatformApiList generateCommunicationPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),CommunicationPlatformApiList.class, interceptorList, cookieStore);
+        this.communicationPlatformApiList = retrofitServiceFactory.getService(CommunicationPlatformApiList.class);
     }
 
     

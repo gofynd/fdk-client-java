@@ -24,16 +24,9 @@ public class UserPlatformService {
 
     public UserPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.userPlatformApiList = generateUserPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private UserPlatformApiList generateUserPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),UserPlatformApiList.class, interceptorList, cookieStore);
+        this.userPlatformApiList = retrofitServiceFactory.getService(UserPlatformApiList.class);
     }
 
     

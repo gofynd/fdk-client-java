@@ -24,16 +24,9 @@ public class AnalyticsPlatformService {
 
     public AnalyticsPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.analyticsPlatformApiList = generateAnalyticsPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private AnalyticsPlatformApiList generateAnalyticsPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),AnalyticsPlatformApiList.class, interceptorList, cookieStore);
+        this.analyticsPlatformApiList = retrofitServiceFactory.getService(AnalyticsPlatformApiList.class);
     }
 
     

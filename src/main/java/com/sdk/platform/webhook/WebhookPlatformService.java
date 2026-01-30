@@ -24,16 +24,9 @@ public class WebhookPlatformService {
 
     public WebhookPlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.webhookPlatformApiList = generateWebhookPlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private WebhookPlatformApiList generateWebhookPlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),WebhookPlatformApiList.class, interceptorList, cookieStore);
+        this.webhookPlatformApiList = retrofitServiceFactory.getService(WebhookPlatformApiList.class);
     }
 
     

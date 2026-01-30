@@ -24,16 +24,9 @@ public class ThemePlatformService {
 
     public ThemePlatformService(PlatformConfig platformConfig) {
         this.platformConfig = platformConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = platformConfig.getRetrofitServiceFactory();
         this.companyId = this.platformConfig.getCompanyId();
-        this.themePlatformApiList = generateThemePlatformApiList(this.platformConfig.getPersistentCookieStore());
-    }
-
-    private ThemePlatformApiList generateThemePlatformApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(platformConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(platformConfig.getDomain(),ThemePlatformApiList.class, interceptorList, cookieStore);
+        this.themePlatformApiList = retrofitServiceFactory.getService(ThemePlatformApiList.class);
     }
 
     

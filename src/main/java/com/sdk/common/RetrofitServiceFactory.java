@@ -39,6 +39,9 @@ public class RetrofitServiceFactory {
 
     private CurlInterceptor ok2CurlInterceptor;
 
+    /** Shared Retrofit instance built once per config to avoid multiple OkHttp/Retrofit clients. */
+    private volatile Retrofit sharedRetrofit;
+
     public RetrofitServiceFactory() {
         baseURL = "http://localhost:8080";
         HttpUrl httpUrl = HttpUrl.parse(baseURL);
@@ -77,6 +80,39 @@ public class RetrofitServiceFactory {
         builder.client(getUnsafeOkHttpClient(interceptorList, cookieStore));
         retrofit = builder.build();
         return retrofit.create(serviceClass);
+    }
+
+    /**
+     * Initializes a shared Retrofit (and single OkHttpClient) for the given base URL and interceptors.
+     * Idempotent: subsequent calls with the same factory are no-ops. Use {@link #getService(Class)}
+     * to obtain API service instances from the shared Retrofit.
+     */
+    public synchronized void initSharedRetrofit(String baseUrl, CookieStore cookieStore,
+            List<Interceptor> interceptorList) {
+        if (sharedRetrofit != null) {
+            return;
+        }
+        setApiBaseUrl(baseUrl);
+        List<Interceptor> interceptors = new ArrayList<>(interceptorList);
+        if (!interceptors.contains(logging)) {
+            interceptors.add(logging);
+        }
+        if (!interceptors.contains(ok2CurlInterceptor)) {
+            interceptors.add(ok2CurlInterceptor);
+        }
+        builder.client(getUnsafeOkHttpClient(interceptors, cookieStore));
+        sharedRetrofit = builder.build();
+    }
+
+    /**
+     * Returns a service instance from the shared Retrofit. Must call {@link #initSharedRetrofit}
+     * first.
+     */
+    public <S> S getService(Class<S> serviceClass) {
+        if (sharedRetrofit == null) {
+            throw new IllegalStateException("initSharedRetrofit must be called before getService");
+        }
+        return sharedRetrofit.create(serviceClass);
     }
 
     public <S> S getInstance(String baseUrl, Class<S> serviceClass) {
