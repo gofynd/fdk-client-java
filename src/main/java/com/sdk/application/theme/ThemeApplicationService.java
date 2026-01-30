@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public ThemeApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.themeApplicationApiList = generateThemeApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.themeApplicationApiList = retrofitServiceFactory.getService(ThemeApplicationApiList.class);
 
         
         relativeUrls.put("getAllPages","/service/application/theme/v1.0/{theme_id}/page".substring(1));
@@ -40,13 +40,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private ThemeApplicationApiList generateThemeApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),ThemeApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public ThemeApplicationModels.AllAvailablePageSchema getAllPages(String themeId) throws IOException {

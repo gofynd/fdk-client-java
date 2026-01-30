@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public RewardsApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.rewardsApplicationApiList = generateRewardsApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.rewardsApplicationApiList = retrofitServiceFactory.getService(RewardsApplicationApiList.class);
 
         
         relativeUrls.put("getOfferByName","/service/application/rewards/v1.0/offers/{name}/".substring(1));
@@ -43,13 +43,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private RewardsApplicationApiList generateRewardsApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),RewardsApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public RewardsApplicationModels.Offer getOfferByName(String name) throws IOException {

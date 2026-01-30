@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public CommonApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.commonApplicationApiList = generateCommonApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.commonApplicationApiList = retrofitServiceFactory.getService(CommonApplicationApiList.class);
 
         
         relativeUrls.put("searchApplication","/service/common/configuration/v1.0/application/search-application".substring(1));
@@ -38,13 +38,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private CommonApplicationApiList generateCommonApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),CommonApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public CommonApplicationModels.ApplicationResponseSchema searchApplication(String authorization, String query) throws IOException {

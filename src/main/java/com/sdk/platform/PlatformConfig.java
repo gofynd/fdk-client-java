@@ -1,5 +1,9 @@
 package com.sdk.platform;
 
+import com.sdk.common.FDKContext;
+import com.sdk.common.FDKContextImpl;
+import com.sdk.common.FDKGlobalRetrofitFactory;
+import com.sdk.common.FDKSharedClient;
 import com.sdk.common.RetrofitServiceFactory;
 import com.sdk.common.RequestSignerInterceptor;
 import com.sdk.common.model.AccessTokenDto;
@@ -28,10 +32,23 @@ public final class PlatformConfig {
     private volatile RetrofitServiceFactory retrofitServiceFactory;
 
     /**
-     * Returns a shared RetrofitServiceFactory with a single Retrofit and OkHttp client for this config.
-     * Lazily initialized on first use.
+     * Context for the single shared FDK client. Used when {@link FDKSharedClient#init(String)} has been called.
+     */
+    public FDKContext getFDKContext() {
+        List<Interceptor> interceptors = new ArrayList<>();
+        interceptors.add(new AccessTokenInterceptor(this));
+        interceptors.add(new RequestSignerInterceptor());
+        return new FDKContextImpl(getPersistentCookieStore(), interceptors);
+    }
+
+    /**
+     * Returns a shared RetrofitServiceFactory. If {@link FDKSharedClient#init(String)} has been called,
+     * returns a factory that uses the single global Retrofit/OkHttp client; otherwise uses one client per config.
      */
     public RetrofitServiceFactory getRetrofitServiceFactory() {
+        if (FDKSharedClient.isInitialized()) {
+            return new FDKGlobalRetrofitFactory(getFDKContext());
+        }
         if (retrofitServiceFactory == null) {
             synchronized (this) {
                 if (retrofitServiceFactory == null) {

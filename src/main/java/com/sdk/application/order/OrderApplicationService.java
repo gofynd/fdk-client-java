@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public OrderApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.orderApplicationApiList = generateOrderApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.orderApplicationApiList = retrofitServiceFactory.getService(OrderApplicationApiList.class);
 
         
         relativeUrls.put("getOrders","/service/application/order/v1.0/orders".substring(1));
@@ -48,13 +48,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private OrderApplicationApiList generateOrderApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),OrderApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public OrderApplicationModels.OrderList getOrders(Integer status, Integer pageNo, Integer pageSize, String fromDate, String toDate, String startDate, String endDate, String customMeta, Boolean allowInactive) throws IOException {

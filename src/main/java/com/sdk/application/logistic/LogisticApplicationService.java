@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public LogisticApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.logisticApplicationApiList = generateLogisticApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.logisticApplicationApiList = retrofitServiceFactory.getService(LogisticApplicationApiList.class);
 
         
         relativeUrls.put("getPincodeCity","/service/application/logistics/v1.0/pincode/{pincode}".substring(1));
@@ -46,13 +46,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private LogisticApplicationApiList generateLogisticApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),LogisticApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public LogisticApplicationModels.PincodeDetailsResult getPincodeCity(String pincode) throws IOException {

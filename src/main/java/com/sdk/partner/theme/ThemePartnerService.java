@@ -24,16 +24,9 @@ public class ThemePartnerService {
 
     public ThemePartnerService(PartnerConfig partnerConfig) {
         this.partnerConfig = partnerConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = partnerConfig.getRetrofitServiceFactory();
         this.organizationId = this.partnerConfig.getOrganizationId();
-        this.themePartnerApiList = generateThemePartnerApiList(this.partnerConfig.getPersistentCookieStore());
-    }
-
-    private ThemePartnerApiList generateThemePartnerApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(partnerConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(partnerConfig.getDomain(),ThemePartnerApiList.class, interceptorList, cookieStore);
+        this.themePartnerApiList = retrofitServiceFactory.getService(ThemePartnerApiList.class);
     }
 
     

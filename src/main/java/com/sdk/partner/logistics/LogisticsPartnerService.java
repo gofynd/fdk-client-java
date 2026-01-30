@@ -24,16 +24,9 @@ public class LogisticsPartnerService {
 
     public LogisticsPartnerService(PartnerConfig partnerConfig) {
         this.partnerConfig = partnerConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = partnerConfig.getRetrofitServiceFactory();
         this.organizationId = this.partnerConfig.getOrganizationId();
-        this.logisticsPartnerApiList = generateLogisticsPartnerApiList(this.partnerConfig.getPersistentCookieStore());
-    }
-
-    private LogisticsPartnerApiList generateLogisticsPartnerApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(partnerConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(partnerConfig.getDomain(),LogisticsPartnerApiList.class, interceptorList, cookieStore);
+        this.logisticsPartnerApiList = retrofitServiceFactory.getService(LogisticsPartnerApiList.class);
     }
 
     

@@ -24,16 +24,9 @@ public class WebhookPartnerService {
 
     public WebhookPartnerService(PartnerConfig partnerConfig) {
         this.partnerConfig = partnerConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = partnerConfig.getRetrofitServiceFactory();
         this.organizationId = this.partnerConfig.getOrganizationId();
-        this.webhookPartnerApiList = generateWebhookPartnerApiList(this.partnerConfig.getPersistentCookieStore());
-    }
-
-    private WebhookPartnerApiList generateWebhookPartnerApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(partnerConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(partnerConfig.getDomain(),WebhookPartnerApiList.class, interceptorList, cookieStore);
+        this.webhookPartnerApiList = retrofitServiceFactory.getService(WebhookPartnerApiList.class);
     }
 
     

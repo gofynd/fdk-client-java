@@ -21,15 +21,8 @@ public class ConfigurationPublicService {
 
     public ConfigurationPublicService(PublicConfig publicConfig) {
         this.publicConfig = publicConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.configurationPublicApiList = generateConfigurationPublicApiList(this.publicConfig.getPersistentCookieStore());
-    }
-
-    private ConfigurationPublicApiList generateConfigurationPublicApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new PublicHeaderInterceptor(publicConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(publicConfig.getDomain(),ConfigurationPublicApiList.class, interceptorList, cookieStore);
+        this.retrofitServiceFactory = publicConfig.getRetrofitServiceFactory();
+        this.configurationPublicApiList = retrofitServiceFactory.getService(ConfigurationPublicApiList.class);
     }
 
     public ConfigurationPublicModels.ApplicationResponseSchema searchApplication(String authorization, String query) throws IOException {

@@ -24,16 +24,9 @@ public class LeadPartnerService {
 
     public LeadPartnerService(PartnerConfig partnerConfig) {
         this.partnerConfig = partnerConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
+        this.retrofitServiceFactory = partnerConfig.getRetrofitServiceFactory();
         this.organizationId = this.partnerConfig.getOrganizationId();
-        this.leadPartnerApiList = generateLeadPartnerApiList(this.partnerConfig.getPersistentCookieStore());
-    }
-
-    private LeadPartnerApiList generateLeadPartnerApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new AccessTokenInterceptor(partnerConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(partnerConfig.getDomain(),LeadPartnerApiList.class, interceptorList, cookieStore);
+        this.leadPartnerApiList = retrofitServiceFactory.getService(LeadPartnerApiList.class);
     }
 
     

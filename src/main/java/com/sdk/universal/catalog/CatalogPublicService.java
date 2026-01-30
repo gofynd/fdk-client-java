@@ -21,15 +21,8 @@ public class CatalogPublicService {
 
     public CatalogPublicService(PublicConfig publicConfig) {
         this.publicConfig = publicConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.catalogPublicApiList = generateCatalogPublicApiList(this.publicConfig.getPersistentCookieStore());
-    }
-
-    private CatalogPublicApiList generateCatalogPublicApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new PublicHeaderInterceptor(publicConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(publicConfig.getDomain(),CatalogPublicApiList.class, interceptorList, cookieStore);
+        this.retrofitServiceFactory = publicConfig.getRetrofitServiceFactory();
+        this.catalogPublicApiList = retrofitServiceFactory.getService(CatalogPublicApiList.class);
     }
 
     public CatalogPublicModels.TaxonomyResponseSchema getTaxonomyByLevel(Integer level, String l0Slug, String l1Slug, String l2Slug, String l3Slug, Double limit) throws IOException {

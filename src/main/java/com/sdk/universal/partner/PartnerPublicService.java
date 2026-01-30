@@ -21,15 +21,8 @@ public class PartnerPublicService {
 
     public PartnerPublicService(PublicConfig publicConfig) {
         this.publicConfig = publicConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.partnerPublicApiList = generatePartnerPublicApiList(this.publicConfig.getPersistentCookieStore());
-    }
-
-    private PartnerPublicApiList generatePartnerPublicApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new PublicHeaderInterceptor(publicConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(publicConfig.getDomain(),PartnerPublicApiList.class, interceptorList, cookieStore);
+        this.retrofitServiceFactory = publicConfig.getRetrofitServiceFactory();
+        this.partnerPublicApiList = retrofitServiceFactory.getService(PartnerPublicApiList.class);
     }
 
     public PartnerPublicModels.ExtensionUsingSlug getPanelExtensionDetails(String slug) throws IOException {

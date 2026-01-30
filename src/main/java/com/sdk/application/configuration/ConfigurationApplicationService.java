@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public ConfigurationApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.configurationApplicationApiList = generateConfigurationApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.configurationApplicationApiList = retrofitServiceFactory.getService(ConfigurationApplicationApiList.class);
 
         
         relativeUrls.put("getApplication","/service/application/configuration/v1.0/application".substring(1));
@@ -52,13 +52,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private ConfigurationApplicationApiList generateConfigurationApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),ConfigurationApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public ConfigurationApplicationModels.Application getApplication() throws IOException {

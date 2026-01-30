@@ -21,15 +21,8 @@ public class ContentPublicService {
 
     public ContentPublicService(PublicConfig publicConfig) {
         this.publicConfig = publicConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.contentPublicApiList = generateContentPublicApiList(this.publicConfig.getPersistentCookieStore());
-    }
-
-    private ContentPublicApiList generateContentPublicApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new PublicHeaderInterceptor(publicConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(publicConfig.getDomain(),ContentPublicApiList.class, interceptorList, cookieStore);
+        this.retrofitServiceFactory = publicConfig.getRetrofitServiceFactory();
+        this.contentPublicApiList = retrofitServiceFactory.getService(ContentPublicApiList.class);
     }
 
     public ContentPublicModels.BasicDetailsPayloadSchema getBasicDetails() throws IOException {

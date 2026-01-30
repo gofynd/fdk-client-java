@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public ContentApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.contentApplicationApiList = generateContentApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.contentApplicationApiList = retrofitServiceFactory.getService(ContentApplicationApiList.class);
 
         
         relativeUrls.put("getAnnouncements","/service/application/content/v1.0/announcements".substring(1));
@@ -60,13 +60,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private ContentApplicationApiList generateContentApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),ContentApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public ContentApplicationModels.AnnouncementsResponseSchema getAnnouncements() throws IOException {

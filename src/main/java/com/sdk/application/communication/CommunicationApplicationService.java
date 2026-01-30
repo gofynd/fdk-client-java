@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public CommunicationApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.communicationApplicationApiList = generateCommunicationApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.communicationApplicationApiList = retrofitServiceFactory.getService(CommunicationApplicationApiList.class);
 
         
         relativeUrls.put("getCommunicationConsent","/service/application/communication/v1.0/consent".substring(1));
@@ -39,13 +39,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private CommunicationApplicationApiList generateCommunicationApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),CommunicationApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public CommunicationApplicationModels.CommunicationConsent getCommunicationConsent() throws IOException {

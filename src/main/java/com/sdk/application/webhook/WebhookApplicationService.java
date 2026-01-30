@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public WebhookApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.webhookApplicationApiList = generateWebhookApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.webhookApplicationApiList = retrofitServiceFactory.getService(WebhookApplicationApiList.class);
 
         
         relativeUrls.put("saveClickEvent","/service/application/webhook/v1.0/click-analytics/events".substring(1)); 
@@ -37,13 +37,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private WebhookApplicationApiList generateWebhookApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),WebhookApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public WebhookApplicationModels.ClickEventDetails saveClickEvent(WebhookApplicationModels.ClickEventPayload body) throws IOException {

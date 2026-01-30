@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public FinanceApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.financeApplicationApiList = generateFinanceApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.financeApplicationApiList = retrofitServiceFactory.getService(FinanceApplicationApiList.class);
 
         
         relativeUrls.put("customerCreditBalance","/service/application/finance/v1.0/customer-credit-balance".substring(1));
@@ -38,13 +38,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private FinanceApplicationApiList generateFinanceApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),FinanceApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public FinanceApplicationModels.CustomerCreditBalanceResponseSchema customerCreditBalance(FinanceApplicationModels.CustomerCreditBalanceRequestSchema body) throws IOException {

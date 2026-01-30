@@ -21,15 +21,8 @@ public class WebhookPublicService {
 
     public WebhookPublicService(PublicConfig publicConfig) {
         this.publicConfig = publicConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.webhookPublicApiList = generateWebhookPublicApiList(this.publicConfig.getPersistentCookieStore());
-    }
-
-    private WebhookPublicApiList generateWebhookPublicApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new PublicHeaderInterceptor(publicConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(publicConfig.getDomain(),WebhookPublicApiList.class, interceptorList, cookieStore);
+        this.retrofitServiceFactory = publicConfig.getRetrofitServiceFactory();
+        this.webhookPublicApiList = retrofitServiceFactory.getService(WebhookPublicApiList.class);
     }
 
     public WebhookPublicModels.EventDetails fetchAllWebhookEvents() throws IOException {

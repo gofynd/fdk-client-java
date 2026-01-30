@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public UserApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.userApplicationApiList = generateUserApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.userApplicationApiList = retrofitServiceFactory.getService(UserApplicationApiList.class);
 
         
         relativeUrls.put("loginWithFacebook","/service/application/user/authentication/v1.0/login/facebook-token".substring(1));
@@ -83,13 +83,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private UserApplicationApiList generateUserApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),UserApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public UserApplicationModels.AuthSuccess loginWithFacebook(String platform, UserApplicationModels.OAuthRequestSchema body) throws IOException {

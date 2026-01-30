@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public CatalogApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.catalogApplicationApiList = generateCatalogApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.catalogApplicationApiList = retrofitServiceFactory.getService(CatalogApplicationApiList.class);
 
         
         relativeUrls.put("getProductDetailBySlug","/service/application/catalog/v1.0/products/{slug}/".substring(1));
@@ -67,13 +67,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private CatalogApplicationApiList generateCatalogApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),CatalogApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public CatalogApplicationModels.ProductDetail getProductDetailBySlug(String slug) throws IOException {

@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public CartApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.cartApplicationApiList = generateCartApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.cartApplicationApiList = retrofitServiceFactory.getService(CartApplicationApiList.class);
 
         
         relativeUrls.put("getCart","/service/application/cart/v1.0/detail".substring(1));
@@ -66,13 +66,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private CartApplicationApiList generateCartApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),CartApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public CartApplicationModels.CartDetailResult getCart(String xOrderingSource, String id, Boolean i, Boolean b, Boolean c, Integer assignCardId, String areaCode, Boolean buyNow, String orderType) throws IOException {

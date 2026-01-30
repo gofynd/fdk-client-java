@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public PaymentApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.paymentApplicationApiList = generatePaymentApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.paymentApplicationApiList = retrofitServiceFactory.getService(PaymentApplicationApiList.class);
 
         
         relativeUrls.put("getAggregatorsConfig","/service/application/payment/v1.0/config/aggregators/key".substring(1));
@@ -87,13 +87,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private PaymentApplicationApiList generatePaymentApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),PaymentApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public PaymentApplicationModels.AggregatorsConfigDetail getAggregatorsConfig(Boolean refresh) throws IOException {

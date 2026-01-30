@@ -25,8 +25,8 @@ import com.sdk.application.*;
 
     public LeadApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.leadApplicationApiList = generateLeadApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.leadApplicationApiList = retrofitServiceFactory.getService(LeadApplicationApiList.class);
 
         
         relativeUrls.put("getTicket","/service/application/lead/v1.0/ticket/{id}".substring(1));
@@ -41,13 +41,6 @@ import com.sdk.application.*;
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private LeadApplicationApiList generateLeadApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),LeadApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public LeadApplicationModels.Ticket getTicket(String id) throws IOException {

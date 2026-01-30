@@ -87,8 +87,8 @@ public class FileStorageApplicationService extends FileStorage {
 
     public FileStorageApplicationService(ApplicationConfig applicationConfig) {
         this.applicationConfig = applicationConfig;
-        this.retrofitServiceFactory = new RetrofitServiceFactory();
-        this.filestorageApplicationApiList = generateFileStorageApplicationApiList(this.applicationConfig.getPersistentCookieStore());
+        this.retrofitServiceFactory = applicationConfig.getRetrofitServiceFactory();
+        this.filestorageApplicationApiList = retrofitServiceFactory.getService(FileStorageApplicationApiList.class);
 
         
         relativeUrls.put("startUpload","/service/application/assets/v2.0/namespaces/{namespace}/upload/start".substring(1));
@@ -101,13 +101,6 @@ public class FileStorageApplicationService extends FileStorage {
         for(Map.Entry<String,String> entry : updatedUrlMap.entrySet()){
             relativeUrls.put(entry.getKey(),entry.getValue());
         }
-    }
-
-    private FileStorageApplicationApiList generateFileStorageApplicationApiList(CookieStore cookieStore) {
-        List<Interceptor> interceptorList = new ArrayList<>();
-        interceptorList.add(new ApplicationHeaderInterceptor(applicationConfig));
-        interceptorList.add(new RequestSignerInterceptor());
-        return retrofitServiceFactory.createService(applicationConfig.getDomain(),FileStorageApplicationApiList.class, interceptorList, cookieStore);
     }
 
     public FileStorageApplicationModels.FileUploadComplete uploadMedia(String fileName, String contentType, int size, String namespace, File file, FileStorageApplicationModels.Params params) {
