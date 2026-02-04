@@ -4083,6 +4083,12 @@ public static class SendOtpCommsReq{
     
     
     
+    
+    @JsonProperty("additional_variables")
+    private HashMap<String,Object> additionalVariables;
+    
+    
+    
 }
 
 

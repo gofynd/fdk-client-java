@@ -553,7 +553,7 @@ public static class SEOSchemaMarkupTemplate{
     
     
     @JsonProperty("page_type")
-    private String pageType;
+    private PageType pageType;
     
     
     
@@ -626,7 +626,7 @@ public static class SEOSchemaMarkupTemplateRequestBody{
     
     
     @JsonProperty("page_type")
-    private String pageType;
+    private PageType pageType;
     
     
     
@@ -902,7 +902,7 @@ public static class DefaultSEOSchemaMarkupTemplate{
     
     
     @JsonProperty("page_type")
-    private String pageType;
+    private PageType pageType;
     
     
     
@@ -9212,7 +9212,9 @@ public static class OperationResponseSchema{
         
         singlePageCheckout("single-page-checkout"), 
         
-        requestReattempt("request-reattempt");
+        requestReattempt("request-reattempt"), 
+        
+        files("files");
         
 
         private String priority;

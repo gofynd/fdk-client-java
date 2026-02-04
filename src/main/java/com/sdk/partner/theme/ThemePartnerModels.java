@@ -4031,7 +4031,9 @@ public static class ActionPage{
         
         singlePageCheckout("single-page-checkout"), 
         
-        requestReattempt("request-reattempt");
+        requestReattempt("request-reattempt"), 
+        
+        files("files");
         
 
         private String priority;

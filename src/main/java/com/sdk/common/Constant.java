@@ -85,6 +85,7 @@ public class Constant {
         public static final String LOCATE_US = "locate-us";
         public static final String SINGLE_PAGE_CHECKOUT = "single-page-checkout";
         public static final String REQUEST_REATTEMPT = "request-reattempt";
+        public static final String FILES = "files";
         
     }
 
@@ -383,6 +384,16 @@ public class Constant {
 		"params": [
 			{
 				"key": "shipmentId",
+				"required": true
+			}
+		]
+	},
+	"files": {
+		"name": "Files",
+		"link": "/files/:file_name",
+		"params": [
+			{
+				"key": "file_name",
 				"required": true
 			}
 		]

@@ -296,11 +296,11 @@ import com.sdk.application.*;
     }
     
 
-    public ContentApplicationModels.SeoSchemaComponent getSEOMarkupSchemas(String pageType, Boolean active) throws IOException {
+    public ContentApplicationModels.SeoSchemaComponent getSEOMarkupSchemas(ContentApplicationModels.PageType pageType, Boolean active) throws IOException {
         return this.getSEOMarkupSchemas(pageType, active, new HashMap<>());
     }
 
-    public ContentApplicationModels.SeoSchemaComponent getSEOMarkupSchemas(String pageType, Boolean active, Map<String, String> requestHeaders) throws IOException {
+    public ContentApplicationModels.SeoSchemaComponent getSEOMarkupSchemas(ContentApplicationModels.PageType pageType, Boolean active, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getSEOMarkupSchemas");
 

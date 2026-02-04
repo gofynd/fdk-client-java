@@ -3506,11 +3506,11 @@ public class ApplicationClient {
         }    
     }
 
-    public ContentPlatformModels.DefaultSchemaComponent getDefaultSEOMarkupSchema(String pageType) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.DefaultSchemaComponent getDefaultSEOMarkupSchema(ContentPlatformModels.PageType pageType) throws FDKServerResponseError, FDKException {
         return this.getDefaultSEOMarkupSchema(pageType, new HashMap<>());
     }
 
-    public ContentPlatformModels.DefaultSchemaComponent getDefaultSEOMarkupSchema(String pageType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ContentPlatformModels.DefaultSchemaComponent getDefaultSEOMarkupSchema(ContentPlatformModels.PageType pageType, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ContentPlatformModels.DefaultSchemaComponent> response = null;
             try {

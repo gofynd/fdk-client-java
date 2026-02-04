@@ -381,7 +381,7 @@ public static class SEOSchemaMarkupTemplate{
     
     
     @JsonProperty("page_type")
-    private String pageType;
+    private PageType pageType;
     
     
     
@@ -3939,7 +3939,9 @@ public static class TranslationResult{
         
         singlePageCheckout("single-page-checkout"), 
         
-        requestReattempt("request-reattempt");
+        requestReattempt("request-reattempt"), 
+        
+        files("files");
         
 
         private String priority;
