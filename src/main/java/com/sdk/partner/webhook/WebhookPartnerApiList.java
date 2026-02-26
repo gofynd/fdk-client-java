@@ -21,6 +21,9 @@ interface WebhookPartnerApiList {
     @GET ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/report/filters")
     Call<List<WebhookPartnerModels.FilterReportResult>> fetchReportFilters(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Query("start_date") String startDate, @Query("end_date") String endDate, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/report/download")
+    Call<WebhookPartnerModels.DownloadReportResult> downloadDeliveryReport(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body WebhookPartnerModels.ReportDownloadPayload payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/reports/cancel/file/{filename}")
     Call<WebhookPartnerModels.CancelDownloadResult> cancelReportDownload(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("filename") String filename, @HeaderMap Map<String, String> requestHeaders);
 
@@ -35,4 +38,13 @@ interface WebhookPartnerApiList {
 
     @PATCH ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/subscriber/{subscriber_id}")
     Call<WebhookPartnerModels.SubscriberUpdateResult> updateSubscriber(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("subscriber_id") Double subscriberId, @Body WebhookPartnerModels.SubscriberUpdate payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/validate/filter")
+    Call<WebhookPartnerModels.FilterValidationResult> validateFilterConfiguration(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body WebhookPartnerModels.FilterValidationPayload payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/validate/reducer")
+    Call<WebhookPartnerModels.ReducerValidationResult> validateReducerConfiguration(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Body WebhookPartnerModels.ReducerValidationPayload payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/partner/webhook/v1.0/organization/{organization_id}/extension/{extension_id}/company/{company_id}/subscriber/{subscriber_id}/filter_reducer")
+    Call<WebhookPartnerModels.FilterReducerSaveResult> saveFilterReducerConfiguration(@Path("organization_id") String organizationId, @Path("extension_id") String extensionId, @Path("company_id") Integer companyId, @Path("subscriber_id") Double subscriberId, @Body WebhookPartnerModels.FilterReducerSave payload, @HeaderMap Map<String, String> requestHeaders);
 }

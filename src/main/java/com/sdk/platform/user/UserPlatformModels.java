@@ -2254,6 +2254,12 @@ public static class CreateUserRequestSchema{
     
     
     
+    
+    @JsonProperty("dob")
+    private String dob;
+    
+    
+    
 }
 
 
@@ -3365,6 +3371,12 @@ public static class UpdateUserRequestSchema{
     
     @JsonProperty("last_name")
     private String lastName;
+    
+    
+    
+    
+    @JsonProperty("dob")
+    private String dob;
     
     
     

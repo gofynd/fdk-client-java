@@ -14,6 +14,62 @@ public class OrderApplicationModels{
 
 
 /*
+    Model: RefundModeLineNumber
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundModeLineNumber{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("line_number")
+    private Double lineNumber;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Double quantity;
+    
+    
+    
+}
+
+
+/*
+    Model: RefundModeRequestData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RefundModeRequestData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("line_numbers")
+    private List<RefundModeLineNumber> lineNumbers;
+    
+    
+    
+}
+
+
+/*
     Model: PriceBreakupValues
 */
 @AllArgsConstructor

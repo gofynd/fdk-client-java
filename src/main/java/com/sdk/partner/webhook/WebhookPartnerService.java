@@ -311,6 +311,50 @@ public class WebhookPartnerService {
     
     
     
+
+    public WebhookPartnerModels.DownloadReportResult downloadDeliveryReport(String extensionId, WebhookPartnerModels.ReportDownloadPayload body) throws FDKServerResponseError, FDKException {
+        return this.downloadDeliveryReport(extensionId, body, new HashMap<>());
+    }
+
+    public WebhookPartnerModels.DownloadReportResult downloadDeliveryReport(String extensionId, WebhookPartnerModels.ReportDownloadPayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<WebhookPartnerModels.DownloadReportResult> response = null;
+            try {
+                response = webhookPartnerApiList.downloadDeliveryReport(this.organizationId, extensionId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -505,6 +549,146 @@ public class WebhookPartnerService {
             Response<WebhookPartnerModels.SubscriberUpdateResult> response = null;
             try {
                 response = webhookPartnerApiList.updateSubscriber(this.organizationId, extensionId, subscriberId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public WebhookPartnerModels.FilterValidationResult validateFilterConfiguration(String extensionId, WebhookPartnerModels.FilterValidationPayload body) throws FDKServerResponseError, FDKException {
+        return this.validateFilterConfiguration(extensionId, body, new HashMap<>());
+    }
+
+    public WebhookPartnerModels.FilterValidationResult validateFilterConfiguration(String extensionId, WebhookPartnerModels.FilterValidationPayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<WebhookPartnerModels.FilterValidationResult> response = null;
+            try {
+                response = webhookPartnerApiList.validateFilterConfiguration(this.organizationId, extensionId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public WebhookPartnerModels.ReducerValidationResult validateReducerConfiguration(String extensionId, WebhookPartnerModels.ReducerValidationPayload body) throws FDKServerResponseError, FDKException {
+        return this.validateReducerConfiguration(extensionId, body, new HashMap<>());
+    }
+
+    public WebhookPartnerModels.ReducerValidationResult validateReducerConfiguration(String extensionId, WebhookPartnerModels.ReducerValidationPayload body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<WebhookPartnerModels.ReducerValidationResult> response = null;
+            try {
+                response = webhookPartnerApiList.validateReducerConfiguration(this.organizationId, extensionId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public WebhookPartnerModels.FilterReducerSaveResult saveFilterReducerConfiguration(String extensionId, Integer companyId, Double subscriberId, WebhookPartnerModels.FilterReducerSave body) throws FDKServerResponseError, FDKException {
+        return this.saveFilterReducerConfiguration(extensionId, companyId, subscriberId, body, new HashMap<>());
+    }
+
+    public WebhookPartnerModels.FilterReducerSaveResult saveFilterReducerConfiguration(String extensionId, Integer companyId, Double subscriberId, WebhookPartnerModels.FilterReducerSave body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
+            Response<WebhookPartnerModels.FilterReducerSaveResult> response = null;
+            try {
+                response = webhookPartnerApiList.saveFilterReducerConfiguration(this.organizationId, extensionId, companyId, subscriberId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

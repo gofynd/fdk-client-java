@@ -14,6 +14,358 @@ public class WebhookPartnerModels{
 
 
 /*
+    Model: ReportDownloadPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReportDownloadPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("end_date")
+    private String endDate;
+    
+    
+    
+    
+    @JsonProperty("start_date")
+    private String startDate;
+    
+    
+    
+}
+
+
+/*
+    Model: DownloadReportResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DownloadReportResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("file_name")
+    private String fileName;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterValidationPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterValidationPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sample_data")
+    private HashMap<String,Object> sampleData;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private FilterValidationSchema filters;
+    
+    
+    
+}
+
+
+/*
+    Model: ReducerValidationPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReducerValidationPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sample_data")
+    private HashMap<String,Object> sampleData;
+    
+    
+    
+    
+    @JsonProperty("reducer")
+    private HashMap<String,Object> reducer;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterReducerSave
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterReducerSave{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("filter_configuration")
+    private FilterSaveSchema filterConfiguration;
+    
+    
+    
+    
+    @JsonProperty("reducer_configuration")
+    private HashMap<String,Object> reducerConfiguration;
+    
+    
+    
+    
+    @JsonProperty("event_slug")
+    private String eventSlug;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterValidationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterValidationSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("query")
+    private String query;
+    
+    
+    
+    
+    @JsonProperty("condition")
+    private String condition;
+    
+    
+    
+    
+    @JsonProperty("logic")
+    private String logic;
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private List<HashMap<String,Object>> conditions;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterSaveSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterSaveSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("query")
+    private String query;
+    
+    
+    
+    
+    @JsonProperty("condition")
+    private String condition;
+    
+    
+    
+    
+    @JsonProperty("logic")
+    private String logic;
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private List<HashMap<String,Object>> conditions;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterValidationResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterValidationResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("filter_result")
+    private Boolean filterResult;
+    
+    
+    
+}
+
+
+/*
+    Model: ReducerValidationResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReducerValidationResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("reducer_result")
+    private HashMap<String,Object> reducerResult;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterReducerSaveResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterReducerSaveResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private HashMap<String,Object> data;
+    
+    
+    
+}
+
+
+/*
     Model: SubscriberUpdate
 */
 @AllArgsConstructor

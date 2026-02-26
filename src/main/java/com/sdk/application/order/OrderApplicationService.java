@@ -30,6 +30,7 @@ import com.sdk.application.*;
 
         
         relativeUrls.put("getRefundModes","/service/application/order-manage/v1.0/shipment/{shipment_id}/refund/modes".substring(1));
+        relativeUrls.put("getRefundModesWithPriceBreakup","/service/application/order-manage/v1.0/shipment/{shipment_id}/refund/modes".substring(1));
         relativeUrls.put("getOrders","/service/application/order/v1.0/orders".substring(1));
         relativeUrls.put("getOrderById","/service/application/order/v1.0/orders/{order_id}".substring(1));
         relativeUrls.put("getPosOrderById","/service/application/order/v1.0/orders/pos-order/{order_id}".substring(1));
@@ -69,6 +70,24 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
 
         Response<OrderApplicationModels.RefundOptions> response = orderApplicationApiList.getRefundModes(fullUrl, lineNumbers, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public OrderApplicationModels.RefundOptions getRefundModesWithPriceBreakup(String shipmentId, OrderApplicationModels.RefundModeRequestData body) throws IOException {
+        return this.getRefundModesWithPriceBreakup(shipmentId, body, new HashMap<>());
+    }
+
+    public OrderApplicationModels.RefundOptions getRefundModesWithPriceBreakup(String shipmentId, OrderApplicationModels.RefundModeRequestData body, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getRefundModesWithPriceBreakup");
+        fullUrl = fullUrl.replace("{" + "shipment_id" + "}",shipmentId.toString());
+
+        Response<OrderApplicationModels.RefundOptions> response = orderApplicationApiList.getRefundModesWithPriceBreakup(fullUrl, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

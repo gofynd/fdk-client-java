@@ -10302,8 +10302,8 @@ public static class PostHook{
     
     
     
-    @JsonProperty("filters")
-    private Filter filters;
+    @JsonProperty("filter")
+    private Filter filter;
     
     
     
@@ -10339,8 +10339,8 @@ public static class PreHook{
     
     
     
-    @JsonProperty("filters")
-    private Filter filters;
+    @JsonProperty("filter")
+    private Filter filter;
     
     
     

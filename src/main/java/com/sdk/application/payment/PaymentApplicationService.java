@@ -264,15 +264,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, String userDetails) throws IOException {
-        return this.getPosPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, userDetails, new HashMap<>());
+    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, List<String> fulfillmentOption, String userDetails) throws IOException {
+        return this.getPosPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, fulfillmentOption, userDetails, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, String userDetails, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, List<String> fulfillmentOption, String userDetails, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPosPaymentModeRoutes");
 
-        Response<PaymentApplicationModels.PaymentModeRouteDetails> response = paymentApplicationApiList.getPosPaymentModeRoutes(fullUrl, amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, userDetails, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentModeRouteDetails> response = paymentApplicationApiList.getPosPaymentModeRoutes(fullUrl, amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, fulfillmentOption, userDetails, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
