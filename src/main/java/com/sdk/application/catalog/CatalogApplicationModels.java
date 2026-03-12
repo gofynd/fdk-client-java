@@ -6306,6 +6306,12 @@ public static class StoreV3{
     
     
     
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
 }
 
 
@@ -6949,7 +6955,7 @@ public static class ProductSizePriceResponseV4{
     
     
     @JsonProperty("store")
-    private StoreV3 store;
+    private StoreV4 store;
     
     
     

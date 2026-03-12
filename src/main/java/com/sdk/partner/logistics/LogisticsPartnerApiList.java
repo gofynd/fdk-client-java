@@ -73,7 +73,7 @@ interface LogisticsPartnerApiList {
     Call<LogisticsPartnerModels.CourierPartnerSchemeModelSchema> createCourierPartnerScheme(@Path("organization_id") String organizationId, @Body LogisticsPartnerModels.CourierPartnerSchemeDetailsModel payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/partner/logistics/v2.0/organization/{organization_id}/courier-partner/scheme")
-    Call<LogisticsPartnerModels.CourierPartnerSchemeList> getCourierPartnerSchemes(@Path("organization_id") String organizationId, @Query("scheme_type") String schemeType, @Query("payment_mode") String paymentMode, @Query("capabilities") List<String> capabilities, @Query("scheme_ids") List<String> schemeIds, @HeaderMap Map<String, String> requestHeaders);
+    Call<LogisticsPartnerModels.CourierPartnerSchemeList> getCourierPartnerSchemes(@Path("organization_id") String organizationId, @Query("extension_id") String extensionId, @Query("scheme_type") String schemeType, @Query("payment_mode") String paymentMode, @Query("capabilities") List<String> capabilities, @Query("scheme_ids") List<String> schemeIds, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/partner/logistics/v2.0/organization/{organization_id}/courier-partner/scheme/{scheme_id}")
     Call<LogisticsPartnerModels.CourierPartnerPutSchema> updateCourierPartnerScheme(@Path("organization_id") String organizationId, @Path("scheme_id") String schemeId, @Body LogisticsPartnerModels.CourierPartnerSchemeUpdateDetails payload, @HeaderMap Map<String, String> requestHeaders);

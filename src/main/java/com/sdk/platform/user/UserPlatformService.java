@@ -885,13 +885,13 @@ public class ApplicationClient {
         }    
     }
 
-    public Object getUserAttributesForUser(String userId, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeDefinitionsResponseSchema getUserAttributesForUser(String userId, Integer pageSize, Integer pageNo) throws FDKServerResponseError, FDKException {
         return this.getUserAttributesForUser(userId, pageSize, pageNo, new HashMap<>());
     }
 
-    public Object getUserAttributesForUser(String userId, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public UserPlatformModels.UserAttributeDefinitionsResponseSchema getUserAttributesForUser(String userId, Integer pageSize, Integer pageNo, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<Object> response = null;
+            Response<UserPlatformModels.UserAttributeDefinitionsResponseSchema> response = null;
             try {
             response = userPlatformApiList.getUserAttributesForUser(userId, this.applicationId, this.companyId, pageSize, pageNo, requestHeaders).execute();
                 if (!response.isSuccessful()) {

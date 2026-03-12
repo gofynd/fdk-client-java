@@ -1091,16 +1091,20 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public ServiceabilityPlatformModels.CourierPartnerSchemeList getCourierPartnerSchemes(String schemeType, String paymentMode, List<String> capabilities, List<String> schemeIds, String q) throws FDKServerResponseError, FDKException {
-        return this.getCourierPartnerSchemes(schemeType, paymentMode, capabilities, schemeIds, q, new HashMap<>());
+    public ServiceabilityPlatformModels.CourierPartnerSchemeList getCourierPartnerSchemes(String extensionId, String schemeType, String paymentMode, List<String> capabilities, List<String> schemeIds, String q) throws FDKServerResponseError, FDKException {
+        return this.getCourierPartnerSchemes(extensionId, schemeType, paymentMode, capabilities, schemeIds, q, new HashMap<>());
     }
 
-    public ServiceabilityPlatformModels.CourierPartnerSchemeList getCourierPartnerSchemes(String schemeType, String paymentMode, List<String> capabilities, List<String> schemeIds, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public ServiceabilityPlatformModels.CourierPartnerSchemeList getCourierPartnerSchemes(String extensionId, String schemeType, String paymentMode, List<String> capabilities, List<String> schemeIds, String q, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<ServiceabilityPlatformModels.CourierPartnerSchemeList> response = null;
             try {
-                response = serviceabilityPlatformApiList.getCourierPartnerSchemes(this.companyId, schemeType, paymentMode, capabilities, schemeIds, q, requestHeaders).execute();
+                response = serviceabilityPlatformApiList.getCourierPartnerSchemes(this.companyId, extensionId, schemeType, paymentMode, capabilities, schemeIds, q, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

@@ -4817,6 +4817,12 @@ public static class LoyaltyPoints{
     
     
     
+    
+    @JsonProperty("discount_amount")
+    private Double discountAmount;
+    
+    
+    
 }
 
 
@@ -4923,6 +4929,12 @@ public static class RawBreakup{
     
     @JsonProperty("convenience_fee")
     private Double convenienceFee;
+    
+    
+    
+    
+    @JsonProperty("store_credit")
+    private Double storeCredit;
     
     
     
@@ -11714,6 +11726,31 @@ public static class CheckCart{
 
 
 /*
+    Model: CartCheckoutDetailsData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CartCheckoutDetailsData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("order_id")
+    private String orderId;
+    
+    
+    
+}
+
+
+/*
     Model: CartCheckoutDetails
 */
 @AllArgsConstructor
@@ -11737,7 +11774,7 @@ public static class CartCheckoutDetails{
     
     
     @JsonProperty("data")
-    private HashMap<String,Object> data;
+    private CartCheckoutDetailsData data;
     
     
     

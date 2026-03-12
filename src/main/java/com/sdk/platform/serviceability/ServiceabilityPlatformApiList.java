@@ -172,7 +172,7 @@ interface ServiceabilityPlatformApiList {
     Call<ServiceabilityPlatformModels.CourierPartnerSchemeModelSchema> createCourierPartnerScheme(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CourierPartnerSchemeDetailsModel payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/logistics/v2.0/company/{company_id}/courier-partner/scheme")
-    Call<ServiceabilityPlatformModels.CourierPartnerSchemeList> getCourierPartnerSchemes(@Path("company_id") String companyId, @Query("scheme_type") String schemeType, @Query("payment_mode") String paymentMode, @Query("capabilities") List<String> capabilities, @Query("scheme_ids") List<String> schemeIds, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+    Call<ServiceabilityPlatformModels.CourierPartnerSchemeList> getCourierPartnerSchemes(@Path("company_id") String companyId, @Query("extension_id") String extensionId, @Query("scheme_type") String schemeType, @Query("payment_mode") String paymentMode, @Query("capabilities") List<String> capabilities, @Query("scheme_ids") List<String> schemeIds, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT ("/service/platform/logistics/v2.0/company/{company_id}/courier-partner/scheme/{scheme_id}")
     Call<ServiceabilityPlatformModels.CourierPartnerSchemeModelSchema> updateCourierPartnerScheme(@Path("scheme_id") String schemeId, @Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CourierPartnerSchemeUpdateDetailsSchema payload, @HeaderMap Map<String, String> requestHeaders);

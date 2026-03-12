@@ -91,7 +91,7 @@ interface UserPlatformApiList {
     Call<UserPlatformModels.SuccessMessage> deleteUserAttribute(@Path("attribute_def_id") String attributeDefId, @Path("user_id") String userId, @Path("application_id") String applicationId, @Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/user/{user_id}")
-    Call<Object> getUserAttributesForUser(@Path("user_id") String userId, @Path("application_id") String applicationId, @Path("company_id") String companyId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
+    Call<UserPlatformModels.UserAttributeDefinitionsResponseSchema> getUserAttributesForUser(@Path("user_id") String userId, @Path("application_id") String applicationId, @Path("company_id") String companyId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/user/v1.0/company/{company_id}/application/{application_id}/user_attribute/user/{user_id}")
     Call<UserPlatformModels.BulkUserAttribute> updateUserAttributes(@Path("user_id") String userId, @Path("application_id") String applicationId, @Path("company_id") String companyId, @Body UserPlatformModels.CreateBulkUserAttribute payload, @HeaderMap Map<String, String> requestHeaders);

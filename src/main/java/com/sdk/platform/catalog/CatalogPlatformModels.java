@@ -3593,6 +3593,79 @@ public static class BulkInventoryGet{
 
 
 /*
+    Model: InventoryRecord
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InventoryRecord{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("command")
+    private String command;
+    
+    
+    
+    
+    @JsonProperty("currency")
+    private String currency;
+    
+    
+    
+    
+    @JsonProperty("inventory_bucket")
+    private String inventoryBucket;
+    
+    
+    
+    
+    @JsonProperty("price_effective")
+    private Double priceEffective;
+    
+    
+    
+    
+    @JsonProperty("price_marked")
+    private Double priceMarked;
+    
+    
+    
+    
+    @JsonProperty("seller_identifier")
+    private String sellerIdentifier;
+    
+    
+    
+    
+    @JsonProperty("store_code")
+    private String storeCode;
+    
+    
+    
+    
+    @JsonProperty("total_quantity")
+    private Integer totalQuantity;
+    
+    
+    
+    
+    @JsonProperty("trace_id")
+    private String traceId;
+    
+    
+    
+}
+
+
+/*
     Model: FailedRecord
 */
 @AllArgsConstructor
@@ -3617,6 +3690,12 @@ public static class FailedRecord{
     
     @JsonProperty("message")
     private String message;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<InventoryRecord> data;
     
     
     
@@ -3736,6 +3815,12 @@ public static class BulkInventoryGetItems{
     
     
     
+    @JsonProperty("error_file_url")
+    private String errorFileUrl;
+    
+    
+    
+    
     @JsonProperty("meta")
     private BulkMeta meta;
     
@@ -3769,6 +3854,18 @@ public static class BulkMeta{
     
     @JsonProperty("image_urls")
     private List<String> imageUrls;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
     
     
     
@@ -3945,6 +4042,18 @@ public static class BulkJob{
     
     @JsonProperty("tracking_url")
     private String trackingUrl;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
     
     
     
@@ -11520,7 +11629,7 @@ public static class InventoryExportJobListResponseSchema{
     
     
     @JsonProperty("items")
-    private InventoryJobDetailResponseSchema items;
+    private List<InventoryJobDetailResponseSchema> items;
     
     
     
@@ -12119,6 +12228,12 @@ public static class InventoryPayload{
     
     @JsonProperty("trace_id")
     private String traceId;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
     
     
     
@@ -18747,6 +18862,36 @@ public static class SizeDetails{
     
     
     
+    @JsonProperty("item_width")
+    private Double itemWidth;
+    
+    
+    
+    
+    @JsonProperty("item_length")
+    private Double itemLength;
+    
+    
+    
+    
+    @JsonProperty("item_height")
+    private Double itemHeight;
+    
+    
+    
+    
+    @JsonProperty("price_effective")
+    private Double priceEffective;
+    
+    
+    
+    
+    @JsonProperty("item_weight")
+    private Double itemWeight;
+    
+    
+    
+    
     @JsonProperty("store_count")
     private Integer storeCount;
     
@@ -22874,6 +23019,12 @@ public static class BulkInventoryJob{
     
     
     
+    @JsonProperty("created_on")
+    private String createdOn;
+    
+    
+    
+    
     @JsonProperty("meta")
     private BulkMeta meta;
     
@@ -23450,12 +23601,6 @@ public static class CreateTaxComponentNameRequestSchema{
     
     
     
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
 }
 
 
@@ -23472,6 +23617,12 @@ public static class TaxReqBodyVersion{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("scope")
+    private String scope;
     
     
     
@@ -23705,7 +23856,7 @@ public static class CreateTaxRequestBody{
     
     
     @JsonProperty("versions")
-    private List<TaxReqBodyVersion> versions;
+    private TaxReqBodyVersion versions;
     
     
     
@@ -23865,6 +24016,12 @@ public static class CreateTaxVersionRequestBody{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("scope")
+    private String scope;
     
     
     
@@ -24293,7 +24450,7 @@ public static class HSCodeItem{
     
     
     @JsonProperty("type")
-    private HsTypeEnum type;
+    private String type;
     
     
     

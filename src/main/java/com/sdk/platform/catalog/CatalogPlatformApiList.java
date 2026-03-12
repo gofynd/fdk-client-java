@@ -306,11 +306,11 @@ interface CatalogPlatformApiList {
     @DELETE ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/sizes/{size}")
     Call<CatalogPlatformModels.ProductSizeDeleteResponseSchema> deleteSize(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Path("size") String size, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/sizes/{size}")
+    Call<CatalogPlatformModels.SuccessResponseSchema> addInventory(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Path("size") String size, @Body CatalogPlatformModels.InventoryRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/sizes/{size}")
     Call<CatalogPlatformModels.InventoryResponsePaginated> getInventoryBySize(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Path("size") String size, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("q") String q, @Query("sellable") Boolean sellable, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/platform/catalog/v2.0/company/{company_id}/products/{item_id}/sizes/{size}")
-    Call<CatalogPlatformModels.SuccessResponseSchema> addInventory(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Path("size") String size, @Body CatalogPlatformModels.InventoryRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/products/{item_id}/variants/{variant_type}")
     Call<CatalogPlatformModels.ProductVariantsResponseSchema> getVariantsOfProducts(@Path("company_id") String companyId, @Path("item_id") Integer itemId, @Path("variant_type") String variantType, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
@@ -448,7 +448,7 @@ interface CatalogPlatformApiList {
     Call<CatalogPlatformModels.TaxVersion> updateTaxVersion(@Path("rule_id") String ruleId, @Path("version_id") String versionId, @Path("company_id") String companyId, @Body CatalogPlatformModels.UpdateTaxVersionRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/taxes/hscodes")
-    Call<CatalogPlatformModels.HSCodes> getHsCodes(@Path("company_id") String companyId, @Query("page") Integer page, @Query("limit") Integer limit, @Query("type") CatalogPlatformModels.HsTypeEnum type, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogPlatformModels.HSCodes> getHsCodes(@Path("company_id") String companyId, @Query("page") Integer page, @Query("limit") Integer limit, @Query("type") String type, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
     @POST ("/service/platform/catalog/v1.0/company/{company_id}/taxes/hscodes")
     Call<CatalogPlatformModels.HSCodeItem> createHsCode(@Path("company_id") String companyId, @Body CatalogPlatformModels.HSCodeItem payload, @HeaderMap Map<String, String> requestHeaders);

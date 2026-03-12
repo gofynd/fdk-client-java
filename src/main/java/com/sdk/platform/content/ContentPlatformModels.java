@@ -8477,7 +8477,7 @@ public static class ResourceUISchema{
     
     
     @JsonProperty("seo")
-    private Seo seo;
+    private SeoTranslate seo;
     
     
     
@@ -8566,7 +8566,7 @@ public static class FeatureImage{
 
 
 /*
-    Model: Seo
+    Model: SeoTranslate
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8574,7 +8574,7 @@ public static class FeatureImage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Seo{
+public static class SeoTranslate{
 
     
 

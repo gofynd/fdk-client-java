@@ -94,7 +94,7 @@ interface CartApplicationApiList {
     Call<CartApplicationModels.PromotionPaymentOffersResult> getPromotionPaymentOffers(@Url String url1, @Query("id") String id, @Query("uid") Integer uid, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.CartCheckoutResult> checkoutCartV2(@Url String url1, @Header("x-ordering-source") String xOrderingSource, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailV2Creation payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.CartCheckoutResult> checkoutCartV2(@Url String url1, @Header("x-ordering-source") String xOrderingSource, @Header("x-location-detail") String xLocationDetail, @Header("x-currency-code") String xCurrencyCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.CartCheckoutDetailV2Creation payload, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CartApplicationModels.GetOfferResult> getOffers(@Url String url1, @Query("mode") String mode, @Query("id") String id, @Query("buy_now") Boolean buyNow, @Query("product_slug") String productSlug, @Query("store_id") String storeId, @Query("type") Boolean type, @Query("product_size") String productSize, @HeaderMap Map<String, String> requestHeaders);

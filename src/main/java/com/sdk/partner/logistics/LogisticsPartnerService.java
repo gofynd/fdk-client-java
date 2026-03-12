@@ -1339,16 +1339,20 @@ public class LogisticsPartnerService {
     
     
     
+    
+    
+    
+    
 
-    public LogisticsPartnerModels.CourierPartnerSchemeList getCourierPartnerSchemes(String schemeType, String paymentMode, List<String> capabilities, List<String> schemeIds) throws FDKServerResponseError, FDKException {
-        return this.getCourierPartnerSchemes(schemeType, paymentMode, capabilities, schemeIds, new HashMap<>());
+    public LogisticsPartnerModels.CourierPartnerSchemeList getCourierPartnerSchemes(String extensionId, String schemeType, String paymentMode, List<String> capabilities, List<String> schemeIds) throws FDKServerResponseError, FDKException {
+        return this.getCourierPartnerSchemes(extensionId, schemeType, paymentMode, capabilities, schemeIds, new HashMap<>());
     }
 
-    public LogisticsPartnerModels.CourierPartnerSchemeList getCourierPartnerSchemes(String schemeType, String paymentMode, List<String> capabilities, List<String> schemeIds, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public LogisticsPartnerModels.CourierPartnerSchemeList getCourierPartnerSchemes(String extensionId, String schemeType, String paymentMode, List<String> capabilities, List<String> schemeIds, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.partnerConfig.getPartnerOauthClient().isAccessTokenValid()) {
             Response<LogisticsPartnerModels.CourierPartnerSchemeList> response = null;
             try {
-                response = logisticsPartnerApiList.getCourierPartnerSchemes(this.organizationId, schemeType, paymentMode, capabilities, schemeIds, requestHeaders).execute();
+                response = logisticsPartnerApiList.getCourierPartnerSchemes(this.organizationId, extensionId, schemeType, paymentMode, capabilities, schemeIds, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

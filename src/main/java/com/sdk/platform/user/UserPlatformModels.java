@@ -70,6 +70,37 @@ public static class UserAttributeDefinitionList{
 
 
 /*
+    Model: UserAttributeDefinitionsResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributeDefinitionsResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<UserAttribute> items;
+    
+    
+    
+    
+    @JsonProperty("page")
+    private PaginationSchema page;
+    
+    
+    
+}
+
+
+/*
     Model: UserAttributeDefinition
 */
 @AllArgsConstructor
@@ -202,6 +233,12 @@ public static class UserAttributeDefinition{
     
     @JsonProperty("__v")
     private Integer v;
+    
+    
+    
+    
+    @JsonProperty("options")
+    private List<String> options;
     
     
     
@@ -611,7 +648,7 @@ public static class BulkUserAttributeRequestBody{
     
     
     @JsonProperty("value")
-    private HashMap<String,Object> value;
+    private Object value;
     
     
     

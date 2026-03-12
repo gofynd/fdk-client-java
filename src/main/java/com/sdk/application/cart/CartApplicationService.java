@@ -578,15 +578,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.CartCheckoutResult checkoutCartV2(String xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body) throws IOException {
-        return this.checkoutCartV2(xOrderingSource, buyNow, cartType, body, new HashMap<>());
+    public CartApplicationModels.CartCheckoutResult checkoutCartV2(String xOrderingSource, String xLocationDetail, String xCurrencyCode, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body) throws IOException {
+        return this.checkoutCartV2(xOrderingSource, xLocationDetail, xCurrencyCode, buyNow, cartType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.CartCheckoutResult checkoutCartV2(String xOrderingSource, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.CartCheckoutResult checkoutCartV2(String xOrderingSource, String xLocationDetail, String xCurrencyCode, Boolean buyNow, String cartType, CartApplicationModels.CartCheckoutDetailV2Creation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("checkoutCartV2");
 
-        Response<CartApplicationModels.CartCheckoutResult> response = cartApplicationApiList.checkoutCartV2(fullUrl, xOrderingSource, buyNow, cartType, body, requestHeaders).execute();
+        Response<CartApplicationModels.CartCheckoutResult> response = cartApplicationApiList.checkoutCartV2(fullUrl, xOrderingSource, xLocationDetail, xCurrencyCode, buyNow, cartType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

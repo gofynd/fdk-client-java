@@ -787,11 +787,11 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.OpenapiCartDetailsResult fetchAndvalidateCartItems(String xOrderingSource, CartPlatformModels.OpenapiCartDetailsCreation body) throws FDKServerResponseError, FDKException {
-        return this.fetchAndvalidateCartItems(xOrderingSource, body, new HashMap<>());
+    public CartPlatformModels.OpenapiCartDetailsResult fetchAndvalidateCartItems(String xOrderingSource, String xLocationDetail, String xCurrencyCode, CartPlatformModels.OpenapiCartDetailsCreation body) throws FDKServerResponseError, FDKException {
+        return this.fetchAndvalidateCartItems(xOrderingSource, xLocationDetail, xCurrencyCode, body, new HashMap<>());
     }
 
-    public CartPlatformModels.OpenapiCartDetailsResult fetchAndvalidateCartItems(String xOrderingSource, CartPlatformModels.OpenapiCartDetailsCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.OpenapiCartDetailsResult fetchAndvalidateCartItems(String xOrderingSource, String xLocationDetail, String xCurrencyCode, CartPlatformModels.OpenapiCartDetailsCreation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.OpenapiCartDetailsResult> response = null;
             try {
@@ -841,11 +841,11 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.OpenApiCheckoutResult checkoutCart(String xOrderingSource, String xAnonymousCart, CartPlatformModels.OpenApiPlatformCheckoutReq body) throws FDKServerResponseError, FDKException {
-        return this.checkoutCart(xOrderingSource, xAnonymousCart, body, new HashMap<>());
+    public CartPlatformModels.OpenApiCheckoutResult checkoutCart(String xOrderingSource, String xAnonymousCart, String xLocationDetail, String xCurrencyCode, CartPlatformModels.OpenApiPlatformCheckoutReq body) throws FDKServerResponseError, FDKException {
+        return this.checkoutCart(xOrderingSource, xAnonymousCart, xLocationDetail, xCurrencyCode, body, new HashMap<>());
     }
 
-    public CartPlatformModels.OpenApiCheckoutResult checkoutCart(String xOrderingSource, String xAnonymousCart, CartPlatformModels.OpenApiPlatformCheckoutReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.OpenApiCheckoutResult checkoutCart(String xOrderingSource, String xAnonymousCart, String xLocationDetail, String xCurrencyCode, CartPlatformModels.OpenApiPlatformCheckoutReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.OpenApiCheckoutResult> response = null;
             try {
@@ -1057,11 +1057,11 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.OverrideCheckoutResult overrideCart(String xOrderingSource, CartPlatformModels.OverrideCheckoutReq body) throws FDKServerResponseError, FDKException {
-        return this.overrideCart(xOrderingSource, body, new HashMap<>());
+    public CartPlatformModels.OverrideCheckoutResult overrideCart(String xOrderingSource, String xLocationDetail, String xCurrencyCode, CartPlatformModels.OverrideCheckoutReq body) throws FDKServerResponseError, FDKException {
+        return this.overrideCart(xOrderingSource, xLocationDetail, xCurrencyCode, body, new HashMap<>());
     }
 
-    public CartPlatformModels.OverrideCheckoutResult overrideCart(String xOrderingSource, CartPlatformModels.OverrideCheckoutReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.OverrideCheckoutResult overrideCart(String xOrderingSource, String xLocationDetail, String xCurrencyCode, CartPlatformModels.OverrideCheckoutReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.OverrideCheckoutResult> response = null;
             try {
@@ -1840,11 +1840,11 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.CartCheckoutDetails platformCheckoutCartV2(String xOrderingSource, String id, CartPlatformModels.PlatformCartCheckoutDetailV2Creation body) throws FDKServerResponseError, FDKException {
-        return this.platformCheckoutCartV2(xOrderingSource, id, body, new HashMap<>());
+    public CartPlatformModels.CartCheckoutDetails platformCheckoutCartV2(String xOrderingSource, String xAnonymousCart, String xLocationDetail, String xCurrencyCode, String id, CartPlatformModels.PlatformCartCheckoutDetailV2Creation body) throws FDKServerResponseError, FDKException {
+        return this.platformCheckoutCartV2(xOrderingSource, xAnonymousCart, xLocationDetail, xCurrencyCode, id, body, new HashMap<>());
     }
 
-    public CartPlatformModels.CartCheckoutDetails platformCheckoutCartV2(String xOrderingSource, String id, CartPlatformModels.PlatformCartCheckoutDetailV2Creation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartCheckoutDetails platformCheckoutCartV2(String xOrderingSource, String xAnonymousCart, String xLocationDetail, String xCurrencyCode, String id, CartPlatformModels.PlatformCartCheckoutDetailV2Creation body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartCheckoutDetails> response = null;
             try {
