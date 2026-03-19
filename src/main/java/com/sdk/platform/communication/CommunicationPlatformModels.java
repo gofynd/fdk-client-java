@@ -3856,6 +3856,12 @@ public static class SendOtpCommsReqData{
     
     
     
+    
+    @JsonProperty("additional_template_variables")
+    private HashMap<String,Object> additionalTemplateVariables;
+    
+    
+    
 }
 
 

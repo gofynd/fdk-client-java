@@ -2753,6 +2753,12 @@ public static class Shipments{
     
     
     
+    @JsonProperty("affiliate_shipment_id")
+    private String affiliateShipmentId;
+    
+    
+    
+    
     @JsonProperty("fulfilling_store")
     private FulfillingStore fulfillingStore;
     
@@ -3393,6 +3399,12 @@ public static class ShipmentInfo{
     
     @JsonProperty("shipment_id")
     private String shipmentId;
+    
+    
+    
+    
+    @JsonProperty("affiliate_shipment_id")
+    private String affiliateShipmentId;
     
     
     
