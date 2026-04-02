@@ -113,15 +113,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.AddCartDetailResult addItems(String xOrderingSource, Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body) throws IOException {
-        return this.addItems(xOrderingSource, i, b, areaCode, buyNow, id, orderType, body, new HashMap<>());
+    public CartApplicationModels.AddCartDetailResult addItems(String xOrderingSource, Boolean i, Boolean b, Boolean includeCartCalculation, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body) throws IOException {
+        return this.addItems(xOrderingSource, i, b, includeCartCalculation, areaCode, buyNow, id, orderType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.AddCartDetailResult addItems(String xOrderingSource, Boolean i, Boolean b, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.AddCartDetailResult addItems(String xOrderingSource, Boolean i, Boolean b, Boolean includeCartCalculation, String areaCode, Boolean buyNow, String id, String orderType, CartApplicationModels.AddCartCreation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("addItems");
 
-        Response<CartApplicationModels.AddCartDetailResult> response = cartApplicationApiList.addItems(fullUrl, xOrderingSource, i, b, areaCode, buyNow, id, orderType, body, requestHeaders).execute();
+        Response<CartApplicationModels.AddCartDetailResult> response = cartApplicationApiList.addItems(fullUrl, xOrderingSource, i, b, includeCartCalculation, areaCode, buyNow, id, orderType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -130,15 +130,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.UpdateCartDetailResult updateCart(String xOrderingSource, String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body) throws IOException {
-        return this.updateCart(xOrderingSource, id, i, b, areaCode, buyNow, cartType, orderType, body, new HashMap<>());
+    public CartApplicationModels.UpdateCartDetailResult updateCart(String xOrderingSource, String id, Boolean i, Boolean b, Boolean includeCartCalculation, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body) throws IOException {
+        return this.updateCart(xOrderingSource, id, i, b, includeCartCalculation, areaCode, buyNow, cartType, orderType, body, new HashMap<>());
     }
 
-    public CartApplicationModels.UpdateCartDetailResult updateCart(String xOrderingSource, String id, Boolean i, Boolean b, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.UpdateCartDetailResult updateCart(String xOrderingSource, String id, Boolean i, Boolean b, Boolean includeCartCalculation, String areaCode, Boolean buyNow, String cartType, String orderType, CartApplicationModels.UpdateCartCreation body, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("updateCart");
 
-        Response<CartApplicationModels.UpdateCartDetailResult> response = cartApplicationApiList.updateCart(fullUrl, xOrderingSource, id, i, b, areaCode, buyNow, cartType, orderType, body, requestHeaders).execute();
+        Response<CartApplicationModels.UpdateCartDetailResult> response = cartApplicationApiList.updateCart(fullUrl, xOrderingSource, id, i, b, includeCartCalculation, areaCode, buyNow, cartType, orderType, body, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

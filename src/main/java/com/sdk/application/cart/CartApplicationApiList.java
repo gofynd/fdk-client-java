@@ -13,10 +13,10 @@ interface CartApplicationApiList {
     Call<Object> getCartLastModified(@Url String url1, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);
 
     @POST 
-    Call<CartApplicationModels.AddCartDetailResult> addItems(@Url String url1, @Header("x-ordering-source") String xOrderingSource, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("id") String id, @Query("order_type") String orderType, @Body CartApplicationModels.AddCartCreation payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.AddCartDetailResult> addItems(@Url String url1, @Header("x-ordering-source") String xOrderingSource, @Query("i") Boolean i, @Query("b") Boolean b, @Query("include_cart_calculation") Boolean includeCartCalculation, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("id") String id, @Query("order_type") String orderType, @Body CartApplicationModels.AddCartCreation payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PUT 
-    Call<CartApplicationModels.UpdateCartDetailResult> updateCart(@Url String url1, @Header("x-ordering-source") String xOrderingSource, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Query("order_type") String orderType, @Body CartApplicationModels.UpdateCartCreation payload, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.UpdateCartDetailResult> updateCart(@Url String url1, @Header("x-ordering-source") String xOrderingSource, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("include_cart_calculation") Boolean includeCartCalculation, @Query("area_code") String areaCode, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Query("order_type") String orderType, @Body CartApplicationModels.UpdateCartCreation payload, @HeaderMap Map<String, String> requestHeaders);
 
     @PATCH 
     Call<CartApplicationModels.UpdateCartDetailResult> updateCartBreakup(@Url String url1, @Header("x-ordering-source") String xOrderingSource, @Query("id") String id, @Query("i") Boolean i, @Query("b") Boolean b, @Query("buy_now") Boolean buyNow, @Query("cart_type") String cartType, @Body CartApplicationModels.UpdateCartBreakup payload, @HeaderMap Map<String, String> requestHeaders);

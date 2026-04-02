@@ -1246,15 +1246,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.AddCartDetailResult platformAddItems(String xOrderingSource, String xAnonymousCart, Boolean i, Boolean b, Boolean buyNow, String orderType, String id, CartPlatformModels.PlatformAddCartDetails body) throws FDKServerResponseError, FDKException {
-        return this.platformAddItems(xOrderingSource, xAnonymousCart, i, b, buyNow, orderType, id, body, new HashMap<>());
+    public CartPlatformModels.AddCartDetailResult platformAddItems(String xOrderingSource, String xAnonymousCart, Boolean i, Boolean b, Boolean includeCartCalculation, Boolean buyNow, String orderType, String id, CartPlatformModels.PlatformAddCartDetails body) throws FDKServerResponseError, FDKException {
+        return this.platformAddItems(xOrderingSource, xAnonymousCart, i, b, includeCartCalculation, buyNow, orderType, id, body, new HashMap<>());
     }
 
-    public CartPlatformModels.AddCartDetailResult platformAddItems(String xOrderingSource, String xAnonymousCart, Boolean i, Boolean b, Boolean buyNow, String orderType, String id, CartPlatformModels.PlatformAddCartDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.AddCartDetailResult platformAddItems(String xOrderingSource, String xAnonymousCart, Boolean i, Boolean b, Boolean includeCartCalculation, Boolean buyNow, String orderType, String id, CartPlatformModels.PlatformAddCartDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.AddCartDetailResult> response = null;
             try {
-            response = cartPlatformApiList.platformAddItems(this.companyId, this.applicationId, i, b, buyNow, orderType, id, body, requestHeaders).execute();
+            response = cartPlatformApiList.platformAddItems(this.companyId, this.applicationId, i, b, includeCartCalculation, buyNow, orderType, id, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1273,15 +1273,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.UpdateCartDetailResult platformUpdateCart(String xOrderingSource, String xAnonymousCart, String id, Boolean i, String orderType, Boolean b, Boolean buyNow, CartPlatformModels.PlatformUpdateCartDetails body) throws FDKServerResponseError, FDKException {
-        return this.platformUpdateCart(xOrderingSource, xAnonymousCart, id, i, orderType, b, buyNow, body, new HashMap<>());
+    public CartPlatformModels.UpdateCartDetailResult platformUpdateCart(String xOrderingSource, String xAnonymousCart, String id, Boolean i, String orderType, Boolean b, Boolean includeCartCalculation, Boolean buyNow, CartPlatformModels.PlatformUpdateCartDetails body) throws FDKServerResponseError, FDKException {
+        return this.platformUpdateCart(xOrderingSource, xAnonymousCart, id, i, orderType, b, includeCartCalculation, buyNow, body, new HashMap<>());
     }
 
-    public CartPlatformModels.UpdateCartDetailResult platformUpdateCart(String xOrderingSource, String xAnonymousCart, String id, Boolean i, String orderType, Boolean b, Boolean buyNow, CartPlatformModels.PlatformUpdateCartDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.UpdateCartDetailResult platformUpdateCart(String xOrderingSource, String xAnonymousCart, String id, Boolean i, String orderType, Boolean b, Boolean includeCartCalculation, Boolean buyNow, CartPlatformModels.PlatformUpdateCartDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.UpdateCartDetailResult> response = null;
             try {
-            response = cartPlatformApiList.platformUpdateCart(this.companyId, this.applicationId, id, i, orderType, b, buyNow, body, requestHeaders).execute();
+            response = cartPlatformApiList.platformUpdateCart(this.companyId, this.applicationId, id, i, orderType, b, includeCartCalculation, buyNow, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1300,15 +1300,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.CartDetailResult updateCartBreakup(String xOrderingSource, String xAnonymousCart, String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.UpdateCartBreakup body) throws FDKServerResponseError, FDKException {
-        return this.updateCartBreakup(xOrderingSource, xAnonymousCart, id, i, b, buyNow, body, new HashMap<>());
+    public CartPlatformModels.CartDetailResult updateCartBreakup(String xOrderingSource, String xAnonymousCart, String id, Boolean i, Boolean b, Boolean includeCartCalculation, Boolean buyNow, CartPlatformModels.UpdateCartBreakup body) throws FDKServerResponseError, FDKException {
+        return this.updateCartBreakup(xOrderingSource, xAnonymousCart, id, i, b, includeCartCalculation, buyNow, body, new HashMap<>());
     }
 
-    public CartPlatformModels.CartDetailResult updateCartBreakup(String xOrderingSource, String xAnonymousCart, String id, Boolean i, Boolean b, Boolean buyNow, CartPlatformModels.UpdateCartBreakup body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CartDetailResult updateCartBreakup(String xOrderingSource, String xAnonymousCart, String id, Boolean i, Boolean b, Boolean includeCartCalculation, Boolean buyNow, CartPlatformModels.UpdateCartBreakup body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CartDetailResult> response = null;
             try {
-            response = cartPlatformApiList.updateCartBreakup(this.companyId, this.applicationId, id, i, b, buyNow, body, requestHeaders).execute();
+            response = cartPlatformApiList.updateCartBreakup(this.companyId, this.applicationId, id, i, b, includeCartCalculation, buyNow, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

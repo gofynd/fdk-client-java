@@ -14576,6 +14576,18 @@ public static class Prices{
     
     
     
+    
+    @JsonProperty("marketplace_promotion_effective_discount")
+    private Double marketplacePromotionEffectiveDiscount;
+    
+    
+    
+    
+    @JsonProperty("seller_promotion_effective_discount")
+    private Double sellerPromotionEffectiveDiscount;
+    
+    
+    
 }
 
 

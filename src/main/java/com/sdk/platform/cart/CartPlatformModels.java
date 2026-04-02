@@ -3986,6 +3986,12 @@ public static class Article{
     
     
     
+    
+    @JsonProperty("identifier")
+    private String identifier;
+    
+    
+    
 }
 
 
