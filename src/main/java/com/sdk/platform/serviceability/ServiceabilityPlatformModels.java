@@ -14,6 +14,110 @@ public class ServiceabilityPlatformModels{
 
 
 /*
+    Model: GenerateShipmentsAndCourierPartnerResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GenerateShipmentsAndCourierPartnerResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("journey")
+    private String journey;
+    
+    
+    
+    
+    @JsonProperty("to_serviceability")
+    private CourierPartnerToServiceability toServiceability;
+    
+    
+    
+    
+    @JsonProperty("shipments")
+    private List<CourierPartnerShipments> shipments;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private String paymentMode;
+    
+    
+    
+    
+    @JsonProperty("to_city")
+    private String toCity;
+    
+    
+    
+    
+    @JsonProperty("is_cod_available")
+    private Boolean isCodAvailable;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("to_serviceability")
+    private LocationDetailsServiceability toServiceability;
+    
+    
+    
+    
+    @JsonProperty("shipments")
+    private List<CourierPartnerShipments> shipments;
+    
+    
+    
+    
+    @JsonProperty("journey")
+    private String journey;
+    
+    
+    
+    
+    @JsonProperty("payment_mode")
+    private String paymentMode;
+    
+    
+    
+    
+    @JsonProperty("skip_delivery_rules")
+    private Boolean skipDeliveryRules;
+    
+    
+    
+}
+
+
+/*
     Model: PlatformShipmentsRequestSchema
 */
 @AllArgsConstructor
@@ -5994,6 +6098,1394 @@ public static class CompanyConfigurationSchema{
 
 
 /*
+    Model: StorePolygonServiceabilityRequestBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityRequestBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("data")
+    private StorePolygonServiceabilityRequestData data;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<StorePolygonServiceabilityStoreSummary> data;
+    
+    
+    
+    
+    @JsonProperty("errors")
+    private List<StorePolygonServiceabilityError> errors;
+    
+    
+    
+    
+    @JsonProperty("identifier")
+    private String identifier;
+    
+    
+    
+    
+    @JsonProperty("failed_entries")
+    private List<StorePolygonServiceabilityError> failedEntries;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityGetResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityGetResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private List<StorePolygonServiceabilityStore> data;
+    
+    
+    
+    
+    @JsonProperty("errors")
+    private List<StorePolygonServiceabilityError> errors;
+    
+    
+    
+    
+    @JsonProperty("identifier")
+    private String identifier;
+    
+    
+    
+    
+    @JsonProperty("failed_entries")
+    private List<StorePolygonServiceabilityError> failedEntries;
+    
+    
+    
+    
+    @JsonProperty("pagination")
+    private StorePolygonServiceabilityPagination pagination;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsBulkPatchDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsBulkPatchDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("file_url")
+    private String fileUrl;
+    
+    
+    
+}
+
+
+/*
+    Model: GetZoneProductsBulkPatchResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class GetZoneProductsBulkPatchResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("batch_id")
+    private String batchId;
+    
+    
+    
+    
+    @JsonProperty("file_path")
+    private String filePath;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private Integer failed;
+    
+    
+    
+    
+    @JsonProperty("error_file_url")
+    private String errorFileUrl;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("updated_by")
+    private String updatedBy;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("stage")
+    private String stage;
+    
+    
+    
+    
+    @JsonProperty("partial")
+    private Integer partial;
+    
+    
+    
+    
+    @JsonProperty("result_file_url")
+    private String resultFileUrl;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerToServiceability
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerToServiceability{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("location")
+    private ServiceabilityLocation location;
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("sector")
+    private String sector;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("country_iso_code")
+    private String countryIsoCode;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+}
+
+
+/*
+    Model: ServiceabilityLocation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ServiceabilityLocation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("longitude")
+    private String longitude;
+    
+    
+    
+    
+    @JsonProperty("latitude")
+    private String latitude;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerShipments
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerShipments{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("promise")
+    private PromiseObject promise;
+    
+    
+    
+    
+    @JsonProperty("is_cod_available")
+    private Boolean isCodAvailable;
+    
+    
+    
+    
+    @JsonProperty("is_auto_assign")
+    private Boolean isAutoAssign;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private CourierPartnerShipmentsMeta meta;
+    
+    
+    
+    
+    @JsonProperty("volumetric_weight")
+    private Integer volumetricWeight;
+    
+    
+    
+    
+    @JsonProperty("weight")
+    private Integer weight;
+    
+    
+    
+    
+    @JsonProperty("courier_partners")
+    private List<ShipmentCourierPartnersResult> courierPartners;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_id")
+    private Integer fulfillmentId;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_type")
+    private String fulfillmentType;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_tags")
+    private List<String> fulfillmentTags;
+    
+    
+    
+    
+    @JsonProperty("from_serviceability")
+    private LocationDetailsServiceability fromServiceability;
+    
+    
+    
+    
+    @JsonProperty("articles")
+    private List<CourierPartnerShipmentsArticles> articles;
+    
+    
+    
+    
+    @JsonProperty("is_mto")
+    private Boolean isMto;
+    
+    
+    
+    
+    @JsonProperty("ignore_scheme_ids")
+    private List<String> ignoreSchemeIds;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private HashMap<String,Object> error;
+    
+    
+    
+}
+
+
+/*
+    Model: PromiseObject
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromiseObject{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+    
+    @JsonProperty("customer_promise")
+    private PromiseData customerPromise;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private PromiseMeta meta;
+    
+    
+    
+}
+
+
+/*
+    Model: PromiseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromiseData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+}
+
+
+/*
+    Model: PromiseMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PromiseMeta{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("seller_promise")
+    private PromiseData sellerPromise;
+    
+    
+    
+    
+    @JsonProperty("courier_partner_promise")
+    private CourierPartnerPromiseData courierPartnerPromise;
+    
+    
+    
+    
+    @JsonProperty("customer_initial_promise")
+    private PromiseData customerInitialPromise;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerPromiseData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerPromiseData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private DeliveryTat attributes;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliveryTat
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliveryTat{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("tat")
+    private DeliveryTatSchema tat;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliveryTatSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliveryTatSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Integer min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerShipmentsMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerShipmentsMeta{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("shipment_cost")
+    private Integer shipmentCost;
+    
+    
+    
+}
+
+
+/*
+    Model: ShipmentCourierPartnersResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipmentCourierPartnersResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("extension_id")
+    private String extensionId;
+    
+    
+    
+    
+    @JsonProperty("scheme_id")
+    private String schemeId;
+    
+    
+    
+    
+    @JsonProperty("area_code")
+    private AreaCode areaCode;
+    
+    
+    
+    
+    @JsonProperty("tat")
+    private TAT tat;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("is_qc_enabled")
+    private Boolean isQcEnabled;
+    
+    
+    
+    
+    @JsonProperty("is_self_ship")
+    private Boolean isSelfShip;
+    
+    
+    
+    
+    @JsonProperty("is_own_account")
+    private Boolean isOwnAccount;
+    
+    
+    
+    
+    @JsonProperty("ndr_attempts")
+    private Integer ndrAttempts;
+    
+    
+    
+    
+    @JsonProperty("forward_pickup_cutoff")
+    private String forwardPickupCutoff;
+    
+    
+    
+    
+    @JsonProperty("reverse_pickup_cutoff")
+    private String reversePickupCutoff;
+    
+    
+    
+    
+    @JsonProperty("qc_shipment_item_quantity")
+    private Integer qcShipmentItemQuantity;
+    
+    
+    
+    
+    @JsonProperty("non_qc_shipment_item_quantity")
+    private Integer nonQcShipmentItemQuantity;
+    
+    
+    
+    
+    @JsonProperty("dangerous_goods")
+    private Boolean dangerousGoods;
+    
+    
+    
+    
+    @JsonProperty("restricted_goods")
+    private Boolean restrictedGoods;
+    
+    
+    
+    
+    @JsonProperty("fragile_goods")
+    private Boolean fragileGoods;
+    
+    
+    
+    
+    @JsonProperty("cold_storage_goods")
+    private Boolean coldStorageGoods;
+    
+    
+    
+    
+    @JsonProperty("delivery_type")
+    private String deliveryType;
+    
+    
+    
+    
+    @JsonProperty("is_cod")
+    private Boolean isCod;
+    
+    
+    
+    
+    @JsonProperty("transport_type")
+    private String transportType;
+    
+    
+    
+}
+
+
+/*
+    Model: AreaCode
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AreaCode{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+    
+    @JsonProperty("destination")
+    private String destination;
+    
+    
+    
+}
+
+
+/*
+    Model: TAT
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TAT{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private Integer min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private Integer max;
+    
+    
+    
+}
+
+
+/*
+    Model: LocationDetailsServiceability
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class LocationDetailsServiceability{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("pincode")
+    private String pincode;
+    
+    
+    
+    
+    @JsonProperty("sector")
+    private String sector;
+    
+    
+    
+    
+    @JsonProperty("state")
+    private String state;
+    
+    
+    
+    
+    @JsonProperty("country")
+    private String country;
+    
+    
+    
+    
+    @JsonProperty("city")
+    private String city;
+    
+    
+    
+    
+    @JsonProperty("country_iso_code")
+    private String countryIsoCode;
+    
+    
+    
+    
+    @JsonProperty("location")
+    private ServiceabilityLocation location;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerShipmentsArticles
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerShipmentsArticles{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("delivery_slots")
+    private HashMap<String,Object> deliverySlots;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private Error error;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_id")
+    private Integer fulfillmentId;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_tags")
+    private List<String> fulfillmentTags;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_type")
+    private String fulfillmentType;
+    
+    
+    
+    
+    @JsonProperty("group_id")
+    private String groupId;
+    
+    
+    
+    
+    @JsonProperty("is_gift")
+    private Boolean isGift;
+    
+    
+    
+    
+    @JsonProperty("is_mto")
+    private Boolean isMto;
+    
+    
+    
+    
+    @JsonProperty("is_set")
+    private Boolean isSet;
+    
+    
+    
+    
+    @JsonProperty("manufacturing_time")
+    private Integer manufacturingTime;
+    
+    
+    
+    
+    @JsonProperty("manufacturing_time_unit")
+    private String manufacturingTimeUnit;
+    
+    
+    
+    
+    @JsonProperty("mto_quantity")
+    private Integer mtoQuantity;
+    
+    
+    
+    
+    @JsonProperty("sla")
+    private String sla;
+    
+    
+    
+    
+    @JsonProperty("price_marked")
+    private Double priceMarked;
+    
+    
+    
+    
+    @JsonProperty("promise")
+    private CourierPartnerArticlesPromise promise;
+    
+    
+    
+    
+    @JsonProperty("set")
+    private HashMap<String,Object> set;
+    
+    
+    
+    
+    @JsonProperty("return_reason")
+    private CourierPartnerArticlesReturnReasons returnReason;
+    
+    
+    
+    
+    @JsonProperty("set_quantity")
+    private Integer setQuantity;
+    
+    
+    
+    
+    @JsonProperty("quantity")
+    private Integer quantity;
+    
+    
+    
+    
+    @JsonProperty("weight")
+    private ArticleWeight weight;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private ArticleAttributes attributes;
+    
+    
+    
+    
+    @JsonProperty("category_id")
+    private Integer categoryId;
+    
+    
+    
+    
+    @JsonProperty("dimension")
+    private ArticleDimension dimension;
+    
+    
+    
+    
+    @JsonProperty("brand_id")
+    private Integer brandId;
+    
+    
+    
+    
+    @JsonProperty("item_id")
+    private Integer itemId;
+    
+    
+    
+    
+    @JsonProperty("size")
+    private String size;
+    
+    
+    
+    
+    @JsonProperty("tags")
+    private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("department_id")
+    private Integer departmentId;
+    
+    
+    
+    
+    @JsonProperty("price")
+    private Double price;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerArticlesPromise
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerArticlesPromise{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("min")
+    private String min;
+    
+    
+    
+    
+    @JsonProperty("max")
+    private String max;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerArticlesReturnReasons
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerArticlesReturnReasons{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private Integer id;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private CourierPartnerArticlesReturnReasonsMeta meta;
+    
+    
+    
+    
+    @JsonProperty("qc_type")
+    private List<String> qcType;
+    
+    
+    
+    
+    @JsonProperty("reasons")
+    private List<String> reasons;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("question_set")
+    private List<String> questionSet;
+    
+    
+    
+    
+    @JsonProperty("reason_other_text")
+    private String reasonOtherText;
+    
+    
+    
+}
+
+
+/*
+    Model: CourierPartnerArticlesReturnReasonsMeta
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CourierPartnerArticlesReturnReasonsMeta{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("show_text_area")
+    private Boolean showTextArea;
+    
+    
+    
+}
+
+
+/*
+    Model: ArticleWeight
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ArticleWeight{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("shipping")
+    private Integer shipping;
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private String unit;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+}
+
+
+/*
+    Model: ArticleAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ArticleAttributes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("battery_operated")
+    private String batteryOperated;
+    
+    
+    
+    
+    @JsonProperty("is_flammable")
+    private String isFlammable;
+    
+    
+    
+}
+
+
+/*
+    Model: ArticleDimension
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ArticleDimension{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("height")
+    private Double height;
+    
+    
+    
+    
+    @JsonProperty("is_default")
+    private Boolean isDefault;
+    
+    
+    
+    
+    @JsonProperty("length")
+    private Double length;
+    
+    
+    
+    
+    @JsonProperty("unit")
+    private String unit;
+    
+    
+    
+    
+    @JsonProperty("width")
+    private Double width;
+    
+    
+    
+}
+
+
+/*
     Model: PlatformLocationArticles
 */
 @AllArgsConstructor
@@ -7051,68 +8543,6 @@ public static class ShipmentsCourierPartner{
     
     @JsonProperty("non_qc_shipment_item_quantity")
     private Integer nonQcShipmentItemQuantity;
-    
-    
-    
-}
-
-
-/*
-    Model: AreaCode
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AreaCode{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-    
-    @JsonProperty("destination")
-    private String destination;
-    
-    
-    
-}
-
-
-/*
-    Model: TAT
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TAT{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("min")
-    private Integer min;
-    
-    
-    
-    
-    @JsonProperty("max")
-    private Integer max;
     
     
     
@@ -8367,6 +9797,12 @@ public static class ProductSchema{
     
     @JsonProperty("values")
     private List<Object> values;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
     
     
     
@@ -10296,123 +11732,6 @@ public static class ShipmentsArticles{
 
 
 /*
-    Model: ArticleWeight
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArticleWeight{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("shipping")
-    private Integer shipping;
-    
-    
-    
-    
-    @JsonProperty("unit")
-    private String unit;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-}
-
-
-/*
-    Model: ArticleAttributes
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArticleAttributes{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("battery_operated")
-    private String batteryOperated;
-    
-    
-    
-    
-    @JsonProperty("is_flammable")
-    private String isFlammable;
-    
-    
-    
-}
-
-
-/*
-    Model: ArticleDimension
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArticleDimension{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("height")
-    private Double height;
-    
-    
-    
-    
-    @JsonProperty("is_default")
-    private Boolean isDefault;
-    
-    
-    
-    
-    @JsonProperty("length")
-    private Double length;
-    
-    
-    
-    
-    @JsonProperty("unit")
-    private String unit;
-    
-    
-    
-    
-    @JsonProperty("width")
-    private Double width;
-    
-    
-    
-}
-
-
-/*
     Model: ArticleSet
 */
 @AllArgsConstructor
@@ -11699,98 +13018,6 @@ public static class ArticleAssignment{
     
     @JsonProperty("strategy")
     private String strategy;
-    
-    
-    
-}
-
-
-/*
-    Model: LocationDetailsServiceability
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationDetailsServiceability{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("pincode")
-    private String pincode;
-    
-    
-    
-    
-    @JsonProperty("sector")
-    private String sector;
-    
-    
-    
-    
-    @JsonProperty("state")
-    private String state;
-    
-    
-    
-    
-    @JsonProperty("country")
-    private String country;
-    
-    
-    
-    
-    @JsonProperty("city")
-    private String city;
-    
-    
-    
-    
-    @JsonProperty("country_iso_code")
-    private String countryIsoCode;
-    
-    
-    
-    
-    @JsonProperty("location")
-    private ServiceabilityLocation location;
-    
-    
-    
-}
-
-
-/*
-    Model: ServiceabilityLocation
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ServiceabilityLocation{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
     
     
     
@@ -13132,6 +14359,492 @@ public static class HistoryObject{
     
     @JsonProperty("total_error_count")
     private Integer totalErrorCount;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityRequestData
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityRequestData{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("stores")
+    private List<StorePolygonServiceabilityStore> stores;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityStore
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityStore{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_code")
+    private String storeCode;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("address")
+    private String address;
+    
+    
+    
+    
+    @JsonProperty("area_code")
+    private String areaCode;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("coordinates")
+    private StorePolygonServiceabilityStoreCoordinates coordinates;
+    
+    
+    
+    
+    @JsonProperty("serviceabilities")
+    private List<StorePolygonServiceabilityConfig> serviceabilities;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityStoreCoordinates
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityStoreCoordinates{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("lng")
+    private Double lng;
+    
+    
+    
+    
+    @JsonProperty("lat")
+    private Double lat;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("serviceability_type")
+    private String serviceabilityType;
+    
+    
+    
+    
+    @JsonProperty("polygon")
+    private StorePolygonServiceabilityPolygon polygon;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("uid")
+    private String uid;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityPolygon
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityPolygon{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("features")
+    private List<StorePolygonServiceabilityFeature> features;
+    
+    
+    
+    
+    @JsonProperty("attributes")
+    private StorePolygonServiceabilityAttributes attributes;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityFeature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityFeature{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("properties")
+    private HashMap<String,Object> properties;
+    
+    
+    
+    
+    @JsonProperty("geometry")
+    private StorePolygonServiceabilityGeometry geometry;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityGeometry
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityGeometry{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("coordinates")
+    private List<List<List<Double>>> coordinates;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityAttributes{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("contour_type")
+    private String contourType;
+    
+    
+    
+    
+    @JsonProperty("travel_distance")
+    private Double travelDistance;
+    
+    
+    
+    
+    @JsonProperty("reference_coordinates")
+    private StorePolygonServiceabilityReferenceCoordinates referenceCoordinates;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityReferenceCoordinates
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityReferenceCoordinates{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("lng")
+    private Double lng;
+    
+    
+    
+    
+    @JsonProperty("lat")
+    private Double lat;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityStoreSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityStoreSummary{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_code")
+    private String storeCode;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("store_code")
+    private String storeCode;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("error_code")
+    private String errorCode;
+    
+    
+    
+}
+
+
+/*
+    Model: StorePolygonServiceabilityPagination
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StorePolygonServiceabilityPagination{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("page_size")
+    private Integer pageSize;
+    
+    
+    
+    
+    @JsonProperty("page_number")
+    private Integer pageNumber;
+    
+    
+    
+    
+    @JsonProperty("has_next")
+    private Boolean hasNext;
+    
+    
+    
+    
+    @JsonProperty("total_records")
+    private Integer totalRecords;
     
     
     

@@ -106,5 +106,5 @@ interface CartApplicationApiList {
     Call<CartApplicationModels.OfferListItem> removeOffer(@Url String url1, @Query("id") String id, @Query("buy_now") Boolean buyNow, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CartApplicationModels.EligibleProductsResult> getProductsByOfferId(@Url String url1, @Query("offer_id") String offerId, @Query("page") Integer page, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+    Call<CartApplicationModels.EligibleProductsResult> getProductsByOfferId(@Url String url1, @Query("offer_code") String offerCode, @Query("offer_id") String offerId, @Query("page") Integer page, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
 }

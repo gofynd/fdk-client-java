@@ -646,15 +646,15 @@ import com.sdk.application.*;
     }
     
 
-    public CartApplicationModels.EligibleProductsResult getProductsByOfferId(String offerId, Integer page, Integer pageSize) throws IOException {
-        return this.getProductsByOfferId(offerId, page, pageSize, new HashMap<>());
+    public CartApplicationModels.EligibleProductsResult getProductsByOfferId(String offerCode, String offerId, Integer page, Integer pageSize) throws IOException {
+        return this.getProductsByOfferId(offerCode, offerId, page, pageSize, new HashMap<>());
     }
 
-    public CartApplicationModels.EligibleProductsResult getProductsByOfferId(String offerId, Integer page, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public CartApplicationModels.EligibleProductsResult getProductsByOfferId(String offerCode, String offerId, Integer page, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductsByOfferId");
 
-        Response<CartApplicationModels.EligibleProductsResult> response = cartApplicationApiList.getProductsByOfferId(fullUrl, offerId, page, pageSize, requestHeaders).execute();
+        Response<CartApplicationModels.EligibleProductsResult> response = cartApplicationApiList.getProductsByOfferId(fullUrl, offerCode, offerId, page, pageSize, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

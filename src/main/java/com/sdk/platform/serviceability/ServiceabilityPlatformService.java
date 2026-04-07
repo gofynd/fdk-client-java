@@ -301,6 +301,48 @@ public class ServiceabilityPlatformService {
     
     
     
+
+    public ServiceabilityPlatformModels.GenerateShipmentsAndCourierPartnerResult getCompanyCourierPartnersList(ServiceabilityPlatformModels.CourierPartnerDetails body) throws FDKServerResponseError, FDKException {
+        return this.getCompanyCourierPartnersList(body, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.GenerateShipmentsAndCourierPartnerResult getCompanyCourierPartnersList(ServiceabilityPlatformModels.CourierPartnerDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.GenerateShipmentsAndCourierPartnerResult> response = null;
+            try {
+                response = serviceabilityPlatformApiList.getCompanyCourierPartnersList(this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1521,6 +1563,18 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 
 
@@ -2212,6 +2266,33 @@ public class ApplicationClient {
         }    
     }
 
+    public ServiceabilityPlatformModels.GenerateShipmentsAndCourierPartnerResult getApplicationCourierPartnersList(ServiceabilityPlatformModels.CourierPartnerDetails body) throws FDKServerResponseError, FDKException {
+        return this.getApplicationCourierPartnersList(body, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.GenerateShipmentsAndCourierPartnerResult getApplicationCourierPartnersList(ServiceabilityPlatformModels.CourierPartnerDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.GenerateShipmentsAndCourierPartnerResult> response = null;
+            try {
+            response = serviceabilityPlatformApiList.getApplicationCourierPartnersList(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
     public ServiceabilityPlatformModels.ApplicationConfigGetResult getApplicationConfiguration() throws FDKServerResponseError, FDKException {
         return this.getApplicationConfiguration(new HashMap<>());
     }
@@ -2815,6 +2896,168 @@ public class ApplicationClient {
             Response<ServiceabilityPlatformModels.PlatformShipmentsResponseSchema> response = null;
             try {
             response = serviceabilityPlatformApiList.createShipments(this.applicationId, this.companyId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ServiceabilityPlatformModels.StorePolygonServiceabilityResult createPolygon(ServiceabilityPlatformModels.StorePolygonServiceabilityRequestBody body) throws FDKServerResponseError, FDKException {
+        return this.createPolygon(body, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.StorePolygonServiceabilityResult createPolygon(ServiceabilityPlatformModels.StorePolygonServiceabilityRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.StorePolygonServiceabilityResult> response = null;
+            try {
+            response = serviceabilityPlatformApiList.createPolygon(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ServiceabilityPlatformModels.StorePolygonServiceabilityGetResult getPolygon(Integer pageNumber, Integer pageSize) throws FDKServerResponseError, FDKException {
+        return this.getPolygon(pageNumber, pageSize, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.StorePolygonServiceabilityGetResult getPolygon(Integer pageNumber, Integer pageSize, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.StorePolygonServiceabilityGetResult> response = null;
+            try {
+            response = serviceabilityPlatformApiList.getPolygon(this.companyId, this.applicationId, pageNumber, pageSize, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ServiceabilityPlatformModels.StorePolygonServiceabilityResult updatePolygon(ServiceabilityPlatformModels.StorePolygonServiceabilityRequestBody body) throws FDKServerResponseError, FDKException {
+        return this.updatePolygon(body, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.StorePolygonServiceabilityResult updatePolygon(ServiceabilityPlatformModels.StorePolygonServiceabilityRequestBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.StorePolygonServiceabilityResult> response = null;
+            try {
+            response = serviceabilityPlatformApiList.updatePolygon(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public String downloadZoneProductsBulkSampleFile() throws FDKServerResponseError, FDKException {
+        return this.downloadZoneProductsBulkSampleFile(new HashMap<>());
+    }
+
+    public String downloadZoneProductsBulkSampleFile(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<String> response = null;
+            try {
+            response = serviceabilityPlatformApiList.downloadZoneProductsBulkSampleFile(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ServiceabilityPlatformModels.ZoneBulkExport createZoneProductsBulkPatchJob(ServiceabilityPlatformModels.ZoneProductsBulkPatchDetails body) throws FDKServerResponseError, FDKException {
+        return this.createZoneProductsBulkPatchJob(body, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.ZoneBulkExport createZoneProductsBulkPatchJob(ServiceabilityPlatformModels.ZoneProductsBulkPatchDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.ZoneBulkExport> response = null;
+            try {
+            response = serviceabilityPlatformApiList.createZoneProductsBulkPatchJob(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ServiceabilityPlatformModels.GetZoneProductsBulkPatchResult getZoneProductsBulkPatchJobStatus(String batchId) throws FDKServerResponseError, FDKException {
+        return this.getZoneProductsBulkPatchJobStatus(batchId, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.GetZoneProductsBulkPatchResult getZoneProductsBulkPatchJobStatus(String batchId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.GetZoneProductsBulkPatchResult> response = null;
+            try {
+            response = serviceabilityPlatformApiList.getZoneProductsBulkPatchJobStatus(this.companyId, this.applicationId, batchId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

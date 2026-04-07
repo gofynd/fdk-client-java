@@ -93,6 +93,12 @@ interface ServiceabilityPlatformApiList {
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/shipment/courier-partners")
     Call<ServiceabilityPlatformModels.ShipmentCourierPartnerResult> getCourierPartners(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.ShipmentCourierPartnerDetails payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/logistics/v2.0/company/{company_id}/courier-partners")
+    Call<ServiceabilityPlatformModels.GenerateShipmentsAndCourierPartnerResult> getCompanyCourierPartnersList(@Path("company_id") String companyId, @Body ServiceabilityPlatformModels.CourierPartnerDetails payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/courier-partners")
+    Call<ServiceabilityPlatformModels.GenerateShipmentsAndCourierPartnerResult> getApplicationCourierPartnersList(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.CourierPartnerDetails payload, @HeaderMap Map<String, String> requestHeaders);
+
     @PUT ("/service/platform/logistics/v1.0/company/{company_id}/configuration")
     Call<ServiceabilityPlatformModels.CompanyConfig> updateCompanyConfiguration(@Path("company_id") String companyId, @Query("fulfillment_option_slug") String fulfillmentOptionSlug, @Body ServiceabilityPlatformModels.CompanyConfigurationSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
@@ -233,4 +239,22 @@ interface ServiceabilityPlatformApiList {
 
     @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/shipments")
     Call<ServiceabilityPlatformModels.PlatformShipmentsResponseSchema> createShipments(@Path("application_id") String applicationId, @Path("company_id") String companyId, @Body ServiceabilityPlatformModels.PlatformShipmentsRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/polygon")
+    Call<ServiceabilityPlatformModels.StorePolygonServiceabilityResult> createPolygon(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.StorePolygonServiceabilityRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/polygon")
+    Call<ServiceabilityPlatformModels.StorePolygonServiceabilityGetResult> getPolygon(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("page_number") Integer pageNumber, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/logistics/v1.0/company/{company_id}/application/{application_id}/polygon")
+    Call<ServiceabilityPlatformModels.StorePolygonServiceabilityResult> updatePolygon(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.StorePolygonServiceabilityRequestBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/products/sample")
+    Call<String> downloadZoneProductsBulkSampleFile(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/products")
+    Call<ServiceabilityPlatformModels.ZoneBulkExport> createZoneProductsBulkPatchJob(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.ZoneProductsBulkPatchDetails payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/products/{batch_id}")
+    Call<ServiceabilityPlatformModels.GetZoneProductsBulkPatchResult> getZoneProductsBulkPatchJobStatus(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("batch_id") String batchId, @HeaderMap Map<String, String> requestHeaders);
 }
