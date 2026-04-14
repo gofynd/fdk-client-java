@@ -23856,7 +23856,7 @@ public static class CreateTaxRequestBody{
     
     
     @JsonProperty("versions")
-    private TaxReqBodyVersion versions;
+    private List<TaxReqBodyVersion> versions;
     
     
     

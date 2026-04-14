@@ -2967,6 +2967,12 @@ public static class SocialTokens{
     
     
     
+    
+    @JsonProperty("apple")
+    private Apple apple;
+    
+    
+    
 }
 
 
@@ -3199,6 +3205,37 @@ public static class Google{
     
     @JsonProperty("app_secret")
     private String appSecret;
+    
+    
+    
+}
+
+
+/*
+    Model: Apple
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Apple{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("redirect_uri")
+    private String redirectUri;
     
     
     

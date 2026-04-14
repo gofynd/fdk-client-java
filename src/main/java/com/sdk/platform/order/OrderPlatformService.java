@@ -2299,6 +2299,94 @@ public class OrderPlatformService {
     
     
     
+
+    public OrderPlatformModels.CourierPartnerResponseSchema requestCourierPartnerForShipment(String shipmentId, OrderPlatformModels.ShipmentCourierPartnerRequestSchema body) throws FDKServerResponseError, FDKException {
+        return this.requestCourierPartnerForShipment(shipmentId, body, new HashMap<>());
+    }
+
+    public OrderPlatformModels.CourierPartnerResponseSchema requestCourierPartnerForShipment(String shipmentId, OrderPlatformModels.ShipmentCourierPartnerRequestSchema body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<OrderPlatformModels.CourierPartnerResponseSchema> response = null;
+            try {
+                response = orderPlatformApiList.requestCourierPartnerForShipment(this.companyId, shipmentId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public OrderPlatformModels.CourierPartnerResponseSchema saveCourierPartnerPreferenceForShipment(String shipmentId, OrderPlatformModels.ShipmentCourierPartnerPreference body) throws FDKServerResponseError, FDKException {
+        return this.saveCourierPartnerPreferenceForShipment(shipmentId, body, new HashMap<>());
+    }
+
+    public OrderPlatformModels.CourierPartnerResponseSchema saveCourierPartnerPreferenceForShipment(String shipmentId, OrderPlatformModels.ShipmentCourierPartnerPreference body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<OrderPlatformModels.CourierPartnerResponseSchema> response = null;
+            try {
+                response = orderPlatformApiList.saveCourierPartnerPreferenceForShipment(this.companyId, shipmentId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                    throw new FDKServerResponseError(response.code(),
+                                            response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                            response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                            response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

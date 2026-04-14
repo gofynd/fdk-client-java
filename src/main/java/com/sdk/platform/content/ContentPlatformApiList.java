@@ -183,9 +183,6 @@ interface ContentPlatformApiList {
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/support")
     Call<ContentPlatformModels.Support> updateSupportInformation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.Support payload, @HeaderMap Map<String, String> requestHeaders);
 
-    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
-    Call<ContentPlatformModels.TagsSchema> updateInjectableTag(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.CreateTagRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
-
     @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/tags")
     Call<ContentPlatformModels.TagsSchema> getInjectableTags(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("all") Boolean all, @Query("search") String search, @HeaderMap Map<String, String> requestHeaders);
 

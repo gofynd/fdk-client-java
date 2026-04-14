@@ -1583,6 +1583,37 @@ public static class FulfillmentOption{
 
 
 /*
+    Model: OrderingSources
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderingSources{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
     Model: AppFeature
 */
 @AllArgsConstructor
@@ -1667,6 +1698,12 @@ public static class AppFeature{
     
     @JsonProperty("delivery_strategy")
     private DeliveryStrategy deliveryStrategy;
+    
+    
+    
+    
+    @JsonProperty("ordering_sources")
+    private List<OrderingSources> orderingSources;
     
     
     

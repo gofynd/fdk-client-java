@@ -206,6 +206,12 @@ public static class ApplicationInventory{
     
     
     
+    @JsonProperty("channel_capabilities")
+    private ChannelCapabilities channelCapabilities;
+    
+    
+    
+    
     @JsonProperty("tags")
     private List<String> tags;
     
@@ -299,6 +305,80 @@ public static class PiiMasking{
     
     @JsonProperty("enabled")
     private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: ChannelCapabilities
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ChannelCapabilities{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("commerce_model")
+    private List<String> commerceModel;
+    
+    
+    
+    
+    @JsonProperty("business_format")
+    private List<String> businessFormat;
+    
+    
+    
+    
+    @JsonProperty("ordering_sources")
+    private List<OrderingSources> orderingSources;
+    
+    
+    
+    
+    @JsonProperty("seller_model")
+    private String sellerModel;
+    
+    
+    
+}
+
+
+/*
+    Model: OrderingSources
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class OrderingSources{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
     
     
     
@@ -921,6 +1001,18 @@ public static class AppCartConfig{
     
     @JsonProperty("pan_card")
     private PanCardConfig panCard;
+    
+    
+    
+    
+    @JsonProperty("engage_enabled")
+    private Boolean engageEnabled;
+    
+    
+    
+    
+    @JsonProperty("offer_enabled")
+    private Boolean offerEnabled;
     
     
     
@@ -5002,6 +5094,12 @@ public static class AppFeature{
     
     @JsonProperty("delivery_strategy")
     private DeliveryStrategy deliveryStrategy;
+    
+    
+    
+    
+    @JsonProperty("ordering_sources")
+    private List<OrderingSources> orderingSources;
     
     
     

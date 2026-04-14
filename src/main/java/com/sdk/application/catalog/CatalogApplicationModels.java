@@ -2911,6 +2911,12 @@ public static class ProductListingDetail{
     
     
     
+    
+    @JsonProperty("delivery_promises")
+    private List<DeliveryPromiseItem> deliveryPromises;
+    
+    
+    
 }
 
 
@@ -7588,6 +7594,37 @@ public static class ProductBundleItemsWithSlug{
     
     @JsonProperty("page")
     private Page page;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliveryPromiseItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliveryPromiseItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
+    @JsonProperty("delivery_promise")
+    private String deliveryPromise;
     
     
     

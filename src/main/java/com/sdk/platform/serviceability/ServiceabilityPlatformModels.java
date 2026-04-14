@@ -293,6 +293,12 @@ public static class FulfillmentOption{
     
     
     
+    @JsonProperty("default_for")
+    private FulfillmentOptionDefaultFor defaultFor;
+    
+    
+    
+    
     @JsonProperty("business_unit")
     private List<BusinessUnit> businessUnit;
     
@@ -8543,6 +8549,37 @@ public static class ShipmentsCourierPartner{
     
     @JsonProperty("non_qc_shipment_item_quantity")
     private Integer nonQcShipmentItemQuantity;
+    
+    
+    
+}
+
+
+/*
+    Model: FulfillmentOptionDefaultFor
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FulfillmentOptionDefaultFor{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("storefront")
+    private Boolean storefront;
+    
+    
+    
+    
+    @JsonProperty("storeos")
+    private Boolean storeos;
     
     
     

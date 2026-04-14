@@ -165,6 +165,12 @@ interface OrderPlatformApiList {
     @PUT ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/{shipment_id}/packages")
     Call<OrderPlatformModels.BaseResponseSchema> updateShipmentPackages(@Path("company_id") String companyId, @Path("shipment_id") String shipmentId, @Body OrderPlatformModels.PackagesSchema payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/{shipment_id}/courier-partner/request")
+    Call<OrderPlatformModels.CourierPartnerResponseSchema> requestCourierPartnerForShipment(@Path("company_id") String companyId, @Path("shipment_id") String shipmentId, @Body OrderPlatformModels.ShipmentCourierPartnerRequestSchema payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/order-manage/v1.0/company/{company_id}/shipment/{shipment_id}/courier-partner/preference")
+    Call<OrderPlatformModels.CourierPartnerResponseSchema> saveCourierPartnerPreferenceForShipment(@Path("company_id") String companyId, @Path("shipment_id") String shipmentId, @Body OrderPlatformModels.ShipmentCourierPartnerPreference payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/order/v1.0/company/{company_id}/application/{application_id}/orders/shipments/{shipment_id}/line_number/{line_number}/reasons")
     Call<OrderPlatformModels.ShipmentBagReasons> getShipmentBagReasons(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("shipment_id") String shipmentId, @Path("line_number") Integer lineNumber, @HeaderMap Map<String, String> requestHeaders);
 
