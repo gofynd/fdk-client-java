@@ -6777,6 +6777,12 @@ public static class CartProductInfo{
     
     
     
+    
+    @JsonProperty("added_on")
+    private String addedOn;
+    
+    
+    
 }
 
 
@@ -10031,6 +10037,12 @@ public static class Coupon{
     
     @JsonProperty("expires_on")
     private String expiresOn;
+    
+    
+    
+    
+    @JsonProperty("expires_at")
+    private String expiresAt;
     
     
     
@@ -14068,37 +14080,6 @@ public static class OfferDateMeta{
 
 
 /*
-    Model: NextScheduleItems
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NextScheduleItems{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("start")
-    private String start;
-    
-    
-    
-    
-    @JsonProperty("end")
-    private String end;
-    
-    
-    
-}
-
-
-/*
     Model: OfferSchedule
 */
 @AllArgsConstructor
@@ -14123,12 +14104,6 @@ public static class OfferSchedule{
     
     @JsonProperty("start")
     private String start;
-    
-    
-    
-    
-    @JsonProperty("next_schedule")
-    private List<NextScheduleItems> nextSchedule;
     
     
     

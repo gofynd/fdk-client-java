@@ -1337,6 +1337,12 @@ public static class ProductSize{
     
     
     
+    @JsonProperty("all_identifiers")
+    private List<String> allIdentifiers;
+    
+    
+    
+    
     @JsonProperty("value")
     private String value;
     

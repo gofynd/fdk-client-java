@@ -991,6 +991,12 @@ public static class ListViewSchema{
     
     
     
+    
+    @JsonProperty("fo_details")
+    private FoDetails foDetails;
+    
+    
+    
 }
 
 
@@ -6547,6 +6553,18 @@ public static class CourierPartnerShipments{
     
     
     
+    @JsonProperty("is_mps")
+    private Boolean isMps;
+    
+    
+    
+    
+    @JsonProperty("is_b2b")
+    private Boolean isB2B;
+    
+    
+    
+    
     @JsonProperty("ignore_scheme_ids")
     private List<String> ignoreSchemeIds;
     
@@ -10166,6 +10184,37 @@ public static class RegionSchema{
     
     @JsonProperty("count")
     private Integer count;
+    
+    
+    
+}
+
+
+/*
+    Model: FoDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FoDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("serviceability_type")
+    private String serviceabilityType;
+    
+    
+    
+    
+    @JsonProperty("active_non_default_zone_count")
+    private Integer activeNonDefaultZoneCount;
     
     
     

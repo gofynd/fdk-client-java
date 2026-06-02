@@ -14,6 +14,197 @@ public class ContentPlatformModels{
 
 
 /*
+    Model: AppAssociationDeleted
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppAssociationDeleted{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+}
+
+
+/*
+    Model: AppAssociationIosPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppAssociationIosPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("applinks")
+    private HashMap<String,Object> applinks;
+    
+    
+    
+    
+    @JsonProperty("appclips")
+    private HashMap<String,Object> appclips;
+    
+    
+    
+    
+    @JsonProperty("webcredentials")
+    private HashMap<String,Object> webcredentials;
+    
+    
+    
+    
+    @JsonProperty("activitycontinuation")
+    private HashMap<String,Object> activitycontinuation;
+    
+    
+    
+}
+
+
+/*
+    Model: AppAssociationAndroidStatement
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppAssociationAndroidStatement{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("relation")
+    private List<String> relation;
+    
+    
+    
+    
+    @JsonProperty("target")
+    private HashMap<String,Object> target;
+    
+    
+    
+}
+
+
+/*
+    Model: AppAssociationWriteBody
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppAssociationWriteBody{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("ios_payload")
+    private AppAssociationIosPayload iosPayload;
+    
+    
+    
+    
+    @JsonProperty("android_payload")
+    private List<AppAssociationAndroidStatement> androidPayload;
+    
+    
+    
+}
+
+
+/*
+    Model: AppAssociationRecord
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppAssociationRecord{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("ios_payload")
+    private AppAssociationIosPayload iosPayload;
+    
+    
+    
+    
+    @JsonProperty("android_payload")
+    private List<AppAssociationAndroidStatement> androidPayload;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private String modifiedBy;
+    
+    
+    
+}
+
+
+/*
     Model: ValidationError
 */
 @AllArgsConstructor

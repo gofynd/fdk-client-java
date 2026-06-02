@@ -991,6 +991,37 @@ public static class Invoice{
 
 
 /*
+    Model: CreditNote
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreditNote{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("credit_note_id")
+    private String creditNoteId;
+    
+    
+    
+    
+    @JsonProperty("credit_note_url")
+    private String creditNoteUrl;
+    
+    
+    
+}
+
+
+/*
     Model: NestedTrackingDetails
 */
 @AllArgsConstructor
@@ -2785,6 +2816,12 @@ public static class Shipments{
     
     @JsonProperty("invoice")
     private Invoice invoice;
+    
+    
+    
+    
+    @JsonProperty("credit_note")
+    private CreditNote creditNote;
     
     
     

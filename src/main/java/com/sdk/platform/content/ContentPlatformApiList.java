@@ -24,6 +24,18 @@ interface ContentPlatformApiList {
     @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/announcements/{announcement_id}")
     Call<ContentPlatformModels.CreateAnnouncementSchema> deleteAnnouncement(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("announcement_id") String announcementId, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/app-association")
+    Call<ContentPlatformModels.AppAssociationRecord> getAppAssociation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/app-association")
+    Call<ContentPlatformModels.AppAssociationRecord> createAppAssociation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.AppAssociationWriteBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @PUT ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/app-association")
+    Call<ContentPlatformModels.AppAssociationRecord> updateAppAssociation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.AppAssociationWriteBody payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @DELETE ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/app-association")
+    Call<ContentPlatformModels.AppAssociationDeleted> deleteAppAssociation(@Path("company_id") String companyId, @Path("application_id") String applicationId, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/content/v1.0/company/{company_id}/application/{application_id}/blogs/")
     Call<ContentPlatformModels.BlogSchema> createBlog(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ContentPlatformModels.BlogPayload payload, @HeaderMap Map<String, String> requestHeaders);
 

@@ -185,6 +185,14 @@ public class ContentPlatformService {
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
 
     public ContentPlatformModels.MetafieldTypesSchema getCustomFieldTypes() throws FDKServerResponseError, FDKException {
         return this.getCustomFieldTypes(new HashMap<>());
@@ -2271,6 +2279,114 @@ public class ApplicationClient {
             Response<ContentPlatformModels.CreateAnnouncementSchema> response = null;
             try {
             response = contentPlatformApiList.deleteAnnouncement(this.companyId, this.applicationId, announcementId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.AppAssociationRecord getAppAssociation() throws FDKServerResponseError, FDKException {
+        return this.getAppAssociation(new HashMap<>());
+    }
+
+    public ContentPlatformModels.AppAssociationRecord getAppAssociation(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.AppAssociationRecord> response = null;
+            try {
+            response = contentPlatformApiList.getAppAssociation(this.companyId, this.applicationId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.AppAssociationRecord createAppAssociation(ContentPlatformModels.AppAssociationWriteBody body) throws FDKServerResponseError, FDKException {
+        return this.createAppAssociation(body, new HashMap<>());
+    }
+
+    public ContentPlatformModels.AppAssociationRecord createAppAssociation(ContentPlatformModels.AppAssociationWriteBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.AppAssociationRecord> response = null;
+            try {
+            response = contentPlatformApiList.createAppAssociation(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.AppAssociationRecord updateAppAssociation(ContentPlatformModels.AppAssociationWriteBody body) throws FDKServerResponseError, FDKException {
+        return this.updateAppAssociation(body, new HashMap<>());
+    }
+
+    public ContentPlatformModels.AppAssociationRecord updateAppAssociation(ContentPlatformModels.AppAssociationWriteBody body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.AppAssociationRecord> response = null;
+            try {
+            response = contentPlatformApiList.updateAppAssociation(this.companyId, this.applicationId, body, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ContentPlatformModels.AppAssociationDeleted deleteAppAssociation() throws FDKServerResponseError, FDKException {
+        return this.deleteAppAssociation(new HashMap<>());
+    }
+
+    public ContentPlatformModels.AppAssociationDeleted deleteAppAssociation(Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ContentPlatformModels.AppAssociationDeleted> response = null;
+            try {
+            response = contentPlatformApiList.deleteAppAssociation(this.companyId, this.applicationId, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

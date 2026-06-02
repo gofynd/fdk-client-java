@@ -1984,6 +1984,12 @@ public static class CartProductInfo{
     
     
     
+    
+    @JsonProperty("added_on")
+    private String addedOn;
+    
+    
+    
 }
 
 
@@ -3696,6 +3702,12 @@ public static class Coupon{
     
     @JsonProperty("expires_on")
     private String expiresOn;
+    
+    
+    
+    
+    @JsonProperty("expires_at")
+    private String expiresAt;
     
     
     
