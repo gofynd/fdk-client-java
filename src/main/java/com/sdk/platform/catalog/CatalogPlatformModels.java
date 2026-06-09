@@ -25660,6 +25660,8 @@ public static class CustomMeta{
         
         profilePhone("profile-phone"), 
         
+        profileLoyaltyRewards("profile-loyalty-rewards"), 
+        
         rateUs("rate-us"), 
         
         referEarn("refer-earn"), 

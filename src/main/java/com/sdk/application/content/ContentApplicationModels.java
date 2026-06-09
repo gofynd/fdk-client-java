@@ -3901,6 +3901,8 @@ public static class TranslationResult{
         
         profilePhone("profile-phone"), 
         
+        profileLoyaltyRewards("profile-loyalty-rewards"), 
+        
         rateUs("rate-us"), 
         
         referEarn("refer-earn"), 

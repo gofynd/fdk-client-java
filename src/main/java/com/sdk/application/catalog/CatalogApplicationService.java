@@ -975,17 +975,17 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductSizeSellersResponseV4 getProductSellersBySlug(String slug, String size, String strategy, String fulfillmentOptionSlug, Integer pageNo, Integer pageSize) throws IOException {
-        return this.getProductSellersBySlug(slug, size, strategy, fulfillmentOptionSlug, pageNo, pageSize, new HashMap<>());
+    public CatalogApplicationModels.ProductSizeSellersResponseV4 getProductSellersBySlug(String slug, String size, String strategy, String fulfillmentOptionSlug, Integer pageNo, Integer pageSize, String q) throws IOException {
+        return this.getProductSellersBySlug(slug, size, strategy, fulfillmentOptionSlug, pageNo, pageSize, q, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductSizeSellersResponseV4 getProductSellersBySlug(String slug, String size, String strategy, String fulfillmentOptionSlug, Integer pageNo, Integer pageSize, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductSizeSellersResponseV4 getProductSellersBySlug(String slug, String size, String strategy, String fulfillmentOptionSlug, Integer pageNo, Integer pageSize, String q, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProductSellersBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
         fullUrl = fullUrl.replace("{" + "size" + "}",size.toString());
 
-        Response<CatalogApplicationModels.ProductSizeSellersResponseV4> response = catalogApplicationApiList.getProductSellersBySlug(fullUrl, strategy, fulfillmentOptionSlug, pageNo, pageSize, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductSizeSellersResponseV4> response = catalogApplicationApiList.getProductSellersBySlug(fullUrl, strategy, fulfillmentOptionSlug, pageNo, pageSize, q, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -1003,7 +1003,8 @@ import com.sdk.application.*;
         String size,
         String strategy,
         String fulfillmentOptionSlug,
-        Integer pageSize
+        Integer pageSize,
+        String q
         
         ){ 
     
@@ -1022,7 +1023,8 @@ import com.sdk.application.*;
                  paginator.getPageNo()
                 ,
                  paginator.getPageSize()
-                
+                ,
+                 q
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
