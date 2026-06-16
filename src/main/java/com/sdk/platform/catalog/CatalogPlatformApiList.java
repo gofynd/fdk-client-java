@@ -240,6 +240,9 @@ interface CatalogPlatformApiList {
     @GET ("/service/platform/catalog/v2.0/company/{company_id}/marketplaces/company-details/")
     Call<CatalogPlatformModels.OptinCompanyDetail> getCompanyDetail(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/catalog/v2.0/company/{company_id}/")
+    Call<CatalogPlatformModels.GetCompanySchema> cbsOnboardGet(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/catalog/v1.0/company/{company_id}/marketplaces/company-metrics/")
     Call<CatalogPlatformModels.OptinCompanyMetrics> getCompanyMetrics(@Path("company_id") String companyId, @HeaderMap Map<String, String> requestHeaders);
 

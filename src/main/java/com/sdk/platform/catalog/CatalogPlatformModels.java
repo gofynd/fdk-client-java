@@ -8050,6 +8050,37 @@ public static class GetAddressSchema{
 
 
 /*
+    Model: RegionDetailsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class RegionDetailsSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("zone")
+    private String zone;
+    
+    
+    
+}
+
+
+/*
     Model: GetAllSizes
 */
 @AllArgsConstructor
@@ -8643,6 +8674,18 @@ public static class GetCompanySchema{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("region")
+    private String region;
+    
+    
+    
+    
+    @JsonProperty("region_details")
+    private RegionDetailsSchema regionDetails;
     
     
     

@@ -12,8 +12,6 @@ import okhttp3.Interceptor;
 import okhttp3.Response;
 
 
-import com.sdk.platform.analytics.AnalyticsPlatformService;
-
 import com.sdk.platform.audittrail.AuditTrailPlatformService;
 
 import com.sdk.platform.billing.BillingPlatformService;
@@ -62,8 +60,6 @@ public class PlatformClient {
 
     private PlatformConfig config;
 
-    
-    public AnalyticsPlatformService analytics;
     
     public AuditTrailPlatformService auditTrail;
     
@@ -123,8 +119,6 @@ public class PlatformClient {
 
     private void initialiseConfigAndServices(PlatformConfig config) {
         this.config = config;
-        
-        this.analytics = new AnalyticsPlatformService(config);
         
         this.auditTrail = new AuditTrailPlatformService(config);
         
@@ -205,8 +199,6 @@ public class PlatformClient {
         private PlatformConfig config;
 
         
-        public AnalyticsPlatformService.ApplicationClient analytics;
-        
         public AuditTrailPlatformService.ApplicationClient auditTrail;
         
         public BillingPlatformService.ApplicationClient billing;
@@ -250,8 +242,6 @@ public class PlatformClient {
 
         public ApplicationClient(PlatformConfig platformConfig, String applicationId) {
             this.config = platformConfig;
-            
-            this.analytics = new AnalyticsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.auditTrail = new AuditTrailPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
