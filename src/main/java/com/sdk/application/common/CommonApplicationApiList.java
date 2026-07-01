@@ -7,7 +7,7 @@ import java.util.*;
 interface CommonApplicationApiList {
 
     @GET 
-    Call<CommonApplicationModels.ApplicationResponse> searchApplication(@Url String url1, @Header("authorization") String authorization, @Query("query") String query, @HeaderMap Map<String, String> requestHeaders);
+    Call<CommonApplicationModels.ApplicationResponseSchema> searchApplication(@Url String url1, @Header("authorization") String authorization, @Query("query") String query, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CommonApplicationModels.Locations> getLocations(@Url String url1, @Query("location_type") String locationType, @Query("id") String id, @HeaderMap Map<String, String> requestHeaders);

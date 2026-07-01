@@ -14,6 +14,122 @@ public class ConfigurationPlatformModels{
 
 
 /*
+    Model: CurrencyExchangeResponseV2
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CurrencyExchangeResponseV2{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("base")
+    private String base;
+    
+    
+    
+    
+    @JsonProperty("base_currency_name")
+    private String baseCurrencyName;
+    
+    
+    
+    
+    @JsonProperty("ttl_seconds")
+    private Integer ttlSeconds;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CurrencyExchangeItem> items;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+}
+
+
+/*
+    Model: CurrencyExchangeItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CurrencyExchangeItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("currency_code")
+    private String currencyCode;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("rate")
+    private Double rate;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("country_name")
+    private String countryName;
+    
+    
+    
+    
+    @JsonProperty("subunit")
+    private String subunit;
+    
+    
+    
+    
+    @JsonProperty("decimal_digits")
+    private Integer decimalDigits;
+    
+    
+    
+    
+    @JsonProperty("symbol")
+    private String symbol;
+    
+    
+    
+}
+
+
+/*
     Model: ApplicationInventory
 */
 @AllArgsConstructor
@@ -26,6 +142,12 @@ public static class ApplicationInventory{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("search")
+    private SearchConfig search;
     
     
     
@@ -80,6 +202,12 @@ public static class ApplicationInventory{
     
     @JsonProperty("pii_masking")
     private PiiMasking piiMasking;
+    
+    
+    
+    
+    @JsonProperty("channel_capabilities")
+    private ChannelCapabilities channelCapabilities;
     
     
     
@@ -184,7 +312,7 @@ public static class PiiMasking{
 
 
 /*
-    Model: OwnerAppInventoryConfig
+    Model: ChannelCapabilities
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -192,7 +320,7 @@ public static class PiiMasking{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OwnerAppInventoryConfig{
+public static class ChannelCapabilities{
 
     
 
@@ -200,8 +328,26 @@ public static class OwnerAppInventoryConfig{
     
     
     
-    @JsonProperty("pricing_strategy")
-    private PricingStrategy pricingStrategy;
+    @JsonProperty("commerce_model")
+    private List<String> commerceModel;
+    
+    
+    
+    
+    @JsonProperty("business_format")
+    private List<String> businessFormat;
+    
+    
+    
+    
+    @JsonProperty("ordering_sources")
+    private List<OrderingSources> orderingSources;
+    
+    
+    
+    
+    @JsonProperty("seller_model")
+    private String sellerModel;
     
     
     
@@ -209,7 +355,7 @@ public static class OwnerAppInventoryConfig{
 
 
 /*
-    Model: OwnerAppConfig
+    Model: OrderingSources
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -217,7 +363,7 @@ public static class OwnerAppInventoryConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OwnerAppConfig{
+public static class OrderingSources{
 
     
 
@@ -225,8 +371,132 @@ public static class OwnerAppConfig{
     
     
     
-    @JsonProperty("inventory")
-    private OwnerAppInventoryConfig inventory;
+    @JsonProperty("key")
+    private String key;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+}
+
+
+/*
+    Model: FstIdentification
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FstIdentification{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: SkgIdentification
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SkgIdentification{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+}
+
+
+/*
+    Model: QuerySuggestions
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class QuerySuggestions{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("max_limit")
+    private Integer maxLimit;
+    
+    
+    
+}
+
+
+/*
+    Model: SearchConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SearchConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("fst_identification")
+    private FstIdentification fstIdentification;
+    
+    
+    
+    
+    @JsonProperty("query_suggestions")
+    private QuerySuggestions querySuggestions;
+    
+    
+    
+    
+    @JsonProperty("skg_identification")
+    private SkgIdentification skgIdentification;
     
     
     
@@ -246,6 +516,12 @@ public static class AppInventoryConfig{
 
     
 
+    
+    
+    
+    
+    @JsonProperty("delivery_strategy")
+    private DeliveryStrategy deliveryStrategy;
     
     
     
@@ -280,8 +556,26 @@ public static class AppInventoryConfig{
     
     
     
-    @JsonProperty("pricing_strategy")
-    private PricingStrategy pricingStrategy;
+    @JsonProperty("price_strategy")
+    private String priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("international")
+    private Boolean international;
+    
+    
+    
+    
+    @JsonProperty("strategy_change_pending")
+    private Boolean strategyChangePending;
+    
+    
+    
+    
+    @JsonProperty("strategy_modified_at")
+    private String strategyModifiedAt;
     
     
     
@@ -305,7 +599,7 @@ public static class AppInventoryConfig{
     
     
     @JsonProperty("exclude_category")
-    private List<Integer> excludeCategory;
+    private List<Object> excludeCategory;
     
     
     
@@ -317,25 +611,13 @@ public static class AppInventoryConfig{
     
     
     @JsonProperty("company_store")
-    private List<Integer> companyStore;
+    private List<Object> companyStore;
     
     
     
     
     @JsonProperty("company_id")
     private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("enable_zone_overlapping")
-    private Boolean enableZoneOverlapping;
-    
-    
-    
-    
-    @JsonProperty("sort_popular_first")
-    private Boolean sortPopularFirst;
     
     
     
@@ -397,7 +679,7 @@ public static class InventoryStore{
     
     
     @JsonProperty("stores")
-    private List<Integer> stores;
+    private List<Object> stores;
     
     
     
@@ -465,7 +747,7 @@ public static class InventoryCategory{
     
     
     @JsonProperty("categories")
-    private List<Integer> categories;
+    private List<Object> categories;
     
     
     
@@ -651,7 +933,7 @@ public static class StorePriority{
     
     
     @JsonProperty("storetype_order")
-    private List<Integer> storetypeOrder;
+    private List<Object> storetypeOrder;
     
     
     
@@ -719,6 +1001,18 @@ public static class AppCartConfig{
     
     @JsonProperty("pan_card")
     private PanCardConfig panCard;
+    
+    
+    
+    
+    @JsonProperty("engage_enabled")
+    private Boolean engageEnabled;
+    
+    
+    
+    
+    @JsonProperty("offer_enabled")
+    private Boolean offerEnabled;
     
     
     
@@ -1157,6 +1451,80 @@ public static class AppOrderConfig{
     
     
     
+    
+    @JsonProperty("processing_schedule")
+    private ProcessingSchedule processingSchedule;
+    
+    
+    
+}
+
+
+/*
+    Model: ProcessingSchedule
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProcessingSchedule{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_scheduled")
+    private Boolean isScheduled;
+    
+    
+    
+    
+    @JsonProperty("start_after")
+    private StartAfter startAfter;
+    
+    
+    
+}
+
+
+/*
+    Model: StartAfter
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class StartAfter{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("days")
+    private Integer days;
+    
+    
+    
+    
+    @JsonProperty("hours")
+    private Integer hours;
+    
+    
+    
+    
+    @JsonProperty("minutes")
+    private Integer minutes;
+    
+    
+    
 }
 
 
@@ -1251,6 +1619,12 @@ public static class AppInventoryPartialUpdate{
     
     
     
+    @JsonProperty("search")
+    private SearchConfig search;
+    
+    
+    
+    
     @JsonProperty("reward_points")
     private RewardPointsConfig rewardPoints;
     
@@ -1321,7 +1695,7 @@ public static class BrandCompanyInfo{
 
 
 /*
-    Model: CompanyByBrandsRequest
+    Model: CompanyByBrandsRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1329,7 +1703,7 @@ public static class BrandCompanyInfo{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyByBrandsRequest{
+public static class CompanyByBrandsRequestSchema{
 
     
 
@@ -1352,7 +1726,7 @@ public static class CompanyByBrandsRequest{
 
 
 /*
-    Model: CompanyByBrandsResponse
+    Model: CompanyByBrandsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1360,7 +1734,7 @@ public static class CompanyByBrandsRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyByBrandsResponse{
+public static class CompanyByBrandsResponseSchema{
 
     
 
@@ -1383,7 +1757,7 @@ public static class CompanyByBrandsResponse{
 
 
 /*
-    Model: StoreByBrandsRequest
+    Model: StoreByBrandsRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1391,7 +1765,7 @@ public static class CompanyByBrandsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreByBrandsRequest{
+public static class StoreByBrandsRequestSchema{
 
     
 
@@ -1420,7 +1794,7 @@ public static class StoreByBrandsRequest{
 
 
 /*
-    Model: StoreByBrandsResponse
+    Model: StoreByBrandsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1428,7 +1802,7 @@ public static class StoreByBrandsRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreByBrandsResponse{
+public static class StoreByBrandsResponseSchema{
 
     
 
@@ -1555,7 +1929,7 @@ public static class CompanyBrandInfo{
 
 
 /*
-    Model: BrandsByCompanyResponse
+    Model: BrandsByCompanyResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1563,7 +1937,7 @@ public static class CompanyBrandInfo{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BrandsByCompanyResponse{
+public static class BrandsByCompanyResponseSchema{
 
     
 
@@ -1580,7 +1954,7 @@ public static class BrandsByCompanyResponse{
 
 
 /*
-    Model: ValidationFailedResponse
+    Model: ValidationFailedResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1588,7 +1962,7 @@ public static class BrandsByCompanyResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ValidationFailedResponse{
+public static class ValidationFailedResponseSchema{
 
     
 
@@ -1598,12 +1972,6 @@ public static class ValidationFailedResponse{
     
     @JsonProperty("message")
     private String message;
-    
-    
-    
-    
-    @JsonProperty("errors")
-    private List<Object> errors;
     
     
     
@@ -1629,18 +1997,6 @@ public static class NotFound{
     
     @JsonProperty("message")
     private String message;
-    
-    
-    
-    
-    @JsonProperty("error")
-    private String error;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
     
     
     
@@ -1753,7 +2109,7 @@ public static class PanCardConfig{
 
 
 /*
-    Model: CreateApplicationRequest
+    Model: CreateApplicationRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1761,7 +2117,7 @@ public static class PanCardConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateApplicationRequest{
+public static class CreateApplicationRequestSchema{
 
     
 
@@ -1790,7 +2146,7 @@ public static class CreateApplicationRequest{
 
 
 /*
-    Model: CreateAppResponse
+    Model: CreateAppResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1798,7 +2154,7 @@ public static class CreateApplicationRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CreateAppResponse{
+public static class CreateAppResponseSchema{
 
     
 
@@ -1821,7 +2177,7 @@ public static class CreateAppResponse{
 
 
 /*
-    Model: ApplicationsResponse
+    Model: ApplicationsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1829,7 +2185,7 @@ public static class CreateAppResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ApplicationsResponse{
+public static class ApplicationsResponseSchema{
 
     
 
@@ -1999,7 +2355,7 @@ public static class SplashImage{
 
 
 /*
-    Model: MobileAppConfigRequest
+    Model: MobileAppConfigRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2007,7 +2363,7 @@ public static class SplashImage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class MobileAppConfigRequest{
+public static class MobileAppConfigRequestSchema{
 
     
 
@@ -2299,7 +2655,7 @@ public static class DomainAdd{
 
 
 /*
-    Model: DomainAddRequest
+    Model: DomainAddRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2307,7 +2663,7 @@ public static class DomainAdd{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainAddRequest{
+public static class DomainAddRequestSchema{
 
     
 
@@ -2385,7 +2741,7 @@ public static class Domain{
 
 
 /*
-    Model: DomainsResponse
+    Model: DomainsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2393,7 +2749,7 @@ public static class Domain{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainsResponse{
+public static class DomainsResponseSchema{
 
     
 
@@ -2459,7 +2815,7 @@ public static class UpdateDomain{
 
 
 /*
-    Model: UpdateDomainTypeRequest
+    Model: UpdateDomainTypeRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2467,7 +2823,7 @@ public static class UpdateDomain{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateDomainTypeRequest{
+public static class UpdateDomainTypeRequestSchema{
 
     
 
@@ -2490,7 +2846,7 @@ public static class UpdateDomainTypeRequest{
 
 
 /*
-    Model: DomainStatusRequest
+    Model: DomainStatusRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2498,7 +2854,7 @@ public static class UpdateDomainTypeRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainStatusRequest{
+public static class DomainStatusRequestSchema{
 
     
 
@@ -2546,7 +2902,7 @@ public static class DomainStatus{
 
 
 /*
-    Model: DomainStatusResponse
+    Model: DomainStatusResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2554,7 +2910,7 @@ public static class DomainStatus{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainStatusResponse{
+public static class DomainStatusResponseSchema{
 
     
 
@@ -2577,7 +2933,7 @@ public static class DomainStatusResponse{
 
 
 /*
-    Model: DomainSuggestionsRequest
+    Model: DomainSuggestionsRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2585,7 +2941,7 @@ public static class DomainStatusResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainSuggestionsRequest{
+public static class DomainSuggestionsRequestSchema{
 
     
 
@@ -2595,6 +2951,12 @@ public static class DomainSuggestionsRequest{
     
     @JsonProperty("domain_url")
     private String domainUrl;
+    
+    
+    
+    
+    @JsonProperty("custom_domain")
+    private Boolean customDomain;
     
     
     
@@ -2651,7 +3013,7 @@ public static class DomainSuggestion{
 
 
 /*
-    Model: DomainSuggestionsResponse
+    Model: DomainSuggestionsResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2659,7 +3021,7 @@ public static class DomainSuggestion{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainSuggestionsResponse{
+public static class DomainSuggestionsResponseSchema{
 
     
 
@@ -2676,7 +3038,7 @@ public static class DomainSuggestionsResponse{
 
 
 /*
-    Model: SuccessMessageResponse
+    Model: SuccessMessageResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -2684,7 +3046,7 @@ public static class DomainSuggestionsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SuccessMessageResponse{
+public static class SuccessMessageResponseSchema{
 
     
 
@@ -2700,905 +3062,6 @@ public static class SuccessMessageResponse{
     
     @JsonProperty("message")
     private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: GetIntegrationsOptInsResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class GetIntegrationsOptInsResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<IntegrationOptIn> items;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: IntegrationOptIn
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationOptIn{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("validators")
-    private Validators validators;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("description_html")
-    private String descriptionHtml;
-    
-    
-    
-    
-    @JsonProperty("constants")
-    private String constants;
-    
-    
-    
-    
-    @JsonProperty("companies")
-    private List<String> companies;
-    
-    
-    
-    
-    @JsonProperty("support")
-    private List<String> support;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("hidden")
-    private Boolean hidden;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private List<IntegrationMeta> meta;
-    
-    
-    
-    
-    @JsonProperty("icon")
-    private String icon;
-    
-    
-    
-    
-    @JsonProperty("owner")
-    private String owner;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-    
-    @JsonProperty("secret")
-    private String secret;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: Validators
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Validators{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("company")
-    private CompanyValidator company;
-    
-    
-    
-    
-    @JsonProperty("store")
-    private StoreValidator store;
-    
-    
-    
-    
-    @JsonProperty("inventory")
-    private InventoryValidator inventory;
-    
-    
-    
-    
-    @JsonProperty("order")
-    private OrderValidator order;
-    
-    
-    
-}
-
-
-/*
-    Model: CompanyValidator
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompanyValidator{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("json_schema")
-    private List<JsonSchema> jsonSchema;
-    
-    
-    
-    
-    @JsonProperty("browser_script")
-    private String browserScript;
-    
-    
-    
-}
-
-
-/*
-    Model: JsonSchema
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JsonSchema{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("tooltip")
-    private String tooltip;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreValidator
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreValidator{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("json_schema")
-    private List<JsonSchema> jsonSchema;
-    
-    
-    
-    
-    @JsonProperty("browser_script")
-    private String browserScript;
-    
-    
-    
-}
-
-
-/*
-    Model: InventoryValidator
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryValidator{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("json_schema")
-    private List<JsonSchema> jsonSchema;
-    
-    
-    
-    
-    @JsonProperty("browser_script")
-    private String browserScript;
-    
-    
-    
-}
-
-
-/*
-    Model: OrderValidator
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderValidator{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("json_schema")
-    private List<JsonSchema> jsonSchema;
-    
-    
-    
-    
-    @JsonProperty("browser_script")
-    private String browserScript;
-    
-    
-    
-}
-
-
-/*
-    Model: IntegrationMeta
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationMeta{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("is_public")
-    private Boolean isPublic;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: Integration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Integration{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("validators")
-    private Validators validators;
-    
-    
-    
-    
-    @JsonProperty("description")
-    private String description;
-    
-    
-    
-    
-    @JsonProperty("description_html")
-    private String descriptionHtml;
-    
-    
-    
-    
-    @JsonProperty("constants")
-    private Object constants;
-    
-    
-    
-    
-    @JsonProperty("companies")
-    private List<String> companies;
-    
-    
-    
-    
-    @JsonProperty("support")
-    private List<String> support;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("slug")
-    private String slug;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private List<IntegrationMeta> meta;
-    
-    
-    
-    
-    @JsonProperty("icon")
-    private String icon;
-    
-    
-    
-    
-    @JsonProperty("hidden")
-    private Boolean hidden;
-    
-    
-    
-    
-    @JsonProperty("owner")
-    private String owner;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-    
-    @JsonProperty("secret")
-    private String secret;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: IntegrationConfigResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationConfigResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<IntegrationLevel> items;
-    
-    
-    
-}
-
-
-/*
-    Model: IntegrationLevel
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class IntegrationLevel{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("opted")
-    private Boolean opted;
-    
-    
-    
-    
-    @JsonProperty("permissions")
-    private List<Object> permissions;
-    
-    
-    
-    
-    @JsonProperty("last_patch")
-    private List<LastPatch> lastPatch;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("integration")
-    private String integration;
-    
-    
-    
-    
-    @JsonProperty("level")
-    private String level;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("company_id")
-    private Integer companyId;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private List<IntegrationMeta> meta;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private Object data;
-    
-    
-    
-    
-    @JsonProperty("success")
-    private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("message")
-    private String message;
-    
-    
-    
-}
-
-
-/*
-    Model: UpdateIntegrationLevelRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateIntegrationLevelRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<IntegrationLevel> items;
-    
-    
-    
-}
-
-
-/*
-    Model: OptedStoreIntegration
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OptedStoreIntegration{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("other_opted")
-    private Boolean otherOpted;
-    
-    
-    
-    
-    @JsonProperty("other_integration")
-    private IntegrationOptIn otherIntegration;
-    
-    
-    
-    
-    @JsonProperty("other_entity")
-    private OtherEntity otherEntity;
-    
-    
-    
-}
-
-
-/*
-    Model: OtherEntity
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OtherEntity{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("opted")
-    private Boolean opted;
-    
-    
-    
-    
-    @JsonProperty("permissions")
-    private List<String> permissions;
-    
-    
-    
-    
-    @JsonProperty("last_patch")
-    private List<LastPatch> lastPatch;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("integration")
-    private String integration;
-    
-    
-    
-    
-    @JsonProperty("level")
-    private String level;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("data")
-    private OtherEntityData data;
-    
-    
-    
-    
-    @JsonProperty("meta")
-    private List<Object> meta;
-    
-    
-    
-    
-    @JsonProperty("token")
-    private String token;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-}
-
-
-/*
-    Model: LastPatch
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LastPatch{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("op")
-    private String op;
-    
-    
-    
-    
-    @JsonProperty("path")
-    private String path;
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: OtherEntityData
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OtherEntityData{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("article_identifier")
-    private String articleIdentifier;
     
     
     
@@ -3655,104 +3118,6 @@ public static class App{
 
 
 /*
-    Model: InventoryConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("brand")
-    private InventoryBrandRule brand;
-    
-    
-    
-    
-    @JsonProperty("store")
-    private InventoryStoreRule store;
-    
-    
-    
-    
-    @JsonProperty("image")
-    private List<String> image;
-    
-    
-    
-    
-    @JsonProperty("franchise_enabled")
-    private Boolean franchiseEnabled;
-    
-    
-    
-    
-    @JsonProperty("out_of_stock")
-    private Boolean outOfStock;
-    
-    
-    
-    
-    @JsonProperty("only_verified_products")
-    private Boolean onlyVerifiedProducts;
-    
-    
-    
-    
-    @JsonProperty("pricing_strategy")
-    private PricingStrategy pricingStrategy;
-    
-    
-    
-}
-
-
-/*
-    Model: AppInventory
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppInventory{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("inventory")
-    private InventoryConfig inventory;
-    
-    
-    
-    
-    @JsonProperty("payment")
-    private InventoryPaymentConfig payment;
-    
-    
-    
-    
-    @JsonProperty("article_assignment")
-    private InventoryArticleAssignment articleAssignment;
-    
-    
-    
-}
-
-
-/*
     Model: AppDomain
 */
 @AllArgsConstructor
@@ -3778,7 +3143,7 @@ public static class AppDomain{
 
 
 /*
-    Model: CompaniesResponse
+    Model: CompaniesResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3786,7 +3151,7 @@ public static class AppDomain{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CompaniesResponse{
+public static class CompaniesResponseSchema{
 
     
 
@@ -3846,7 +3211,7 @@ public static class AppInventoryCompanies{
 
 
 /*
-    Model: StoresResponse
+    Model: StoresResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -3854,7 +3219,7 @@ public static class AppInventoryCompanies{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoresResponse{
+public static class StoresResponseSchema{
 
     
 
@@ -3870,56 +3235,6 @@ public static class StoresResponse{
     
     @JsonProperty("page")
     private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: ListStoreResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ListStoreResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private List<AppInventoryStores> stores;
-    
-    
-    
-}
-
-
-/*
-    Model: ArrayStoreResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArrayStoreResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private List<AppInventoryStores> data;
     
     
     
@@ -4006,7 +3321,7 @@ public static class AppInventoryStores{
 
 
 /*
-    Model: FilterOrderingStoreRequest
+    Model: FilterOrderingStoreRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4014,7 +3329,7 @@ public static class AppInventoryStores{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FilterOrderingStoreRequest{
+public static class FilterOrderingStoreRequestSchema{
 
     
 
@@ -4129,7 +3444,7 @@ public static class OrderingStoreConfig{
 
 
 /*
-    Model: OrderingStoreSelectRequest
+    Model: OrderingStoreSelectRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4137,7 +3452,7 @@ public static class OrderingStoreConfig{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderingStoreSelectRequest{
+public static class OrderingStoreSelectRequestSchema{
 
     
 
@@ -4296,7 +3611,7 @@ public static class OtherSellerApplications{
 
 
 /*
-    Model: OptedApplicationResponse
+    Model: OptedApplicationResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4304,7 +3619,7 @@ public static class OtherSellerApplications{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OptedApplicationResponse{
+public static class OptedApplicationResponseSchema{
 
     
 
@@ -4560,7 +3875,7 @@ public static class OptOutInventory{
 
 
 /*
-    Model: TokenResponse
+    Model: TokenResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -4568,7 +3883,7 @@ public static class OptOutInventory{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class TokenResponse{
+public static class TokenResponseSchema{
 
     
 
@@ -5495,13 +4810,13 @@ public static class LaunchPage{
     
     
     @JsonProperty("params")
-    private Object params;
+    private HashMap<String,Object> params;
     
     
     
     
     @JsonProperty("query")
-    private Object query;
+    private HashMap<String,Object> query;
     
     
     
@@ -5608,6 +4923,93 @@ public static class RegistrationPageFeature{
 
 
 /*
+    Model: BuyboxFeature
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BuyboxFeature{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("show_name")
+    private Boolean showName;
+    
+    
+    
+    
+    @JsonProperty("enable_selection")
+    private Boolean enableSelection;
+    
+    
+    
+    
+    @JsonProperty("is_seller_buybox_enabled")
+    private Boolean isSellerBuyboxEnabled;
+    
+    
+    
+}
+
+
+/*
+    Model: DeliveryStrategy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DeliveryStrategy{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+}
+
+
+/*
+    Model: FulfillmentOption
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FulfillmentOption{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("count")
+    private Integer count;
+    
+    
+    
+}
+
+
+/*
     Model: AppFeature
 */
 @AllArgsConstructor
@@ -5678,8 +5080,56 @@ public static class AppFeature{
     
     
     
+    @JsonProperty("security")
+    private SecurityFeature security;
+    
+    
+    
+    
     @JsonProperty("buybox")
     private BuyboxFeature buybox;
+    
+    
+    
+    
+    @JsonProperty("delivery_strategy")
+    private DeliveryStrategy deliveryStrategy;
+    
+    
+    
+    
+    @JsonProperty("ordering_sources")
+    private List<OrderingSources> orderingSources;
+    
+    
+    
+    
+    @JsonProperty("price_strategy")
+    private String priceStrategy;
+    
+    
+    
+    
+    @JsonProperty("international")
+    private Boolean international;
+    
+    
+    
+    
+    @JsonProperty("strategy_change_pending")
+    private Boolean strategyChangePending;
+    
+    
+    
+    
+    @JsonProperty("strategy_modified_at")
+    private String strategyModifiedAt;
+    
+    
+    
+    
+    @JsonProperty("fulfillment_option")
+    private FulfillmentOption fulfillmentOption;
     
     
     
@@ -5710,12 +5160,6 @@ public static class AppFeature{
     
     @JsonProperty("__v")
     private Integer v;
-    
-    
-    
-    
-    @JsonProperty("pricing_strategy")
-    private PricingStrategy pricingStrategy;
     
     
     
@@ -6187,7 +5631,7 @@ public static class OrderFeature{
 
 
 /*
-    Model: BuyboxFeature
+    Model: SecurityFeature
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6195,7 +5639,7 @@ public static class OrderFeature{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BuyboxFeature{
+public static class SecurityFeature{
 
     
 
@@ -6203,20 +5647,8 @@ public static class BuyboxFeature{
     
     
     
-    @JsonProperty("show_name")
-    private Boolean showName;
-    
-    
-    
-    
-    @JsonProperty("enable_selection")
-    private Boolean enableSelection;
-    
-    
-    
-    
-    @JsonProperty("is_seller_buybox_enabled")
-    private Boolean isSellerBuyboxEnabled;
+    @JsonProperty("domains")
+    private List<AllowedDomain> domains;
     
     
     
@@ -6224,7 +5656,7 @@ public static class BuyboxFeature{
 
 
 /*
-    Model: AppFeatureRequest
+    Model: AllowedDomain
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6232,7 +5664,38 @@ public static class BuyboxFeature{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppFeatureRequest{
+public static class AllowedDomain{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("host")
+    private String host;
+    
+    
+    
+    
+    @JsonProperty("url_scheme")
+    private String urlScheme;
+    
+    
+    
+}
+
+
+/*
+    Model: AppFeatureRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AppFeatureRequestSchema{
 
     
 
@@ -6249,7 +5712,7 @@ public static class AppFeatureRequest{
 
 
 /*
-    Model: AppFeatureResponse
+    Model: AppFeatureResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6257,7 +5720,7 @@ public static class AppFeatureRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppFeatureResponse{
+public static class AppFeatureResponseSchema{
 
     
 
@@ -6726,6 +6189,242 @@ public static class Application{
 
 
 /*
+    Model: ApplicationById
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationById{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("website")
+    private ApplicationWebsite website;
+    
+    
+    
+    
+    @JsonProperty("cors")
+    private ApplicationCors cors;
+    
+    
+    
+    
+    @JsonProperty("auth")
+    private ApplicationAuth auth;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("channel_type")
+    private String channelType;
+    
+    
+    
+    
+    @JsonProperty("cache_ttl")
+    private Integer cacheTtl;
+    
+    
+    
+    
+    @JsonProperty("is_internal")
+    private Boolean isInternal;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("_id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("owner")
+    private String owner;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("redirections")
+    private List<ApplicationRedirections> redirections;
+    
+    
+    
+    
+    @JsonProperty("meta")
+    private List<ApplicationMeta> meta;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("modified_at")
+    private String modifiedAt;
+    
+    
+    
+    
+    @JsonProperty("__v")
+    private Integer v;
+    
+    
+    
+    
+    @JsonProperty("banner")
+    private SecureUrl banner;
+    
+    
+    
+    
+    @JsonProperty("logo")
+    private SecureUrl logo;
+    
+    
+    
+    
+    @JsonProperty("favicon")
+    private SecureUrl favicon;
+    
+    
+    
+    
+    @JsonProperty("domains")
+    private List<Domain> domains;
+    
+    
+    
+    
+    @JsonProperty("app_type")
+    private String appType;
+    
+    
+    
+    
+    @JsonProperty("mobile_logo")
+    private SecureUrl mobileLogo;
+    
+    
+    
+    
+    @JsonProperty("domain")
+    private Domain domain;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("mode")
+    private String mode;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("tokens")
+    private List<TokenSchemaID> tokens;
+    
+    
+    
+    
+    @JsonProperty("secret")
+    private String secret;
+    
+    
+    
+}
+
+
+/*
+    Model: TokenSchemaID
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class TokenSchemaID{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("token")
+    private String token;
+    
+    
+    
+    
+    @JsonProperty("created_by")
+    private String createdBy;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+}
+
+
+/*
     Model: TokenSchema
 */
 @AllArgsConstructor
@@ -6763,7 +6462,7 @@ public static class TokenSchema{
 
 
 /*
-    Model: InvalidPayloadRequest
+    Model: InvalidPayloadRequestSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -6771,7 +6470,7 @@ public static class TokenSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvalidPayloadRequest{
+public static class InvalidPayloadRequestSchema{
 
     
 
@@ -6787,254 +6486,6 @@ public static class InvalidPayloadRequest{
     
     @JsonProperty("success")
     private Boolean success;
-    
-    
-    
-    
-    @JsonProperty("domain")
-    private Object domain;
-    
-    
-    
-}
-
-
-/*
-    Model: InventoryBrandRule
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryBrandRule{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("criteria")
-    private String criteria;
-    
-    
-    
-    
-    @JsonProperty("brands")
-    private List<Integer> brands;
-    
-    
-    
-}
-
-
-/*
-    Model: PricingStrategy
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PricingStrategy{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreCriteriaRule
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreCriteriaRule{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("companies")
-    private List<Integer> companies;
-    
-    
-    
-    
-    @JsonProperty("brands")
-    private List<Integer> brands;
-    
-    
-    
-}
-
-
-/*
-    Model: InventoryStoreRule
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryStoreRule{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("criteria")
-    private String criteria;
-    
-    
-    
-    
-    @JsonProperty("rules")
-    private List<StoreCriteriaRule> rules;
-    
-    
-    
-    
-    @JsonProperty("stores")
-    private List<Integer> stores;
-    
-    
-    
-}
-
-
-/*
-    Model: InventoryPaymentConfig
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryPaymentConfig{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("mode_of_payment")
-    private String modeOfPayment;
-    
-    
-    
-    
-    @JsonProperty("source")
-    private String source;
-    
-    
-    
-}
-
-
-/*
-    Model: StorePriorityRule
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StorePriorityRule{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enabled")
-    private Boolean enabled;
-    
-    
-    
-    
-    @JsonProperty("storetype_order")
-    private List<String> storetypeOrder;
-    
-    
-    
-}
-
-
-/*
-    Model: ArticleAssignmentRule
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ArticleAssignmentRule{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("store_priority")
-    private StorePriorityRule storePriority;
-    
-    
-    
-}
-
-
-/*
-    Model: InventoryArticleAssignment
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InventoryArticleAssignment{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("post_order_reassignment")
-    private Boolean postOrderReassignment;
-    
-    
-    
-    
-    @JsonProperty("rules")
-    private ArticleAssignmentRule rules;
     
     
     
@@ -7100,8 +6551,8 @@ public static class Page{
     
     
     
-    @JsonProperty("total")
-    private Integer total;
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -7981,7 +7432,7 @@ public static class ApplicationDetail{
 
 
 /*
-    Model: CurrenciesResponse
+    Model: CurrenciesResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -7989,7 +7440,7 @@ public static class ApplicationDetail{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CurrenciesResponse{
+public static class CurrenciesResponseSchema{
 
     
 
@@ -8006,7 +7457,7 @@ public static class CurrenciesResponse{
 
 
 /*
-    Model: AppCurrencyResponse
+    Model: AppCurrencyResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8014,7 +7465,7 @@ public static class CurrenciesResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AppCurrencyResponse{
+public static class AppCurrencyResponseSchema{
 
     
 
@@ -8164,12 +7615,6 @@ public static class OptedStoreAddress{
     
     @JsonProperty("state_code")
     private String stateCode;
-    
-    
-    
-    
-    @JsonProperty("landmark")
-    private String landmark;
     
     
     
@@ -8323,7 +7768,7 @@ public static class OrderingStores{
 
 
 /*
-    Model: UpdateDiealog
+    Model: OrderingStoresResponseSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8331,172 +7776,7 @@ public static class OrderingStores{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateDiealog{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("interval")
-    private Integer interval;
-    
-    
-    
-}
-
-
-/*
-    Model: PlatformVersionRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PlatformVersionRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("app_code_name")
-    private String appCodeName;
-    
-    
-    
-    
-    @JsonProperty("app_name")
-    private String appName;
-    
-    
-    
-    
-    @JsonProperty("force_version")
-    private String forceVersion;
-    
-    
-    
-    
-    @JsonProperty("latest_version")
-    private String latestVersion;
-    
-    
-    
-    
-    @JsonProperty("is_app_blocked")
-    private Boolean isAppBlocked;
-    
-    
-    
-    
-    @JsonProperty("update_dialog")
-    private UpdateDiealog updateDialog;
-    
-    
-    
-}
-
-
-/*
-    Model: PlatformVersion
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PlatformVersion{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("app_code_name")
-    private String appCodeName;
-    
-    
-    
-    
-    @JsonProperty("app_name")
-    private String appName;
-    
-    
-    
-    
-    @JsonProperty("force_version")
-    private String forceVersion;
-    
-    
-    
-    
-    @JsonProperty("latest_version")
-    private String latestVersion;
-    
-    
-    
-    
-    @JsonProperty("is_app_blocked")
-    private Boolean isAppBlocked;
-    
-    
-    
-    
-    @JsonProperty("update_dialog")
-    private UpdateDiealog updateDialog;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("modified_at")
-    private String modifiedAt;
-    
-    
-    
-    
-    @JsonProperty("created_at")
-    private String createdAt;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Double v;
-    
-    
-    
-}
-
-
-/*
-    Model: OrderingStoresResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OrderingStoresResponse{
+public static class OrderingStoresResponseSchema{
 
     
 
@@ -8519,7 +7799,7 @@ public static class OrderingStoresResponse{
 
 
 /*
-    Model: LocationDefaultLanguage
+    Model: ValidationErrors
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8527,7 +7807,7 @@ public static class OrderingStoresResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationDefaultLanguage{
+public static class ValidationErrors{
 
     
 
@@ -8535,14 +7815,8 @@ public static class LocationDefaultLanguage{
     
     
     
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
+    @JsonProperty("errors")
+    private List<ValidationError> errors;
     
     
     
@@ -8550,7 +7824,7 @@ public static class LocationDefaultLanguage{
 
 
 /*
-    Model: LocationDefaultCurrency
+    Model: ValidationError
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -8558,7 +7832,7 @@ public static class LocationDefaultLanguage{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationDefaultCurrency{
+public static class ValidationError{
 
     
 
@@ -8566,439 +7840,14 @@ public static class LocationDefaultCurrency{
     
     
     
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("message")
+    private String message;
     
     
     
     
-    @JsonProperty("symbol")
-    private String symbol;
-    
-    
-    
-    
-    @JsonProperty("code")
-    private String code;
-    
-    
-    
-}
-
-
-/*
-    Model: LocationCountry
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class LocationCountry{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("capital")
-    private String capital;
-    
-    
-    
-    
-    @JsonProperty("currency")
-    private String currency;
-    
-    
-    
-    
-    @JsonProperty("iso2")
-    private String iso2;
-    
-    
-    
-    
-    @JsonProperty("iso3")
-    private String iso3;
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("parent")
-    private String parent;
-    
-    
-    
-    
-    @JsonProperty("phone_code")
-    private String phoneCode;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("uid")
-    private Integer uid;
-    
-    
-    
-    
-    @JsonProperty("__v")
-    private Integer v;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-    
-    @JsonProperty("default_currency")
-    private LocationDefaultCurrency defaultCurrency;
-    
-    
-    
-    
-    @JsonProperty("default_language")
-    private LocationDefaultLanguage defaultLanguage;
-    
-    
-    
-    
-    @JsonProperty("state_code")
-    private String stateCode;
-    
-    
-    
-    
-    @JsonProperty("country_code")
-    private String countryCode;
-    
-    
-    
-    
-    @JsonProperty("latitude")
-    private String latitude;
-    
-    
-    
-    
-    @JsonProperty("longitude")
-    private String longitude;
-    
-    
-    
-}
-
-
-/*
-    Model: Locations
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class Locations{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("items")
-    private List<LocationCountry> items;
-    
-    
-    
-}
-
-
-/*
-    Model: UrlRedirectionResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UrlRedirectionResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("redirections")
-    private List<UrlRedirection> redirections;
-    
-    
-    
-}
-
-
-/*
-    Model: UrlRedirectionRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UrlRedirectionRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("redirection")
-    private UrlRedirection redirection;
-    
-    
-    
-}
-
-
-/*
-    Model: UrlRedirection
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UrlRedirection{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("redirect_from")
-    private String redirectFrom;
-    
-    
-    
-    
-    @JsonProperty("redirect_to")
-    private String redirectTo;
-    
-    
-    
-    
-    @JsonProperty("type")
-    private String type;
-    
-    
-    
-    
-    @JsonProperty("_id")
-    private String id;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreForConfigurationRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreForConfigurationRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("conf")
-    private List<AppStoreRules> conf;
-    
-    
-    
-}
-
-
-/*
-    Model: DomainOptionsResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainOptionsResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("domain_types")
-    private List<DomainType> domainTypes;
-    
-    
-    
-    
-    @JsonProperty("network_ips")
-    private List<String> networkIps;
-    
-    
-    
-    
-    @JsonProperty("network_cnames")
-    private List<String> networkCnames;
-    
-    
-    
-}
-
-
-/*
-    Model: DomainType
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainType{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("key")
-    private String key;
-    
-    
-    
-    
-    @JsonProperty("display")
-    private String display;
-    
-    
-    
-    
-    @JsonProperty("values")
-    private List<DomainValue> values;
-    
-    
-    
-}
-
-
-/*
-    Model: DomainValue
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DomainValue{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("value")
-    private String value;
-    
-    
-    
-    
-    @JsonProperty("text")
-    private String text;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreRequest
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreRequest{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("companies")
-    private List<Integer> companies;
-    
-    
-    
-}
-
-
-/*
-    Model: StoreResponse
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class StoreResponse{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("data")
-    private List<Integer> data;
+    @JsonProperty("field")
+    private String field;
     
     
     

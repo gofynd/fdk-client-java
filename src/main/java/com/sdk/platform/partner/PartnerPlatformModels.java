@@ -45,7 +45,7 @@ public static class AddProxyReq{
 
 
 /*
-    Model: AddProxyResponse
+    Model: ExtensionProxyPathCreation
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -53,7 +53,7 @@ public static class AddProxyReq{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AddProxyResponse{
+public static class ExtensionProxyPathCreation{
 
     
 
@@ -112,7 +112,7 @@ public static class AddProxyResponse{
 
 
 /*
-    Model: RemoveProxyResponse
+    Model: ExtensionProxyPathDelete
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -120,7 +120,7 @@ public static class AddProxyResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class RemoveProxyResponse{
+public static class ExtensionProxyPathDelete{
 
     
 
@@ -184,7 +184,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     

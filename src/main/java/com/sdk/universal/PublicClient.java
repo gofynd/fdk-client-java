@@ -2,7 +2,10 @@ package com.sdk.universal;
 
 import lombok.Getter;
 import lombok.Setter;
+import java.net.CookieStore;
 
+
+import com.sdk.universal.catalog.CatalogPublicService;
 
 import com.sdk.universal.configuration.ConfigurationPublicService;
 
@@ -20,6 +23,8 @@ public class PublicClient {
     private PublicConfig config;
 
     
+    public CatalogPublicService catalog;
+    
     public ConfigurationPublicService configuration;
     
     public ContentPublicService content;
@@ -33,16 +38,36 @@ public class PublicClient {
         this.config.getExtraHeaders().put(key, value);
     }
 
-    public PublicClient(PublicConfig publicConfig) {
-        this.config = publicConfig;
+    public PublicClient(PublicConfig config) {
+        this.initialiseConfigAndServices(config);
+    }
+
+    public PublicClient(String applicationToken) {
+        PublicConfig config = new PublicConfig(applicationToken);
+        this.initialiseConfigAndServices(config);
+    }
+
+    public PublicClient(String applicationToken, String domain) {
+        PublicConfig config = new PublicConfig(applicationToken, domain);
+        this.initialiseConfigAndServices(config);
+    }
+
+    private void initialiseConfigAndServices(PublicConfig config) {
+        this.config = config;
         
-        this.configuration = new ConfigurationPublicService(publicConfig);
+        this.catalog = new CatalogPublicService(config);
         
-        this.content = new ContentPublicService(publicConfig);
+        this.configuration = new ConfigurationPublicService(config);
         
-        this.partner = new PartnerPublicService(publicConfig);
+        this.content = new ContentPublicService(config);
         
-        this.webhook = new WebhookPublicService(publicConfig);
+        this.partner = new PartnerPublicService(config);
         
+        this.webhook = new WebhookPublicService(config);
+        
+    }
+
+    public CookieStore getPersistentCookieStore() {
+        return this.config.getPersistentCookieStore();
     }
 }

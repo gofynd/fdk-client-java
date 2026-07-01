@@ -57,13 +57,13 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public PartnerPlatformModels.AddProxyResponse addProxyPath(String extensionId, PartnerPlatformModels.AddProxyReq body) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.ExtensionProxyPathCreation addProxyPath(String extensionId, PartnerPlatformModels.AddProxyReq body) throws FDKServerResponseError, FDKException {
         return this.addProxyPath(extensionId, body, new HashMap<>());
     }
 
-    public PartnerPlatformModels.AddProxyResponse addProxyPath(String extensionId, PartnerPlatformModels.AddProxyReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.ExtensionProxyPathCreation addProxyPath(String extensionId, PartnerPlatformModels.AddProxyReq body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PartnerPlatformModels.AddProxyResponse> response = null;
+            Response<PartnerPlatformModels.ExtensionProxyPathCreation> response = null;
             try {
             response = partnerPlatformApiList.addProxyPath(this.companyId, this.applicationId, extensionId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
@@ -84,13 +84,13 @@ public class ApplicationClient {
         }    
     }
 
-    public PartnerPlatformModels.RemoveProxyResponse removeProxyPath(String extensionId, String attachedPath) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.ExtensionProxyPathDelete removeProxyPath(String extensionId, String attachedPath) throws FDKServerResponseError, FDKException {
         return this.removeProxyPath(extensionId, attachedPath, new HashMap<>());
     }
 
-    public PartnerPlatformModels.RemoveProxyResponse removeProxyPath(String extensionId, String attachedPath, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public PartnerPlatformModels.ExtensionProxyPathDelete removeProxyPath(String extensionId, String attachedPath, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
-            Response<PartnerPlatformModels.RemoveProxyResponse> response = null;
+            Response<PartnerPlatformModels.ExtensionProxyPathDelete> response = null;
             try {
             response = partnerPlatformApiList.removeProxyPath(this.companyId, this.applicationId, extensionId, attachedPath, requestHeaders).execute();
                 if (!response.isSuccessful()) {

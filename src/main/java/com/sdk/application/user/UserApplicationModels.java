@@ -14,7 +14,7 @@ public class UserApplicationModels{
 
 
 /*
-    Model: UpdateAttributesRequestPayload
+    Model: UserAttributesDefinition
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,412 @@ public class UserApplicationModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateAttributesRequestPayload{
+public static class UserAttributesDefinition{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+    
+    @JsonProperty("description")
+    private String description;
+    
+    
+    
+    
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("icon")
+    private String icon;
+    
+    
+    
+    
+    @JsonProperty("ordering_channels")
+    private List<String> orderingChannels;
+    
+    
+    
+    
+    @JsonProperty("masking")
+    private AttributeMaskingProperties masking;
+    
+    
+    
+    
+    @JsonProperty("registration")
+    private AttributeRegistrationProperties registration;
+    
+    
+    
+    
+    @JsonProperty("is_multi_value")
+    private Boolean isMultiValue;
+    
+    
+    
+    
+    @JsonProperty("customer_editable")
+    private Boolean customerEditable;
+    
+    
+    
+    
+    @JsonProperty("encrypted")
+    private Boolean encrypted;
+    
+    
+    
+    
+    @JsonProperty("pinned")
+    private Boolean pinned;
+    
+    
+    
+    
+    @JsonProperty("pin_order")
+    private Integer pinOrder;
+    
+    
+    
+    
+    @JsonProperty("validations")
+    private List<Object> validations;
+    
+    
+    
+    
+    @JsonProperty("is_locked")
+    private Boolean isLocked;
+    
+    
+    
+    
+    @JsonProperty("created_at")
+    private String createdAt;
+    
+    
+    
+    
+    @JsonProperty("modified_at")
+    private String modifiedAt;
+    
+    
+    
+}
+
+
+/*
+    Model: AttributeMaskingProperties
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AttributeMaskingProperties{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
+    Model: AttributeRegistrationProperties
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AttributeRegistrationProperties{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("enabled")
+    private Boolean enabled;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+}
+
+
+/*
+    Model: UserAttributeDefinitionValidation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserAttributeDefinitionValidation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Object value;
+    
+    
+    
+}
+
+
+/*
+    Model: VerifyOTPForUpdateRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyOTPForUpdateRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("otp")
+    private String otp;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+}
+
+
+/*
+    Model: SendOTPForUpdateRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendOTPForUpdateRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("email")
+    private String email;
+    
+    
+    
+    
+    @JsonProperty("encrypt_otp")
+    private Boolean encryptOtp;
+    
+    
+    
+}
+
+
+/*
+    Model: VerifyPrimaryOTPSuccess
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyPrimaryOTPSuccess{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+    
+    @JsonProperty("entity")
+    private String entity;
+    
+    
+    
+}
+
+
+/*
+    Model: VerifyPrimaryOTPRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class VerifyPrimaryOTPRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("otp")
+    private String otp;
+    
+    
+    
+    
+    @JsonProperty("request_id")
+    private String requestId;
+    
+    
+    
+}
+
+
+/*
+    Model: SendPrimaryOTPRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendPrimaryOTPRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("encrypt_otp")
+    private Boolean encryptOtp;
+    
+    
+    
+}
+
+
+/*
+    Model: UpdateUserAttributes
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UpdateUserAttributes{
 
     
 
@@ -234,8 +639,8 @@ public static class EditProfileRequestSchema{
     
     
     
-    @JsonProperty("ci")
-    private Boolean ci;
+    @JsonProperty("encrypt_otp")
+    private Boolean encryptOtp;
     
     
     
@@ -302,6 +707,12 @@ public static class EditProfileRequestSchema{
     
     @JsonProperty("register_token")
     private String registerToken;
+    
+    
+    
+    
+    @JsonProperty("consent")
+    private Boolean consent;
     
     
     
@@ -442,12 +853,6 @@ public static class VerifyEmailOtpRequestSchema{
     
     
     
-    @JsonProperty("request_id")
-    private String requestId;
-    
-    
-    
-    
     @JsonProperty("action")
     private String action;
     
@@ -493,12 +898,6 @@ public static class VerifyEmailForgotOtpRequestSchema{
     
     @JsonProperty("otp")
     private String otp;
-    
-    
-    
-    
-    @JsonProperty("request_id")
-    private String requestId;
     
     
     
@@ -590,8 +989,8 @@ public static class SendMobileOtpRequestSchema{
     
     
     
-    @JsonProperty("ci")
-    private Boolean ci;
+    @JsonProperty("encrypt_otp")
+    private Boolean encryptOtp;
     
     
     
@@ -772,6 +1171,12 @@ public static class FormRegisterRequestSchema{
     
     
     
+    
+    @JsonProperty("consent")
+    private Boolean consent;
+    
+    
+    
 }
 
 
@@ -882,6 +1287,37 @@ public static class SendResetPasswordEmailRequestSchema{
 
 
 /*
+    Model: SendResetPasswordMobileRequestSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SendResetPasswordMobileRequestSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
+    @JsonProperty("mobile")
+    private String mobile;
+    
+    
+    
+}
+
+
+/*
     Model: PasswordLoginRequestSchema
 */
 @AllArgsConstructor
@@ -929,8 +1365,8 @@ public static class SendOtpRequestSchema{
     
     
     
-    @JsonProperty("ci")
-    private Boolean ci;
+    @JsonProperty("encrypt_otp")
+    private Boolean encryptOtp;
     
     
     
@@ -1092,7 +1528,7 @@ public static class AuthSuccess{
 
 
 /*
-    Model: UserExistsResponse
+    Model: UserExistsDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1100,7 +1536,7 @@ public static class AuthSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UserExistsResponse{
+public static class UserExistsDetails{
 
     
 
@@ -1117,7 +1553,7 @@ public static class UserExistsResponse{
 
 
 /*
-    Model: SendOtpResponse
+    Model: SendOtp
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1125,7 +1561,7 @@ public static class UserExistsResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SendOtpResponse{
+public static class SendOtp{
 
     
 
@@ -1214,37 +1650,6 @@ public static class SendOtpResponse{
 
 
 /*
-    Model: EmailOtp
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EmailOtp{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("request_id")
-    private String requestId;
-    
-    
-    
-    
-    @JsonProperty("resend_timer")
-    private Integer resendTimer;
-    
-    
-    
-}
-
-
-/*
     Model: ProfileEditSuccess
 */
 @AllArgsConstructor
@@ -1309,12 +1714,6 @@ public static class ProfileEditSuccess{
     
     
     
-    @JsonProperty("email_otp")
-    private EmailOtp emailOtp;
-    
-    
-    
-    
     @JsonProperty("request_id")
     private String requestId;
     
@@ -1346,7 +1745,7 @@ public static class ProfileEditSuccess{
     
     
     @JsonProperty("resend_timer")
-    private Integer resendTimer;
+    private Long resendTimer;
     
     
     
@@ -1537,14 +1936,8 @@ public static class RegisterFormSuccess{
     
     
     
-    @JsonProperty("email_otp")
-    private EmailOtp emailOtp;
-    
-    
-    
-    
     @JsonProperty("resend_timer")
-    private Integer resendTimer;
+    private Long resendTimer;
     
     
     
@@ -1718,7 +2111,7 @@ public static class DeleteUserSuccess{
 
 
 /*
-    Model: OtpSuccess
+    Model: SendOtpSuccess
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1726,7 +2119,7 @@ public static class DeleteUserSuccess{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class OtpSuccess{
+public static class SendOtpSuccess{
 
     
 
@@ -1735,7 +2128,7 @@ public static class OtpSuccess{
     
     
     @JsonProperty("resend_timer")
-    private Integer resendTimer;
+    private Long resendTimer;
     
     
     
@@ -1809,12 +2202,6 @@ public static class EmailOtpSuccess{
     
     @JsonProperty("resend_email_token")
     private String resendEmailToken;
-    
-    
-    
-    
-    @JsonProperty("email_otp")
-    private EmailOtp emailOtp;
     
     
     
@@ -2006,7 +2393,7 @@ public static class APIError{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -2257,18 +2644,6 @@ public static class PlatformSchema{
     
     
     
-    @JsonProperty("account_lockout")
-    private AccountLockout accountLockout;
-    
-    
-    
-    
-    @JsonProperty("password_settings")
-    private PasswordSettings passwordSettings;
-    
-    
-    
-    
     @JsonProperty("skip_captcha")
     private Boolean skipCaptcha;
     
@@ -2423,185 +2798,6 @@ public static class LookAndFeel{
 
 
 /*
-    Model: PasswordConfigs
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PasswordConfigs{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("length")
-    private Double length;
-    
-    
-    
-    
-    @JsonProperty("require_special_character")
-    private Boolean requireSpecialCharacter;
-    
-    
-    
-    
-    @JsonProperty("require_number")
-    private Boolean requireNumber;
-    
-    
-    
-    
-    @JsonProperty("require_capital_character")
-    private Boolean requireCapitalCharacter;
-    
-    
-    
-}
-
-
-/*
-    Model: PasswordHistory
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PasswordHistory{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("required")
-    private Boolean required;
-    
-    
-    
-    
-    @JsonProperty("count")
-    private Double count;
-    
-    
-    
-}
-
-
-/*
-    Model: PasswordExpiry
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PasswordExpiry{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("required")
-    private Boolean required;
-    
-    
-    
-    
-    @JsonProperty("duration")
-    private Double duration;
-    
-    
-    
-}
-
-
-/*
-    Model: PasswordSettings
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PasswordSettings{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("configs")
-    private PasswordConfigs configs;
-    
-    
-    
-    
-    @JsonProperty("history")
-    private PasswordHistory history;
-    
-    
-    
-    
-    @JsonProperty("expiry")
-    private PasswordExpiry expiry;
-    
-    
-    
-}
-
-
-/*
-    Model: AccountLockout
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class AccountLockout{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("enable")
-    private Boolean enable;
-    
-    
-    
-    
-    @JsonProperty("attempts")
-    private Double attempts;
-    
-    
-    
-    
-    @JsonProperty("duration")
-    private Double duration;
-    
-    
-    
-}
-
-
-/*
     Model: Login
 */
 @AllArgsConstructor
@@ -2626,12 +2822,6 @@ public static class Login{
     
     @JsonProperty("otp")
     private Boolean otp;
-    
-    
-    
-    
-    @JsonProperty("via")
-    private String via;
     
     
     
@@ -2734,12 +2924,6 @@ public static class RequiredFields{
     
     
     
-    
-    @JsonProperty("password")
-    private PlatformPassword password;
-    
-    
-    
 }
 
 
@@ -2806,31 +2990,6 @@ public static class PlatformMobile{
 
 
 /*
-    Model: PlatformPassword
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class PlatformPassword{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("is_required")
-    private Boolean isRequired;
-    
-    
-    
-}
-
-
-/*
     Model: RegisterRequiredFields
 */
 @AllArgsConstructor
@@ -2855,12 +3014,6 @@ public static class RegisterRequiredFields{
     
     @JsonProperty("mobile")
     private RegisterRequiredFieldsMobile mobile;
-    
-    
-    
-    
-    @JsonProperty("password")
-    private PlatformPassword password;
     
     
     
@@ -3000,6 +3153,12 @@ public static class SocialTokens{
     
     
     
+    
+    @JsonProperty("apple")
+    private Apple apple;
+    
+    
+    
 }
 
 
@@ -3087,12 +3246,6 @@ public static class Facebook{
     
     
     
-    
-    @JsonProperty("app_secret")
-    private String appSecret;
-    
-    
-    
 }
 
 
@@ -3115,12 +3268,6 @@ public static class Accountkit{
     
     @JsonProperty("app_id")
     private String appId;
-    
-    
-    
-    
-    @JsonProperty("app_secret")
-    private String appSecret;
     
     
     
@@ -3149,9 +3296,34 @@ public static class Google{
     
     
     
+}
+
+
+/*
+    Model: Apple
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class Apple{
+
     
-    @JsonProperty("app_secret")
-    private String appSecret;
+
+    
+    
+    
+    
+    @JsonProperty("app_id")
+    private String appId;
+    
+    
+    
+    
+    @JsonProperty("redirect_uri")
+    private String redirectUri;
     
     
     
@@ -3231,7 +3403,7 @@ public static class UserSchema{
     
     
     @JsonProperty("meta")
-    private Object meta;
+    private HashMap<String,Object> meta;
     
     
     
@@ -3316,6 +3488,12 @@ public static class UserSchema{
     
     @JsonProperty("rr_id")
     private String rrId;
+    
+    
+    
+    
+    @JsonProperty("consent")
+    private UserConsentSchema consent;
     
     
     
@@ -3408,6 +3586,62 @@ public static class Email{
     
     @JsonProperty("verified")
     private Boolean verified;
+    
+    
+    
+}
+
+
+/*
+    Model: UserConsentSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class UserConsentSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("privacy_policy")
+    private PrivacyPolicyConsentSchema privacyPolicy;
+    
+    
+    
+}
+
+
+/*
+    Model: PrivacyPolicyConsentSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PrivacyPolicyConsentSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Boolean value;
+    
+    
+    
+    
+    @JsonProperty("updated_at")
+    private String updatedAt;
     
     
     

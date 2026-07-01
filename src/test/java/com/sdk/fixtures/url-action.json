@@ -816,6 +816,24 @@
           }
         }
       }
+    },
+    {
+      "name": "Files",
+      "path": "/files/file1",
+      "result": {
+        "action": {
+          "type": "page",
+          "page": {
+            "type": "files",
+            "query": {},
+            "params": {
+              "file_name": [
+                "file1"
+              ]
+            }
+          }
+        }
+      }
     }
   ]
 }

@@ -1,7 +1,8 @@
 package com.sdk.platform;
-
+import com.sdk.common.model.AccessTokenDto;
 import lombok.Getter;
 import lombok.Setter;
+import java.net.CookieStore;
 import com.sdk.common.CustomRequest;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,8 +36,6 @@ import com.sdk.platform.discount.DiscountPlatformService;
 
 import com.sdk.platform.filestorage.FileStoragePlatformService;
 
-import com.sdk.platform.finance.FinancePlatformService;
-
 import com.sdk.platform.lead.LeadPlatformService;
 
 import com.sdk.platform.serviceability.ServiceabilityPlatformService;
@@ -46,8 +45,6 @@ import com.sdk.platform.order.OrderPlatformService;
 import com.sdk.platform.partner.PartnerPlatformService;
 
 import com.sdk.platform.payment.PaymentPlatformService;
-
-import com.sdk.platform.rewards.RewardsPlatformService;
 
 import com.sdk.platform.share.SharePlatformService;
 
@@ -90,8 +87,6 @@ public class PlatformClient {
     
     public FileStoragePlatformService fileStorage;
     
-    public FinancePlatformService finance;
-    
     public LeadPlatformService lead;
     
     public ServiceabilityPlatformService serviceability;
@@ -101,8 +96,6 @@ public class PlatformClient {
     public PartnerPlatformService partner;
     
     public PaymentPlatformService payment;
-    
-    public RewardsPlatformService rewards;
     
     public SharePlatformService share;
     
@@ -115,6 +108,20 @@ public class PlatformClient {
 
     public PlatformClient(PlatformConfig config)   
     {
+        this.initialiseConfigAndServices(config);
+    }
+
+    public PlatformClient(String companyId, String apiKey, String apiSecret, String domain){
+        PlatformConfig config = new PlatformConfig(companyId, apiKey, apiSecret, domain);
+        this.initialiseConfigAndServices(config);
+    }
+
+    public PlatformClient(String companyId, String apiKey, String apiSecret, String domain, boolean useAutoRenewTimer){
+        PlatformConfig config = new PlatformConfig(companyId, apiKey, apiSecret, domain, useAutoRenewTimer);
+        this.initialiseConfigAndServices(config);
+    }
+
+    private void initialiseConfigAndServices(PlatformConfig config) {
         this.config = config;
         
         this.analytics = new AnalyticsPlatformService(config);
@@ -141,8 +148,6 @@ public class PlatformClient {
         
         this.fileStorage = new FileStoragePlatformService(config);
         
-        this.finance = new FinancePlatformService(config);
-        
         this.lead = new LeadPlatformService(config);
         
         this.serviceability = new ServiceabilityPlatformService(config);
@@ -153,8 +158,6 @@ public class PlatformClient {
         
         this.payment = new PaymentPlatformService(config);
         
-        this.rewards = new RewardsPlatformService(config);
-        
         this.share = new SharePlatformService(config);
         
         this.theme = new ThemePlatformService(config);
@@ -163,6 +166,18 @@ public class PlatformClient {
         
         this.webhook = new WebhookPlatformService(config);
         
+    }
+
+    public AccessTokenDto getAccessTokenObj(String grantType) throws IOException  {
+        return this.config.getPlatformOauthClient().getAccessTokenObj(grantType);
+    }
+
+    public CookieStore getPersistentCookieStore() {
+        return this.config.getPersistentCookieStore();
+    }
+
+    public void setToken(AccessTokenDto token){
+        this.config.getPlatformOauthClient().setToken(token);
     }
 
     public ApplicationClient application(String applicationId) {
@@ -214,8 +229,6 @@ public class PlatformClient {
         
         public FileStoragePlatformService.ApplicationClient fileStorage;
         
-        public FinancePlatformService.ApplicationClient finance;
-        
         public LeadPlatformService.ApplicationClient lead;
         
         public ServiceabilityPlatformService.ApplicationClient serviceability;
@@ -225,8 +238,6 @@ public class PlatformClient {
         public PartnerPlatformService.ApplicationClient partner;
         
         public PaymentPlatformService.ApplicationClient payment;
-        
-        public RewardsPlatformService.ApplicationClient rewards;
         
         public SharePlatformService.ApplicationClient share;
         
@@ -264,8 +275,6 @@ public class PlatformClient {
             
             this.fileStorage = new FileStoragePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
-            this.finance = new FinancePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
             this.lead = new LeadPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.serviceability = new ServiceabilityPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
@@ -275,8 +284,6 @@ public class PlatformClient {
             this.partner = new PartnerPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.payment = new PaymentPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
-            
-            this.rewards = new RewardsPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.share = new SharePlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             

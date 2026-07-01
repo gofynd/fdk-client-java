@@ -14,7 +14,7 @@ public class WebhookPartnerModels{
 
 
 /*
-    Model: UpdateSubscriberRequest
+    Model: ReportDownloadPayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +22,359 @@ public class WebhookPartnerModels{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateSubscriberRequest{
+public static class ReportDownloadPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("end_date")
+    private String endDate;
+    
+    
+    
+    
+    @JsonProperty("start_date")
+    private String startDate;
+    
+    
+    
+}
+
+
+/*
+    Model: DownloadReportResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DownloadReportResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("file_name")
+    private String fileName;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterValidationPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterValidationPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sample_data")
+    private HashMap<String,Object> sampleData;
+    
+    
+    
+    
+    @JsonProperty("filters")
+    private FilterValidationSchema filters;
+    
+    
+    
+}
+
+
+/*
+    Model: ReducerValidationPayload
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReducerValidationPayload{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("sample_data")
+    private HashMap<String,Object> sampleData;
+    
+    
+    
+    
+    @JsonProperty("reducer")
+    private HashMap<String,Object> reducer;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterReducerSave
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterReducerSave{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("filter_configuration")
+    private FilterSaveSchema filterConfiguration;
+    
+    
+    
+    
+    @JsonProperty("reducer_configuration")
+    private HashMap<String,Object> reducerConfiguration;
+    
+    
+    
+    
+    @JsonProperty("event_slug")
+    private String eventSlug;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterValidationSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterValidationSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("query")
+    private String query;
+    
+    
+    
+    
+    @JsonProperty("condition")
+    private String condition;
+    
+    
+    
+    
+    @JsonProperty("logic")
+    private String logic;
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private List<HashMap<String,Object>> conditions;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterSaveSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterSaveSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("query")
+    private String query;
+    
+    
+    
+    
+    @JsonProperty("condition")
+    private String condition;
+    
+    
+    
+    
+    @JsonProperty("logic")
+    private String logic;
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private List<HashMap<String,Object>> conditions;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterValidationResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterValidationResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("filter_result")
+    private Boolean filterResult;
+    
+    
+    
+}
+
+
+/*
+    Model: ReducerValidationResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ReducerValidationResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("reducer_result")
+    private HashMap<String,Object> reducerResult;
+    
+    
+    
+}
+
+
+/*
+    Model: FilterReducerSaveResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FilterReducerSaveResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Boolean success;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("data")
+    private HashMap<String,Object> data;
+    
+    
+    
+}
+
+
+/*
+    Model: SubscriberUpdate
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class SubscriberUpdate{
 
     
 
@@ -39,7 +391,7 @@ public static class UpdateSubscriberRequest{
 
 
 /*
-    Model: UpdateSubscriberResponse
+    Model: SubscriberUpdateResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -47,7 +399,7 @@ public static class UpdateSubscriberRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class UpdateSubscriberResponse{
+public static class SubscriberUpdateResult{
 
     
 
@@ -138,6 +490,61 @@ public static class AuthMeta{
 
 
 /*
+    Model: BroadcasterConfig
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BroadcasterConfig{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("topic")
+    private String topic;
+    
+    
+    
+    
+    @JsonProperty("queue")
+    private String queue;
+    
+    
+    
+    
+    @JsonProperty("event_bridge_name")
+    private String eventBridgeName;
+    
+    
+    
+    
+    @JsonProperty("workflow_name")
+    private String workflowName;
+    
+    
+    
+    
+    @JsonProperty("account_id")
+    private String accountId;
+    
+    
+    
+    
+    @JsonProperty("detail_type")
+    private String detailType;
+    
+    
+    
+}
+
+
+/*
     Model: SubscriberEventMapping
 */
 @AllArgsConstructor
@@ -172,8 +579,20 @@ public static class SubscriberEventMapping{
     
     
     
-    @JsonProperty("topic")
-    private String topic;
+    @JsonProperty("filters")
+    private FilterSchema filters;
+    
+    
+    
+    
+    @JsonProperty("reducer")
+    private HashMap<String,Object> reducer;
+    
+    
+    
+    
+    @JsonProperty("broadcaster_config")
+    private BroadcasterConfig broadcasterConfig;
     
     
     
@@ -187,7 +606,7 @@ public static class SubscriberEventMapping{
 
 
 /*
-    Model: EventConfigResponse
+    Model: FilterSchema
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -195,7 +614,50 @@ public static class SubscriberEventMapping{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class EventConfigResponse{
+public static class FilterSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("query")
+    private String query;
+    
+    
+    
+    
+    @JsonProperty("condition")
+    private String condition;
+    
+    
+    
+    
+    @JsonProperty("logic")
+    private String logic;
+    
+    
+    
+    
+    @JsonProperty("conditions")
+    private List<HashMap<String,Object>> conditions;
+    
+    
+    
+}
+
+
+/*
+    Model: EventConfigDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class EventConfigDetails{
 
     
 
@@ -278,7 +740,7 @@ public static class EventConfigResponse{
 
 
 /*
-    Model: SubscriberConfigResponse
+    Model: SubscriberConfigDetails
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -286,7 +748,7 @@ public static class EventConfigResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class SubscriberConfigResponse{
+public static class SubscriberConfigDetails{
 
     
 
@@ -309,7 +771,7 @@ public static class SubscriberConfigResponse{
 
 
 /*
-    Model: InvalidEventsRequest
+    Model: InvalidEventsPayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -317,7 +779,7 @@ public static class SubscriberConfigResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvalidEventsRequest{
+public static class InvalidEventsPayload{
 
     
 
@@ -358,7 +820,7 @@ public static class InvalidEventsRequest{
 
 
 /*
-    Model: InvalidEventsResponse
+    Model: InvalidEventsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -366,7 +828,7 @@ public static class InvalidEventsRequest{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class InvalidEventsResponse{
+public static class InvalidEventsResult{
 
     
 
@@ -653,7 +1115,7 @@ public static class HistoryItems{
 
 
 /*
-    Model: HistoryResponse
+    Model: HistoryResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -661,7 +1123,7 @@ public static class HistoryItems{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class HistoryResponse{
+public static class HistoryResult{
 
     
 
@@ -727,7 +1189,7 @@ public static class HistoryPayload{
 
 
 /*
-    Model: CancelDownloadResponse
+    Model: CancelDownloadResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -735,7 +1197,7 @@ public static class HistoryPayload{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class CancelDownloadResponse{
+public static class CancelDownloadResult{
 
     
 
@@ -758,7 +1220,7 @@ public static class CancelDownloadResponse{
 
 
 /*
-    Model: FilterReportResponse
+    Model: FilterReportResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -766,7 +1228,7 @@ public static class CancelDownloadResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FilterReportResponse{
+public static class FilterReportResult{
 
     
 
@@ -789,7 +1251,7 @@ public static class FilterReportResponse{
 
 
 /*
-    Model: DeliveryTsResponse
+    Model: DeliveryTsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -797,7 +1259,7 @@ public static class FilterReportResponse{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryTsResponse{
+public static class DeliveryTsResult{
 
     
 
@@ -857,7 +1319,7 @@ public static class DeliveryTsSchema{
 
 
 /*
-    Model: DeliveryDetailsRequest
+    Model: DeliveryDetailsPayload
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -865,7 +1327,7 @@ public static class DeliveryTsSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryDetailsRequest{
+public static class DeliveryDetailsPayload{
 
     
 
@@ -961,7 +1423,7 @@ public static class EventDeliveryDetailSchema{
 
 
 /*
-    Model: DeliveryDetailsResponse
+    Model: DeliveryDetailsResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -969,7 +1431,7 @@ public static class EventDeliveryDetailSchema{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliveryDetailsResponse{
+public static class DeliveryDetailsResult{
 
     
 
@@ -1141,8 +1603,8 @@ public static class Page{
     
     
     
-    @JsonProperty("total")
-    private Integer total;
+    @JsonProperty("page_size")
+    private Integer pageSize;
     
     
     
@@ -1252,14 +1714,32 @@ public static class AvgResponseTime{
     
     
     
-    @JsonProperty("timestamp")
-    private String timestamp;
+    @JsonProperty("last_attempted_on")
+    private String lastAttemptedOn;
+    
+    
+    
+    
+    @JsonProperty("response_code")
+    private Double responseCode;
     
     
     
     
     @JsonProperty("response_time")
-    private Double responseTime;
+    private String responseTime;
+    
+    
+    
+    
+    @JsonProperty("attempt")
+    private Double attempt;
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Double total;
     
     
     
@@ -1267,7 +1747,7 @@ public static class AvgResponseTime{
 
 
 /*
-    Model: DeliverySummaryResponse
+    Model: DeliverySummaryResult
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -1275,7 +1755,7 @@ public static class AvgResponseTime{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class DeliverySummaryResponse{
+public static class DeliverySummaryResult{
 
     
 
@@ -1387,6 +1867,12 @@ public static class ItemSchema{
     
     
     
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+    
     @JsonProperty("association")
     private Association association;
     
@@ -1394,7 +1880,7 @@ public static class ItemSchema{
     
     
     @JsonProperty("custom_headers")
-    private Object customHeaders;
+    private HashMap<String,Object> customHeaders;
     
     
     
@@ -1436,7 +1922,7 @@ public static class ItemSchema{
     
     
     @JsonProperty("event_configs")
-    private List<EventConfigResponse> eventConfigs;
+    private List<EventConfigDetails> eventConfigs;
     
     
     
