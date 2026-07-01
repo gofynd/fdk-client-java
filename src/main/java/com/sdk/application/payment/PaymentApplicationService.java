@@ -77,7 +77,8 @@ import com.sdk.application.*;
         relativeUrls.put("addBeneficiary","/service/application/payment/v2.0/refund/user/beneficiary".substring(1));
         relativeUrls.put("deleteBeneficiary","/service/application/payment/v1.0/refund/account/{id}".substring(1));
         relativeUrls.put("getRefundBeneficiariesUsingOTPSession","/service/application/payment/v2.0/refund/user/beneficiary-otp".substring(1));
-        relativeUrls.put("addRefundBeneficiaryUsingOTPSession","/service/application/payment/v2.0/refund/user/beneficiary-otp".substring(1)); 
+        relativeUrls.put("addRefundBeneficiaryUsingOTPSession","/service/application/payment/v2.0/refund/user/beneficiary-otp".substring(1));
+        relativeUrls.put("getOrderTransactions","/service/application/payment/v1.0/orders/{order_id}/transactions".substring(1)); 
 
     }
 
@@ -264,15 +265,15 @@ import com.sdk.application.*;
     }
     
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, List<String> fulfillmentOption, String userDetails) throws IOException {
-        return this.getPosPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, fulfillmentOption, userDetails, new HashMap<>());
+    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, List<String> fulfillmentOption, String userDetails, Boolean displaySplit) throws IOException {
+        return this.getPosPaymentModeRoutes(amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, fulfillmentOption, userDetails, displaySplit, new HashMap<>());
     }
 
-    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, List<String> fulfillmentOption, String userDetails, Map<String, String> requestHeaders) throws IOException {
+    public PaymentApplicationModels.PaymentModeRouteDetails getPosPaymentModeRoutes(Integer amount, String cartId, String pincode, String checkoutMode, Boolean refresh, String cardReference, String orderType, List<String> fulfillmentOption, String userDetails, Boolean displaySplit, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getPosPaymentModeRoutes");
 
-        Response<PaymentApplicationModels.PaymentModeRouteDetails> response = paymentApplicationApiList.getPosPaymentModeRoutes(fullUrl, amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, fulfillmentOption, userDetails, requestHeaders).execute();
+        Response<PaymentApplicationModels.PaymentModeRouteDetails> response = paymentApplicationApiList.getPosPaymentModeRoutes(fullUrl, amount, cartId, pincode, checkoutMode, refresh, cardReference, orderType, fulfillmentOption, userDetails, displaySplit, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -921,6 +922,24 @@ import com.sdk.application.*;
         String fullUrl = relativeUrls.get("addRefundBeneficiaryUsingOTPSession");
 
         Response<PaymentApplicationModels.AddBeneficiaryResponseDetails> response = paymentApplicationApiList.addRefundBeneficiaryUsingOTPSession(fullUrl, body, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public PaymentApplicationModels.OrderTransactionList getOrderTransactions(String orderId) throws IOException {
+        return this.getOrderTransactions(orderId, new HashMap<>());
+    }
+
+    public PaymentApplicationModels.OrderTransactionList getOrderTransactions(String orderId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getOrderTransactions");
+        fullUrl = fullUrl.replace("{" + "order_id" + "}",orderId.toString());
+
+        Response<PaymentApplicationModels.OrderTransactionList> response = paymentApplicationApiList.getOrderTransactions(fullUrl, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

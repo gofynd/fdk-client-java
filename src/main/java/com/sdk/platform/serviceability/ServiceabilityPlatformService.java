@@ -1575,6 +1575,8 @@ public class ServiceabilityPlatformService {
     
     
     
+    
+    
 
 
 
@@ -3058,6 +3060,33 @@ public class ApplicationClient {
             Response<ServiceabilityPlatformModels.GetZoneProductsBulkPatchResult> response = null;
             try {
             response = serviceabilityPlatformApiList.getZoneProductsBulkPatchJobStatus(this.companyId, this.applicationId, batchId, requestHeaders).execute();
+                if (!response.isSuccessful()) {
+                        throw new FDKServerResponseError(response.code(),
+                                                response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
+                                                response.headers() != null ? response.headers().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().method() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().url().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null && response.raw().request().body() != null ? response.raw().request().body().toString() : Fields.UNKNOWN_ERROR,
+                                                response.raw() != null ? response.raw().request().headers().toString() : Fields.UNKNOWN_ERROR);
+                }
+            } catch (IOException e) {
+                throw new FDKException(e.getMessage() != null ? e.getMessage() : Fields.UNKNOWN_ERROR, e);
+            }
+            return response.body();
+        } else {
+            return null;
+        }    
+    }
+
+    public ServiceabilityPlatformModels.ZoneProductsAtomicPatchResult patchZoneProductsAtomic(ServiceabilityPlatformModels.ZoneProductsAtomicPatchDetails body) throws FDKServerResponseError, FDKException {
+        return this.patchZoneProductsAtomic(body, new HashMap<>());
+    }
+
+    public ServiceabilityPlatformModels.ZoneProductsAtomicPatchResult patchZoneProductsAtomic(ServiceabilityPlatformModels.ZoneProductsAtomicPatchDetails body, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+        if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
+            Response<ServiceabilityPlatformModels.ZoneProductsAtomicPatchResult> response = null;
+            try {
+            response = serviceabilityPlatformApiList.patchZoneProductsAtomic(this.companyId, this.applicationId, body, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

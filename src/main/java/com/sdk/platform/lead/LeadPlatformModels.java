@@ -830,6 +830,43 @@ public static class TicketContent{
 
 
 /*
+    Model: AdditionalInfo
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class AdditionalInfo{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("display_name")
+    private String displayName;
+    
+    
+    
+    
+    @JsonProperty("display_value")
+    private String displayValue;
+    
+    
+    
+    
+    @JsonProperty("priority")
+    private Integer priority;
+    
+    
+    
+}
+
+
+/*
     Model: AddTicketPayload
 */
 @AllArgsConstructor
@@ -878,6 +915,12 @@ public static class AddTicketPayload{
     
     @JsonProperty("_custom_json")
     private HashMap<String,Object> customJson;
+    
+    
+    
+    
+    @JsonProperty("additional_info")
+    private List<AdditionalInfo> additionalInfo;
     
     
     

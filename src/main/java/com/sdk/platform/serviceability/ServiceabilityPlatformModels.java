@@ -6367,6 +6367,160 @@ public static class GetZoneProductsBulkPatchResult{
 
 
 /*
+    Model: ZoneProductsAtomicPatchItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("zone_id")
+    private String zoneId;
+    
+    
+    
+    
+    @JsonProperty("product_type")
+    private String productType;
+    
+    
+    
+    
+    @JsonProperty("values")
+    private List<Object> values;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ZoneProductsAtomicPatchItem> items;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchResultItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchResultItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("zone_id")
+    private String zoneId;
+    
+    
+    
+    
+    @JsonProperty("product_type")
+    private String productType;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("values_count")
+    private Integer valuesCount;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private List<ZoneProductsAtomicPatchItemError> error;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ZoneProductsAtomicPatchResultItem> items;
+    
+    
+    
+    
+    @JsonProperty("summary")
+    private ZoneProductsAtomicPatchSummary summary;
+    
+    
+    
+}
+
+
+/*
     Model: CourierPartnerToServiceability
 */
 @AllArgsConstructor
@@ -14931,6 +15085,80 @@ public static class StorePolygonServiceabilityPagination{
     
     @JsonProperty("total_records")
     private Integer totalRecords;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchItemError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchItemError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchSummary{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Integer success;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private Integer failed;
     
     
     

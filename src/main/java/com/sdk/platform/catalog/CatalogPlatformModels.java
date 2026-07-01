@@ -14,6 +14,55 @@ public class CatalogPlatformModels{
 
 
 /*
+    Model: InventoryTransaction
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class InventoryTransaction{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("reference_id")
+    private String referenceId;
+    
+    
+    
+    
+    @JsonProperty("reason")
+    private String reason;
+    
+    
+    
+    
+    @JsonProperty("source")
+    private String source;
+    
+    
+    
+    
+    @JsonProperty("user_ref")
+    private String userRef;
+    
+    
+    
+}
+
+
+/*
     Model: Action
 */
 @AllArgsConstructor
@@ -11412,6 +11461,18 @@ public static class InventoryBulkRequestSchema{
     
     
     
+    
+    @JsonProperty("transaction_type")
+    private String transactionType;
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private InventoryTransaction transaction;
+    
+    
+    
 }
 
 
@@ -12115,6 +12176,18 @@ public static class InventoryJobPayload{
     
     
     
+    
+    @JsonProperty("transaction_type")
+    private String transactionType;
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private InventoryTransaction transaction;
+    
+    
+    
 }
 
 
@@ -12227,6 +12300,12 @@ public static class InventoryPayload{
     
     
     
+    @JsonProperty("price_cost")
+    private Double priceCost;
+    
+    
+    
+    
     @JsonProperty("seller_identifier")
     private String sellerIdentifier;
     
@@ -12280,6 +12359,18 @@ public static class InventoryPayload{
     
     
     
+    
+    @JsonProperty("transaction_type")
+    private String transactionType;
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private InventoryTransaction transaction;
+    
+    
+    
 }
 
 
@@ -12317,6 +12408,18 @@ public static class InventoryRequestSchema{
     
     
     
+    
+    @JsonProperty("transaction_type")
+    private String transactionType;
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private InventoryTransaction transaction;
+    
+    
+    
 }
 
 
@@ -12351,6 +12454,18 @@ public static class InventoryRequestSchemaV2{
     
     @JsonProperty("payload")
     private List<InventoryPayload> payload;
+    
+    
+    
+    
+    @JsonProperty("transaction_type")
+    private String transactionType;
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private InventoryTransaction transaction;
     
     
     
@@ -14582,8 +14697,26 @@ public static class LocationPriceRequestSchema{
     
     
     
+    @JsonProperty("price_cost")
+    private Double priceCost;
+    
+    
+    
+    
     @JsonProperty("tags")
     private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("transaction_type")
+    private String transactionType;
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private InventoryTransaction transaction;
     
     
     
@@ -14633,6 +14766,18 @@ public static class LocationQuantityRequestSchema{
     
     @JsonProperty("mode")
     private String mode;
+    
+    
+    
+    
+    @JsonProperty("transaction_type")
+    private String transactionType;
+    
+    
+    
+    
+    @JsonProperty("transaction")
+    private InventoryTransaction transaction;
     
     
     

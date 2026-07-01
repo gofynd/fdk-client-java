@@ -35,6 +35,12 @@ public static class RedeemLoyaltyPoints{
     
     
     
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
 }
 
 
@@ -4829,6 +4835,12 @@ public static class LoyaltyPoints{
     
     
     
+    
+    @JsonProperty("meta")
+    private HashMap<String,Object> meta;
+    
+    
+    
 }
 
 
@@ -8270,6 +8282,12 @@ public static class CartDetailResult{
     
     
     
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
+    
+    
+    
+    
     @JsonProperty("applied_promo_details")
     private List<AppliedPromotion> appliedPromoDetails;
     
@@ -8284,6 +8302,12 @@ public static class CartDetailResult{
     
     @JsonProperty("custom_cart_meta")
     private HashMap<String,Object> customCartMeta;
+    
+    
+    
+    
+    @JsonProperty("loyalty_meta")
+    private HashMap<String,Object> loyaltyMeta;
     
     
     
@@ -9385,6 +9409,12 @@ public static class SharedCart{
     
     
     
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
+    
+    
+    
+    
     @JsonProperty("custom_cart_meta")
     private HashMap<String,Object> customCartMeta;
     
@@ -9735,6 +9765,12 @@ public static class UserCartMappingResult{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
     
     
     
@@ -10919,6 +10955,12 @@ public static class PlatformCartShipmentsResult{
     
     
     
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
+    
+    
+    
+    
     @JsonProperty("applied_promo_details")
     private List<AppliedPromotion> appliedPromoDetails;
     
@@ -11020,6 +11062,37 @@ public static class UpdateCartShipmentCreation{
 
 
 /*
+    Model: ShipToGstDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipToGstDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+    
+    @JsonProperty("trade_name")
+    private String tradeName;
+    
+    
+    
+}
+
+
+/*
     Model: PlatformCartMetaCreation
 */
 @AllArgsConstructor
@@ -11038,6 +11111,12 @@ public static class PlatformCartMetaCreation{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
     
     
     
@@ -11719,6 +11798,12 @@ public static class CheckCart{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
     
     
     

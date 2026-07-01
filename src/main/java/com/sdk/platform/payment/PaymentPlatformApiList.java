@@ -156,6 +156,9 @@ interface PaymentPlatformApiList {
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment-orders/")
     Call<PaymentPlatformModels.PaymentOrderDetails> createPaymentOrder(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.PaymentOrderCreation payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/order/meta")
+    Call<PaymentPlatformModels.OrderMetaResult> updateOrderMeta(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("order_id") String orderId, @Body PaymentPlatformModels.OrderMetaUpdate payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}/version")
     Call<PaymentPlatformModels.AggregatorVersionDetails> getMerchantAggregatorAppVersion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Query("business_unit") String businessUnit, @Query("device") String device, @Query("payment_mode_id") Integer paymentModeId, @Query("sub_payment_mode") String subPaymentMode, @HeaderMap Map<String, String> requestHeaders);
 
@@ -167,4 +170,7 @@ interface PaymentPlatformApiList {
 
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/aggregators/{aggregator_id}/token")
     Call<PaymentPlatformModels.OperationResponseSchema> saveTokenForAggregator(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") String aggregatorId, @Body PaymentPlatformModels.AggregatorToken payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/orders/{order_id}/transactions")
+    Call<PaymentPlatformModels.OrderTransactionList> getOrderTransactions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("order_id") String orderId, @HeaderMap Map<String, String> requestHeaders);
 }

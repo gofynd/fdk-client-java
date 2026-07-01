@@ -1329,6 +1329,42 @@ public class ApplicationClient {
         }    
     }
 
+    /**
+    * Summary: get paginator for getStaffOrderingStores
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<ConfigurationPlatformModels.OrderingStoresResponseSchema> getStaffOrderingStoresPagination(
+        Integer pageSize,
+        String q
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<ConfigurationPlatformModels.OrderingStoresResponseSchema> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            ConfigurationPlatformModels.OrderingStoresResponseSchema callback = this.getStaffOrderingStores(
+                
+                 
+                 
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q
+            );
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator ;
+    }
+
     public ConfigurationPlatformModels.SuccessMessageResponseSchema getOrderingStoreCookie(ConfigurationPlatformModels.OrderingStoreSelectRequestSchema body) throws FDKServerResponseError, FDKException {
         return this.getOrderingStoreCookie(body, new HashMap<>());
     }
