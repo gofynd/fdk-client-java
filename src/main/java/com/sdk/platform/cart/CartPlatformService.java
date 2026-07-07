@@ -193,15 +193,15 @@ public class ApplicationClient {
         this.companyId = this.platformConfig.getCompanyId();
     }
 
-    public CartPlatformModels.CouponsResult getCoupons(Integer pageNo, Integer pageSize, Boolean isArchived, String title, Boolean isPublic, Boolean isDisplay, String typeSlug, String code, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String reviewStartTime, String reviewEndTime, String status) throws FDKServerResponseError, FDKException {
-        return this.getCoupons(pageNo, pageSize, isArchived, title, isPublic, isDisplay, typeSlug, code, createdBy, reviewedBy, approvedStartTime, approvedEndTime, reviewStartTime, reviewEndTime, status, new HashMap<>());
+    public CartPlatformModels.CouponsResult getCoupons(Integer pageNo, Integer pageSize, Boolean isArchived, String title, Boolean isPublic, Boolean isDisplay, String typeSlug, String code, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String reviewStartTime, String reviewEndTime, String status, String filterTags) throws FDKServerResponseError, FDKException {
+        return this.getCoupons(pageNo, pageSize, isArchived, title, isPublic, isDisplay, typeSlug, code, createdBy, reviewedBy, approvedStartTime, approvedEndTime, reviewStartTime, reviewEndTime, status, filterTags, new HashMap<>());
     }
 
-    public CartPlatformModels.CouponsResult getCoupons(Integer pageNo, Integer pageSize, Boolean isArchived, String title, Boolean isPublic, Boolean isDisplay, String typeSlug, String code, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String reviewStartTime, String reviewEndTime, String status, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.CouponsResult getCoupons(Integer pageNo, Integer pageSize, Boolean isArchived, String title, Boolean isPublic, Boolean isDisplay, String typeSlug, String code, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String reviewStartTime, String reviewEndTime, String status, String filterTags, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.CouponsResult> response = null;
             try {
-            response = cartPlatformApiList.getCoupons(this.companyId, this.applicationId, pageNo, pageSize, isArchived, title, isPublic, isDisplay, typeSlug, code, createdBy, reviewedBy, approvedStartTime, approvedEndTime, reviewStartTime, reviewEndTime, status, requestHeaders).execute();
+            response = cartPlatformApiList.getCoupons(this.companyId, this.applicationId, pageNo, pageSize, isArchived, title, isPublic, isDisplay, typeSlug, code, createdBy, reviewedBy, approvedStartTime, approvedEndTime, reviewStartTime, reviewEndTime, status, filterTags, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -355,15 +355,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.PromotionsResult getPromotions(Integer pageNo, Integer pageSize, String q, Boolean isActive, String promoGroup, String promotionType, String fpPanel, String promotionId, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String reviewStartTime, String reviewEndTime, String status) throws FDKServerResponseError, FDKException {
-        return this.getPromotions(pageNo, pageSize, q, isActive, promoGroup, promotionType, fpPanel, promotionId, createdBy, reviewedBy, approvedStartTime, approvedEndTime, reviewStartTime, reviewEndTime, status, new HashMap<>());
+    public CartPlatformModels.PromotionsResult getPromotions(Integer pageNo, Integer pageSize, String q, Boolean isActive, String promoGroup, String promotionType, String fpPanel, String promotionId, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String reviewStartTime, String reviewEndTime, String status, String filterTags) throws FDKServerResponseError, FDKException {
+        return this.getPromotions(pageNo, pageSize, q, isActive, promoGroup, promotionType, fpPanel, promotionId, createdBy, reviewedBy, approvedStartTime, approvedEndTime, reviewStartTime, reviewEndTime, status, filterTags, new HashMap<>());
     }
 
-    public CartPlatformModels.PromotionsResult getPromotions(Integer pageNo, Integer pageSize, String q, Boolean isActive, String promoGroup, String promotionType, String fpPanel, String promotionId, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String reviewStartTime, String reviewEndTime, String status, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.PromotionsResult getPromotions(Integer pageNo, Integer pageSize, String q, Boolean isActive, String promoGroup, String promotionType, String fpPanel, String promotionId, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String reviewStartTime, String reviewEndTime, String status, String filterTags, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.PromotionsResult> response = null;
             try {
-            response = cartPlatformApiList.getPromotions(this.companyId, this.applicationId, pageNo, pageSize, q, isActive, promoGroup, promotionType, fpPanel, promotionId, createdBy, reviewedBy, approvedStartTime, approvedEndTime, reviewStartTime, reviewEndTime, status, requestHeaders).execute();
+            response = cartPlatformApiList.getPromotions(this.companyId, this.applicationId, pageNo, pageSize, q, isActive, promoGroup, promotionType, fpPanel, promotionId, createdBy, reviewedBy, approvedStartTime, approvedEndTime, reviewStartTime, reviewEndTime, status, filterTags, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -1921,15 +1921,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CartPlatformModels.OfferListResult getOffers(Integer pageNo, Integer pageSize, String search, String mode, String type, String promoGroup, Boolean excludeContractOffers, String offerId, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String status, String code, Boolean isPublic) throws FDKServerResponseError, FDKException {
-        return this.getOffers(pageNo, pageSize, search, mode, type, promoGroup, excludeContractOffers, offerId, createdBy, reviewedBy, approvedStartTime, approvedEndTime, status, code, isPublic, new HashMap<>());
+    public CartPlatformModels.OfferListResult getOffers(Integer pageNo, Integer pageSize, String search, String mode, String type, String promoGroup, Boolean excludeContractOffers, String offerId, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String status, String code, Boolean isPublic, String filterTags) throws FDKServerResponseError, FDKException {
+        return this.getOffers(pageNo, pageSize, search, mode, type, promoGroup, excludeContractOffers, offerId, createdBy, reviewedBy, approvedStartTime, approvedEndTime, status, code, isPublic, filterTags, new HashMap<>());
     }
 
-    public CartPlatformModels.OfferListResult getOffers(Integer pageNo, Integer pageSize, String search, String mode, String type, String promoGroup, Boolean excludeContractOffers, String offerId, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String status, String code, Boolean isPublic, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CartPlatformModels.OfferListResult getOffers(Integer pageNo, Integer pageSize, String search, String mode, String type, String promoGroup, Boolean excludeContractOffers, String offerId, String createdBy, String reviewedBy, String approvedStartTime, String approvedEndTime, String status, String code, Boolean isPublic, String filterTags, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CartPlatformModels.OfferListResult> response = null;
             try {
-            response = cartPlatformApiList.getOffers(this.companyId, this.applicationId, pageNo, pageSize, search, mode, type, promoGroup, excludeContractOffers, offerId, createdBy, reviewedBy, approvedStartTime, approvedEndTime, status, code, isPublic, requestHeaders).execute();
+            response = cartPlatformApiList.getOffers(this.companyId, this.applicationId, pageNo, pageSize, search, mode, type, promoGroup, excludeContractOffers, offerId, createdBy, reviewedBy, approvedStartTime, approvedEndTime, status, code, isPublic, filterTags, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,

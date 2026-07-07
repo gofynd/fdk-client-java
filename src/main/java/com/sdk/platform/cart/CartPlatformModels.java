@@ -1030,6 +1030,12 @@ public static class CouponAdd{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("_schedule")
     private CouponSchedule schedule;
     
@@ -1313,6 +1319,12 @@ public static class CouponUpdate{
     
     @JsonProperty("tags")
     private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
     
     
     
@@ -2889,6 +2901,12 @@ public static class PromotionListItem{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("auto_apply")
     private Boolean autoApply;
     
@@ -3083,6 +3101,12 @@ public static class PromotionAdd{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("auto_apply")
     private Boolean autoApply;
     
@@ -3252,6 +3276,12 @@ public static class PromotionAddResult{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("auto_apply")
     private Boolean autoApply;
     
@@ -3417,6 +3447,12 @@ public static class PromotionUpdate{
     
     @JsonProperty("tags")
     private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
     
     
     
@@ -3596,6 +3632,12 @@ public static class PromotionUpdateResult{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("auto_apply")
     private Boolean autoApply;
     
@@ -3708,6 +3750,12 @@ public static class ActivePromosResult{
     
     @JsonProperty("description")
     private String description;
+    
+    
+    
+    
+    @JsonProperty("discount_type")
+    private String discountType;
     
     
     
@@ -14050,6 +14098,12 @@ public static class OfferSchema{
     
     
     
+    
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
 }
 
 
@@ -14268,6 +14322,12 @@ public static class OfferListItem{
     
     @JsonProperty("schedule")
     private OfferSchedule schedule;
+    
+    
+    
+    
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
     
     
     
