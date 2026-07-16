@@ -498,6 +498,12 @@ public static class Restrictions{
     
     
     
+    @JsonProperty("exclude_user_groups")
+    private List<Integer> excludeUserGroups;
+    
+    
+    
+    
     @JsonProperty("coupon_allowed")
     private Boolean couponAllowed;
     
@@ -2481,6 +2487,12 @@ public static class Restrictions1{
     
     
     
+    @JsonProperty("exclude_user_groups")
+    private List<Integer> excludeUserGroups;
+    
+    
+    
+    
     @JsonProperty("order_quantity")
     private Integer orderQuantity;
     
@@ -4158,6 +4170,12 @@ public static class PriceAdjustmentUpdate{
     
     
     
+    @JsonProperty("included_in_eligibility_amount")
+    private Boolean includedInEligibilityAmount;
+    
+    
+    
+    
     @JsonProperty("collection")
     private Collection collection;
     
@@ -4257,6 +4275,12 @@ public static class PriceAdjustment{
     
     @JsonProperty("article_level_distribution")
     private Boolean articleLevelDistribution;
+    
+    
+    
+    
+    @JsonProperty("included_in_eligibility_amount")
+    private Boolean includedInEligibilityAmount;
     
     
     
@@ -4422,6 +4446,12 @@ public static class PriceAdjustmentAdd{
     
     @JsonProperty("article_level_distribution")
     private Boolean articleLevelDistribution;
+    
+    
+    
+    
+    @JsonProperty("included_in_eligibility_amount")
+    private Boolean includedInEligibilityAmount;
     
     
     
@@ -13250,6 +13280,12 @@ public static class OfferUser{
     
     @JsonProperty("groups")
     private List<Integer> groups;
+    
+    
+    
+    
+    @JsonProperty("exclude_groups")
+    private List<Integer> excludeGroups;
     
     
     
