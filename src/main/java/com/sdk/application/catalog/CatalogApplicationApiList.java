@@ -37,7 +37,7 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.ProductStockPolling> getProductStockForTimeByIds(@Url String url1, @Query("timestamp") String timestamp, @Query("page_size") Integer pageSize, @Query("page_id") String pageId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CatalogApplicationModels.ProductListingResponseSchema> getProducts(@Url String url1, @Query("q") String q, @Query("f") String f, @Query("filters") Boolean filters, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("page_type") String pageType, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogApplicationModels.ProductListingResponseSchema> getProducts(@Url String url1, @Query("q") String q, @Query("f") String f, @Query("filters") Boolean filters, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("page_type") String pageType, @Query("show_all_variants") Boolean showAllVariants, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CatalogApplicationModels.BrandListingResponseSchema> getBrands(@Url String url1, @Query("department") String department, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @HeaderMap Map<String, String> requestHeaders);
@@ -64,7 +64,7 @@ interface CatalogApplicationApiList {
     Call<CatalogApplicationModels.GetCollectionListingResponseSchema> getCollections(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("tag") List<String> tag, @Query("q") String q, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<CatalogApplicationModels.ProductListingResponseSchema> getCollectionItemsBySlug(@Url String url1, @Query("f") String f, @Query("q") String q, @Query("filters") Boolean filters, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("page_type") String pageType, @HeaderMap Map<String, String> requestHeaders);
+    Call<CatalogApplicationModels.ProductListingResponseSchema> getCollectionItemsBySlug(@Url String url1, @Query("f") String f, @Query("q") String q, @Query("filters") Boolean filters, @Query("sort_on") String sortOn, @Query("page_id") String pageId, @Query("page_size") Integer pageSize, @Query("page_no") Integer pageNo, @Query("page_type") String pageType, @Query("show_all_variants") Boolean showAllVariants, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CatalogApplicationModels.CollectionDetailResponseSchema> getCollectionDetailBySlug(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
@@ -92,6 +92,9 @@ interface CatalogApplicationApiList {
 
     @GET 
     Call<CatalogApplicationModels.StoreDetails> getLocationDetailsById(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET 
+    Call<CatalogApplicationModels.ProductSizesBySlugsSchema> getProductSizesBySlugs(@Url String url1, @Query("slug") List<String> slug, @Query("store_id") Integer storeId, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<CatalogApplicationModels.ProductSizePriceResponseV4> getProductPriceBySlug(@Url String url1, @Query("store_id") Integer storeId, @Query("moq") Integer moq, @Query("fulfillment_option_slug") String fulfillmentOptionSlug, @HeaderMap Map<String, String> requestHeaders);

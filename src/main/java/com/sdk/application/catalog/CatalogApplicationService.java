@@ -58,6 +58,7 @@ import com.sdk.application.*;
         relativeUrls.put("getStores","/service/application/catalog/v2.0/locations/".substring(1));
         relativeUrls.put("getInStockLocations","/service/application/catalog/v2.0/in-stock/locations/".substring(1));
         relativeUrls.put("getLocationDetailsById","/service/application/catalog/v2.0/locations/{location_id}/".substring(1));
+        relativeUrls.put("getProductSizesBySlugs","/service/application/catalog/v2.0/products/sizes/".substring(1));
         relativeUrls.put("getProductPriceBySlug","/service/application/catalog/v4.0/products/{slug}/sizes/{size}/price/".substring(1));
         relativeUrls.put("getProductSellersBySlug","/service/application/catalog/v4.0/products/{slug}/sizes/{size}/sellers/".substring(1));
         relativeUrls.put("listCountryCurrencyMappings","/service/application/catalog/v1.0/available-countries/".substring(1)); 
@@ -291,15 +292,15 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductListingResponseSchema getProducts(String q, String f, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType) throws IOException {
-        return this.getProducts(q, f, filters, sortOn, pageId, pageSize, pageNo, pageType, new HashMap<>());
+    public CatalogApplicationModels.ProductListingResponseSchema getProducts(String q, String f, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Boolean showAllVariants) throws IOException {
+        return this.getProducts(q, f, filters, sortOn, pageId, pageSize, pageNo, pageType, showAllVariants, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductListingResponseSchema getProducts(String q, String f, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductListingResponseSchema getProducts(String q, String f, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Boolean showAllVariants, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getProducts");
 
-        Response<CatalogApplicationModels.ProductListingResponseSchema> response = catalogApplicationApiList.getProducts(fullUrl, q, f, filters, sortOn, pageId, pageSize, pageNo, pageType, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductListingResponseSchema> response = catalogApplicationApiList.getProducts(fullUrl, q, f, filters, sortOn, pageId, pageSize, pageNo, pageType, showAllVariants, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -317,7 +318,8 @@ import com.sdk.application.*;
         String f,
         Boolean filters,
         String sortOn,
-        Integer pageSize
+        Integer pageSize,
+        Boolean showAllVariants
         
         ){ 
     
@@ -340,7 +342,8 @@ import com.sdk.application.*;
                  paginator.getPageNo()
                 ,
                  paginator.getPageType()
-                
+                ,
+                 showAllVariants
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
@@ -602,16 +605,16 @@ import com.sdk.application.*;
     }
     
 
-    public CatalogApplicationModels.ProductListingResponseSchema getCollectionItemsBySlug(String slug, String f, String q, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType) throws IOException {
-        return this.getCollectionItemsBySlug(slug, f, q, filters, sortOn, pageId, pageSize, pageNo, pageType, new HashMap<>());
+    public CatalogApplicationModels.ProductListingResponseSchema getCollectionItemsBySlug(String slug, String f, String q, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Boolean showAllVariants) throws IOException {
+        return this.getCollectionItemsBySlug(slug, f, q, filters, sortOn, pageId, pageSize, pageNo, pageType, showAllVariants, new HashMap<>());
     }
 
-    public CatalogApplicationModels.ProductListingResponseSchema getCollectionItemsBySlug(String slug, String f, String q, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Map<String, String> requestHeaders) throws IOException {
+    public CatalogApplicationModels.ProductListingResponseSchema getCollectionItemsBySlug(String slug, String f, String q, Boolean filters, String sortOn, String pageId, Integer pageSize, Integer pageNo, String pageType, Boolean showAllVariants, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getCollectionItemsBySlug");
         fullUrl = fullUrl.replace("{" + "slug" + "}",slug.toString());
 
-        Response<CatalogApplicationModels.ProductListingResponseSchema> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl, f, q, filters, sortOn, pageId, pageSize, pageNo, pageType, requestHeaders).execute();
+        Response<CatalogApplicationModels.ProductListingResponseSchema> response = catalogApplicationApiList.getCollectionItemsBySlug(fullUrl, f, q, filters, sortOn, pageId, pageSize, pageNo, pageType, showAllVariants, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -630,7 +633,8 @@ import com.sdk.application.*;
         String q,
         Boolean filters,
         String sortOn,
-        Integer pageSize
+        Integer pageSize,
+        Boolean showAllVariants
         
         ){ 
     
@@ -654,7 +658,8 @@ import com.sdk.application.*;
                  paginator.getPageNo()
                 ,
                  paginator.getPageType()
-                
+                ,
+                 showAllVariants
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
@@ -948,6 +953,23 @@ import com.sdk.application.*;
         fullUrl = fullUrl.replace("{" + "location_id" + "}",locationId.toString());
 
         Response<CatalogApplicationModels.StoreDetails> response = catalogApplicationApiList.getLocationDetailsById(fullUrl, requestHeaders).execute();
+        if(!response.isSuccessful()) {
+            throw new IOException(response.errorBody() != null
+                    ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
+        }
+        return response.body();
+    }
+    
+
+    public CatalogApplicationModels.ProductSizesBySlugsSchema getProductSizesBySlugs(List<String> slug, Integer storeId) throws IOException {
+        return this.getProductSizesBySlugs(slug, storeId, new HashMap<>());
+    }
+
+    public CatalogApplicationModels.ProductSizesBySlugsSchema getProductSizesBySlugs(List<String> slug, Integer storeId, Map<String, String> requestHeaders) throws IOException {
+     
+        String fullUrl = relativeUrls.get("getProductSizesBySlugs");
+
+        Response<CatalogApplicationModels.ProductSizesBySlugsSchema> response = catalogApplicationApiList.getProductSizesBySlugs(fullUrl, slug, storeId, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);

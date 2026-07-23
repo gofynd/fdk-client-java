@@ -1748,6 +1748,56 @@ public static class ProductSizes{
 
 
 /*
+    Model: ProductSizesBySlug
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductSizesBySlug{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductSizesBySlugsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductSizesBySlugsSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ProductSizesBySlug> items;
+    
+    
+    
+}
+
+
+/*
     Model: MOQ
 */
 @AllArgsConstructor
