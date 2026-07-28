@@ -78,6 +78,9 @@ interface CartPlatformApiList {
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart/serviceability")
     Call<CartPlatformModels.OpenApiCartServiceabilityResult> checkCartServiceability(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.OpenApiCartServiceabilityCreation payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/serviceability/cod")
+    Call<CartPlatformModels.PlatformCartCODServiceabilityResult> checkCODServiceability(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.PlatformCartCODServiceabilityCreation payload, @HeaderMap Map<String, String> requestHeaders);
+
     @POST ("/service/platform/cart/v1.0/company/{company_id}/application/{application_id}/cart/checkout")
     Call<CartPlatformModels.OpenApiCheckoutResult> checkoutCart(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body CartPlatformModels.OpenApiPlatformCheckoutReq payload, @HeaderMap Map<String, String> requestHeaders);
 
