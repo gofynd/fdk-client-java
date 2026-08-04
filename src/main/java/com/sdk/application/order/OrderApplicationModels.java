@@ -66,6 +66,12 @@ public static class RefundModeRequestData{
     
     
     
+    
+    @JsonProperty("next_state")
+    private String nextState;
+    
+    
+    
 }
 
 

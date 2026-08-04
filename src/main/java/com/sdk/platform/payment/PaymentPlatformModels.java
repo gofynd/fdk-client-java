@@ -703,6 +703,12 @@ public static class PaymentModeList{
     
     
     
+    @JsonProperty("is_split_cod_available")
+    private Boolean isSplitCodAvailable;
+    
+    
+    
+    
     @JsonProperty("intent_app")
     private List<IntentApp> intentApp;
     
@@ -2820,6 +2826,37 @@ public static class SetCODForUserCreation{
     
     @JsonProperty("merchant_user_id")
     private String merchantUserId;
+    
+    
+    
+}
+
+
+/*
+    Model: DefaultOfferClassification
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class DefaultOfferClassification{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("aggregator")
+    private String aggregator;
+    
+    
+    
+    
+    @JsonProperty("default_offer_type")
+    private String defaultOfferType;
     
     
     

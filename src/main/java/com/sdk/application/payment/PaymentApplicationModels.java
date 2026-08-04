@@ -1380,6 +1380,12 @@ public static class PaymentModeList{
     
     
     
+    @JsonProperty("is_split_cod_available")
+    private Boolean isSplitCodAvailable;
+    
+    
+    
+    
     @JsonProperty("intent_flow")
     private Boolean intentFlow;
     

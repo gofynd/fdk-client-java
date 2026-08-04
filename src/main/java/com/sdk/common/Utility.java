@@ -2,6 +2,7 @@ package com.sdk.common;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,6 +11,15 @@ import java.util.regex.Pattern;
 public class Utility {
 
     static final String SLUG_DELIMITER = ":::";
+
+    public static String encodePathParam(Object value) {
+        if (value == null) {
+            return "";
+        }
+        return URLEncoder.encode(value.toString(), StandardCharsets.UTF_8)
+                .replace("+", "%20")
+                .replace("%7E", "~");
+    }
 
     public static String transformRequestOptions(Map<String, List<String>> params) {
         StringBuilder options = new StringBuilder();

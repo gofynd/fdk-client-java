@@ -12329,6 +12329,12 @@ public static class LineItemSchema{
     
     
     
+    @JsonProperty("charges")
+    private List<CreateOrderLineItemChargeSchema> charges;
+    
+    
+    
+    
     @JsonProperty("meta")
     private HashMap<String,Object> meta;
     
@@ -13139,6 +13145,12 @@ public static class CreateOrderRequestSchema{
     
     
     
+    @JsonProperty("charges")
+    private List<CreateOrderChargeSchema> charges;
+    
+    
+    
+    
     @JsonProperty("tags")
     private List<String> tags;
     
@@ -13249,6 +13261,98 @@ public static class CreateOrderRequestSchema{
     
     @JsonProperty("meta")
     private HashMap<String,Object> meta;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateOrderChargeSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateOrderChargeSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("refundable")
+    private Boolean refundable;
+    
+    
+    
+    
+    @JsonProperty("distribution")
+    private String distribution;
+    
+    
+    
+    
+    @JsonProperty("tax_rule_id")
+    private String taxRuleId;
+    
+    
+    
+}
+
+
+/*
+    Model: CreateOrderLineItemChargeSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreateOrderLineItemChargeSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("amount")
+    private Double amount;
+    
+    
+    
+    
+    @JsonProperty("refundable")
+    private Boolean refundable;
+    
+    
+    
+    
+    @JsonProperty("tax_rule_id")
+    private String taxRuleId;
     
     
     
