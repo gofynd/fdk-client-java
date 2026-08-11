@@ -4116,6 +4116,12 @@ public static class PriceAdjustmentUpdate{
     
     
     
+    @JsonProperty("eligibility_scope")
+    private String eligibilityScope;
+    
+    
+    
+    
     @JsonProperty("collection")
     private Collection collection;
     
@@ -4221,6 +4227,12 @@ public static class PriceAdjustment{
     
     @JsonProperty("included_in_eligibility_amount")
     private Boolean includedInEligibilityAmount;
+    
+    
+    
+    
+    @JsonProperty("eligibility_scope")
+    private String eligibilityScope;
     
     
     
@@ -4392,6 +4404,12 @@ public static class PriceAdjustmentAdd{
     
     @JsonProperty("included_in_eligibility_amount")
     private Boolean includedInEligibilityAmount;
+    
+    
+    
+    
+    @JsonProperty("eligibility_scope")
+    private String eligibilityScope;
     
     
     
