@@ -1957,6 +1957,12 @@ public static class UserAttributeFilterQuery{
     
     
     
+    @JsonProperty("country_code")
+    private String countryCode;
+    
+    
+    
+    
     @JsonProperty("definition_ids")
     private List<String> definitionIds;
     
@@ -2002,6 +2008,12 @@ public static class UserAttributeFilterRequestConditions{
     
     @JsonProperty("value")
     private HashMap<String,Object> value;
+    
+    
+    
+    
+    @JsonProperty("ignore_year")
+    private Boolean ignoreYear;
     
     
     

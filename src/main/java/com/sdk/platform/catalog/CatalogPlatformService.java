@@ -6170,15 +6170,15 @@ public class ApplicationClient {
         }    
     }
 
-    public CatalogPlatformModels.LocationListSchema getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes) throws FDKServerResponseError, FDKException {
-        return this.getAppLocations(storeType, uid, q, stage, pageNo, pageSize, tags, storeTypes, new HashMap<>());
+    public CatalogPlatformModels.LocationListSchema getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes, Boolean opted) throws FDKServerResponseError, FDKException {
+        return this.getAppLocations(storeType, uid, q, stage, pageNo, pageSize, tags, storeTypes, opted, new HashMap<>());
     }
 
-    public CatalogPlatformModels.LocationListSchema getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public CatalogPlatformModels.LocationListSchema getAppLocations(String storeType, List<Integer> uid, String q, String stage, Integer pageNo, Integer pageSize, List<String> tags, List<String> storeTypes, Boolean opted, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<CatalogPlatformModels.LocationListSchema> response = null;
             try {
-            response = catalogPlatformApiList.getAppLocations(this.companyId, this.applicationId, storeType, uid, q, stage, pageNo, pageSize, tags, storeTypes, requestHeaders).execute();
+            response = catalogPlatformApiList.getAppLocations(this.companyId, this.applicationId, storeType, uid, q, stage, pageNo, pageSize, tags, storeTypes, opted, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                         throw new FDKServerResponseError(response.code(),
                                                 response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -6208,7 +6208,8 @@ public class ApplicationClient {
         String stage,
         Integer pageSize,
         List<String> tags,
-        List<String> storeTypes
+        List<String> storeTypes,
+        Boolean opted
         
         ){ 
     
@@ -6231,7 +6232,8 @@ public class ApplicationClient {
                  paginator.getPageSize()
                 ,
                  tags,
-                 storeTypes
+                 storeTypes,
+                 opted
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);

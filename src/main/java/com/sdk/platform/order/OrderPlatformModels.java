@@ -12640,6 +12640,12 @@ public static class CouponSchema{
     
     
     
+    
+    @JsonProperty("allow_zero_discount")
+    private Boolean allowZeroDiscount;
+    
+    
+    
 }
 
 
@@ -13908,6 +13914,31 @@ public static class ValidationError{
     
     @JsonProperty("field")
     private String field;
+    
+    
+    
+}
+
+
+/*
+    Model: ListingCountResponseSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ListingCountResponseSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("count")
+    private Integer count;
     
     
     
