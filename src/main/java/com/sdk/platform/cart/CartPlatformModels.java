@@ -6891,6 +6891,12 @@ public static class CartProductInfo{
     
     
     
+    
+    @JsonProperty("returnable")
+    private Boolean returnable;
+    
+    
+    
 }
 
 

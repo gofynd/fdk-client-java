@@ -14,6 +14,8 @@ import okhttp3.Response;
 
 import com.sdk.platform.audittrail.AuditTrailPlatformService;
 
+import com.sdk.platform.authorization.AuthorizationPlatformService;
+
 import com.sdk.platform.billing.BillingPlatformService;
 
 import com.sdk.platform.cart.CartPlatformService;
@@ -62,6 +64,8 @@ public class PlatformClient {
 
     
     public AuditTrailPlatformService auditTrail;
+    
+    public AuthorizationPlatformService authorization;
     
     public BillingPlatformService billing;
     
@@ -121,6 +125,8 @@ public class PlatformClient {
         this.config = config;
         
         this.auditTrail = new AuditTrailPlatformService(config);
+        
+        this.authorization = new AuthorizationPlatformService(config);
         
         this.billing = new BillingPlatformService(config);
         
@@ -201,6 +207,8 @@ public class PlatformClient {
         
         public AuditTrailPlatformService.ApplicationClient auditTrail;
         
+        public AuthorizationPlatformService.ApplicationClient authorization;
+        
         public BillingPlatformService.ApplicationClient billing;
         
         public CartPlatformService.ApplicationClient cart;
@@ -244,6 +252,8 @@ public class PlatformClient {
             this.config = platformConfig;
             
             this.auditTrail = new AuditTrailPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
+            
+            this.authorization = new AuthorizationPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
             this.billing = new BillingPlatformService(platformConfig).new ApplicationClient(platformConfig, applicationId);
             
