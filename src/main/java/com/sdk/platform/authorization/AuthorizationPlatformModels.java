@@ -1,6 +1,6 @@
 
 
-package com.sdk.platform.analytics;
+package com.sdk.platform.authorization;
 
 import com.fasterxml.jackson.annotation.*;
 import com.sdk.common.Constant;
@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
 
-public class AnalyticsPlatformModels{
+public class AuthorizationPlatformModels{
 
 
 /*
@@ -81,7 +81,7 @@ public static class Page{
 
 
 /*
-    Model: FileDownloadRequestBody
+    Model: StandardError
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -89,7 +89,7 @@ public static class Page{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FileDownloadRequestBody{
+public static class StandardError{
 
     
 
@@ -97,14 +97,8 @@ public static class FileDownloadRequestBody{
     
     
     
-    @JsonProperty("query")
-    private String query;
-    
-    
-    
-    
-    @JsonProperty("split_files")
-    private Boolean splitFiles;
+    @JsonProperty("message")
+    private String message;
     
     
     
@@ -112,7 +106,7 @@ public static class FileDownloadRequestBody{
 
 
 /*
-    Model: JobExecute
+    Model: ValidationErrors
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -120,7 +114,7 @@ public static class FileDownloadRequestBody{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobExecute{
+public static class ValidationErrors{
 
     
 
@@ -128,8 +122,106 @@ public static class JobExecute{
     
     
     
-    @JsonProperty("query")
-    private String query;
+    @JsonProperty("errors")
+    private List<ValidationError> errors;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationStaff
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationStaff{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("application")
+    private String application;
+    
+    
+    
+    
+    @JsonProperty("user")
+    private String user;
+    
+    
+    
+    
+    @JsonProperty("title")
+    private String title;
+    
+    
+    
+    
+    @JsonProperty("order_incent")
+    private Boolean orderIncent;
+    
+    
+    
+    
+    @JsonProperty("stores")
+    private List<Integer> stores;
+    
+    
+    
+    
+    @JsonProperty("employee_code")
+    private String employeeCode;
+    
+    
+    
+    
+    @JsonProperty("first_name")
+    private String firstName;
+    
+    
+    
+    
+    @JsonProperty("last_name")
+    private String lastName;
+    
+    
+    
+    
+    @JsonProperty("profile_pic_url")
+    private String profilePicUrl;
+    
+    
+    
+}
+
+
+/*
+    Model: ApplicationStaffPage
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ApplicationStaffPage{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ApplicationStaff> items;
     
     
     
@@ -143,7 +235,7 @@ public static class JobExecute{
 
 
 /*
-    Model: JobExecutionResult
+    Model: ValidationError
 */
 @AllArgsConstructor
 @NoArgsConstructor
@@ -151,59 +243,10 @@ public static class JobExecute{
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobExecutionResult{
+public static class ValidationError{
 
     
 
-    
-    
-    
-    
-    @JsonProperty("rows")
-    private List<Object> rows;
-    
-    
-    
-    
-    @JsonProperty("page")
-    private Page page;
-    
-    
-    
-}
-
-
-/*
-    Model: JobStatus
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class JobStatus{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("start_date")
-    private String startDate;
-    
-    
-    
-    
-    @JsonProperty("end_date")
-    private String endDate;
-    
-    
-    
-    
-    @JsonProperty("status")
-    private String status;
     
     
     
@@ -214,8 +257,8 @@ public static class JobStatus{
     
     
     
-    @JsonProperty("file_metadata")
-    private List<Object> fileMetadata;
+    @JsonProperty("field")
+    private String field;
     
     
     

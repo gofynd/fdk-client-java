@@ -49,7 +49,7 @@ interface ConfigurationApplicationApiList {
     Call<ConfigurationApplicationModels.SuccessMessageResponseSchema> removeOrderingStoreCookie(@Url String url1, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
-    Call<ConfigurationApplicationModels.AppStaffListResponseSchema> getAppStaffList(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("order_incent") Boolean orderIncent, @Query("ordering_store") Integer orderingStore, @Query("user") String user, @Query("user_name") String userName, @HeaderMap Map<String, String> requestHeaders);
+    Call<ConfigurationApplicationModels.AppStaffListResponseSchema> getAppStaffList(@Url String url1, @Query("page_no") Integer pageNo, @Query("page_size") Integer pageSize, @Query("order_incent") Boolean orderIncent, @Query("ordering_store") Integer orderingStore, @Query("user") String user, @Query("user_name") String userName, @Query("app_permissions") String appPermissions, @HeaderMap Map<String, String> requestHeaders);
 
     @GET 
     Call<ConfigurationApplicationModels.AppStaffResponseSchema> getAppStaffs(@Url String url1, @Query("order_incent") Boolean orderIncent, @Query("ordering_store") Integer orderingStore, @Query("user") String user, @HeaderMap Map<String, String> requestHeaders);

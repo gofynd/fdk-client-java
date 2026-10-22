@@ -257,4 +257,7 @@ interface ServiceabilityPlatformApiList {
 
     @GET ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/products/{batch_id}")
     Call<ServiceabilityPlatformModels.GetZoneProductsBulkPatchResult> getZoneProductsBulkPatchJobStatus(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("batch_id") String batchId, @HeaderMap Map<String, String> requestHeaders);
+
+    @POST ("/service/platform/logistics/v2.0/company/{company_id}/application/{application_id}/zones/bulk/products/patch")
+    Call<ServiceabilityPlatformModels.ZoneProductsAtomicPatchResult> patchZoneProductsAtomic(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body ServiceabilityPlatformModels.ZoneProductsAtomicPatchDetails payload, @HeaderMap Map<String, String> requestHeaders);
 }

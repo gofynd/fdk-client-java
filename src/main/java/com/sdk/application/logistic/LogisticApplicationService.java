@@ -139,6 +139,52 @@ import com.sdk.application.*;
         }
         return response.body();
     }
+
+    /**
+    * Summary: get paginator for getLocalities
+    * Description: fetch the next page by calling .next(...) function
+    **/
+    public Paginator<LogisticApplicationModels.GetLocalitiesApp> getLocalitiesPagination(
+        
+        String localityType,
+        String country,
+        String state,
+        String city,
+        Integer pageSize,
+        String q,
+        String sector
+        
+        ){ 
+    
+    pageSize = pageSize!=0?20:pageSize; 
+
+    Paginator<LogisticApplicationModels.GetLocalitiesApp> paginator = new Paginator<>(pageSize, "number");
+
+    paginator.setCallback(()-> {
+        try {
+            LogisticApplicationModels.GetLocalitiesApp callback = this.getLocalities(
+                
+                 localityType,
+                 country,
+                 state,
+                 city,
+                 paginator.getPageNo()
+                ,
+                 paginator.getPageSize()
+                ,
+                 q,
+                 sector
+            );
+                
+            boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
+            paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
+            return callback;
+        }catch(Exception e) {
+            return null;
+        }
+    });
+    return paginator;
+    }
     
 
     public LogisticApplicationModels.GetLocalityApp getLocality(String localityType, String localityValue, String country, String state, String city, String sector) throws IOException {

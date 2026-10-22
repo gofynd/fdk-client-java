@@ -301,15 +301,15 @@ import com.sdk.application.*;
     }
     
 
-    public ConfigurationApplicationModels.AppStaffListResponseSchema getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName) throws IOException {
-        return this.getAppStaffList(pageNo, pageSize, orderIncent, orderingStore, user, userName, new HashMap<>());
+    public ConfigurationApplicationModels.AppStaffListResponseSchema getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName, String appPermissions) throws IOException {
+        return this.getAppStaffList(pageNo, pageSize, orderIncent, orderingStore, user, userName, appPermissions, new HashMap<>());
     }
 
-    public ConfigurationApplicationModels.AppStaffListResponseSchema getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName, Map<String, String> requestHeaders) throws IOException {
+    public ConfigurationApplicationModels.AppStaffListResponseSchema getAppStaffList(Integer pageNo, Integer pageSize, Boolean orderIncent, Integer orderingStore, String user, String userName, String appPermissions, Map<String, String> requestHeaders) throws IOException {
      
         String fullUrl = relativeUrls.get("getAppStaffList");
 
-        Response<ConfigurationApplicationModels.AppStaffListResponseSchema> response = configurationApplicationApiList.getAppStaffList(fullUrl, pageNo, pageSize, orderIncent, orderingStore, user, userName, requestHeaders).execute();
+        Response<ConfigurationApplicationModels.AppStaffListResponseSchema> response = configurationApplicationApiList.getAppStaffList(fullUrl, pageNo, pageSize, orderIncent, orderingStore, user, userName, appPermissions, requestHeaders).execute();
         if(!response.isSuccessful()) {
             throw new IOException(response.errorBody() != null
                     ? response.errorBody().string() : Fields.UNKNOWN_ERROR);
@@ -327,7 +327,8 @@ import com.sdk.application.*;
         Boolean orderIncent,
         Integer orderingStore,
         String user,
-        String userName
+        String userName,
+        String appPermissions
         
         ){ 
     
@@ -346,7 +347,8 @@ import com.sdk.application.*;
                  orderIncent,
                  orderingStore,
                  user,
-                 userName
+                 userName,
+                 appPermissions
             );
                 
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;

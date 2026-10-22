@@ -1337,6 +1337,12 @@ public static class ProductSize{
     
     
     
+    @JsonProperty("all_identifiers")
+    private List<String> allIdentifiers;
+    
+    
+    
+    
     @JsonProperty("value")
     private String value;
     
@@ -1735,6 +1741,56 @@ public static class ProductSizes{
     
     @JsonProperty("teaser_tag")
     private HashMap<String,Object> teaserTag;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductSizesBySlug
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductSizesBySlug{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("slug")
+    private String slug;
+    
+    
+    
+}
+
+
+/*
+    Model: ProductSizesBySlugsSchema
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ProductSizesBySlugsSchema{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ProductSizesBySlug> items;
     
     
     

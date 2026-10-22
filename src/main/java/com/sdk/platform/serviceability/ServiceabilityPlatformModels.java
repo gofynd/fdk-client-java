@@ -991,6 +991,12 @@ public static class ListViewSchema{
     
     
     
+    
+    @JsonProperty("fo_details")
+    private FoDetails foDetails;
+    
+    
+    
 }
 
 
@@ -6361,6 +6367,160 @@ public static class GetZoneProductsBulkPatchResult{
 
 
 /*
+    Model: ZoneProductsAtomicPatchItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("zone_id")
+    private String zoneId;
+    
+    
+    
+    
+    @JsonProperty("product_type")
+    private String productType;
+    
+    
+    
+    
+    @JsonProperty("values")
+    private List<Object> values;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ZoneProductsAtomicPatchItem> items;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchResultItem
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchResultItem{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("zone_id")
+    private String zoneId;
+    
+    
+    
+    
+    @JsonProperty("product_type")
+    private String productType;
+    
+    
+    
+    
+    @JsonProperty("action")
+    private String action;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
+    @JsonProperty("values_count")
+    private Integer valuesCount;
+    
+    
+    
+    
+    @JsonProperty("error")
+    private List<ZoneProductsAtomicPatchItemError> error;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<ZoneProductsAtomicPatchResultItem> items;
+    
+    
+    
+    
+    @JsonProperty("summary")
+    private ZoneProductsAtomicPatchSummary summary;
+    
+    
+    
+}
+
+
+/*
     Model: CourierPartnerToServiceability
 */
 @AllArgsConstructor
@@ -6543,6 +6703,18 @@ public static class CourierPartnerShipments{
     
     @JsonProperty("is_mto")
     private Boolean isMto;
+    
+    
+    
+    
+    @JsonProperty("is_mps")
+    private Boolean isMps;
+    
+    
+    
+    
+    @JsonProperty("is_b2b")
+    private Boolean isB2B;
     
     
     
@@ -7893,6 +8065,54 @@ public static class FulfillmentOptionItem{
     
     
     
+    @JsonProperty("application_id")
+    private String applicationId;
+    
+    
+    
+    
+    @JsonProperty("business_unit")
+    private List<BusinessUnit> businessUnit;
+    
+    
+    
+    
+    @JsonProperty("company_id")
+    private Integer companyId;
+    
+    
+    
+    
+    @JsonProperty("default_for")
+    private FulfillmentOptionDefaultFor defaultFor;
+    
+    
+    
+    
+    @JsonProperty("modified_by")
+    private ModifiedBy modifiedBy;
+    
+    
+    
+    
+    @JsonProperty("modified_on")
+    private String modifiedOn;
+    
+    
+    
+    
+    @JsonProperty("serviceability_type")
+    private String serviceabilityType;
+    
+    
+    
+    
+    @JsonProperty("status")
+    private String status;
+    
+    
+    
+    
     @JsonProperty("slug")
     private String slug;
     
@@ -7925,6 +8145,136 @@ public static class FulfillmentOptionItem{
     
     @JsonProperty("name")
     private String name;
+    
+    
+    
+    
+    @JsonProperty("max_promise_allowed")
+    private MaxPromiseAllowed maxPromiseAllowed;
+    
+    
+    
+}
+
+
+/*
+    Model: BusinessUnit
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class BusinessUnit{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("name")
+    private String name;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+}
+
+
+/*
+    Model: FulfillmentOptionDefaultFor
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FulfillmentOptionDefaultFor{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("storefront")
+    private Boolean storefront;
+    
+    
+    
+    
+    @JsonProperty("storeos")
+    private Boolean storeos;
+    
+    
+    
+}
+
+
+/*
+    Model: ModifiedBy
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ModifiedBy{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("id")
+    private String id;
+    
+    
+    
+}
+
+
+/*
+    Model: MaxPromiseAllowed
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class MaxPromiseAllowed{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("value")
+    private Double value;
+    
+    
+    
+    
+    @JsonProperty("is_active")
+    private Boolean isActive;
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
     
     
     
@@ -8549,68 +8899,6 @@ public static class ShipmentsCourierPartner{
     
     @JsonProperty("non_qc_shipment_item_quantity")
     private Integer nonQcShipmentItemQuantity;
-    
-    
-    
-}
-
-
-/*
-    Model: FulfillmentOptionDefaultFor
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class FulfillmentOptionDefaultFor{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("storefront")
-    private Boolean storefront;
-    
-    
-    
-    
-    @JsonProperty("storeos")
-    private Boolean storeos;
-    
-    
-    
-}
-
-
-/*
-    Model: BusinessUnit
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class BusinessUnit{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("name")
-    private String name;
-    
-    
-    
-    
-    @JsonProperty("is_active")
-    private Boolean isActive;
     
     
     
@@ -9903,31 +10191,6 @@ public static class CreatedBy{
 
 
 /*
-    Model: ModifiedBy
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class ModifiedBy{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("id")
-    private String id;
-    
-    
-    
-}
-
-
-/*
     Model: ListViewItems
 */
 @AllArgsConstructor
@@ -10166,6 +10429,37 @@ public static class RegionSchema{
     
     @JsonProperty("count")
     private Integer count;
+    
+    
+    
+}
+
+
+/*
+    Model: FoDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class FoDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("serviceability_type")
+    private String serviceabilityType;
+    
+    
+    
+    
+    @JsonProperty("active_non_default_zone_count")
+    private Integer activeNonDefaultZoneCount;
     
     
     
@@ -14882,6 +15176,80 @@ public static class StorePolygonServiceabilityPagination{
     
     @JsonProperty("total_records")
     private Integer totalRecords;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchItemError
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchItemError{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("type")
+    private String type;
+    
+    
+    
+    
+    @JsonProperty("value")
+    private String value;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+}
+
+
+/*
+    Model: ZoneProductsAtomicPatchSummary
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ZoneProductsAtomicPatchSummary{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("total")
+    private Integer total;
+    
+    
+    
+    
+    @JsonProperty("success")
+    private Integer success;
+    
+    
+    
+    
+    @JsonProperty("failed")
+    private Integer failed;
     
     
     

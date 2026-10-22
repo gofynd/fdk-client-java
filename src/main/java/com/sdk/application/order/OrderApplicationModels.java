@@ -66,6 +66,12 @@ public static class RefundModeRequestData{
     
     
     
+    
+    @JsonProperty("next_state")
+    private String nextState;
+    
+    
+    
 }
 
 
@@ -984,6 +990,37 @@ public static class Invoice{
     
     @JsonProperty("label_url")
     private String labelUrl;
+    
+    
+    
+}
+
+
+/*
+    Model: CreditNote
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class CreditNote{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("credit_note_id")
+    private String creditNoteId;
+    
+    
+    
+    
+    @JsonProperty("credit_note_url")
+    private String creditNoteUrl;
     
     
     
@@ -2785,6 +2822,12 @@ public static class Shipments{
     
     @JsonProperty("invoice")
     private Invoice invoice;
+    
+    
+    
+    
+    @JsonProperty("credit_note")
+    private CreditNote creditNote;
     
     
     

@@ -498,6 +498,12 @@ public static class Restrictions{
     
     
     
+    @JsonProperty("exclude_user_groups")
+    private List<Integer> excludeUserGroups;
+    
+    
+    
+    
     @JsonProperty("coupon_allowed")
     private Boolean couponAllowed;
     
@@ -1030,6 +1036,12 @@ public static class CouponAdd{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("_schedule")
     private CouponSchedule schedule;
     
@@ -1313,6 +1325,12 @@ public static class CouponUpdate{
     
     @JsonProperty("tags")
     private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
     
     
     
@@ -2469,6 +2487,12 @@ public static class Restrictions1{
     
     
     
+    @JsonProperty("exclude_user_groups")
+    private List<Integer> excludeUserGroups;
+    
+    
+    
+    
     @JsonProperty("order_quantity")
     private Integer orderQuantity;
     
@@ -2889,6 +2913,12 @@ public static class PromotionListItem{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("auto_apply")
     private Boolean autoApply;
     
@@ -3083,6 +3113,12 @@ public static class PromotionAdd{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("auto_apply")
     private Boolean autoApply;
     
@@ -3252,6 +3288,12 @@ public static class PromotionAddResult{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("auto_apply")
     private Boolean autoApply;
     
@@ -3417,6 +3459,12 @@ public static class PromotionUpdate{
     
     @JsonProperty("tags")
     private List<String> tags;
+    
+    
+    
+    
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
     
     
     
@@ -3596,6 +3644,12 @@ public static class PromotionUpdateResult{
     
     
     
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
+    
     @JsonProperty("auto_apply")
     private Boolean autoApply;
     
@@ -3708,6 +3762,12 @@ public static class ActivePromosResult{
     
     @JsonProperty("description")
     private String description;
+    
+    
+    
+    
+    @JsonProperty("discount_type")
+    private String discountType;
     
     
     
@@ -3941,6 +4001,18 @@ public static class Article{
     
     @JsonProperty("value")
     private Double value;
+    
+    
+    
+    
+    @JsonProperty("price_effective")
+    private Double priceEffective;
+    
+    
+    
+    
+    @JsonProperty("price_marked")
+    private Double priceMarked;
     
     
     
@@ -5423,6 +5495,18 @@ public static class BasePrice{
     
     
     
+    
+    @JsonProperty("pre_override_effective")
+    private Double preOverrideEffective;
+    
+    
+    
+    
+    @JsonProperty("pre_override_marked")
+    private Double preOverrideMarked;
+    
+    
+    
 }
 
 
@@ -6294,6 +6378,18 @@ public static class ProductPrice{
     
     
     
+    @JsonProperty("pre_override_effective")
+    private Double preOverrideEffective;
+    
+    
+    
+    
+    @JsonProperty("pre_override_marked")
+    private Double preOverrideMarked;
+    
+    
+    
+    
     @JsonProperty("add_on")
     private Double addOn;
     
@@ -6825,6 +6921,18 @@ public static class CartProductInfo{
     
     
     
+    
+    @JsonProperty("added_on")
+    private String addedOn;
+    
+    
+    
+    
+    @JsonProperty("returnable")
+    private Boolean returnable;
+    
+    
+    
 }
 
 
@@ -7103,6 +7211,92 @@ public static class OpenApiCartServiceabilityResult{
     
     @JsonProperty("breakup_values")
     private CartBreakup breakupValues;
+    
+    
+    
+}
+
+
+/*
+    Model: PlatformCartCODServiceabilityCreation
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlatformCartCODServiceabilityCreation{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("cart_items")
+    private List<CartItem> cartItems;
+    
+    
+    
+    
+    @JsonProperty("shipping_address")
+    private ShippingAddress shippingAddress;
+    
+    
+    
+}
+
+
+/*
+    Model: PlatformCartCODServiceabilityResult
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class PlatformCartCODServiceabilityResult{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("is_valid")
+    private Boolean isValid;
+    
+    
+    
+    
+    @JsonProperty("items")
+    private List<CartProductInfo> items;
+    
+    
+    
+    
+    @JsonProperty("delivery_promise")
+    private ShipmentPromise deliveryPromise;
+    
+    
+    
+    
+    @JsonProperty("message")
+    private String message;
+    
+    
+    
+    
+    @JsonProperty("breakup_values")
+    private CartBreakup breakupValues;
+    
+    
+    
+    
+    @JsonProperty("is_cod_available")
+    private Boolean isCodAvailable;
     
     
     
@@ -8312,6 +8506,12 @@ public static class CartDetailResult{
     
     
     
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
+    
+    
+    
+    
     @JsonProperty("applied_promo_details")
     private List<AppliedPromotion> appliedPromoDetails;
     
@@ -9433,6 +9633,12 @@ public static class SharedCart{
     
     
     
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
+    
+    
+    
+    
     @JsonProperty("custom_cart_meta")
     private HashMap<String,Object> customCartMeta;
     
@@ -9787,6 +9993,12 @@ public static class UserCartMappingResult{
     
     
     
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
+    
+    
+    
+    
     @JsonProperty("custom_cart_meta")
     private HashMap<String,Object> customCartMeta;
     
@@ -10085,6 +10297,12 @@ public static class Coupon{
     
     @JsonProperty("expires_on")
     private String expiresOn;
+    
+    
+    
+    
+    @JsonProperty("expires_at")
+    private String expiresAt;
     
     
     
@@ -10961,6 +11179,12 @@ public static class PlatformCartShipmentsResult{
     
     
     
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
+    
+    
+    
+    
     @JsonProperty("applied_promo_details")
     private List<AppliedPromotion> appliedPromoDetails;
     
@@ -11062,6 +11286,37 @@ public static class UpdateCartShipmentCreation{
 
 
 /*
+    Model: ShipToGstDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipToGstDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+    
+    @JsonProperty("trade_name")
+    private String tradeName;
+    
+    
+    
+}
+
+
+/*
     Model: PlatformCartMetaCreation
 */
 @AllArgsConstructor
@@ -11080,6 +11335,12 @@ public static class PlatformCartMetaCreation{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
     
     
     
@@ -11761,6 +12022,12 @@ public static class CheckCart{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
     
     
     
@@ -13163,6 +13430,12 @@ public static class OfferUser{
     
     
     
+    @JsonProperty("exclude_groups")
+    private List<Integer> excludeGroups;
+    
+    
+    
+    
     @JsonProperty("type")
     private String type;
     
@@ -14007,6 +14280,12 @@ public static class OfferSchema{
     
     
     
+    
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
+    
+    
+    
 }
 
 
@@ -14122,37 +14401,6 @@ public static class OfferDateMeta{
 
 
 /*
-    Model: NextScheduleItems
-*/
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public static class NextScheduleItems{
-
-    
-
-    
-    
-    
-    
-    @JsonProperty("start")
-    private String start;
-    
-    
-    
-    
-    @JsonProperty("end")
-    private String end;
-    
-    
-    
-}
-
-
-/*
     Model: OfferSchedule
 */
 @AllArgsConstructor
@@ -14177,12 +14425,6 @@ public static class OfferSchedule{
     
     @JsonProperty("start")
     private String start;
-    
-    
-    
-    
-    @JsonProperty("next_schedule")
-    private List<NextScheduleItems> nextSchedule;
     
     
     
@@ -14230,6 +14472,12 @@ public static class OfferListItem{
     
     
     
+    @JsonProperty("code")
+    private String code;
+    
+    
+    
+    
     @JsonProperty("status")
     private String status;
     
@@ -14262,6 +14510,12 @@ public static class OfferListItem{
     
     @JsonProperty("schedule")
     private OfferSchedule schedule;
+    
+    
+    
+    
+    @JsonProperty("filter_tags")
+    private List<String> filterTags;
     
     
     

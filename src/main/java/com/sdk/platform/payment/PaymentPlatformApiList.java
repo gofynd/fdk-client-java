@@ -66,6 +66,12 @@ interface PaymentPlatformApiList {
     @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/user-cod")
     Call<PaymentPlatformModels.SetCODOptionDetails> setUserCODlimitRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.SetCODForUserCreation payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/offer/default-classification")
+    Call<Object> getDefaultOfferClassification(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("aggregator") String aggregator, @HeaderMap Map<String, String> requestHeaders);
+
+    @PATCH ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/offer/default-classification")
+    Call<Object> patchDefaultOfferClassification(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.DefaultOfferClassification payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/pos")
     Call<PaymentPlatformModels.PaymentModeRouteDetails> getPosPaymentModeRoutes(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("amount") Integer amount, @Query("cart_id") String cartId, @Query("pincode") String pincode, @Query("checkout_mode") String checkoutMode, @Query("refresh") Boolean refresh, @Query("order_id") String orderId, @Query("card_reference") String cardReference, @Query("order_type") String orderType, @Query("user_details") String userDetails, @Query("display_split") Boolean displaySplit, @Query("advance_payment") Boolean advancePayment, @Query("shipment_id") String shipmentId, @Query("customer_id") String customerId, @HeaderMap Map<String, String> requestHeaders);
 
@@ -156,6 +162,9 @@ interface PaymentPlatformApiList {
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment-orders/")
     Call<PaymentPlatformModels.PaymentOrderDetails> createPaymentOrder(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Body PaymentPlatformModels.PaymentOrderCreation payload, @HeaderMap Map<String, String> requestHeaders);
 
+    @PUT ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/order/meta")
+    Call<PaymentPlatformModels.OrderMetaResult> updateOrderMeta(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Query("order_id") String orderId, @Body PaymentPlatformModels.OrderMetaUpdate payload, @HeaderMap Map<String, String> requestHeaders);
+
     @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/payment/options/aggregators/{aggregator_id}/version")
     Call<PaymentPlatformModels.AggregatorVersionDetails> getMerchantAggregatorAppVersion(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") Integer aggregatorId, @Query("business_unit") String businessUnit, @Query("device") String device, @Query("payment_mode_id") Integer paymentModeId, @Query("sub_payment_mode") String subPaymentMode, @HeaderMap Map<String, String> requestHeaders);
 
@@ -167,4 +176,7 @@ interface PaymentPlatformApiList {
 
     @POST ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/aggregators/{aggregator_id}/token")
     Call<PaymentPlatformModels.OperationResponseSchema> saveTokenForAggregator(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("aggregator_id") String aggregatorId, @Body PaymentPlatformModels.AggregatorToken payload, @HeaderMap Map<String, String> requestHeaders);
+
+    @GET ("/service/platform/payment/v1.0/company/{company_id}/application/{application_id}/orders/{order_id}/transactions")
+    Call<PaymentPlatformModels.OrderTransactionList> getOrderTransactions(@Path("company_id") String companyId, @Path("application_id") String applicationId, @Path("order_id") String orderId, @HeaderMap Map<String, String> requestHeaders);
 }

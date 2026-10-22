@@ -533,6 +533,18 @@ public static class BasePrice{
     
     
     
+    @JsonProperty("pre_override_effective")
+    private Double preOverrideEffective;
+    
+    
+    
+    
+    @JsonProperty("pre_override_marked")
+    private Double preOverrideMarked;
+    
+    
+    
+    
     @JsonProperty("currency_code")
     private String currencyCode;
     
@@ -1209,6 +1221,18 @@ public static class ProductPrice{
     
     @JsonProperty("marked")
     private Double marked;
+    
+    
+    
+    
+    @JsonProperty("pre_override_effective")
+    private Double preOverrideEffective;
+    
+    
+    
+    
+    @JsonProperty("pre_override_marked")
+    private Double preOverrideMarked;
     
     
     
@@ -1981,6 +2005,18 @@ public static class CartProductInfo{
     
     @JsonProperty("item_type")
     private String itemType;
+    
+    
+    
+    
+    @JsonProperty("added_on")
+    private String addedOn;
+    
+    
+    
+    
+    @JsonProperty("returnable")
+    private Boolean returnable;
     
     
     
@@ -2815,6 +2851,12 @@ public static class CartDetailResult{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
     
     
     
@@ -3708,6 +3750,12 @@ public static class Coupon{
     
     @JsonProperty("expires_on")
     private String expiresOn;
+    
+    
+    
+    
+    @JsonProperty("expires_at")
+    private String expiresAt;
     
     
     
@@ -4789,6 +4837,12 @@ public static class CartShipmentsResult{
     
     
     
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
+    
+    
+    
+    
     @JsonProperty("restrict_checkout")
     private Boolean restrictCheckout;
     
@@ -5359,6 +5413,12 @@ public static class CheckCart{
     
     
     
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
+    
+    
+    
+    
     @JsonProperty("restrict_checkout")
     private Boolean restrictCheckout;
     
@@ -5545,6 +5605,37 @@ public static class ArticleGiftDetail{
 
 
 /*
+    Model: ShipToGstDetails
+*/
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public static class ShipToGstDetails{
+
+    
+
+    
+    
+    
+    
+    @JsonProperty("gstin")
+    private String gstin;
+    
+    
+    
+    
+    @JsonProperty("trade_name")
+    private String tradeName;
+    
+    
+    
+}
+
+
+/*
     Model: CartMetaCreation
 */
 @AllArgsConstructor
@@ -5599,6 +5690,12 @@ public static class CartMetaCreation{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
     
     
     
@@ -5863,6 +5960,12 @@ public static class SharedCart{
     
     @JsonProperty("gstin")
     private String gstin;
+    
+    
+    
+    
+    @JsonProperty("ship_to_gst_details")
+    private ShipToGstDetails shipToGstDetails;
     
     
     

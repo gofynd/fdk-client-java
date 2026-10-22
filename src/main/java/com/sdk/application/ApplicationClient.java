@@ -43,6 +43,8 @@ import com.sdk.application.theme.ThemeApplicationService;
 
 import com.sdk.application.user.UserApplicationService;
 
+import com.sdk.application.webhook.WebhookApplicationService;
+
 
 @Getter
 @Setter
@@ -80,6 +82,8 @@ public class ApplicationClient {
     public ThemeApplicationService theme;
     
     public UserApplicationService user;
+    
+    public WebhookApplicationService webhook;
     
 
     public void setExtraHeader(String key, String value){
@@ -132,6 +136,8 @@ public class ApplicationClient {
         this.theme = new ThemeApplicationService(config);
         
         this.user = new UserApplicationService(config);
+        
+        this.webhook = new WebhookApplicationService(config);
         
     }
     public Response request(String url, Map<String, String> queryParams, Map<String, String> headers, Object bodyObject, String method) throws IOException {
