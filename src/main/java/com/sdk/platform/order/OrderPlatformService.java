@@ -2545,16 +2545,20 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.ShipmentInternalPlatformViewResponseSchema getShipments(String lane, String bagStatus, String statusAssigned, Boolean statusOverrideLane, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String startDate, String endDate, String statusAssignedStartDate, String statusAssignedEndDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean fetchActiveShipment, Boolean allowInactive, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String customMeta, String orderingChannel, String companyAffiliateTag, Boolean myOrders, String platformUserId, String sortType, Boolean showCrossCompanyData, String tags, String customerId, String orderType, String groupEntity, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean includeCount) throws FDKServerResponseError, FDKException {
-        return this.getShipments(lane, bagStatus, statusAssigned, statusOverrideLane, timeToDispatch, searchType, searchValue, fromDate, toDate, startDate, endDate, statusAssignedStartDate, statusAssignedEndDate, dpIds, stores, salesChannels, pageNo, pageSize, fetchActiveShipment, allowInactive, excludeLockedShipments, paymentMethods, channelShipmentId, channelOrderId, customMeta, orderingChannel, companyAffiliateTag, myOrders, platformUserId, sortType, showCrossCompanyData, tags, customerId, orderType, groupEntity, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, includeCount, new HashMap<>());
+    public OrderPlatformModels.ShipmentInternalPlatformViewResponseSchema getShipments(String lane, String bagStatus, String statusAssigned, Boolean statusOverrideLane, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String startDate, String endDate, String statusAssignedStartDate, String statusAssignedEndDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean fetchActiveShipment, Boolean allowInactive, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String customMeta, String orderingChannel, String companyAffiliateTag, Boolean myOrders, String platformUserId, String sortType, Boolean showCrossCompanyData, String tags, String customerId, String orderType, String groupEntity, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean includeCount, Boolean instoreReturnLookup) throws FDKServerResponseError, FDKException {
+        return this.getShipments(lane, bagStatus, statusAssigned, statusOverrideLane, timeToDispatch, searchType, searchValue, fromDate, toDate, startDate, endDate, statusAssignedStartDate, statusAssignedEndDate, dpIds, stores, salesChannels, pageNo, pageSize, fetchActiveShipment, allowInactive, excludeLockedShipments, paymentMethods, channelShipmentId, channelOrderId, customMeta, orderingChannel, companyAffiliateTag, myOrders, platformUserId, sortType, showCrossCompanyData, tags, customerId, orderType, groupEntity, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, includeCount, instoreReturnLookup, new HashMap<>());
     }
 
-    public OrderPlatformModels.ShipmentInternalPlatformViewResponseSchema getShipments(String lane, String bagStatus, String statusAssigned, Boolean statusOverrideLane, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String startDate, String endDate, String statusAssignedStartDate, String statusAssignedEndDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean fetchActiveShipment, Boolean allowInactive, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String customMeta, String orderingChannel, String companyAffiliateTag, Boolean myOrders, String platformUserId, String sortType, Boolean showCrossCompanyData, String tags, String customerId, String orderType, String groupEntity, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean includeCount, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentInternalPlatformViewResponseSchema getShipments(String lane, String bagStatus, String statusAssigned, Boolean statusOverrideLane, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String startDate, String endDate, String statusAssignedStartDate, String statusAssignedEndDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean fetchActiveShipment, Boolean allowInactive, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String customMeta, String orderingChannel, String companyAffiliateTag, Boolean myOrders, String platformUserId, String sortType, Boolean showCrossCompanyData, String tags, String customerId, String orderType, String groupEntity, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean includeCount, Boolean instoreReturnLookup, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentInternalPlatformViewResponseSchema> response = null;
             try {
-                response = orderPlatformApiList.getShipments(this.companyId, lane, bagStatus, statusAssigned, statusOverrideLane, timeToDispatch, searchType, searchValue, fromDate, toDate, startDate, endDate, statusAssignedStartDate, statusAssignedEndDate, dpIds, stores, salesChannels, pageNo, pageSize, fetchActiveShipment, allowInactive, excludeLockedShipments, paymentMethods, channelShipmentId, channelOrderId, customMeta, orderingChannel, companyAffiliateTag, myOrders, platformUserId, sortType, showCrossCompanyData, tags, customerId, orderType, groupEntity, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, includeCount, requestHeaders).execute();
+                response = orderPlatformApiList.getShipments(this.companyId, lane, bagStatus, statusAssigned, statusOverrideLane, timeToDispatch, searchType, searchValue, fromDate, toDate, startDate, endDate, statusAssignedStartDate, statusAssignedEndDate, dpIds, stores, salesChannels, pageNo, pageSize, fetchActiveShipment, allowInactive, excludeLockedShipments, paymentMethods, channelShipmentId, channelOrderId, customMeta, orderingChannel, companyAffiliateTag, myOrders, platformUserId, sortType, showCrossCompanyData, tags, customerId, orderType, groupEntity, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, includeCount, instoreReturnLookup, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -2574,6 +2578,12 @@ public class OrderPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2867,7 +2877,8 @@ public class OrderPlatformService {
         String fulfillmentType ,
         String orderingSource ,
         String channelAccountId ,
-        Boolean includeCount 
+        Boolean includeCount ,
+        Boolean instoreReturnLookup 
         
         ){ 
     
@@ -2921,7 +2932,8 @@ public class OrderPlatformService {
                  fulfillmentType,
                  orderingSource,
                  channelAccountId,
-                 includeCount
+                 includeCount,
+                 instoreReturnLookup
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -2961,16 +2973,20 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.ShipmentInfoResponseSchema getShipmentById(String channelShipmentId, String shipmentId, Boolean fetchActiveShipment, Boolean allowInactive) throws FDKServerResponseError, FDKException {
-        return this.getShipmentById(channelShipmentId, shipmentId, fetchActiveShipment, allowInactive, new HashMap<>());
+    public OrderPlatformModels.ShipmentInfoResponseSchema getShipmentById(String channelShipmentId, String shipmentId, Boolean fetchActiveShipment, Boolean allowInactive, Boolean instoreReturnLookup) throws FDKServerResponseError, FDKException {
+        return this.getShipmentById(channelShipmentId, shipmentId, fetchActiveShipment, allowInactive, instoreReturnLookup, new HashMap<>());
     }
 
-    public OrderPlatformModels.ShipmentInfoResponseSchema getShipmentById(String channelShipmentId, String shipmentId, Boolean fetchActiveShipment, Boolean allowInactive, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ShipmentInfoResponseSchema getShipmentById(String channelShipmentId, String shipmentId, Boolean fetchActiveShipment, Boolean allowInactive, Boolean instoreReturnLookup, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ShipmentInfoResponseSchema> response = null;
             try {
-                response = orderPlatformApiList.getShipmentById(this.companyId, channelShipmentId, shipmentId, fetchActiveShipment, allowInactive, requestHeaders).execute();
+                response = orderPlatformApiList.getShipmentById(this.companyId, channelShipmentId, shipmentId, fetchActiveShipment, allowInactive, instoreReturnLookup, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3013,16 +3029,20 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.OrderDetailsResponseSchema getOrderById(String orderId, Boolean myOrders, Boolean allowInactive) throws FDKServerResponseError, FDKException {
-        return this.getOrderById(orderId, myOrders, allowInactive, new HashMap<>());
+    public OrderPlatformModels.OrderDetailsResponseSchema getOrderById(String orderId, Boolean myOrders, Boolean allowInactive, Boolean instoreReturnLookup) throws FDKServerResponseError, FDKException {
+        return this.getOrderById(orderId, myOrders, allowInactive, instoreReturnLookup, new HashMap<>());
     }
 
-    public OrderPlatformModels.OrderDetailsResponseSchema getOrderById(String orderId, Boolean myOrders, Boolean allowInactive, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.OrderDetailsResponseSchema getOrderById(String orderId, Boolean myOrders, Boolean allowInactive, Boolean instoreReturnLookup, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.OrderDetailsResponseSchema> response = null;
             try {
-                response = orderPlatformApiList.getOrderById(this.companyId, orderId, myOrders, allowInactive, requestHeaders).execute();
+                response = orderPlatformApiList.getOrderById(this.companyId, orderId, myOrders, allowInactive, instoreReturnLookup, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3285,16 +3305,20 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.OrderListingResponseSchema getOrders(String lane, String searchType, String bagStatus, Integer timeToDispatch, String paymentMethods, String tags, String searchValue, String fromDate, String toDate, String startDate, String endDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean isPrioritySort, String customMeta, Boolean myOrders, Boolean showCrossCompanyData, String customerId, String orderType, Boolean allowInactive, String groupEntity, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean includeCount) throws FDKServerResponseError, FDKException {
-        return this.getOrders(lane, searchType, bagStatus, timeToDispatch, paymentMethods, tags, searchValue, fromDate, toDate, startDate, endDate, dpIds, stores, salesChannels, pageNo, pageSize, isPrioritySort, customMeta, myOrders, showCrossCompanyData, customerId, orderType, allowInactive, groupEntity, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, includeCount, new HashMap<>());
+    public OrderPlatformModels.OrderListingResponseSchema getOrders(String lane, String searchType, String bagStatus, Integer timeToDispatch, String paymentMethods, String tags, String searchValue, String fromDate, String toDate, String startDate, String endDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean isPrioritySort, String customMeta, Boolean myOrders, Boolean showCrossCompanyData, String customerId, String orderType, Boolean allowInactive, String groupEntity, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean includeCount, Boolean instoreReturnLookup) throws FDKServerResponseError, FDKException {
+        return this.getOrders(lane, searchType, bagStatus, timeToDispatch, paymentMethods, tags, searchValue, fromDate, toDate, startDate, endDate, dpIds, stores, salesChannels, pageNo, pageSize, isPrioritySort, customMeta, myOrders, showCrossCompanyData, customerId, orderType, allowInactive, groupEntity, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, includeCount, instoreReturnLookup, new HashMap<>());
     }
 
-    public OrderPlatformModels.OrderListingResponseSchema getOrders(String lane, String searchType, String bagStatus, Integer timeToDispatch, String paymentMethods, String tags, String searchValue, String fromDate, String toDate, String startDate, String endDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean isPrioritySort, String customMeta, Boolean myOrders, Boolean showCrossCompanyData, String customerId, String orderType, Boolean allowInactive, String groupEntity, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean includeCount, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.OrderListingResponseSchema getOrders(String lane, String searchType, String bagStatus, Integer timeToDispatch, String paymentMethods, String tags, String searchValue, String fromDate, String toDate, String startDate, String endDate, String dpIds, String stores, String salesChannels, Integer pageNo, Integer pageSize, Boolean isPrioritySort, String customMeta, Boolean myOrders, Boolean showCrossCompanyData, String customerId, String orderType, Boolean allowInactive, String groupEntity, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean includeCount, Boolean instoreReturnLookup, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.OrderListingResponseSchema> response = null;
             try {
-                response = orderPlatformApiList.getOrders(this.companyId, lane, searchType, bagStatus, timeToDispatch, paymentMethods, tags, searchValue, fromDate, toDate, startDate, endDate, dpIds, stores, salesChannels, pageNo, pageSize, isPrioritySort, customMeta, myOrders, showCrossCompanyData, customerId, orderType, allowInactive, groupEntity, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, includeCount, requestHeaders).execute();
+                response = orderPlatformApiList.getOrders(this.companyId, lane, searchType, bagStatus, timeToDispatch, paymentMethods, tags, searchValue, fromDate, toDate, startDate, endDate, dpIds, stores, salesChannels, pageNo, pageSize, isPrioritySort, customMeta, myOrders, showCrossCompanyData, customerId, orderType, allowInactive, groupEntity, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, includeCount, instoreReturnLookup, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
@@ -3314,6 +3338,12 @@ public class OrderPlatformService {
     }
     
     
+        
+        
+        
+        
+        
+        
         
         
         
@@ -3530,7 +3560,8 @@ public class OrderPlatformService {
         String fulfillmentType ,
         String orderingSource ,
         String channelAccountId ,
-        Boolean includeCount 
+        Boolean includeCount ,
+        Boolean instoreReturnLookup 
         
         ){ 
     
@@ -3573,7 +3604,8 @@ public class OrderPlatformService {
                  fulfillmentType,
                  orderingSource,
                  channelAccountId,
-                 includeCount
+                 includeCount,
+                 instoreReturnLookup
             );
             boolean hasNext = Objects.nonNull(callback.getPage().getHasNext())?callback.getPage().getHasNext():false;
             paginator.setPaginator(hasNext, callback.getPage().getNextId(), paginator.getPageNo() + 1);
@@ -3733,16 +3765,20 @@ public class OrderPlatformService {
     
     
     
+    
+    
+    
+    
 
-    public OrderPlatformModels.ListingCountResponseSchema getListingCount(String groupEntity, String parentViewSlug, String childViewSlug, String bagStatus, String statusAssigned, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String startDate, String endDate, String statusAssignedStartDate, String statusAssignedEndDate, String dpIds, String stores, String salesChannels, Boolean fetchActiveShipment, Boolean allowInactive, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String companyAffiliateTag, Boolean myOrders, String platformUserId, Boolean showCrossCompanyData, String tags, String customerId, String orderType, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId) throws FDKServerResponseError, FDKException {
-        return this.getListingCount(groupEntity, parentViewSlug, childViewSlug, bagStatus, statusAssigned, timeToDispatch, searchType, searchValue, fromDate, toDate, startDate, endDate, statusAssignedStartDate, statusAssignedEndDate, dpIds, stores, salesChannels, fetchActiveShipment, allowInactive, excludeLockedShipments, paymentMethods, channelShipmentId, channelOrderId, companyAffiliateTag, myOrders, platformUserId, showCrossCompanyData, tags, customerId, orderType, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, new HashMap<>());
+    public OrderPlatformModels.ListingCountResponseSchema getListingCount(String groupEntity, String parentViewSlug, String childViewSlug, String bagStatus, String statusAssigned, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String startDate, String endDate, String statusAssignedStartDate, String statusAssignedEndDate, String dpIds, String stores, String salesChannels, Boolean fetchActiveShipment, Boolean allowInactive, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String companyAffiliateTag, Boolean myOrders, String platformUserId, Boolean showCrossCompanyData, String tags, String customerId, String orderType, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean instoreReturnLookup) throws FDKServerResponseError, FDKException {
+        return this.getListingCount(groupEntity, parentViewSlug, childViewSlug, bagStatus, statusAssigned, timeToDispatch, searchType, searchValue, fromDate, toDate, startDate, endDate, statusAssignedStartDate, statusAssignedEndDate, dpIds, stores, salesChannels, fetchActiveShipment, allowInactive, excludeLockedShipments, paymentMethods, channelShipmentId, channelOrderId, companyAffiliateTag, myOrders, platformUserId, showCrossCompanyData, tags, customerId, orderType, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, instoreReturnLookup, new HashMap<>());
     }
 
-    public OrderPlatformModels.ListingCountResponseSchema getListingCount(String groupEntity, String parentViewSlug, String childViewSlug, String bagStatus, String statusAssigned, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String startDate, String endDate, String statusAssignedStartDate, String statusAssignedEndDate, String dpIds, String stores, String salesChannels, Boolean fetchActiveShipment, Boolean allowInactive, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String companyAffiliateTag, Boolean myOrders, String platformUserId, Boolean showCrossCompanyData, String tags, String customerId, String orderType, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
+    public OrderPlatformModels.ListingCountResponseSchema getListingCount(String groupEntity, String parentViewSlug, String childViewSlug, String bagStatus, String statusAssigned, Integer timeToDispatch, String searchType, String searchValue, String fromDate, String toDate, String startDate, String endDate, String statusAssignedStartDate, String statusAssignedEndDate, String dpIds, String stores, String salesChannels, Boolean fetchActiveShipment, Boolean allowInactive, Boolean excludeLockedShipments, String paymentMethods, String channelShipmentId, String channelOrderId, String companyAffiliateTag, Boolean myOrders, String platformUserId, Boolean showCrossCompanyData, String tags, String customerId, String orderType, Boolean enforceDateFilter, String fulfillmentType, String orderingSource, String channelAccountId, Boolean instoreReturnLookup, Map<String, String> requestHeaders) throws FDKServerResponseError, FDKException {
         if (this.platformConfig.getPlatformOauthClient().isAccessTokenValid()) {
             Response<OrderPlatformModels.ListingCountResponseSchema> response = null;
             try {
-                response = orderPlatformApiList.getListingCount(this.companyId, groupEntity, parentViewSlug, childViewSlug, bagStatus, statusAssigned, timeToDispatch, searchType, searchValue, fromDate, toDate, startDate, endDate, statusAssignedStartDate, statusAssignedEndDate, dpIds, stores, salesChannels, fetchActiveShipment, allowInactive, excludeLockedShipments, paymentMethods, channelShipmentId, channelOrderId, companyAffiliateTag, myOrders, platformUserId, showCrossCompanyData, tags, customerId, orderType, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, requestHeaders).execute();
+                response = orderPlatformApiList.getListingCount(this.companyId, groupEntity, parentViewSlug, childViewSlug, bagStatus, statusAssigned, timeToDispatch, searchType, searchValue, fromDate, toDate, startDate, endDate, statusAssignedStartDate, statusAssignedEndDate, dpIds, stores, salesChannels, fetchActiveShipment, allowInactive, excludeLockedShipments, paymentMethods, channelShipmentId, channelOrderId, companyAffiliateTag, myOrders, platformUserId, showCrossCompanyData, tags, customerId, orderType, enforceDateFilter, fulfillmentType, orderingSource, channelAccountId, instoreReturnLookup, requestHeaders).execute();
                 if (!response.isSuccessful()) {
                     throw new FDKServerResponseError(response.code(),
                                             response.errorBody() != null ? response.errorBody().string() : Fields.UNKNOWN_ERROR,
