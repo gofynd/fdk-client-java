@@ -13248,7 +13248,7 @@ public static class CreateOrderRequestSchema{
     
     
     @JsonProperty("channel_company_id")
-    private String channelCompanyId;
+    private Integer channelCompanyId;
     
     
     

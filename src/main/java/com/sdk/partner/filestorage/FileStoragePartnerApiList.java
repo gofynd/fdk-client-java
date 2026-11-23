@@ -15,12 +15,6 @@ interface FileStoragePartnerApiList {
     @GET ("/service/partner/assets/v1.0/organization/{organization_id}/namespaces/{namespace}/browse")
     Call<Object> browseFiles(@Path("namespace") String namespace, @Path("organization_id") String organizationId, @Query("page") Integer page, @Query("limit") Integer limit, @HeaderMap Map<String, String> requestHeaders);
 
-    @GET ("/service/partner/assets/v1.0/organization/{organization_id}/proxy/fetch")
-    Call<FileStoragePartnerModels.FetchProxyDetails> fetchProxy(@Path("organization_id") String organizationId, @Query("url") String url, @HeaderMap Map<String, String> requestHeaders);
-
-    @POST ("/service/partner/assets/v1.0/organization/{organization_id}/proxy/fetch")
-    Call<FileStoragePartnerModels.SaveProxy> saveProxyDetails(@Path("organization_id") String organizationId, @Body FileStoragePartnerModels.ProxyFile payload, @HeaderMap Map<String, String> requestHeaders);
-
     @POST ("/service/partner/assets/v1.0/organization/{organization_id}/sign-urls")
     Call<FileStoragePartnerModels.SignUrlResult> signUrls(@Path("organization_id") String organizationId, @Body FileStoragePartnerModels.SignUrl payload, @HeaderMap Map<String, String> requestHeaders);
 }
